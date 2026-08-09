@@ -1,0 +1,25 @@
+---
+import { url } from '../lib/url';
+const GITHUB = 'https://github.com/DAEMON-404/daemon-sec-vault';
+const year = 2026;
+---
+<footer class="site-footer plate">
+  <div class="wrap">
+    <div class="stack" style="--gap:0.5rem;">
+      <a class="brand" href={url('')}><b>DÆMON</b><span class="slash">//</span>SEC</a>
+      <p class="footer-note">
+        A curated vault of IT &amp; security cheatsheets. For authorized testing,
+        CTFs, and education only. Know your scope; get permission first.
+      </p>
+    </div>
+    <div class="stack" style="--gap:0.4rem; text-align:right;">
+      <a class="footer-mono" href={GITHUB} target="_blank" rel="noopener">github.com/DAEMON-404/daemon-sec-vault</a>
+      <span class="footer-mono muted">
+        Payloads mirrored from <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener">PayloadsAllTheThings</a>
+        (MIT) · <a href={url('credits')}>credits</a>
+      </span>
+      <span class="footer-mono muted">© {year} DÆMON//SEC · MIT</span>
+      <span class="footer-mono muted">Rose Pine · glass · built with Astro</span>
+    </div>
+  </div>
+</footer>

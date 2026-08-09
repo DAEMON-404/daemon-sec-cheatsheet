@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+const GITHUB = 'https://github.com/DAEMON-404/daemon-sec-vault';
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href={url('')} aria-label="DÆMON//SEC home">
+      <b>DÆMON</b><span class="slash">//</span>SEC<span class="blink">_</span>
+    </a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href={url('')}>Vault</a>
+      <a href={url('payloads')}>Payloads</a>
+    </nav>
+    <div class="header-spacer"></div>
+    <div class="header-actions">
+      <button class="search-trigger" data-search-open type="button" aria-label="Search cheatsheets">
+        <Icon name="search" />
+        <span class="st-label">Search</span>
+        <kbd>/</kbd>
+      </button>
+      <button class="icon-btn" data-theme-toggle type="button" aria-label="Toggle theme">
+        <span class="icon-sun"><Icon name="sun" /></span>
+        <span class="icon-moon"><Icon name="moon" /></span>
+      </button>
+      <a class="icon-btn" href={GITHUB} target="_blank" rel="noopener" aria-label="GitHub repository">
+        <Icon name="github" />
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Show the correct theme glyph without a flash */
+  .icon-sun { display: inline-flex; }
+  .icon-moon { display: none; }
+  :global(:root[data-theme='dark']) .icon-sun { display: none; }
+  :global(:root[data-theme='dark']) .icon-moon { display: inline-flex; }
+</style>

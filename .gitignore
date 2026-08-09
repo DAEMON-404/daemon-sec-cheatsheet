@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.log
+# Pagefind output lives in dist/, ignore any stray root copy
+/pagefind/
+# curation intermediates (keep manifest, drop bulky index)
+candidates.json

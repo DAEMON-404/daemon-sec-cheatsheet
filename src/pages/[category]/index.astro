@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import SheetCard from '../../components/SheetCard.astro';
+import CategoryNav from '../../components/CategoryNav.astro';
+import Icon from '../../components/Icon.astro';
+import { CATEGORIES } from '../../lib/taxonomy';
+import type { CategoryDef } from '../../lib/taxonomy';
+import { sheetsByCategory, type Sheet } from '../../lib/sheets';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const groups = await sheetsByCategory();
+  return CATEGORIES.map((c) => ({
+    params: { category: c.slug },
+    props: { cat: c, items: groups.find((g) => g.slug === c.slug)?.items ?? [] },
+  }));
+}
+interface Props { cat: CategoryDef; items: Sheet[] }
+const { cat, items } = Astro.props;
+---
+<Base title={`${cat.title} — DÆMON//SEC`} description={cat.blurb}>
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.5rem;">
+      <a href={url('')}>~</a><span class="sep">/</span>
+      <span style={`color: var(--${cat.accent})`}>{cat.tag.toLowerCase()}</span>
+    </nav>
+
+    <header class="cat-header">
+      <p class="eyebrow">// [{cat.tag}] · {items.length} {items.length === 1 ? 'sheet' : 'sheets'}</p>
+      <h1 class="sheet-title" style={`color: var(--${cat.accent});`}>{cat.title}</h1>
+      <p class="sheet-desc">{cat.blurb}</p>
+    </header>
+
+    <div class="cat-nav-wrap"><CategoryNav active={cat.slug} /></div>
+
+    {items.length > 0 ? (
+      <div class="grid-cards">
+        {items.map((entry) => <SheetCard entry={entry} />)}
+      </div>
+    ) : (
+      <div class="pane" style="margin-top:1.5rem;">
+        <div class="pane__body">
+          <p class="muted mono">No sheets in this domain yet. More landing soon —
+            <a class="accent-text" href={url('')}>back to the vault</a>.</p>
+        </div>
+      </div>
+    )}
+  </div>
+</Base>
+
+<style>
+  .cat-header { margin-top: 1rem; }
+  .cat-nav-wrap { margin: 1.6rem 0 2rem; }
+</style>

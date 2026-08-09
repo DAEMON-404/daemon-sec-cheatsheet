@@ -1,0 +1,233 @@
+IDX	SOURCE	TOPDIR	BYTES	LINES	H2	CODE	RELPATH	TITLE
+0	repo	(root)	13487	427	15	17	README.md	README
+1	repo	Active-Directory	25728	845	17	53	Active-Directory/BloodHound-Python_Cheatsheet.md	Usually pre-installed on Kali
+2	repo	Active-Directory	26655	705	16	41	Active-Directory/BloodyAD.md	Clone repository
+3	repo	Active-Directory	22394	698	11	39	Active-Directory/Certipy-ad.md	Install via pip
+4	repo	Active-Directory	22834	806	13	84	Active-Directory/Impacket_Cheatsheet.md	Can also use like:
+5	repo	Active-Directory	23044	739	15	51	Active-Directory/SharpHound_Cheatsheet.md	Start SMB server in directory containing SharpHound.exe
+6	repo	Enumeration	44259	2064	29	264	Enumeration/Shodan_Cheatsheet.md	Install via pip
+7	repo	Misc	17140	563	9	49	Misc/smbserver-cheatsheet.md	Verify Impacket is installed
+8	repo	Misc	14930	550	15	53	Misc/sponge-cheatsheet.md	Debian/Ubuntu
+9	vault	(root)	23902	550	15	27	Attack-Flow-Guide.md	Attack-Flow-Guide
+10	vault	(root)	22716	464	19	23	CPTS-Exam-Attack-Flow.md	CPTS-Exam-Attack-Flow
+11	vault	(root)	10231	287	17	19	CPTS-Exam-Most-Used-Commands.md	CPTS-Exam-Most-Used-Commands
+12	vault	(root)	48303	1210	31	26	Digital_Forensics-Roadmap.md	ForensicsLab_S1 Forensic Investigation Roadmap
+13	vault	(root)	30335	716	15	18	Git — Complete Branch & Vault Management Guide.md	Initialise the repo if you haven't already
+14	vault	(root)	22150	793	23	40	macOS Terminal Tweaks Cheat Sheet.md	🍎 macOS Hidden Terminal Tweaks — Cheat Sheet
+15	vault	(root)	12671	319	10	10	macOS-ISO-to-USB-Cheatsheet.md	💿 Burning ISOs to USB on macOS (CLI)
+16	vault	(root)	27271	718	24	53	Most-Used-Commands.md	Most-Used-Commands
+17	vault	ActiveDirectory	14145	272	11	9	ActiveDirectory/ACL-ESC-Techniques/_ADCS Attack Methodology Guide.md	ADCS Attack Methodology Guide
+18	vault	ActiveDirectory	5146	131	4	3	ActiveDirectory/ACL-ESC-Techniques/_ADCS Dashboard.md	_ADCS Dashboard
+19	vault	ActiveDirectory	9394	199	6	3	ActiveDirectory/ACL-ESC-Techniques/_ADCS ESC Attack Index.md	ADCS ESC Attack Index
+20	vault	ActiveDirectory	15845	418	15	20	ActiveDirectory/ACL-ESC-Techniques/Certificate Persistence — Certifried (CVE-2022-26923).md	Certificate Persistence — Certifried (CVE-2022-26923)
+21	vault	ActiveDirectory	4534	127	8	7	ActiveDirectory/ACL-ESC-Techniques/DPERSIST2 — Rogue CA Certificate (NTAuth Injection).md	DPERSIST2 — Rogue CA Certificate (NTAuth Injection)
+22	vault	ActiveDirectory	4367	112	8	5	ActiveDirectory/ACL-ESC-Techniques/DPERSIST3 — Malicious Misconfiguration (ACL Backdoor).md	DPERSIST3 — Malicious Misconfiguration (ACL Backdoor)
+23	vault	ActiveDirectory	14009	310	15	12	ActiveDirectory/ACL-ESC-Techniques/ESC1 — SAN Specification in Template.md	ESC1 — SAN Specification in Template
+24	vault	ActiveDirectory	7640	225	11	8	ActiveDirectory/ACL-ESC-Techniques/ESC10 — Weak Certificate Mapping.md	ESC10 — Weak Certificate Mapping
+25	vault	ActiveDirectory	16848	378	11	17	ActiveDirectory/ACL-ESC-Techniques/ESC11 — NTLM Relay to ADCS RPC (ICPR).md	ESC11 — NTLM Relay to ADCS RPC (ICPR)
+26	vault	ActiveDirectory	7421	199	10	8	ActiveDirectory/ACL-ESC-Techniques/ESC12 — Shell Access to CA with YubiHSM.md	ESC12 — Shell Access to CA with YubiHSM
+27	vault	ActiveDirectory	9076	234	11	9	ActiveDirectory/ACL-ESC-Techniques/ESC13 — Issuance Policy OID Group Link.md	ESC13 — Issuance Policy OID Group Link
+28	vault	ActiveDirectory	9115	256	10	11	ActiveDirectory/ACL-ESC-Techniques/ESC14 — Weak Explicit Certificate Mapping.md	ESC14 — Weak Explicit Certificate Mapping
+29	vault	ActiveDirectory	11327	285	14	10	ActiveDirectory/ACL-ESC-Techniques/ESC15 — EKUwu (CVE-2024-49019).md	ESC15 — EKUwu (CVE-2024-49019)
+30	vault	ActiveDirectory	12959	286	12	14	ActiveDirectory/ACL-ESC-Techniques/ESC16 — Security Extension Disabled on CA (Globally).md	ESC16 — Security Extension Disabled on CA (Globally)
+31	vault	ActiveDirectory	12091	278	12	10	ActiveDirectory/ACL-ESC-Techniques/ESC17 — ADCS Certificate Spoofing to Attack HTTPS-Enabled WSUS Clients.md	ESC17 — ADCS Certificate Spoofing to Attack HTTPS-Enabled WSUS Clients
+32	vault	ActiveDirectory	12576	289	13	12	ActiveDirectory/ACL-ESC-Techniques/ESC2 — Any Purpose EKU  No EKU (The Swiss Certificate).md	ESC2 — Any Purpose EKU / No EKU ("The Swiss Certificate")
+33	vault	ActiveDirectory	14513	336	12	14	ActiveDirectory/ACL-ESC-Techniques/ESC3 — Misconfigured Enrollment Agent Templates.md	ESC3 — Misconfigured Enrollment Agent Templates
+34	vault	ActiveDirectory	15922	344	12	12	ActiveDirectory/ACL-ESC-Techniques/ESC4 — Vulnerable Certificate Template Access Control.md	ESC4 — Vulnerable Certificate Template Access Control
+35	vault	ActiveDirectory	8671	229	11	8	ActiveDirectory/ACL-ESC-Techniques/ESC5 — Vulnerable PKI Object Access Control.md	ESC5 — Vulnerable PKI Object Access Control
+36	vault	ActiveDirectory	13436	336	14	13	ActiveDirectory/ACL-ESC-Techniques/ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2 Flag.md	ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2 Flag
+37	vault	ActiveDirectory	16883	448	14	19	ActiveDirectory/ACL-ESC-Techniques/ESC7 — Vulnerable CA Access Control (ManageCA  ManageCertificates).md	ESC7 — Vulnerable CA Access Control (ManageCA / ManageCertificates)
+38	vault	ActiveDirectory	17490	376	11	15	ActiveDirectory/ACL-ESC-Techniques/ESC8 — NTLM Relay to ADCS HTTP Web Enrollment.md	ESC8 — NTLM Relay to ADCS HTTP Web Enrollment
+39	vault	ActiveDirectory	20390	498	19	19	ActiveDirectory/ACL-ESC-Techniques/ESC9 — No Security Extension (Template-Level).md	ESC9 — No Security Extension (Template-Level)
+40	vault	ActiveDirectory	12710	328	17	14	ActiveDirectory/ACL-ESC-Techniques/Golden Certificate Attack — DPERSIST1.md	Golden Certificate Attack — DPERSIST1
+41	vault	ActiveDirectory	3518	101	8	4	ActiveDirectory/ACL-ESC-Techniques/PERSIST1 — Active User Credential Theft via Certificates.md	PERSIST1 — Active User Credential Theft via Certificates
+42	vault	ActiveDirectory	3280	98	8	4	ActiveDirectory/ACL-ESC-Techniques/PERSIST2 — Machine Account Persistence via Certificates.md	PERSIST2 — Machine Account Persistence via Certificates
+43	vault	ActiveDirectory	3580	102	7	5	ActiveDirectory/ACL-ESC-Techniques/PERSIST3 — Account Persistence via Certificate Renewal.md	PERSIST3 — Account Persistence via Certificate Renewal
+44	vault	ActiveDirectory	7508	190	11	12	ActiveDirectory/ACL-ESC-Techniques/Shadow Credentials — msDS-KeyCredentialLink Abuse.md	Shadow Credentials — msDS-KeyCredentialLink Abuse
+45	vault	ActiveDirectory	4647	134	9	7	ActiveDirectory/ACL-ESC-Techniques/THEFT1 — Exporting Certificates and Keys.md	THEFT1 — Exporting Certificates and Keys
+46	vault	ActiveDirectory	4040	121	8	7	ActiveDirectory/ACL-ESC-Techniques/THEFT2 — User Certificate Theft via DPAPI.md	THEFT2 — User Certificate Theft via DPAPI
+47	vault	ActiveDirectory	3686	110	8	5	ActiveDirectory/ACL-ESC-Techniques/THEFT3 — Machine Certificate Theft via DPAPI.md	THEFT3 — Machine Certificate Theft via DPAPI
+48	vault	ActiveDirectory	3481	120	8	6	ActiveDirectory/ACL-ESC-Techniques/THEFT4 — Finding Certificate Files.md	THEFT4 — Finding Certificate Files
+49	vault	ActiveDirectory	4350	133	9	7	ActiveDirectory/ACL-ESC-Techniques/THEFT5 — NTLM Theft via PKINIT (UnPAC-the-Hash).md	THEFT5 — NTLM Theft via PKINIT (UnPAC-the-Hash)
+50	vault	ActiveDirectory	53345	1369	10	75	ActiveDirectory/Active-Directory_cheat_sheet.md	Active Directory Exploitation Cheat Sheet
+51	vault	ActiveDirectory	2985	79	6	3	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #61 — Skeleton Key Attack.md	🟤 Attack #61 — Skeleton Key Attack
+52	vault	ActiveDirectory	2858	73	5	3	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #62 — DSRM Backdoor Abuse.md	🟤 Attack #62 — DSRM Backdoor Abuse
+53	vault	ActiveDirectory	2553	69	5	2	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #63 — SID History Injection.md	🟤 Attack #63 — SID History Injection
+54	vault	ActiveDirectory	2499	68	5	2	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #64 — Golden Ticket Persistence.md	🟤 Attack #64 — Golden Ticket Persistence
+55	vault	ActiveDirectory	2881	72	5	3	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #65 — ACL Backdooring (Persistence via DCSync ACE).md	🟤 Attack #65 — ACL Backdooring (Persistence via DCSync ACE)
+56	vault	ActiveDirectory	3112	73	5	3	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #66 — Malicious GPO Creation.md	🟤 Attack #66 — Malicious GPO Creation
+57	vault	ActiveDirectory	2922	73	5	3	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #67 — ADCS Certificate-Based Persistence.md	🟤 Attack #67 — ADCS Certificate-Based Persistence
+58	vault	ActiveDirectory	42345	726	13	22	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #37 — DCSync Attack.md	🔵 Attack #37 — DCSync Attack
+59	vault	ActiveDirectory	25501	408	12	9	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #38 — DCShadow Attack.md	🔵 Attack #38 — DCShadow Attack
+60	vault	ActiveDirectory	26964	448	12	15	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #39 — NTDS.dit Extraction and Dumping.md	🔵 Attack #39 — NTDS.dit Extraction & Dumping
+61	vault	ActiveDirectory	21999	371	12	9	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #40 — Zerologon (CVE-2020-1472).md	🔵 Attack #40 — Zerologon (CVE-2020-1472)
+62	vault	ActiveDirectory	22224	396	12	8	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #41 — PetitPotam (CVE-2021-36942).md	🔵 Attack #41 — PetitPotam (CVE-2021-36942) — NTLM Coercion
+63	vault	ActiveDirectory	21754	380	12	13	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #42 — PrinterBug SpoolSample.md	🔵 Attack #42 — PrinterBug / SpoolSample — Print Spooler Coercion
+64	vault	ActiveDirectory	22175	381	12	10	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #43 — PrintNightmare (CVE-2021-34527).md	🔵 Attack #43 — PrintNightmare (CVE-2021-34527)
+65	vault	ActiveDirectory	24537	414	12	10	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #44 — noPAC Sam-the-Admin (CVE-2021-42278 42287).md	🔵 Attack #44 — noPAC / Sam-the-Admin (CVE-2021-42278/42287)
+66	vault	ActiveDirectory	0	1	0	0	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack.md	🔵 Attack
+67	vault	ActiveDirectory	16456	319	7	10	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #27 — ESC1 SAN Specification in Template.md	🟢 Attack #27 — ESC1: SAN Specification in Certificate Template
+68	vault	ActiveDirectory	3933	101	6	5	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #28 — ESC2 Any Purpose EKU No EKU.md	🟢 Attack #28 — ESC2: Any Purpose EKU / No EKU
+69	vault	ActiveDirectory	3221	78	5	4	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #29 — ESC3 Certificate Request Agent.md	🟢 Attack #29 — ESC3: Certificate Request Agent
+70	vault	ActiveDirectory	4364	111	5	6	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #30 — ESC4 Template Write Permissions.md	🟢 Attack #30 — ESC4: Template Write Permissions
+71	vault	ActiveDirectory	3326	84	6	5	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #31 — ESC6 EDITF_ATTRIBUTESUBJECTALTNAME2 Flag.md	🟢 Attack #31 — ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2 Flag
+72	vault	ActiveDirectory	4291	111	5	4	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #32 — ESC7 Vulnerable CA Officer Permissions.md	🟢 Attack #32 — ESC7: Vulnerable CA Officer Permissions
+73	vault	ActiveDirectory	4975	126	7	4	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #33 — ESC8 NTLM Relay to ADCS HTTP Endpoint.md	🟢 Attack #33 — ESC8: NTLM Relay to ADCS HTTP Endpoint
+74	vault	ActiveDirectory	2844	71	5	3	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #34 — ESC11 NTLM Relay to ADCS RPC.md	🟢 Attack #34 — ESC11: NTLM Relay to ADCS RPC
+75	vault	ActiveDirectory	5210	126	7	5	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #35 — Golden Certificate Attack.md	🟢 Attack #35 — Golden Certificate Attack
+76	vault	ActiveDirectory	3833	93	5	3	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #36 — Certifried (CVE-2022-26923).md	🟢 Attack #36 — Certificate Persistence (Certifried / CVE-2022-26923)
+77	vault	ActiveDirectory	3361	81	5	3	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #68 — Cross-Domain Trust Abuse (SID History).md	🔶 Attack #68 — Cross-Domain Trust Abuse (SID History)
+78	vault	ActiveDirectory	3318	78	5	3	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #69 — Forest Trust Abuse Cross-Forest Ticket Forging.md	🔶 Attack #69 — Forest Trust Abuse / Cross-Forest Ticket Forging
+79	vault	ActiveDirectory	2430	61	5	2	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #70 — ADCS Cross-Domain Enrollment.md	🔶 Attack #70 — ADCS Cross-Domain Enrollment
+80	vault	ActiveDirectory	2861	70	5	2	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #71 — PAM Trust Abuse (Bastion Forest).md	🔶 Attack #71 — PAM Trust Abuse (Bastion Forest)
+81	vault	ActiveDirectory	25318	397	9	10	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #1 — Password Spraying.md	🔴 Attack #1 — Password Spraying
+82	vault	ActiveDirectory	34773	610	9	18	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #10 — Credential Hunting in Shares  GPP Passwords.md	🔴 Attack #10 — Credential Hunting in Shares / GPP Passwords
+83	vault	ActiveDirectory	25641	430	9	10	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #2 — Kerberoasting.md	🔴 Attack #2 — Kerberoasting
+84	vault	ActiveDirectory	21874	410	9	13	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #3 — AS-REP Roasting.md	🔴 Attack #3 — AS-REP Roasting
+85	vault	ActiveDirectory	27608	458	9	13	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #4 — Pass-the-Hash (PtH).md	🔴 Attack #4 — Pass-the-Hash (PtH)
+86	vault	ActiveDirectory	24968	462	10	11	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #5 — Pass-the-Ticket (PtT).md	🔴 Attack #5 — Pass-the-Ticket (PtT)
+87	vault	ActiveDirectory	25099	446	10	10	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #6 — Overpass-the-Hash (Pass-the-Key).md	🔴 Attack #6 — Overpass-the-Hash (Pass-the-Key)
+88	vault	ActiveDirectory	29681	521	9	12	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #7 — NTLM Relay Attacks.md	🔴 Attack #7 — NTLM Relay Attacks
+89	vault	ActiveDirectory	27884	513	9	14	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #8 — LLMNR  NBT-NS  mDNS Poisoning.md	🔴 Attack #8 — LLMNR / NBT-NS / mDNS Poisoning
+90	vault	ActiveDirectory	27947	516	9	15	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #9 — mitm6 (IPv6 DNS Spoofing  DHCPv6 Takeover).md	🔴 Attack #9 — mitm6 (IPv6 DNS Spoofing / DHCPv6 Takeover)
+91	vault	ActiveDirectory	18485	311	7	9	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #54 — PsExec Remote Execution via SMB.md	⚫ Attack #54 — PsExec / Remote Execution via SMB
+92	vault	ActiveDirectory	2488	56	4	2	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #55 — WinRM Evil-WinRM Lateral Movement.md	⚫ Attack #55 — WinRM / Evil-WinRM Lateral Movement
+93	vault	ActiveDirectory	2605	67	4	2	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #56 — RDP Lateral Movement and Hijacking.md	⚫ Attack #56 — RDP Lateral Movement & Hijacking
+94	vault	ActiveDirectory	2715	56	4	2	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #57 — DCOM Lateral Movement.md	⚫ Attack #57 — DCOM Lateral Movement
+95	vault	ActiveDirectory	2414	55	4	2	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #58 — WMI Lateral Movement.md	⚫ Attack #58 — WMI Lateral Movement
+96	vault	ActiveDirectory	2146	56	4	2	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #59 — SCM Service Manager Lateral Movement.md	⚫ Attack #59 — SCM / Service Manager Lateral Movement
+97	vault	ActiveDirectory	2947	81	5	4	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #60 — Token Stealing and Impersonation.md	⚫ Attack #60 — Token Stealing & Impersonation (Lateral)
+98	vault	ActiveDirectory	16940	319	7	10	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #45 — Token Impersonation (SeImpersonatePrivilege).md	🟣 Attack #45 — Token Impersonation (SeImpersonatePrivilege)
+99	vault	ActiveDirectory	2847	73	5	3	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #46 — DNSAdmins DLL Injection.md	🟣 Attack #46 — DNSAdmins DLL Injection
+100	vault	ActiveDirectory	2807	72	5	3	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #47 — MachineAccountQuota (MAQ) Abuse.md	🟣 Attack #47 — MachineAccountQuota (MAQ) Abuse
+101	vault	ActiveDirectory	2743	69	5	3	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #48 — GPP Password Decryption.md	🟣 Attack #48 — GPP Password Decryption
+102	vault	ActiveDirectory	3513	83	5	3	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #49 — Abusing Backup Operators Group.md	🟣 Attack #49 — Abusing Backup Operators Group
+103	vault	ActiveDirectory	2669	67	5	2	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #50 — Abusing Account Operators Group.md	🟣 Attack #50 — Abusing Account Operators Group
+104	vault	ActiveDirectory	2251	62	5	2	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #51 — Abusing Server Operators Group.md	🟣 Attack #51 — Abusing Server Operators Group
+105	vault	ActiveDirectory	1995	60	5	2	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #52 — Abusing Print Operators Group.md	🟣 Attack #52 — Abusing Print Operators Group
+106	vault	ActiveDirectory	2864	74	5	3	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #53 — Exchange Windows Permissions (WriteDACL to DCSync).md	🟣 Attack #53 — Exchange Windows Permissions (WriteDACL → DCSync)
+107	vault	ActiveDirectory	3531	75	5	3	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #72 — LAPS Password Extraction.md	🔷 Attack #72 — LAPS Password Extraction
+108	vault	ActiveDirectory	3509	75	5	3	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #73 — gMSA Password Extraction.md	🔷 Attack #73 — gMSA Password Extraction
+109	vault	ActiveDirectory	2577	70	5	3	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #74 — Azure AD Connect Credential Extraction.md	🔷 Attack #74 — Azure AD Connect Credential Extraction
+110	vault	ActiveDirectory	2896	73	5	3	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #75 — SCCM MECM Exploitation.md	🔷 Attack #75 — SCCM / MECM Exploitation
+111	vault	ActiveDirectory	4082	100	5	6	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #76 — MSSQL Server and Linked Server Abuse.md	🔷 Attack #76 — MSSQL Server & Linked Server Abuse
+112	vault	ActiveDirectory	2399	62	5	2	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #77 — DFSCoerce MS-DFSNM Coercion.md	🔷 Attack #77 — Coercion via DFSCoerce / MS-DFSNM
+113	vault	ActiveDirectory	4081	90	5	3	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #78 — AD Recycle Bin Object Abuse.md	🔷 Attack #78 — AD Recycle Bin Object Abuse
+114	vault	ActiveDirectory	18341	326	7	11	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #19 — GenericAll Abuse.md	🟡 Attack #19 — GenericAll Abuse
+115	vault	ActiveDirectory	7185	159	7	7	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #20 — GenericWrite Abuse.md	🟡 Attack #20 — GenericWrite Abuse
+116	vault	ActiveDirectory	6586	151	7	9	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #21 — WriteDACL Abuse.md	🟡 Attack #21 — WriteDACL Abuse
+117	vault	ActiveDirectory	4570	111	6	4	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #22 — WriteOwner Abuse.md	🟡 Attack #22 — WriteOwner Abuse
+118	vault	ActiveDirectory	4523	100	7	3	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #23 — ForceChangePassword Abuse.md	🟡 Attack #23 — ForceChangePassword Abuse
+119	vault	ActiveDirectory	3728	94	5	5	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #24 — AllExtendedRights DCSync ACE Abuse.md	🟡 Attack #24 — AllExtendedRights / DCSync ACE Abuse
+120	vault	ActiveDirectory	7451	164	7	5	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #25 — Shadow Credentials Attack (msDS-KeyCredentialLink).md	🟡 Attack #25 — Shadow Credentials Attack (msDS-KeyCredentialLink)
+121	vault	ActiveDirectory	7879	181	7	8	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #26 — AdminSDHolder Persistence via ACL.md	🟡 Attack #26 — AdminSDHolder Persistence via ACL
+122	vault	ActiveDirectory	21429	413	7	12	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #11 — Golden Ticket Attack.md	🟠 Attack #11 — Golden Ticket Attack
+123	vault	ActiveDirectory	20466	430	7	11	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #12 — Silver Ticket Attack.md	🟠 Attack #12 — Silver Ticket Attack
+124	vault	ActiveDirectory	7530	172	7	5	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #13 — Diamond Ticket Attack.md	🟠 Attack #13 — Diamond Ticket Attack
+125	vault	ActiveDirectory	6762	145	7	4	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #14 — Sapphire Ticket Attack.md	🟠 Attack #14 — Sapphire Ticket Attack
+126	vault	ActiveDirectory	9622	188	7	9	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #15 — Unconstrained Delegation Abuse.md	🟠 Attack #15 — Unconstrained Delegation Abuse
+127	vault	ActiveDirectory	8889	184	7	6	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #16 — Constrained Delegation Abuse (S4U2Proxy).md	🟠 Attack #16 — Constrained Delegation Abuse (S4U2Proxy)
+128	vault	ActiveDirectory	9955	206	7	11	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #17 — Resource-Based Constrained Delegation (RBCD).md	🟠 Attack #17 — Resource-Based Constrained Delegation (RBCD)
+129	vault	ActiveDirectory	6073	135	7	2	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #18 — Bronze Bit Attack (CVE-2020-17049).md	🟠 Attack #18 — Bronze Bit Attack (CVE-2020-17049)
+130	vault	ActiveDirectory	36667	992	19	45	ActiveDirectory/AD_Pentest_Tools_Cheat_Sheet.md	Add before touching any target
+131	vault	ActiveDirectory	8818	256	10	13	ActiveDirectory/bloodhound-ce-python-cheatsheet.md	BloodHound CE Python Cheat Sheet
+132	vault	ActiveDirectory	22611	795	17	45	ActiveDirectory/BloodHound-Python_Cheatsheet.md	🐍 BloodHound-Python Cheatsheet
+133	vault	ActiveDirectory	30854	984	17	106	ActiveDirectory/BloodyAD.md	🩸 BloodyAD Cheat Sheet
+134	vault	ActiveDirectory	22065	698	10	32	ActiveDirectory/Certipy-ad.md	🔐 Certipy-AD Cheat Sheet
+135	vault	ActiveDirectory	8133	243	9	15	ActiveDirectory/faketime-cheatsheet.md	Faketime Cheat Sheet — Beating Kerberos Clock Skew
+136	vault	ActiveDirectory	8848	245	9	10	ActiveDirectory/Kerberos/Kerberoasting Cheatsheet.md	🎟️ Kerberoasting Cheatsheet
+137	vault	ActiveDirectory	9651	314	9	18	ActiveDirectory/Kerberos/Kerberoasting — Local On-Host Cheatsheet.md	🎟️ Kerberoasting — Local / On-Host Cheatsheet
+138	vault	ActiveDirectory	13162	351	10	15	ActiveDirectory/Kerberos/🥈 Silver Ticket Attack Cheatsheet.md	🥈 Silver Ticket Attack Cheatsheet
+139	vault	ActiveDirectory	15068	329	10	7	ActiveDirectory/Kerbrute.md	Pre-built binary (Linux)
+140	vault	ActiveDirectory	11437	398	12	27	ActiveDirectory/LDAP Search.md	LDAP Enumeration Cheat Sheet for HTB Support
+141	vault	ActiveDirectory	15657	568	17	30	ActiveDirectory/ldapdomaindump.md	Complete ldapdomaindump Cheat Sheet for HTB Support
+142	vault	ActiveDirectory	25568	811	24	33	ActiveDirectory/Rubeus.md	🎟️ Rubeus — Complete Cheat Sheet
+143	vault	ActiveDirectory	18407	672	15	45	ActiveDirectory/SharpHound_Cheatsheet.md	🩸 SharpHound.exe Cheatsheet
+144	vault	ActiveDirectory	28291	848	16	31	ActiveDirectory/SharpSploit.md	🗡️ SharpSploit — Complete Cheat Sheet
+145	vault	ActiveDirectory	28010	801	18	38	ActiveDirectory/Snaffler.md	🔍 Snaffler — Complete Cheat Sheet
+146	vault	Cryptography	0	1	0	0	Cryptography/gog.md	gog
+147	vault	Cryptography	75000	2457	33	154	Cryptography/GPG - Cheatsheet markdown.md	Replace every placeholder with a full 40-hex-character OpenPGP fingerprint.
+148	vault	DFIR	73874	1915	14	60	DFIR/Forensics Cheatsheet.md	Linux/macOS
+149	vault	DFIR	34346	852	11	30	DFIR/RECmd - FullGuide.md	RECmd: Registry Forensics Operational Guide
+150	vault	DFIR	29512	849	8	38	DFIR/REDmd - Quick Cheat sheet.md	RECmd: Registry Forensics Cheat Sheet & Workflow Guide
+151	vault	DFIR	13167	592	7	42	DFIR/Volitility3 .md	**VOLATILITY 3 - WINDOWS MEMORY FORENSICS CHEAT SHEET**
+152	vault	Enumeration	37698	1066	3	80	Enumeration/Anonymous  Null Testing.md	Test null session
+153	vault	Enumeration	8206	271	7	14	Enumeration/Awesome NMAP grep.md	awesome-nmap-grep 💥
+154	vault	Enumeration	27932	674	12	23	Enumeration/Cheatsheet - Infrastructure Enumeration Tools 1.md	Basic query — good starting point
+155	vault	Enumeration	31136	839	11	19	Enumeration/Credential Hunting.md	Basic recursive search (case-insensitive, whole word, suppress errors)
+156	vault	Enumeration	37153	1417	20	84	Enumeration/ffuf_cheat_sheet.md	ffuf Cheat Sheet
+157	vault	Enumeration	18961	476	10	18	Enumeration/GitHub-Enum/2.4 - Cheatsheet - Gitleaks.md	macOS — Homebrew
+158	vault	Enumeration	28585	640	10	17	Enumeration/GitHub-Enum/2.5 - Cheatsheet - TruffleHog.md	macOS — Homebrew
+159	vault	Enumeration	4854	77	4	0	Enumeration/LFI - Cheat Sheet.md	LFI - Cheat Sheet
+160	vault	Enumeration	36779	994	14	21	Enumeration/Nikto & Nuclei - Web Scanner Cheatsheets.md	Nikto
+161	vault	Enumeration	18012	368	11	14	Enumeration/Nmap Cheatsheet 2026.md	Then just tap spacebar anytime to force an immediate progress line
+162	vault	Enumeration	70320	1627	33	45	Enumeration/NSE Guide.md	Safe FTP enumeration
+163	vault	Enumeration	3445	159	7	13	Enumeration/rustscan-usage.md	Runs: rustscan -a 192.168.1.1 -b 65535 -t 3000
+164	vault	Enumeration	22440	858	17	73	Enumeration/rustscan.md	RustScan Comprehensive Cheat Sheet
+165	vault	Enumeration	18034	589	17	60	Enumeration/RustScan_Cheatsheet.md	RustScan Cheat Sheet
+166	vault	Enumeration	18061	416	7	12	Enumeration/SMBMAP.md	Null session (anonymous)
+167	vault	Enumeration	15579	549	15	28	Enumeration/Windows Emumeration.md	Windows Enumeration Cheat Sheet
+168	vault	Enumeration	24486	773	15	59	Enumeration/WPScan 1.md	WPScan 1
+169	vault	Enumeration	43195	866	13	25	Enumeration/WPScan.md	Basic scan with API token
+170	vault	Exploitation	87715	1921	13	53	Exploitation/Implementation Roadmap Strategic Workflow for Windows Privilege Escalation.md	Enable ALL disabled privileges (requires scripts)
+171	vault	Exploitation	57693	2244	59	247	Exploitation/Jailbreak - TTY Upgrade.md	TTY Upgrades, Shell Stabilisation & Restricted Shell Escapes
+172	vault	Exploitation	19951	541	4	38	Exploitation/sqlmap Cheat Sheet - SQL Injection Testing & Data Extraction.md	Basic GET parameter test
+173	vault	Exploitation	29330	659	10	20	Exploitation/sqlmap.md	Ultimate SQLMap Cheat Sheet
+174	vault	Exploitation	17715	800	8	74	Exploitation/TTY and Escaping Restricted Env.md	Interactive Shells & Restricted Shell Escapes — Cheat Sheet
+175	vault	Git	13574	365	9	14	Git/Branches Expanded.md	Initialise the repo if you haven't already
+176	vault	Git	19298	497	1	21	Git/Branches.md	Full default log (opens pager)
+177	vault	Git	6039	159	5	4	Git/Git — Move Existing Edits to a New Branch (Railway Site).md	1. Create a new branch AND switch to it immediately
+178	vault	Git	31689	820	10	46	Git/git-cheatsheet.md	Git Cheat Sheet
+179	vault	Git	9121	241	6	6	Git/Resetting.md	Check current state of working tree and staging area
+180	vault	HashingAndEncrypting	19786	703	14	37	HashingAndEncrypting/Hashing cheat sheet .md	Manual Hashing Cheat Sheet
+181	vault	Linux	22933	549	6	30	Linux/Find Command.md	Find files by name (case-insensitive)
+182	vault	Linux	15537	804	9	37	Linux/Linux File & Directory Search Cheat Sheet.md	Linux File & Directory Search Cheat Sheet
+183	vault	Linux	13147	347	10	15	Linux/RDP CheatSheet.md	macOS: native SDL client (recommended)
+184	vault	Misc	19693	776	9	25	Misc/Pivoting and Tunnelling .md	Pivoting & Port Forwarding Cheat Sheet
+185	vault	Misc	3491	89	5	9	Misc/smbshare.md	Impacket SMB Share Cheat Sheet
+186	vault	Misc	10501	476	12	50	Misc/sponge-cheatsheet.md	🧽 Sponge Command Cheat Sheet
+187	vault	Misc	11572	451	13	26	Misc/SSH Portfwding with metasploit .md	SSH Tunneling with Metasploit: A Complete Guide (Pandora HTB Edition)
+188	vault	Misc	10884	404	21	6	Misc/tmux.md	🐉 Complete Tmux Cheat Sheet for Your Config
+189	vault	Misc	35728	1471	15	93	Misc/Tunneling.md	Tunneling Tools Cheatsheet
+190	vault	PasswordAttacks	24928	97	0	0	PasswordAttacks/hashcat modes.md	hashcat modes
+191	vault	PasswordAttacks	9709	262	11	12	PasswordAttacks/hashcat-cheatsheet.md	Hashcat Cheat Sheet
+192	vault	PasswordAttacks	13058	339	11	13	PasswordAttacks/john-cheatsheet.md	John the Ripper Cheat Sheet
+193	vault	PrivEsc	5336	37	0	0	PrivEsc/Linux PrivEsc Cheat Sheet.md	Linux PrivEsc Cheat Sheet
+194	vault	PrivEsc	71700	2273	31	118	PrivEsc/PrivEsc - Windows.md	Windows Privilege Escalation Master Guide (December 2025 Edition)
+195	vault	PrivEsc	80395	1794	22	72	PrivEsc/Windows PrivEsc.md	1. Enable the privilege (disabled by default)
+196	vault	Tools	10780	289	12	6	Tools/BloodHound-Cheatsheet.md	BloodHound Cheatsheet
+197	vault	Tools	8396	225	12	5	Tools/Certipy-ADCS-Cheatsheet.md	Certipy AD CS Cheatsheet
+198	vault	Tools	71280	2541	29	161	Tools/CMD-Powershell Cheat Sheet.md	Windows Penetration Testing Cheat Sheet
+199	vault	Tools	7121	174	10	3	Tools/Cobalt-Strike-Cheatsheet.md	Cobalt Strike Cheatsheet
+200	vault	Tools	15845	640	18	45	Tools/dd tool.md	Linux `dd` Command: Complete Guide and Cheat Sheet
+201	vault	Tools	12434	360	15	10	Tools/EyeWitness-Cheatsheet.md	EyeWitness Cheatsheet
+202	vault	Tools	8633	264	12	6	Tools/Ffuf-Cheatsheet.md	ffuf Cheatsheet
+203	vault	Tools	43028	1013	16	28	Tools/fscan.md	Linux (raw ICMP, requires root or CAP_NET_RAW)
+204	vault	Tools	26557	676	17	20	Tools/gobuster.md	Gobuster Cheat Sheet
+205	vault	Tools	10573	305	14	8	Tools/Hashcat-Cheatsheet.md	Hashcat Cheatsheet
+206	vault	Tools	8736	284	14	11	Tools/Impacket-Cheatsheet.md	Impacket Cheatsheet
+207	vault	Tools	17216	640	12	64	Tools/Impacket.md	Impacket Field Manual: Core Tools Deep Dive
+208	vault	Tools	34051	809	15	30	Tools/Internet-Archival-Guide/Internet Archival Guide.md	Linux
+209	vault	Tools	2034	54	1	1	Tools/Internet-Archival-Guide/scripts/README.md	Archival Scripts
+210	vault	Tools	55540	2110	28	74	Tools/Ligolo-ng Cheat sheet.md	Installation (Kali)
+211	vault	Tools	48422	988	12	21	Tools/meterpreter.md	In msfconsole
+212	vault	Tools	6170	196	11	6	Tools/Mimikatz-Cheatsheet.md	Mimikatz Cheatsheet
+213	vault	Tools	26928	968	21	50	Tools/Netexec (nxc) Cheat Sheet.md	Netexec (nxc) Cheat Sheet - 2025 Edition
+214	vault	Tools	15397	558	13	30	Tools/NetExec - SpiderPlus.md	NetExec Spider Module Guide - Downloading Files from SMB Shares
+215	vault	Tools	10537	322	14	9	Tools/NetExec-Cheatsheet.md	NetExec (nxc) Cheatsheet
+216	vault	Tools	9111	237	12	6	Tools/NTLM-Kerberos-Relay-Cheatsheet.md	NTLM / Kerberos Relay Cheatsheet
+217	vault	Tools	27772	748	19	21	Tools/Nuclei-Cheatsheet.md	Nuclei Cheatsheet (v3.x)
+218	vault	Tools	11024	372	10	21	Tools/pcap-credential-extraction-cheatsheet.md	PCAP Credential Extraction Cheat Sheet
+219	vault	Tools	38989	1173	1	73	Tools/Powershell.md	Or use the alias:
+220	vault	Tools	8868	240	11	5	Tools/Rubeus-Cheatsheet.md	Rubeus Cheatsheet
+221	vault	Tools	3697	120	4	10	Tools/smbserver.py.md	📂 Impacket smbserver.py Usage Guide
+222	vault	Tools	33133	1077	19	48	Tools/TAR.md	The Ultimate `tar` Cheat Sheet
+223	vault	Tools	11344	403	14	42	Tools/Tshark.md	TShark Cheat Sheet
+224	vault	Tools	0	1	0	0	Tools/Username Anarchy.md	Username Anarchy
+225	vault	Tools	15382	334	14	11	Tools/webfuzz.md	Requirements: ffuf, python3, curl (all present on the working box). SecLists optional.
+226	vault	Web	16261	420	9	13	Web/Blind XSS Tool - ezXSS.md	Blind XSS Tool — ezXSS `fas:ClipboardList`
+227	vault	Web	18380	478	9	17	Web/Blind XSS Tool - Interactsh.md	Blind XSS Tool — Interactsh `fas:ClipboardList`
+228	vault	Web	15354	379	8	13	Web/Blind XSS Tool - XSS Hunter.md	Blind XSS Tool — XSS Hunter `fas:ClipboardList`
+229	vault	Web	22932	426	10	8	Web/Cross-Site Scripting (XSS) - HTB Cheat Sheet.md	Cross-Site Scripting (XSS) — HTB Cheat Sheet `fas:ClipboardList`
+230	vault	Web	22408	487	18	26	Web/Phishing Site & Link Identification - Cheat Sheet.md	Phishing Site & Link Identification — Cheat Sheet
+231	vault	macOS	22150	793	23	40	macOS/macOS Terminal Tweaks Cheat Sheet.md	🍎 macOS Hidden Terminal Tweaks — Cheat Sheet

@@ -1,0 +1,21 @@
+{
+  "name": "daemon-sec",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DÆMON//SEC — a curated vault of IT & cybersecurity cheatsheets",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.6.0",
+    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/sitemap": "^3.3.0"
+  },
+  "devDependencies": {
+    "pagefind": "^1.3.0"
+  }
+}

@@ -1,0 +1,25 @@
+---
+import type { Sheet } from '../lib/sheets';
+import { sheetHref } from '../lib/sheets';
+import { categoryOf } from '../lib/taxonomy';
+import { url } from '../lib/url';
+import Icon from './Icon.astro';
+interface Props { entry: Sheet }
+const { entry } = Astro.props;
+const cat = categoryOf(entry.data.category);
+const d = entry.data;
+---
+<a class="card pane glow" href={url(sheetHref(entry))} style={`--acc: var(--${cat.accent});`}>
+  <div class="pane__bar">
+    <span class="pane__dots"><i></i><i></i><i></i></span>
+    <span class="pane__label">{cat.tag} / {entry.id.split('/').pop()}</span>
+  </div>
+  <div class="pane__body">
+    <h3 class="card-title">{d.title}</h3>
+    <p class="card-desc">{d.description}</p>
+    <div class="card-meta">
+      <span class="badge badge--{d.difficulty}">{d.difficulty}</span>
+      <span class="card-arrow"><Icon name="arrow" /></span>
+    </div>
+  </div>
+</a>

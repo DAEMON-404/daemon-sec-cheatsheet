@@ -1,0 +1,76 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PayloadCredit from '../../components/PayloadCredit.astro';
+import { payloadsByTopic, topicOrder, prevNext, payloadHref, type Payload } from '../../lib/payloads';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const groups = await payloadsByTopic();
+  const paths: any[] = [];
+  for (const g of groups) {
+    const order = topicOrder(g);
+    for (const entry of order) {
+      const { prev, next } = prevNext(order, entry);
+      const slug = payloadHref(entry).replace(/^payloads\//, '');
+      paths.push({ params: { slug }, props: { entry, prev, next, topicSlug: g.slug, topicTitle: g.title } });
+    }
+  }
+  return paths;
+}
+
+interface Props { entry: Payload; prev?: Payload; next?: Payload; topicSlug: string; topicTitle: string }
+const { entry, prev, next, topicTitle } = Astro.props;
+const d = entry.data;
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const leaf = entry.id.split('/').pop()!.replace(/^index$/, d.topic);
+---
+<Base title={`${d.title} — Payloads — DÆMON//SEC`} description={`${d.topic} — payloads & techniques, mirrored from PayloadsAllTheThings.`}>
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.5rem;">
+      <a href={url('')}>~</a><span class="sep">/</span>
+      <a href={url('payloads')} style="color: var(--iris)">payloads</a><span class="sep">/</span>
+      {d.isReadme
+        ? <span class="muted">{d.topicSlug}</span>
+        : <><a href={url(`payloads/${d.topicSlug}`)} style="color: var(--iris)">{d.topicSlug}</a><span class="sep">/</span><span class="muted">{leaf}</span></>}
+    </nav>
+
+    <header class="sheet-head" data-pagefind-meta="category:Payloads">
+      <p class="eyebrow" style="color: var(--iris)">// Payloads · {topicTitle}</p>
+      <h1 class="sheet-title" data-pagefind-meta="title">{d.title}</h1>
+    </header>
+
+    <PayloadCredit topic={d.topic} sourceUrl={d.sourceUrl} sha={d.sha} />
+
+    <div class="sheet-layout">
+      <article class="prose" data-pagefind-body>
+        <Content />
+      </article>
+
+      {toc.length > 1 && (
+        <aside class="toc" aria-label="On this page">
+          <h4>On this page</h4>
+          <nav>
+            {toc.map((h) => (
+              <a href={`#${h.slug}`} class={h.depth === 3 ? 'lvl-3' : ''}>{h.text}</a>
+            ))}
+          </nav>
+        </aside>
+      )}
+    </div>
+
+    <nav class="prevnext" aria-label="Pagination">
+      {prev ? (
+        <a class="pane glow" href={url(payloadHref(prev))} style="--acc: var(--iris)">
+          <span class="dir">← Prev</span><strong>{prev.data.title}</strong>
+        </a>
+      ) : <span></span>}
+      {next ? (
+        <a class="pane glow nx" href={url(payloadHref(next))} style="--acc: var(--iris)">
+          <span class="dir">Next →</span><strong>{next.data.title}</strong>
+        </a>
+      ) : <span></span>}
+    </nav>
+  </div>
+</Base>

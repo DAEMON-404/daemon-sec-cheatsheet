@@ -1,0 +1,141 @@
+/* ============================================================================
+   Prose — how a rendered cheatsheet reads.
+   Code blocks become terminal panes (enhanced by enhance-code.ts).
+   ========================================================================== */
+
+.prose { color: var(--fg); font-size: var(--step-0); line-height: 1.68; max-width: 74ch; }
+.prose > * + * { margin-top: 1.05rem; }
+
+.prose h2, .prose h3, .prose h4 { font-family: var(--font-display); line-height: 1.15; scroll-margin-top: 84px; }
+.prose h2 {
+  font-size: var(--step-2); margin-top: 2.4rem; padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--glass-brd);
+}
+.prose h2::before { content: '// '; color: var(--accent); font-family: var(--font-mono); font-size: 0.7em; opacity: 0.8; }
+.prose h3 { font-size: var(--step-1); margin-top: 1.8rem; color: var(--fg); }
+.prose h4 { font-size: 1.02rem; margin-top: 1.4rem; color: var(--fg-dim); }
+
+.prose p { color: var(--fg); }
+.prose strong { color: var(--fg); font-weight: 600; }
+.prose em { color: var(--fg-dim); }
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklab, var(--accent) 40%, transparent);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.prose a:hover { text-decoration-color: var(--accent); }
+
+.prose ul, .prose ol { padding-left: 1.4rem; }
+.prose li { margin-top: 0.35rem; }
+.prose ul li::marker { color: var(--accent); }
+.prose ol li::marker { color: var(--fg-faint); font-family: var(--font-mono); }
+
+.prose hr { border: 0; border-top: 1px solid var(--glass-brd); margin: 2rem 0; }
+
+/* Inline code */
+.prose :not(pre) > code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  padding: 0.12em 0.4em;
+  border-radius: 6px;
+  background: var(--code-bg);
+  border: 1px solid var(--glass-brd);
+  color: var(--rose);
+  word-break: break-word;
+}
+
+/* Blockquotes / callouts */
+.prose blockquote {
+  border-left: 3px solid var(--accent-2);
+  background: var(--glass-bg);
+  padding: 0.8rem 1.1rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  color: var(--fg-dim);
+}
+.prose blockquote p { margin-top: 0.4rem; }
+.prose blockquote > :first-child { margin-top: 0; }
+
+/* Tables */
+.prose .table-scroll { overflow-x: auto; border-radius: var(--radius-sm); border: 1px solid var(--glass-brd); }
+.prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.prose thead th {
+  background: var(--glass-bg-strong);
+  font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--fg-dim);
+  text-align: left; padding: 0.6rem 0.8rem; white-space: nowrap;
+}
+.prose tbody td { padding: 0.55rem 0.8rem; border-top: 1px solid var(--glass-brd); vertical-align: top; }
+.prose tbody tr:hover { background: var(--glass-bg); }
+
+.prose img { border-radius: var(--radius-sm); border: 1px solid var(--glass-brd); margin-inline: auto; }
+
+/* ---- Code panes ---------------------------------------------------------- */
+.code-pane {
+  position: relative;
+  border: 1px solid var(--glass-brd);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--code-bg);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.code-pane__bar {
+  display: flex; align-items: center; gap: 0.55rem;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--glass-brd);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+}
+.code-pane__dots { display: inline-flex; gap: 0.3rem; }
+.code-pane__dots i { width: 8px; height: 8px; border-radius: 50%; display: block; }
+.code-pane__dots i:nth-child(1) { background: var(--love); }
+.code-pane__dots i:nth-child(2) { background: var(--gold); }
+.code-pane__dots i:nth-child(3) { background: var(--foam); }
+.code-pane__lang {
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--fg-faint); margin-left: 0.2rem;
+}
+.code-copy {
+  margin-left: auto;
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  padding: 0.2rem 0.5rem; border-radius: 6px;
+  border: 1px solid var(--glass-brd);
+  transition: color 0.18s, border-color 0.18s;
+}
+.code-copy:hover { color: var(--accent); border-color: color-mix(in oklab, var(--accent) 50%, transparent); }
+.code-copy.copied { color: var(--foam); border-color: var(--foam); }
+
+.prose pre.astro-code {
+  margin: 0;
+  padding: 0.95rem 1.1rem;
+  overflow-x: auto;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  background: transparent !important;
+}
+.prose pre.astro-code code { font-family: var(--font-mono); display: block; }
+
+/* Shiki dual-theme: defaultColor:false -> flip on [data-theme] */
+:root .astro-code,
+:root .astro-code span,
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark);
+  font-style: var(--shiki-dark-font-style);
+  font-weight: var(--shiki-dark-font-weight);
+  text-decoration: var(--shiki-dark-text-decoration);
+}
+:root[data-theme='light'] .astro-code,
+:root[data-theme='light'] .astro-code span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+/* First heading of the doc is the page title (rendered separately) */
+.prose > h1:first-child { display: none; }

@@ -1,0 +1,576 @@
+{
+ "sheets": [
+  {
+   "source": "vault",
+   "rel": "ActiveDirectory/Rubeus.md",
+   "category": "active-directory",
+   "slug": "rubeus",
+   "title": "Rubeus",
+   "description": "Rubeus Kerberos abuse: kerberoast, asreproast, ticket forging, S4U, pass-the-ticket, overpass-the-hash.",
+   "tools": [
+    "Rubeus"
+   ],
+   "tags": [
+    "active-directory",
+    "kerberos",
+    "tickets"
+   ],
+   "difficulty": "advanced",
+   "action": "port",
+   "note": "Vault version (25KB/24H2/33code) far richer than Tools/Rubeus-Cheatsheet (8.8KB); single canonical Rubeus."
+  },
+  {
+   "source": "vault",
+   "rel": "ActiveDirectory/BloodyAD.md",
+   "category": "active-directory",
+   "slug": "bloodyad",
+   "title": "BloodyAD",
+   "description": "BloodyAD LDAP privilege-abuse toolkit: RBCD, shadow creds, DACL edits, password/attribute writes.",
+   "tools": [
+    "BloodyAD"
+   ],
+   "tags": [
+    "active-directory",
+    "ldap",
+    "acl-abuse"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Vault (30KB/106code) beats repo copy (26KB/41code); dedupe winner."
+  },
+  {
+   "source": "vault",
+   "rel": "Enumeration/WPScan.md",
+   "category": "enumeration",
+   "slug": "wpscan",
+   "title": "WPScan",
+   "description": "WPScan WordPress enumeration: plugins/themes/users, vuln API tokens and password attacks.",
+   "tools": [
+    "WPScan"
+   ],
+   "tags": [
+    "enumeration",
+    "web",
+    "wordpress"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "WPScan.md (43KB) richer than WPScan 1 (24KB); dedupe winner."
+  },
+  {
+   "source": "vault",
+   "rel": "Enumeration/SMBMAP.md",
+   "category": "enumeration",
+   "slug": "smbmap",
+   "title": "SMBMap",
+   "description": "SMBMap share enumeration, permissions mapping, file download/upload and command execution over SMB.",
+   "tools": [
+    "SMBMap"
+   ],
+   "tags": [
+    "enumeration",
+    "smb",
+    "shares"
+   ],
+   "difficulty": "beginner",
+   "action": "port",
+   "note": "Canonical SMB share-enum tool page."
+  },
+  {
+   "source": "repo",
+   "rel": "Enumeration/Shodan_Cheatsheet.md",
+   "category": "enumeration",
+   "slug": "shodan",
+   "title": "Shodan",
+   "description": "Shodan search filters, dorks, CLI and API workflows for internet-wide asset and service discovery.",
+   "tools": [
+    "Shodan"
+   ],
+   "tags": [
+    "enumeration",
+    "osint",
+    "recon"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Huge OSINT sheet (44KB/264code); only Shodan reference and a distinct recon angle."
+  },
+  {
+   "source": "vault",
+   "rel": "Exploitation/sqlmap.md",
+   "category": "exploitation",
+   "slug": "sqlmap",
+   "title": "SQLMap",
+   "description": "SQLMap automated SQL injection: target flags, techniques, enumeration, dumping and tamper scripts.",
+   "tools": [
+    "SQLMap"
+   ],
+   "tags": [
+    "exploitation",
+    "sql-injection",
+    "web"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Ultimate SQLMap (29KB) chosen over the 20KB SQLi-testing variant; single canonical sqlmap."
+  },
+  {
+   "source": "vault",
+   "rel": "Exploitation/Jailbreak - TTY Upgrade.md",
+   "category": "exploitation",
+   "slug": "shell-stabilization",
+   "title": "Shell Stabilization & TTY Upgrades",
+   "description": "Upgrade dumb shells to full TTYs and escape restricted shells (rbash, jails) with many techniques.",
+   "tools": [
+    "python",
+    "socat",
+    "stty"
+   ],
+   "tags": [
+    "exploitation",
+    "shells",
+    "post-exploitation"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "57KB/247code sheet beats the 17KB TTY variant and the tty_shell PDF; PDF rewrite unnecessary."
+  },
+  {
+   "source": "vault",
+   "rel": "Tools/meterpreter.md",
+   "category": "exploitation",
+   "slug": "metasploit",
+   "title": "Metasploit Framework",
+   "description": "msfconsole and Meterpreter workflow: search, exploits, payloads, sessions, post modules, pivoting.",
+   "tools": [
+    "Metasploit",
+    "msfconsole",
+    "Meterpreter"
+   ],
+   "tags": [
+    "exploitation",
+    "framework",
+    "post-exploitation"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "48KB markdown covers msfconsole+meterpreter, so the two metasploit PDFs are not rewritten."
+  },
+  {
+   "source": "repo",
+   "rel": "HTB/cheatsheet-stack-based-buffer-overflows-on-windows-x86.pdf",
+   "category": "exploitation",
+   "slug": "buffer-overflow",
+   "title": "Stack-Based Buffer Overflow (Win x86)",
+   "description": "Classic Windows x86 stack overflow: fuzzing, EIP control, bad chars, JMP ESP, shellcode.",
+   "tools": [
+    "Immunity Debugger",
+    "mona.py",
+    "msfvenom"
+   ],
+   "tags": [
+    "exploitation",
+    "buffer-overflow",
+    "windows",
+    "binary"
+   ],
+   "difficulty": "advanced",
+   "action": "rewrite_from_pdf",
+   "note": "PDF-only classic binary-exploitation topic with no markdown equivalent; worth converting."
+  },
+  {
+   "source": "vault",
+   "rel": "PrivEsc/PrivEsc - Windows.md",
+   "category": "privilege-escalation",
+   "slug": "windows-privesc",
+   "title": "Windows Privilege Escalation",
+   "description": "Windows privesc master guide: token/privilege abuse, services, registry, AlwaysInstallElevated, potatoes.",
+   "tools": [
+    "winPEAS",
+    "PowerUp",
+    "JuicyPotato"
+   ],
+   "tags": [
+    "privilege-escalation",
+    "windows",
+    "post-exploitation"
+   ],
+   "difficulty": "advanced",
+   "action": "port",
+   "note": "118-code master guide chosen over the two other Windows privesc dumps; single canonical page."
+  },
+  {
+   "source": "vault",
+   "rel": "PrivEsc/Linux PrivEsc Cheat Sheet.md",
+   "category": "privilege-escalation",
+   "slug": "linux-privesc",
+   "title": "Linux Privilege Escalation",
+   "description": "Linux privesc quick-reference: sudo, SUID/SGID, cron, LD_PRELOAD, LXD, NFS, capabilities and kernel.",
+   "tools": [
+    "linPEAS",
+    "pspy",
+    "GTFOBins"
+   ],
+   "tags": [
+    "privilege-escalation",
+    "linux",
+    "post-exploitation"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Only Linux privesc candidate; dense command-table checklist (0 fenced code because it is a table)."
+  },
+  {
+   "source": "vault",
+   "rel": "PasswordAttacks/hashcat-cheatsheet.md",
+   "category": "password-attacks",
+   "slug": "hashcat",
+   "title": "Hashcat",
+   "description": "Hashcat cracking: attack modes, hash-mode selection, rules, masks, wordlists and performance tuning.",
+   "tools": [
+    "Hashcat"
+   ],
+   "tags": [
+    "password-attacks",
+    "cracking",
+    "hashes"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Structured sheet (11 H2/12 code) preferred over the Tools copy and the raw hashcat-modes table."
+  },
+  {
+   "source": "vault",
+   "rel": "PasswordAttacks/john-cheatsheet.md",
+   "category": "password-attacks",
+   "slug": "john-the-ripper",
+   "title": "John the Ripper",
+   "description": "John the Ripper: 2john extractors, formats, wordlist/incremental/rules modes and session control.",
+   "tools": [
+    "John the Ripper"
+   ],
+   "tags": [
+    "password-attacks",
+    "cracking",
+    "hashes"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "13KB markdown beats the john PDF; PDF rewrite unnecessary."
+  },
+  {
+   "source": "repo",
+   "rel": "Password-Attacks/Password_Attacks_Cheat_Sheet.pdf",
+   "category": "password-attacks",
+   "slug": "password-attacks",
+   "title": "Password Attacks & Brute Forcing",
+   "description": "Online/offline password attacks: Hydra/Medusa service brute-forcing, spraying, mutations and defaults.",
+   "tools": [
+    "Hydra",
+    "Medusa",
+    "CrackMapExec"
+   ],
+   "tags": [
+    "password-attacks",
+    "brute-force",
+    "spraying"
+   ],
+   "difficulty": "intermediate",
+   "action": "rewrite_from_pdf",
+   "note": "PDF-only; covers network brute-forcing/spraying not in the hashcat/john offline-cracking sheets."
+  },
+  {
+   "source": "vault",
+   "rel": "Tools/Ligolo-ng Cheat sheet.md",
+   "category": "tunneling-pivoting",
+   "slug": "ligolo-ng",
+   "title": "Ligolo-ng",
+   "description": "Ligolo-ng tunneling: agent/proxy setup, interface routing, double/multi-hop pivots and listeners.",
+   "tools": [
+    "Ligolo-ng"
+   ],
+   "tags": [
+    "pivoting",
+    "tunneling",
+    "network"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "55KB markdown supersedes the two Ligolo PDFs; PDF rewrite unnecessary."
+  },
+  {
+   "source": "vault",
+   "rel": "Misc/Tunneling.md",
+   "category": "tunneling-pivoting",
+   "slug": "tunneling-tools",
+   "title": "Tunneling Tools",
+   "description": "Chisel, socat, plink and SSH tunneling patterns for port forwarding and pivoting through hosts.",
+   "tools": [
+    "Chisel",
+    "socat",
+    "plink",
+    "SSH"
+   ],
+   "tags": [
+    "pivoting",
+    "tunneling",
+    "port-forwarding"
+   ],
+   "difficulty": "advanced",
+   "action": "port",
+   "note": "Comprehensive multi-tool tunneling (35KB/93code); chosen over the narrower Pivoting & Tunnelling sheet."
+  },
+  {
+   "source": "vault",
+   "rel": "Misc/SSH Portfwding with metasploit .md",
+   "category": "tunneling-pivoting",
+   "slug": "ssh-tunneling",
+   "title": "SSH Tunneling & Port Forwarding",
+   "description": "SSH local/remote/dynamic forwarding and Metasploit route/portfwd pivoting, worked end to end.",
+   "tools": [
+    "SSH",
+    "Metasploit"
+   ],
+   "tags": [
+    "pivoting",
+    "ssh",
+    "port-forwarding"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "SSH+Metasploit focus distinct from the general tunneling and Ligolo pages."
+  },
+  {
+   "source": "vault",
+   "rel": "Cryptography/GPG - Cheatsheet markdown.md",
+   "category": "cryptography",
+   "slug": "gpg",
+   "title": "GPG",
+   "description": "GnuPG keys, encryption/decryption, signing/verification, keyservers, trust and revocation.",
+   "tools": [
+    "GPG",
+    "GnuPG"
+   ],
+   "tags": [
+    "cryptography",
+    "encryption",
+    "pgp"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "75KB/154code markdown beats both GPG PDFs; PDF rewrite unnecessary."
+  },
+  {
+   "source": "repo",
+   "rel": "Misc/openssl-cheatsheet.pdf",
+   "category": "cryptography",
+   "slug": "openssl",
+   "title": "OpenSSL",
+   "description": "OpenSSL: keys, CSRs, certs, x509 inspection, PEM/DER conversion, s_client and encryption.",
+   "tools": [
+    "OpenSSL"
+   ],
+   "tags": [
+    "cryptography",
+    "tls",
+    "certificates"
+   ],
+   "difficulty": "intermediate",
+   "action": "rewrite_from_pdf",
+   "note": "PDF-only crypto staple with no markdown equivalent."
+  },
+  {
+   "source": "vault",
+   "rel": "DFIR/Forensics Cheatsheet.md",
+   "category": "dfir",
+   "slug": "forensics",
+   "title": "Digital Forensics",
+   "description": "Cross-platform DFIR reference: acquisition, triage, artifacts, timelines and analysis commands.",
+   "tools": [
+    "Autopsy",
+    "Sleuth Kit",
+    "plaso"
+   ],
+   "tags": [
+    "dfir",
+    "forensics",
+    "incident-response"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Broadest DFIR sheet (73KB/60code); general forensics anchor."
+  },
+  {
+   "source": "vault",
+   "rel": "Tools/CMD-Powershell Cheat Sheet.md",
+   "category": "tools",
+   "slug": "windows-cmd-powershell",
+   "title": "Windows CMD & PowerShell",
+   "description": "Windows pentest command reference: recon, users/groups, networking, downloads and PowerShell one-liners.",
+   "tools": [
+    "cmd",
+    "PowerShell"
+   ],
+   "tags": [
+    "windows",
+    "post-exploitation",
+    "commands"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "71KB/161code superset; dedupes the standalone Powershell.md."
+  },
+  {
+   "source": "vault",
+   "rel": "Tools/fscan.md",
+   "category": "tools",
+   "slug": "fscan",
+   "title": "fscan",
+   "description": "fscan all-in-one intranet scanner: host/port discovery, service brute-forcing and vuln checks.",
+   "tools": [
+    "fscan"
+   ],
+   "tags": [
+    "scanning",
+    "enumeration",
+    "internal"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Distinct all-in-one internal scanner (43KB)."
+  },
+  {
+   "source": "vault",
+   "rel": "Tools/EyeWitness-Cheatsheet.md",
+   "category": "tools",
+   "slug": "eyewitness",
+   "title": "EyeWitness",
+   "description": "EyeWitness bulk web/RDP/VNC screenshotting and reporting for rapid visual recon.",
+   "tools": [
+    "EyeWitness"
+   ],
+   "tags": [
+    "recon",
+    "screenshots",
+    "web"
+   ],
+   "difficulty": "beginner",
+   "action": "port",
+   "note": "Only screenshot-recon tool sheet."
+  },
+  {
+   "source": "vault",
+   "rel": "ActiveDirectory/Snaffler.md",
+   "category": "tools",
+   "slug": "snaffler",
+   "title": "Snaffler",
+   "description": "Snaffler share-crawling for credentials, keys and sensitive files across SMB with tuning rules.",
+   "tools": [
+    "Snaffler"
+   ],
+   "tags": [
+    "credentials",
+    "shares",
+    "enumeration"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Rich share/credential hunting tool (28KB/38code)."
+  },
+  {
+   "source": "vault",
+   "rel": "ActiveDirectory/SharpSploit.md",
+   "category": "tools",
+   "slug": "sharpsploit",
+   "title": "SharpSploit",
+   "description": "SharpSploit .NET post-exploitation library: execution, credentials, enumeration and evasion APIs.",
+   "tools": [
+    "SharpSploit"
+   ],
+   "tags": [
+    "post-exploitation",
+    "dotnet",
+    "offensive"
+   ],
+   "difficulty": "advanced",
+   "action": "port",
+   "note": "Rich .NET tradecraft sheet (28KB); distinct from GUI/CLI tools."
+  },
+  {
+   "source": "vault",
+   "rel": "Misc/tmux.md",
+   "category": "linux-it",
+   "slug": "tmux",
+   "title": "tmux",
+   "description": "tmux sessions, windows, panes, copy mode and config bindings for terminal multiplexing.",
+   "tools": [
+    "tmux"
+   ],
+   "tags": [
+    "linux",
+    "terminal",
+    "productivity"
+   ],
+   "difficulty": "beginner",
+   "action": "port",
+   "note": "IT staple named in the brief."
+  },
+  {
+   "source": "vault",
+   "rel": "Git/git-cheatsheet.md",
+   "category": "git-workflow",
+   "slug": "git",
+   "title": "Git",
+   "description": "Everyday Git: staging, commits, remotes, log/diff, stash, merge/rebase and recovery.",
+   "tools": [
+    "git"
+   ],
+   "tags": [
+    "git",
+    "version-control",
+    "workflow"
+   ],
+   "difficulty": "beginner",
+   "action": "port",
+   "note": "Most comprehensive Git sheet (31KB/46code); core Git reference."
+  },
+  {
+   "source": "vault",
+   "rel": "Git/Branches Expanded.md",
+   "category": "git-workflow",
+   "slug": "git-branching",
+   "title": "Git Branching",
+   "description": "Branch workflows: create/switch, track remotes, merge vs rebase, and moving edits between branches.",
+   "tools": [
+    "git"
+   ],
+   "tags": [
+    "git",
+    "branching",
+    "workflow"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Best-structured branching deep-dive (9 H2); dedupes Branches.md and the Vault-management branch guide."
+  },
+  {
+   "source": "vault",
+   "rel": "Git/Resetting.md",
+   "category": "git-workflow",
+   "slug": "git-reset",
+   "title": "Git Reset & Undo",
+   "description": "Undo work safely: reset soft/mixed/hard, restore, revert, reflog recovery and stash rescue.",
+   "tools": [
+    "git"
+   ],
+   "tags": [
+    "git",
+    "undo",
+    "recovery"
+   ],
+   "difficulty": "intermediate",
+   "action": "port",
+   "note": "Distinct undo/recovery focus not covered by the main Git sheet."
+  }
+ ]
+}

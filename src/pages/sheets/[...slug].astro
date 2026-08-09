@@ -1,0 +1,94 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { categoryOf } from '../../lib/taxonomy';
+import { sheetsByCategory, prevNext, sheetHref, tagSlug, type Sheet } from '../../lib/sheets';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const groups = await sheetsByCategory();
+  const paths: any[] = [];
+  for (const g of groups) {
+    for (const entry of g.items) {
+      const { prev, next } = prevNext(g.items, entry);
+      paths.push({ params: { slug: entry.id }, props: { entry, prev, next } });
+    }
+  }
+  return paths;
+}
+
+interface Props { entry: Sheet; prev?: Sheet; next?: Sheet }
+const { entry, prev, next } = Astro.props;
+const d = entry.data;
+const cat = categoryOf(d.category);
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const pdfHref = d.pdf ? url(`pdfs/${d.pdf}`) : null;
+---
+<Base title={`${d.title} — DÆMON//SEC`} description={d.description}>
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.5rem;">
+      <a href={url('')}>~</a><span class="sep">/</span>
+      <a href={url(cat.slug)} style={`color: var(--${cat.accent})`}>{cat.tag.toLowerCase()}</a>
+      <span class="sep">/</span>
+      <span class="muted">{entry.id.split('/').pop()}</span>
+    </nav>
+
+    <header class="sheet-head" data-pagefind-meta={`category:${cat.title}`}>
+      <p class="eyebrow" style={`color: var(--${cat.accent})`}>// {cat.title}</p>
+      <h1 class="sheet-title" data-pagefind-meta="title">{d.title}</h1>
+      {d.description && <p class="sheet-desc">{d.description}</p>}
+      <div class="sheet-meta">
+        <span class="badge badge--{d.difficulty}">{d.difficulty}</span>
+        {d.updated && <span class="badge">updated {d.updated}</span>}
+        {d.tools.length > 0 && <span class="badge"><Icon name="wrench" style="width:12px;height:12px;" />{d.tools.slice(0,4).join(' · ')}</span>}
+      </div>
+      {d.tags.length > 0 && (
+        <div class="tags-row" style="margin-top:0.8rem;">
+          {d.tags.map((t) => <a class="tag-pill" href={url(`tags/${tagSlug(t)}`)}>#{t}</a>)}
+        </div>
+      )}
+    </header>
+
+    <div class="sheet-layout">
+      <article class="prose" data-pagefind-body>
+        {pdfHref && (
+          <div class="pane" style="margin-bottom:1.5rem;">
+            <div class="pane__bar">
+              <span class="pane__dots"><i></i><i></i><i></i></span>
+              <span class="pane__label">{d.pdf}</span>
+              <a class="code-copy" href={pdfHref} download style="margin-left:auto;text-decoration:none;">download</a>
+            </div>
+            <iframe class="pdf-frame" src={pdfHref} title={`${d.title} (PDF)`} loading="lazy"></iframe>
+          </div>
+        )}
+        <Content />
+      </article>
+
+      {toc.length > 1 && (
+        <aside class="toc" aria-label="On this page">
+          <h4>On this page</h4>
+          <nav>
+            {toc.map((h) => (
+              <a href={`#${h.slug}`} class={h.depth === 3 ? 'lvl-3' : ''}>{h.text}</a>
+            ))}
+          </nav>
+        </aside>
+      )}
+    </div>
+
+    <nav class="prevnext" aria-label="Pagination">
+      {prev ? (
+        <a class="pane glow" href={url(sheetHref(prev))} style={`--acc: var(--${cat.accent})`}>
+          <span class="dir">← Prev</span><strong>{prev.data.title}</strong>
+        </a>
+      ) : <span></span>}
+      {next ? (
+        <a class="pane glow nx" href={url(sheetHref(next))} style={`--acc: var(--${cat.accent})`}>
+          <span class="dir">Next →</span><strong>{next.data.title}</strong>
+        </a>
+      ) : <span></span>}
+    </nav>
+  </div>
+</Base>

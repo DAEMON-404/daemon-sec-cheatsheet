@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+import SheetCard from '../../components/SheetCard.astro';
+import { allSheets, allTags, tagSlug, type Sheet } from '../../lib/sheets';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const tags = await allTags();
+  const sheets = await allSheets();
+  return tags.map(({ tag }) => ({
+    params: { tag: tagSlug(tag) },
+    props: { tag, items: sheets.filter((s) => s.data.tags.includes(tag)) },
+  }));
+}
+interface Props { tag: string; items: Sheet[] }
+const { tag, items } = Astro.props;
+---
+<Base title={`#${tag} — DÆMON//SEC`} description={`Cheatsheets tagged ${tag}.`}>
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.5rem;">
+      <a href={url('')}>~</a><span class="sep">/</span>
+      <a href={url('tags')}>tags</a><span class="sep">/</span>
+      <span class="accent-text">{tag}</span>
+    </nav>
+    <header style="margin-top:1rem;">
+      <p class="eyebrow">// {items.length} {items.length === 1 ? 'sheet' : 'sheets'}</p>
+      <h1 class="sheet-title">#{tag}</h1>
+    </header>
+    <div class="grid-cards" style="margin-top:1.8rem;">
+      {items.map((entry) => <SheetCard entry={entry} />)}
+    </div>
+  </div>
+</Base>

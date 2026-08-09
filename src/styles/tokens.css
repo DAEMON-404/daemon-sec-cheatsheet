@@ -1,0 +1,145 @@
+/* ============================================================================
+   DÆMON//SEC — design tokens
+   Matches the main DÆMON site: Rosé Pine Dawn (cream, DEFAULT) ⇄ Rosé Pine
+   (night). Type is Archivo + IBM Plex Mono, with an EB Garamond lockup for
+   the wordmark. Palette values are the contrast-tuned DÆMON dawn/night tokens.
+   The theme attribute is set on <html> by an inline head script before paint.
+   ========================================================================== */
+
+/* ---- Fonts (self-hosted, base-aware via Vite) ---------------------------- */
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/archivo-400.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/archivo-500.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/archivo-600.woff2') format('woff2'); }
+@font-face { font-family: 'Archivo'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/archivo-700.woff2') format('woff2'); }
+@font-face { font-family: 'EB Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/eb-garamond-600.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/ibm-plex-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/ibm-plex-mono-600.woff2') format('woff2'); }
+
+/* ---- Light = Rosé Pine Dawn (DEFAULT, cream) ---------------------------- */
+:root,
+:root[data-theme='light'] {
+  --base: #faf4ed;
+  --surface: #fffaf3;
+  --overlay: #f2e9e1;
+  --muted: #6e6a86;   /* 4.73:1 */
+  --subtle: #635f7c;  /* 5.56:1 */
+  --text: #575279;    /* 6.66:1 */
+  /* accents tuned to clear 4.5:1 as ink on cream */
+  --love: #af416c;
+  --gold: #9b5800;
+  --rose: #b4423d;
+  --pine: #017194;
+  --foam: #00747b;
+  --iris: #795aa2;
+  --hl-low: #f4ede8;
+  --hl-med: #dfdad9;
+  --hl-high: #cecacd;
+
+  /* semantic */
+  --bg: var(--base);
+  --fg: var(--text);
+  --fg-dim: var(--subtle);
+  --fg-faint: var(--muted);
+  --accent: var(--iris);
+  --accent-2: var(--pine);
+
+  /* glass — light frosted paper */
+  --glass-bg: rgba(255, 250, 243, 0.72);
+  --glass-bg-strong: rgba(255, 250, 243, 0.9);
+  --glass-brd: rgba(87, 82, 121, 0.14);
+  --glass-brd-hi: rgba(87, 82, 121, 0.26);
+  --glass-blur: 16px;
+  --glass-shadow: 0 10px 34px rgba(87, 82, 121, 0.13);
+  --grid-line: rgba(87, 82, 121, 0.05);
+  --scan: rgba(121, 90, 162, 0.04);
+  --code-bg: rgba(242, 233, 225, 0.72);
+  --selection: rgba(121, 90, 162, 0.22);
+}
+
+/* ---- Dark = Rosé Pine (night) ------------------------------------------- */
+:root[data-theme='dark'] {
+  --base: #191724;
+  --surface: #1f1d2e;
+  --overlay: #26233a;
+  --muted: #8b87a3;   /* 5.12:1 */
+  --subtle: #908caa;  /* 5.48:1 */
+  --text: #e0def4;    /* 13.39:1 */
+  --love: #eb6f92;
+  --gold: #f6c177;
+  --rose: #ebbcba;
+  --pine: #3e8fb0;    /* 4.84:1 — lifted from #31748f */
+  --foam: #9ccfd8;
+  --iris: #c4a7e7;
+  --hl-low: #21202e;
+  --hl-med: #403d52;
+  --hl-high: #524f67;
+
+  --bg: var(--base);
+  --fg: var(--text);
+  --fg-dim: var(--subtle);
+  --fg-faint: var(--muted);
+  --accent: var(--iris);
+  --accent-2: var(--foam);
+
+  --glass-bg: rgba(31, 29, 46, 0.55);
+  --glass-bg-strong: rgba(38, 35, 58, 0.78);
+  --glass-brd: rgba(224, 222, 244, 0.10);
+  --glass-brd-hi: rgba(224, 222, 244, 0.18);
+  --glass-blur: 18px;
+  --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+  --grid-line: rgba(224, 222, 244, 0.045);
+  --scan: rgba(196, 167, 231, 0.05);
+  --code-bg: rgba(25, 23, 36, 0.66);
+  --selection: rgba(196, 167, 231, 0.30);
+}
+
+/* ---- Fonts + scale ------------------------------------------------------ */
+:root {
+  --font-display: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  --font-lockup: 'EB Garamond', Georgia, 'Times New Roman', serif;
+
+  --step--1: clamp(0.79rem, 0.77rem + 0.1vw, 0.85rem);
+  --step-0: clamp(0.95rem, 0.92rem + 0.15vw, 1.02rem);
+  --step-1: clamp(1.14rem, 1.05rem + 0.4vw, 1.35rem);
+  --step-2: clamp(1.4rem, 1.2rem + 0.9vw, 1.9rem);
+  --step-3: clamp(1.85rem, 1.4rem + 2vw, 2.9rem);
+  --step-4: clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem);
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --maxw: 1180px;
+  --rail: 240px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---- Plate: the DÆMON signature — an inverse (night) panel on the cream
+   page. Pins the Rosé Pine palette for its whole subtree, like the main
+   site's dark hero band / terminals / footer. On the night theme it stays
+   dark, so plates read as dark in both modes. -------------------------- */
+.plate {
+  --base: #191724;
+  --surface: #1f1d2e;
+  --overlay: #26233a;
+  --muted: #8b87a3;
+  --subtle: #908caa;
+  --text: #e0def4;
+  --love: #eb6f92; --gold: #f6c177; --rose: #ebbcba;
+  --pine: #3e8fb0; --foam: #9ccfd8; --iris: #c4a7e7;
+  --hl-low: #21202e; --hl-med: #403d52; --hl-high: #524f67;
+  --bg: var(--base);
+  --fg: var(--text);
+  --fg-dim: var(--subtle);
+  --fg-faint: var(--muted);
+  --accent: var(--iris);
+  --accent-2: var(--foam);
+  --glass-bg: rgba(31, 29, 46, 0.6);
+  --glass-bg-strong: rgba(38, 35, 58, 0.82);
+  --glass-brd: rgba(224, 222, 244, 0.12);
+  --glass-brd-hi: rgba(224, 222, 244, 0.2);
+  --glass-shadow: 0 12px 44px rgba(0, 0, 0, 0.4);
+  --grid-line: rgba(224, 222, 244, 0.05);
+  --code-bg: rgba(25, 23, 36, 0.72);
+  color: var(--fg);
+}

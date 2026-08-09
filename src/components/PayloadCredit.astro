@@ -1,0 +1,17 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+interface Props { topic: string; sourceUrl: string; sha: string }
+const { topic, sourceUrl, sha } = Astro.props;
+---
+<aside class="patt-credit" aria-label="Attribution">
+  <span class="patt-badge">mirror</span>
+  <span class="patt-credit__text">
+    Mirrored from <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener">PayloadsAllTheThings</a>
+    <span class="muted">›</span> {topic}
+    <span class="patt-lic">MIT · <a href={url('credits')}>credits</a> · <code>{sha.slice(0, 7)}</code></span>
+  </span>
+  <a class="patt-src" href={sourceUrl} target="_blank" rel="noopener" aria-label="View source on GitHub">
+    <Icon name="github" style="width:15px;height:15px;" /> source
+  </a>
+</aside>

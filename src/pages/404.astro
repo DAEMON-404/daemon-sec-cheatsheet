@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { url } from '../lib/url';
+---
+<Base title="404 — signal lost" description="This path resolves to nothing.">
+  <div class="wrap">
+    <section class="hero pane" style="--acc: var(--love);">
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="pane__bar">
+        <span class="pane__dots"><i></i><i></i><i></i></span>
+        <span class="pane__label">stderr — 404</span>
+      </div>
+      <div class="pane__body">
+        <p class="eyebrow" style="color:var(--love)">// signal lost</p>
+        <h1 class="hero-title">4<span class="hl2">0</span>4</h1>
+        <p class="hero-sub">That route resolves to nothing. The host may be down,
+          or the path was never in scope.</p>
+        <div class="term glass" style="padding:1rem 1.1rem; margin-top:1.4rem; max-width:520px;">
+          <div class="line"><span class="p">daemon@sec</span><span class="o">:</span><span class="k">~</span><span class="o">$</span> <span class="c">curl -sI {'<path>'}</span></div>
+          <div class="line" style="color:var(--love)">HTTP/1.1 404 Not Found</div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href={url('')}><Icon name="terminal" /> Return to vault</a>
+          <button class="btn btn--ghost" data-search-open type="button"><Icon name="search" /> Search instead</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

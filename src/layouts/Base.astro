@@ -1,0 +1,65 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SearchModal from '../components/SearchModal.astro';
+import { url } from '../lib/url';
+import '../styles/app.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  railless?: boolean;
+}
+const {
+  title = 'DÆMON//SEC — Cyber & IT Cheatsheet Vault',
+  description = 'A curated, glassy vault of the best IT and cybersecurity cheatsheets — Active Directory, enumeration, exploitation, priv-esc, and more.',
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <meta name="theme-color" content="#191724" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#faf4ed" media="(prefers-color-scheme: light)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={url('og.svg')} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Set theme before first paint to avoid FOUC -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          // Dawn (cream) is the default, matching the main DÆMON site.
+          if (t !== 'light' && t !== 'dark') t = 'light';
+          document.documentElement.setAttribute('data-theme', t);
+          document.documentElement.style.colorScheme = t;
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+    <ClientRouter />
+  </head>
+  <body>
+    <div class="fx-glow" aria-hidden="true"></div>
+    <div class="fx-grid" aria-hidden="true"></div>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <SearchModal />
+    <script>
+      import '../scripts/app.ts';
+    </script>
+  </body>
+</html>
