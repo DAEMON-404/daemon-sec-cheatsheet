@@ -8,7 +8,7 @@ A curated, glassy vault of the best IT & cybersecurity cheatsheets —
 Active Directory, enumeration, exploitation, priv-esc, web, DFIR, and more.
 Fast offline search, copy-ready commands, zero fluff.
 
-🌐 **[daemon-404.github.io/daemon-sec-vault](https://daemon-404.github.io/daemon-sec-vault)**
+🌐 **[daemon-404.github.io/daemon-sec-cheatsheet](https://daemon-404.github.io/daemon-sec-cheatsheet)**
 
 `Rose Pine · Apple-glass · cyberpunk` — built with [Astro](https://astro.build) + [Pagefind](https://pagefind.app)
 

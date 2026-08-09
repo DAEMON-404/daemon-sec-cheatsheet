@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
-const BASE = '/daemon-sec-vault';
+const BASE = '/daemon-sec-cheatsheet';
 
 // Root-relative links written into markdown content (e.g. the internalized
 // PayloadsAllTheThings nav links "/payloads/...") don't get the project base
@@ -30,7 +30,7 @@ function rehypeBaseLinks() {
   return (tree) => walk(tree);
 }
 
-// Project page: https://daemon-404.github.io/daemon-sec-vault
+// Project page: https://daemon-404.github.io/daemon-sec-cheatsheet
 export default defineConfig({
   site: 'https://daemon-404.github.io',
   base: BASE,
