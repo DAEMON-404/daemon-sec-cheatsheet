@@ -62,12 +62,12 @@ const leaf = entry.id.split('/').pop()!.replace(/^index$/, d.topic);
 
     <nav class="prevnext" aria-label="Pagination">
       {prev ? (
-        <a class="pane glow" href={url(payloadHref(prev))} style="--acc: var(--iris)">
+        <a href={url(payloadHref(prev))} style="--acc: var(--iris)">
           <span class="dir">← Prev</span><strong>{prev.data.title}</strong>
         </a>
       ) : <span></span>}
       {next ? (
-        <a class="pane glow nx" href={url(payloadHref(next))} style="--acc: var(--iris)">
+        <a class="nx" href={url(payloadHref(next))} style="--acc: var(--iris)">
           <span class="dir">Next →</span><strong>{next.data.title}</strong>
         </a>
       ) : <span></span>}

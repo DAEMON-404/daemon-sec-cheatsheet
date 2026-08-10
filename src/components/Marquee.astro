@@ -1,0 +1,134 @@
+---
+import Icon from './Icon.astro';
+import type { CategoryDef } from '../lib/taxonomy';
+
+interface Props {
+  items: { cat: CategoryDef; count: number }[];
+}
+const { items } = Astro.props;
+
+/**
+ * The domain band — the archive's index grammar, run sideways.
+ *
+ * ── Grammar ──
+ * The band could have opened each entry with the section eyebrow, but that
+ * makes it read as twelve small banners sliding past. The site's core
+ * object is the record row: number, kind mark, title, meta, in that order,
+ * 10px mono with an 11px kind icon. Each entry carries exactly that line
+ * horizontally — the index, the kind, the domain in display type, the
+ * sheet count trailing in the meta slot — so the band reads as the live
+ * index in motion rather than as decoration. Like the row, the trailing
+ * count drops on narrow viewports, and like the index, every entry sets at
+ * the same weight: a row is a row.
+ *
+ * The `^:` mark survives in exactly one place — the band's own tab. It is
+ * the site's self-naming mark, and the band names itself once; repeated on
+ * every entry it was furniture. The tab counts its entries too, because
+ * every index on this site counts itself, and a count derived from the
+ * data cannot go stale.
+ *
+ * ── Colour ──
+ * The ground is `--band`: iris walked down to a weight that carries text
+ * (see tokens.css). The accent carries the domain title and its kind icon
+ * while every small word stays cream — record-row grammar, not a contrast
+ * ruling.
+ *
+ * Two identical runs, translated as one unit, so the reset is invisible.
+ */
+
+/* Rendered twice. The second run is `aria-hidden` — the band is one index,
+   not two, and a screen reader should not read twelve domains and then
+   read them again. */
+const RUN = items;
+---
+<!-- `.plate` pins the night palette for the whole band. Without it `--acc`
+     resolves to the *dawn* accents, which are reading weights drawn for
+     cream — on this ground pine and rose land near 1:1 and the kind marks
+     disappear. The band is dark in both modes, so it takes the dark
+     palette in both modes. -->
+<section class="marquee plate bleed" aria-label="Domains" data-marquee>
+  <span class="marquee__tab marquee__tab--l">
+    <span class="dot" aria-hidden="true"><i></i><u></u></span>
+    ^: Index
+  </span>
+
+  <div class="marquee__track" data-marquee-track>
+    {[0, 1].map((run) => (
+      <div class="marquee__run" aria-hidden={run === 1 ? 'true' : undefined}>
+        {RUN.map((item, i) => (
+          <span class="marquee__item" style={`--acc: var(--${item.cat.accent});`}>
+            <span class="marquee__n">{String(i + 1).padStart(2, '0')}</span>
+            <span class="marquee__kind"><Icon name="doc" /> {item.cat.tag}</span>
+            <span class="marquee__title">{item.cat.title}</span>
+            <span class="marquee__qual">{item.count} {item.count === 1 ? 'sheet' : 'sheets'}</span>
+          </span>
+        ))}
+      </div>
+    ))}
+  </div>
+
+  <span class="marquee__tab marquee__tab--r">{String(items.length).padStart(2, '0')} domains</span>
+</section>
+
+<script>
+  /**
+   * Driven from rAF rather than from a CSS keyframe, which is the whole
+   * reason this is script at all: a CSS animation cannot ease toward a
+   * fraction of its speed under the pointer, and a hard `paused` reads as
+   * a broken animation rather than as a deliberate slow-down.
+   */
+  const SPEED = 70;   // px/s
+  const HOVER = 0.22; // multiplier under the pointer — never zero
+  const EASE = 0.08;  // how fast the current speed chases the target
+
+  function initMarquee(): void {
+    const host = document.querySelector<HTMLElement>('[data-marquee]');
+    const track = document.querySelector<HTMLElement>('[data-marquee-track]');
+    if (!host || !track || host.dataset.bound) return;
+    host.dataset.bound = '1';
+
+    // Static under reduced motion: the first run is already the complete
+    // index, so it stays readable with nothing moving.
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const run = track.firstElementChild as HTMLElement | null;
+    if (!run) return;
+
+    let offset = 0;
+    let speed = SPEED;
+    let target = SPEED;
+    let last = 0;
+    let raf = 0;
+
+    host.addEventListener('pointerenter', () => { target = SPEED * HOVER; });
+    host.addEventListener('pointerleave', () => { target = SPEED; });
+
+    const frame = (now: number) => {
+      const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
+      last = now;
+      speed += (target - speed) * EASE;
+      offset += speed * dt;
+
+      // One run's width is the wrap point: the second run lands exactly
+      // where the first started, so resetting there is invisible. Measured
+      // every frame rather than cached — the band reflows on resize and on
+      // font load, and a stale width shows up as a visible jump.
+      const width = run.offsetWidth;
+      if (width > 0 && offset >= width) offset -= width;
+
+      track.style.transform = `translate3d(${-offset.toFixed(2)}px, 0, 0)`;
+      raf = requestAnimationFrame(frame);
+    };
+
+    raf = requestAnimationFrame(frame);
+
+    // Astro's view transitions swap the document without unloading it, so
+    // an un-cancelled rAF would keep running against a detached node and
+    // stack a second loop on the next page that has a band.
+    document.addEventListener('astro:before-swap', () => cancelAnimationFrame(raf), { once: true });
+  }
+
+  document.addEventListener('astro:page-load', initMarquee);
+  if (document.readyState !== 'loading') initMarquee();
+  else document.addEventListener('DOMContentLoaded', initMarquee);
+</script>

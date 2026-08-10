@@ -4,6 +4,10 @@ import { url } from '../lib/url';
 interface Props { active?: string }
 const { active } = Astro.props;
 ---
+<!-- Twelve chips over a 1px ink ground, so the row reads as one ruled
+     strip rather than as twelve floating pills — the same construction as
+     the domain grid on the home page. Styling lives in global.css
+     (`.cat-nav` / `.cat-chip`) because the sheet pages use it too. -->
 <nav class="cat-nav" aria-label="Categories">
   {CATEGORIES.map((c) => (
     <a
@@ -16,20 +20,3 @@ const { active } = Astro.props;
     </a>
   ))}
 </nav>
-
-<style>
-  .cat-nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .cat-chip {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    padding: 0.4rem 0.75rem; border-radius: 999px;
-    border: 1px solid var(--glass-brd); background: var(--glass-bg);
-    font-size: 0.85rem; color: var(--fg-dim);
-    transition: color 0.18s, border-color 0.18s, transform 0.18s;
-  }
-  .cat-chip:hover { color: var(--fg); transform: translateY(-1px); border-color: color-mix(in oklab, var(--acc) 45%, var(--glass-brd)); }
-  .cat-chip__tag { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; color: var(--acc); }
-  .cat-chip[aria-current='page'] {
-    color: var(--fg); border-color: color-mix(in oklab, var(--acc) 60%, transparent);
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--acc) 25%, transparent), 0 4px 18px color-mix(in oklab, var(--acc) 15%, transparent);
-  }
-</style>

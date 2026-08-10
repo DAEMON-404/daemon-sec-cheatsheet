@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  href: string;
+  /** Zero-padded index, supplied by the list so a row never has to know
+   *  where it sits. */
+  n: string;
+  title: string;
+  /** The kind mark — the domain tag for a sheet, the topic for a payload. */
+  kind: string;
+  kindIcon?: string;
+  accent?: string;
+  /** The trailing slot: difficulty, date, page count. Dropped below md,
+   *  where the row has no room for a fifth column. */
+  meta?: string;
+}
+const { href, n, title, kind, kindIcon = 'doc', accent = 'foam', meta } = Astro.props;
+
+/**
+ * One record in an index — the site's core object.
+ *
+ * One line, not a card. The title is deliberately NOT set as a display
+ * heading: at heading weight every entry carries the weight of a section
+ * and a list of fifty becomes unscannable. The point of an index is the
+ * shape of the whole list, and that only reads if a row is a row.
+ *
+ * Hovering wipes ink across the row (`.wipe` in chrome.css). On that ink
+ * the dawn accents sit at roughly 1:1, so every coloured cell takes a
+ * cream weight instead of keeping a hue nobody could read — see the
+ * `.record:hover` rules in global.css.
+ */
+---
+<a class="record wipe dmn-t" href={href} style={`--acc: var(--${accent});`}>
+  <span class="record__grid">
+    <span class="record__n">{n}</span>
+    <span class="record__kind"><Icon name={kindIcon} /> {kind}</span>
+    <span class="record__title">{title}</span>
+    {meta ? <span class="record__meta">{meta}</span> : <span class="record__meta" />}
+    <span class="record__arrow"><Icon name="chevron" /></span>
+  </span>
+</a>

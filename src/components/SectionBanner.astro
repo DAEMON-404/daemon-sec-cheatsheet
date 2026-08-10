@@ -1,0 +1,272 @@
+---
+interface Stat {
+  label: string;
+  value: string | number;
+  /** Paint the value in the banner's accent — one per banner, the number
+   *  worth reading first. */
+  accent?: boolean;
+}
+
+interface Props {
+  /** Mono lockup before the rule, e.g. `03 ^: ACTIVE DIRECTORY`. */
+  n: string;
+  label: string;
+  title: string;
+  blurb?: string;
+  stats?: Stat[];
+  accent?: 'iris' | 'foam' | 'love' | 'gold' | 'rose' | 'pine';
+}
+const { n, label, title, blurb, stats = [], accent = 'foam' } = Astro.props;
+
+/**
+ * The page header every route below the home page lands on: dark plate,
+ * live signal field, left scrim, and a ledger on the right.
+ *
+ * Legibility on the plate is carried by two layers, not one — the canvas
+ * erases its own top and bottom bands, AND the scrim gradient sits over
+ * the noise and under the content. Either alone leaves the title sitting
+ * on a bright filament some fraction of the loop.
+ */
+---
+<header class="banner plate bleed" style={`--acc: var(--${accent});`}>
+  <canvas class="banner__field" data-fuzz aria-hidden="true"></canvas>
+  <span class="banner__scrim" aria-hidden="true"></span>
+  <span class="grain grain--local" aria-hidden="true"></span>
+
+  <div class="wrap banner__body">
+    <div>
+      <p class="eyebrow" style={`--acc: var(--${accent});`}>
+        <span class="eyebrow__n">{n}</span>
+        <span class="eyebrow__mark">^:</span>
+        <span>{label}</span>
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+      </p>
+      <h1 class="banner__title">{title}</h1>
+      {blurb && <p class="banner__blurb">{blurb}</p>}
+    </div>
+
+    {stats.length > 0 && (
+      <dl class="banner__ledger">
+        {stats.map((s) => (
+          <div class={`banner__row${s.accent ? ' banner__row--acc' : ''}`}>
+            <dt>{s.label}</dt>
+            <dd><b>{s.value}</b></dd>
+          </div>
+        ))}
+      </dl>
+    )}
+  </div>
+</header>
+
+<script>
+  /**
+   * The banners' signal field: six pixel-sorted streaks drifting on an
+   * additive blend, plus bright filaments, looping seamlessly every nine
+   * seconds.
+   *
+   * Ported from the main site's logic class. Four things are load-bearing
+   * and break the look if changed: the loop-global phase (so two plates on
+   * one page stay in step), the DPR backing (at 1× the streaks are 1–2px
+   * and upscaling blurs the pixel-sorted look), the erasure scrim, and the
+   * synchronous frame zero.
+   */
+
+  /** Band geometry — six streaks, three hues between them. `hue` is a
+   *  *slot* (1 = iris, 2 = foam, 3 = love), not a colour: which colour a
+   *  slot resolves to, and how it composites, is read from CSS at draw
+   *  time so the field follows the mode along with everything else. */
+  const BANDS = [
+    { cy: 0.10, ch: 0.20, hue: 1, drift: 1, cyc: 1, dens: 12 },
+    { cy: 0.34, ch: 0.24, hue: 2, drift: -1, cyc: 2, dens: 15 },
+    { cy: 0.22, ch: 0.14, hue: 3, drift: 2, cyc: 1, dens: 9 },
+    { cy: 0.60, ch: 0.22, hue: 2, drift: 1, cyc: 1, dens: 13 },
+    { cy: 0.80, ch: 0.16, hue: 1, drift: -1, cyc: 2, dens: 10 },
+    { cy: 0.92, ch: 0.14, hue: 3, drift: 1, cyc: 2, dens: 9 },
+  ] as const;
+
+  interface Palette {
+    blend: GlobalCompositeOperation;
+    bands: [string, string, string];
+    filaments: [string, string, string];
+    gain: number;
+  }
+
+  const FALLBACK: Palette = {
+    blend: 'lighter',
+    bands: ['196,167,231', '156,207,216', '235,111,146'],
+    filaments: ['224,222,244', '156,207,216', '196,167,231'],
+    gain: 1,
+  };
+
+  /**
+   * Resolve the palette off the canvas itself, so a plate inside a scope
+   * that pins the night palette draws the dark field even while the page
+   * around it is on paper. Reading the computed style is what makes that
+   * work: the cascade has already answered the question, and the canvas
+   * only has to ask the right element.
+   *
+   * Channels come back space-separated from CSS and the 2D context wants
+   * them comma-separated, hence the normalise.
+   */
+  function readPalette(cv: HTMLCanvasElement): Palette {
+    const cs = getComputedStyle(cv);
+    const channels = (name: string, fallback: string) => {
+      const v = cs.getPropertyValue(name).trim();
+      return v ? v.replace(/\s+/g, ',') : fallback;
+    };
+    const blend = cs.getPropertyValue('--fuzz-blend').trim();
+    const gain = parseFloat(cs.getPropertyValue('--fuzz-gain'));
+    return {
+      blend: (blend || FALLBACK.blend) as GlobalCompositeOperation,
+      bands: [
+        channels('--fuzz-band-1', FALLBACK.bands[0]),
+        channels('--fuzz-band-2', FALLBACK.bands[1]),
+        channels('--fuzz-band-3', FALLBACK.bands[2]),
+      ],
+      filaments: [
+        channels('--fuzz-fil-1', FALLBACK.filaments[0]),
+        channels('--fuzz-fil-2', FALLBACK.filaments[1]),
+        channels('--fuzz-fil-3', FALLBACK.filaments[2]),
+      ],
+      gain: Number.isFinite(gain) ? gain : FALLBACK.gain,
+    };
+  }
+
+  /** One frame of the field at `phase` ∈ [0,1). Every band's drift and
+   *  breathe is a whole number of cycles per loop, so the 9s loop seams
+   *  cleanly and any two plates on the page stay in step. */
+  function frame(cv: HTMLCanvasElement, phase: number, amt: number, pal: Palette): void {
+    // clientWidth is 0 for the first frames after insert; fall back to the
+    // host box so the field is not blank until the second layout.
+    const host = cv.parentElement;
+    const w = (cv.clientWidth || host?.clientWidth || 0) | 0;
+    const h = (cv.clientHeight || host?.clientHeight || 0) | 0;
+    if (!w || !h) return;
+
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    const bw = Math.round(w * dpr);
+    const bh = Math.round(h * dpr);
+    if (cv.width !== bw || cv.height !== bh) { cv.width = bw; cv.height = bh; }
+
+    const ctx = cv.getContext('2d');
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const frac = (x: number) => x - Math.floor(x);
+    const rnd = (s: number) => frac(Math.sin(s * 127.1) * 43758.5453);
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalCompositeOperation = pal.blend;
+
+    for (let bi = 0; bi < BANDS.length; bi++) {
+      const b = BANDS[bi];
+      const cy = b.cy * h;
+      const ch = b.ch * h;
+      for (let y = Math.max(0, Math.round(cy - ch)); y < Math.min(h, cy + ch); y += 2) {
+        const fall = 1 - Math.abs(y - cy) / ch;
+        const breathe = 0.5 + 0.5 * Math.sin(2 * Math.PI * (b.cyc * phase + y * 0.004 + bi * 0.3));
+        const env = fall * (0.4 + 0.6 * breathe);
+        if (env <= 0.02) continue;
+        const n = Math.round(env * b.dens * amt);
+        for (let i = 0; i < n; i++) {
+          const s = y * 7.3 + i * 13.7 + bi * 101.3;
+          const x = frac(rnd(s) + phase * b.drift) * (w + 420) - 210;
+          const len = (18 + rnd(s + 1) * 340) * (0.4 + env);
+          const hx = 0.22 + 0.78 * Math.pow(Math.sin(Math.PI * ((x / w) * (1 + (bi % 3)) + phase + rnd(bi * 9))), 2);
+          const a = (0.06 + rnd(s + 2) * 0.34) * env * hx * 1.7 * pal.gain;
+          ctx.fillStyle = `rgba(${pal.bands[b.hue - 1]},${a.toFixed(3)})`;
+          ctx.fillRect(x, y, len, rnd(s + 3) > 0.84 ? 2 : 1);
+        }
+      }
+    }
+
+    for (let i = 0; i < 54; i++) {
+      const s = i * 37.1;
+      const y = Math.round((rnd(s) * h) / 2) * 2;
+      const cyc = 1 + (i % 2);
+      const x = frac(rnd(s + 5) + phase * cyc) * (w + 700) - 350;
+      const a = (0.1 + rnd(s + 6) * 0.28) * amt * pal.gain;
+      ctx.fillStyle = `rgba(${pal.filaments[i % 3]},${a.toFixed(3)})`;
+      ctx.fillRect(x, y, 120 + rnd(s + 7) * 520, 1);
+    }
+
+    // Scrim by erasure: destination-out bands at top and bottom so type
+    // near the plate edges always sits on clean ink. The percentage clamp
+    // matters — a fixed 40px erased most of the short plates.
+    ctx.globalCompositeOperation = 'destination-out';
+    const solid = Math.min(40, h * 0.14);
+    const ramp = Math.min(26, h * 0.1);
+    ctx.fillStyle = 'rgba(0,0,0,1)';
+    ctx.fillRect(0, 0, w, solid);
+    ctx.fillRect(0, h - solid, w, solid);
+    let g = ctx.createLinearGradient(0, solid, 0, solid + ramp);
+    g.addColorStop(0, 'rgba(0,0,0,1)');
+    g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, solid, w, ramp);
+    g = ctx.createLinearGradient(0, h - solid - ramp, 0, h - solid);
+    g.addColorStop(0, 'rgba(0,0,0,0)');
+    g.addColorStop(1, 'rgba(0,0,0,1)');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, h - solid - ramp, w, ramp);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+
+  /** Density scale. The main site ships at 6; the constant exists for
+   *  tuning, not for the UI. */
+  const PRESS = 6;
+  /** The frame reduced motion keeps as the permanent texture — mid-loop,
+   *  where the bands are at their fullest rather than at a seam. */
+  const STILL = 0.3;
+
+  function initFuzz(): void {
+    const canvases = document.querySelectorAll<HTMLCanvasElement>('[data-fuzz]:not([data-bound])');
+    canvases.forEach((cv) => {
+      cv.dataset.bound = '1';
+      const amt = Math.max(0.2, PRESS / 5);
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Resolved once per mode rather than once per frame: getComputedStyle
+      // flushes style on a canvas repainting at 60fps, and there is nothing
+      // to re-read between mode changes.
+      let pal = readPalette(cv);
+
+      // Draw frame zero synchronously. rAF never fires in a hidden tab,
+      // during print, or in a screenshot, and a schedule-only start leaves
+      // the canvas at its 300×150 default — a bare plate in every capture.
+      const still = () => frame(cv, STILL, amt, pal);
+      frame(cv, reduced ? STILL : (performance.now() / 9000) % 1, amt, pal);
+
+      // The animated loop re-measures every frame, so it absorbs resizes on
+      // its own; the static frame needs the observer to stay crisp.
+      const ro = new ResizeObserver(() => { if (reduced) still(); });
+      ro.observe(cv.parentElement ?? cv);
+
+      // A bitmap does not inherit. The variables have already changed by
+      // the time this fires, so re-reading them is all it takes — but a
+      // still frame has to be redrawn by hand, or the plate keeps the old
+      // palette until something else resizes it.
+      const onMode = () => { pal = readPalette(cv); if (reduced) still(); };
+      addEventListener('daemonmodechange', onMode);
+
+      let raf = 0;
+      if (!reduced) {
+        const loop = (now: number) => {
+          frame(cv, (now / 9000) % 1, amt, pal);
+          raf = requestAnimationFrame(loop);
+        };
+        raf = requestAnimationFrame(loop);
+      }
+
+      document.addEventListener('astro:before-swap', () => {
+        cancelAnimationFrame(raf);
+        ro.disconnect();
+        removeEventListener('daemonmodechange', onMode);
+      }, { once: true });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFuzz);
+  if (document.readyState !== 'loading') initFuzz();
+  else document.addEventListener('DOMContentLoaded', initFuzz);
+</script>

@@ -4,6 +4,23 @@
    (night). Type is Archivo + IBM Plex Mono, with an EB Garamond lockup for
    the wordmark. Palette values are the contrast-tuned DÆMON dawn/night tokens.
    The theme attribute is set on <html> by an inline head script before paint.
+
+   ── Form language ──
+   The site is an editorial-brutalist paper archive, not a glass UI. Three
+   rules follow from that and everything here serves them:
+
+     1. Zero radius. Corners are square, everywhere, including images and
+        inputs. `--radius*` survive only so that consumers written against
+        them keep compiling; they all resolve to 0.
+     2. No blur, no glow, no drop shadow. Structure is carried by 1px ink
+        rules (`--rule`), flat panels (`.slab`), and the grain film.
+     3. Colour separates by *value*, not by translucency. A panel differs
+        from its page because it is a different ink, not because it is
+        frosted.
+
+   Alpha still belongs on borders and washes. It does NOT belong on text:
+   use the ink / subtle / muted ramp, which is tuned to stay legible at
+   every step in both modes.
    ========================================================================== */
 
 /* ---- Fonts (self-hosted, base-aware via Vite) ---------------------------- */
@@ -35,6 +52,18 @@
   --hl-med: #dfdad9;
   --hl-high: #cecacd;
 
+  /* The published Rosé Pine Dawn pastels, kept for decoration — washes,
+     rules, noise bands, anything that is a shape rather than a word. On
+     cream they run from gold at 2.05:1 to love at 3.84:1, all under the
+     4.5:1 floor, so never put text in them here. They are what the theme
+     actually looks like: use them as ground and put ink on top. */
+  --pine-soft: #286983;
+  --foam-soft: #56949f;
+  --gold-soft: #ea9d34;
+  --love-soft: #b4637a;
+  --iris-soft: #907aa9;
+  --rose-soft: #d7827e;
+
   /* semantic */
   --bg: var(--base);
   --fg: var(--text);
@@ -43,17 +72,36 @@
   --accent: var(--iris);
   --accent-2: var(--pine);
 
-  /* glass — light frosted paper */
-  --glass-bg: rgba(255, 250, 243, 0.72);
-  --glass-bg-strong: rgba(255, 250, 243, 0.9);
-  --glass-brd: rgba(87, 82, 121, 0.14);
-  --glass-brd-hi: rgba(87, 82, 121, 0.26);
-  --glass-blur: 16px;
-  --glass-shadow: 0 10px 34px rgba(87, 82, 121, 0.13);
-  --grid-line: rgba(87, 82, 121, 0.05);
-  --scan: rgba(121, 90, 162, 0.04);
-  --code-bg: rgba(242, 233, 225, 0.72);
+  /* Structure. `--rule` is the hairline every edge on the site is drawn
+     with; `--rule-hi` is the same ink at the weight a hovered or active
+     edge takes. `--wash` is the one permitted fill that is not a flat
+     colour — a paper tint for table stripes and hover grounds. */
+  --rule: rgba(87, 82, 121, 0.22);
+  --rule-hi: rgba(87, 82, 121, 0.48);
+  --rule-faint: rgba(87, 82, 121, 0.12);
+  --wash: rgba(242, 233, 225, 0.6);
+  --wash-strong: #f2e9e1;
+
+  --code-bg: #f2e9e1;
   --selection: rgba(121, 90, 162, 0.22);
+
+  /* The grain film's weight on paper. Multiply, because on a light ground
+     noise has to be laid *into* the page — added to it, it is invisible. */
+  --grain-blend: multiply;
+  --grain-opacity: 0.1;
+
+  /* The banners' signal field, resolved from CSS at draw time so the
+     canvas follows the mode. On paper there is no light to add, so the
+     bands are multiplied in at lower gain (multiply bites harder than
+     `lighter` at the same alpha) using the published dawn hues. */
+  --fuzz-blend: multiply;
+  --fuzz-gain: 0.55;
+  --fuzz-band-1: 144 122 169;  /* iris-soft */
+  --fuzz-band-2: 86 148 159;   /* foam-soft */
+  --fuzz-band-3: 180 99 122;   /* love-soft */
+  --fuzz-fil-1: 87 82 121;     /* ink */
+  --fuzz-fil-2: 86 148 159;
+  --fuzz-fil-3: 144 122 169;
 }
 
 /* ---- Dark = Rosé Pine (night) ------------------------------------------- */
@@ -74,6 +122,15 @@
   --hl-med: #403d52;
   --hl-high: #524f67;
 
+  /* On the dark side the published accents already clear their floors as
+     text, so `-soft` is the same value rather than a separate pastel. */
+  --pine-soft: #3e8fb0;
+  --foam-soft: #9ccfd8;
+  --gold-soft: #f6c177;
+  --love-soft: #eb6f92;
+  --iris-soft: #c4a7e7;
+  --rose-soft: #ebbcba;
+
   --bg: var(--base);
   --fg: var(--text);
   --fg-dim: var(--subtle);
@@ -81,16 +138,54 @@
   --accent: var(--iris);
   --accent-2: var(--foam);
 
-  --glass-bg: rgba(31, 29, 46, 0.55);
-  --glass-bg-strong: rgba(38, 35, 58, 0.78);
-  --glass-brd: rgba(224, 222, 244, 0.10);
-  --glass-brd-hi: rgba(224, 222, 244, 0.18);
-  --glass-blur: 18px;
-  --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
-  --grid-line: rgba(224, 222, 244, 0.045);
-  --scan: rgba(196, 167, 231, 0.05);
-  --code-bg: rgba(25, 23, 36, 0.66);
+  --rule: rgba(224, 222, 244, 0.16);
+  --rule-hi: rgba(224, 222, 244, 0.38);
+  --rule-faint: rgba(224, 222, 244, 0.08);
+  --wash: rgba(224, 222, 244, 0.05);
+  --wash-strong: #26233a;
+
+  --code-bg: #131019;
   --selection: rgba(196, 167, 231, 0.30);
+
+  /* Screen, not multiply: on ink, noise has to be added or it vanishes. */
+  --grain-blend: screen;
+  --grain-opacity: 0.07;
+
+  --fuzz-blend: lighter;
+  --fuzz-gain: 1;
+  --fuzz-band-1: 196 167 231;
+  --fuzz-band-2: 156 207 216;
+  --fuzz-band-3: 235 111 146;
+  --fuzz-fil-1: 224 222 244;
+  --fuzz-fil-2: 156 207 216;
+  --fuzz-fil-3: 196 167 231;
+}
+
+/* ---- Bands: grounds, not accents ---------------------------------------- */
+/* A full-bleed band has to carry text on top of it, and an accent at
+   reading weight cannot also be a ground: at the accent's lightness the
+   night palette stops reading on it. So a band is an accent walked down
+   its own hue until the night accents all clear their floors on it.
+
+   Two bands, two tokens — they shared one for a while on the main site
+   and retuning the marquee silently repainted the ledger halfway down
+   the page. These sit outside the theme blocks because a band is the
+   same ink in both modes: it is the page's constant. */
+:root {
+  /* The marquee. Iris, because iris is the signature accent — the hero
+     rule, the section eyebrows — so the one saturated stripe near the
+     top of the page belongs to the family around it. Published iris
+     (#795aa2, hue 266) walked down to ground weight at the same hue.
+     Cream on it: 9.10:1. */
+  --band: #4e3969;
+  /* The ledger band, far enough down the page that the two never share a
+     sightline. Cream on it: 7.04:1. */
+  --band-ledger: #015a77;
+  /* The plate ground the section banners and code blocks are drawn on,
+     and its scrim channels — the canvas reads these to erase its own
+     edges under the title. */
+  --plate: #171322;
+  --plate-scrim: 23 19 34;
 }
 
 /* ---- Fonts + scale ------------------------------------------------------ */
@@ -107,11 +202,28 @@
   --step-3: clamp(1.85rem, 1.4rem + 2vw, 2.9rem);
   --step-4: clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem);
 
-  --radius: 14px;
-  --radius-sm: 9px;
-  --maxw: 1180px;
+  /* The micro label — 10px mono, uppercase, widely tracked. This is the
+     site's signature type object: every eyebrow, kind mark, stat label,
+     tab and code-block caption is set in it. Fixed in px on purpose; it
+     is furniture, and furniture does not scale with the headline. */
+  --step-micro: 10px;
+  --track-micro: 0.18em;
+  --track-wide: 0.24em;
+
+  /* Square corners, everywhere. Kept as tokens so existing consumers keep
+     compiling — they all resolve to nothing. */
+  --radius: 0;
+  --radius-sm: 0;
+
+  /* The archive measure. Wider than the old glass build's 1180px because
+     the page is now built out of full-bleed bands and ruled tables rather
+     than out of floating cards, and those want the room. */
+  --maxw: 1440px;
   --rail: 240px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  /* The site's entrance curve — slower out, hard landing. Distinct from
+     `--ease`, which is for hover-scale transitions. */
+  --ease-in: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 /* ---- Plate: the DÆMON signature — an inverse (night) panel on the cream
@@ -127,6 +239,8 @@
   --text: #e0def4;
   --love: #eb6f92; --gold: #f6c177; --rose: #ebbcba;
   --pine: #3e8fb0; --foam: #9ccfd8; --iris: #c4a7e7;
+  --pine-soft: #3e8fb0; --foam-soft: #9ccfd8; --gold-soft: #f6c177;
+  --love-soft: #eb6f92; --iris-soft: #c4a7e7; --rose-soft: #ebbcba;
   --hl-low: #21202e; --hl-med: #403d52; --hl-high: #524f67;
   --bg: var(--base);
   --fg: var(--text);
@@ -134,12 +248,21 @@
   --fg-faint: var(--muted);
   --accent: var(--iris);
   --accent-2: var(--foam);
-  --glass-bg: rgba(31, 29, 46, 0.6);
-  --glass-bg-strong: rgba(38, 35, 58, 0.82);
-  --glass-brd: rgba(224, 222, 244, 0.12);
-  --glass-brd-hi: rgba(224, 222, 244, 0.2);
-  --glass-shadow: 0 12px 44px rgba(0, 0, 0, 0.4);
-  --grid-line: rgba(224, 222, 244, 0.05);
-  --code-bg: rgba(25, 23, 36, 0.72);
+  --rule: rgba(224, 222, 244, 0.16);
+  --rule-hi: rgba(224, 222, 244, 0.38);
+  --rule-faint: rgba(224, 222, 244, 0.08);
+  --wash: rgba(224, 222, 244, 0.05);
+  --wash-strong: #26233a;
+  --code-bg: #131019;
+  --grain-blend: screen;
+  --grain-opacity: 0.07;
+  --fuzz-blend: lighter;
+  --fuzz-gain: 1;
+  --fuzz-band-1: 196 167 231;
+  --fuzz-band-2: 156 207 216;
+  --fuzz-band-3: 235 111 146;
+  --fuzz-fil-1: 224 222 244;
+  --fuzz-fil-2: 156 207 216;
+  --fuzz-fil-3: 196 167 231;
   color: var(--fg);
 }

@@ -1,54 +1,74 @@
 ---
 import Base from '../../layouts/Base.astro';
-import SheetCard from '../../components/SheetCard.astro';
+import SectionBanner from '../../components/SectionBanner.astro';
+import RecordRow from '../../components/RecordRow.astro';
 import CategoryNav from '../../components/CategoryNav.astro';
-import Icon from '../../components/Icon.astro';
 import { CATEGORIES } from '../../lib/taxonomy';
 import type { CategoryDef } from '../../lib/taxonomy';
-import { sheetsByCategory, type Sheet } from '../../lib/sheets';
+import { sheetsByCategory, sheetHref, type Sheet } from '../../lib/sheets';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
   const groups = await sheetsByCategory();
-  return CATEGORIES.map((c) => ({
+  return CATEGORIES.map((c, i) => ({
     params: { category: c.slug },
-    props: { cat: c, items: groups.find((g) => g.slug === c.slug)?.items ?? [] },
+    props: {
+      cat: c,
+      items: groups.find((g) => g.slug === c.slug)?.items ?? [],
+      n: String(i + 1).padStart(2, '0'),
+    },
   }));
 }
-interface Props { cat: CategoryDef; items: Sheet[] }
-const { cat, items } = Astro.props;
+interface Props { cat: CategoryDef; items: Sheet[]; n: string }
+const { cat, items, n } = Astro.props;
+
+/* The ledger counts what the page can actually count. Difficulty spread is
+   the one figure a reader uses to decide where to start in a domain. */
+const byDifficulty = (level: string) => items.filter((s) => s.data.difficulty === level).length;
+const tools = new Set(items.flatMap((s) => s.data.tools));
 ---
 <Base title={`${cat.title} — DÆMON//SEC`} description={cat.blurb}>
+  <SectionBanner
+    n={n}
+    label={cat.tag}
+    title={cat.title}
+    blurb={cat.blurb}
+    accent={cat.accent}
+    stats={[
+      { label: 'Sheets', value: String(items.length).padStart(2, '0'), accent: true },
+      { label: 'Tools covered', value: String(tools.size).padStart(2, '0') },
+      { label: 'Beginner / adv', value: `${byDifficulty('beginner')} / ${byDifficulty('advanced')}` },
+    ]}
+  />
+
   <div class="wrap">
-    <nav class="breadcrumb" style="margin-top:1.5rem;">
+    <nav class="breadcrumb" style="margin-top:1.6rem;">
       <a href={url('')}>~</a><span class="sep">/</span>
       <span style={`color: var(--${cat.accent})`}>{cat.tag.toLowerCase()}</span>
     </nav>
 
-    <header class="cat-header">
-      <p class="eyebrow">// [{cat.tag}] · {items.length} {items.length === 1 ? 'sheet' : 'sheets'}</p>
-      <h1 class="sheet-title" style={`color: var(--${cat.accent});`}>{cat.title}</h1>
-      <p class="sheet-desc">{cat.blurb}</p>
-    </header>
-
-    <div class="cat-nav-wrap"><CategoryNav active={cat.slug} /></div>
+    <div style="margin:1.4rem 0 2rem;"><CategoryNav active={cat.slug} /></div>
 
     {items.length > 0 ? (
-      <div class="grid-cards">
-        {items.map((entry) => <SheetCard entry={entry} />)}
+      <div class="index" style="margin-bottom:3rem;">
+        {items.map((entry, i) => (
+          <RecordRow
+            href={url(sheetHref(entry))}
+            n={String(i + 1).padStart(2, '0')}
+            title={entry.data.title}
+            kind={entry.data.difficulty}
+            accent={cat.accent}
+            meta={entry.data.updated ?? entry.id.split('/').pop()}
+          />
+        ))}
       </div>
     ) : (
-      <div class="pane" style="margin-top:1.5rem;">
-        <div class="pane__body">
-          <p class="muted mono">No sheets in this domain yet. More landing soon —
-            <a class="accent-text" href={url('')}>back to the vault</a>.</p>
-        </div>
+      <div class="slab" style="margin:1.5rem 0 3rem; padding:1.2rem 1.3rem;">
+        <p class="muted mono" style="font-size:0.85rem;">
+          No sheets in this domain yet. More landing soon —
+          <a class="accent-text" href={url('')}>back to the vault</a>.
+        </p>
       </div>
     )}
   </div>
 </Base>
-
-<style>
-  .cat-header { margin-top: 1rem; }
-  .cat-nav-wrap { margin: 1.6rem 0 2rem; }
-</style>

@@ -1,0 +1,32 @@
+---
+import type { CategoryDef } from '../lib/taxonomy';
+import { url } from '../lib/url';
+import Icon from './Icon.astro';
+
+interface Props { cat: CategoryDef; count: number; n: string }
+const { cat, count, n } = Astro.props;
+
+/**
+ * One of the twelve domains, as a tile.
+ *
+ * The hue lives on the top edge and nowhere else. Twelve fully-coloured
+ * cards would be a paint chart, and the colour is here to key the domain
+ * against the masthead and the marquee, not to fill the grid.
+ *
+ * The tiles carry no gutters — the grid draws 1px rules between them
+ * (`.grid-plates`) so the twelve read as one ruled table rather than as
+ * twelve floating objects.
+ */
+---
+<a class="plate-tile" href={url(cat.slug)} style={`--acc: var(--${cat.accent});`}>
+  <span class="plate-tile__head">
+    <span class="plate-tile__tag">{cat.tag}</span>
+    <span class="plate-tile__n">{n}</span>
+  </span>
+  <h3 class="plate-tile__title">{cat.title}</h3>
+  <p class="plate-tile__blurb">{cat.blurb}</p>
+  <span class="plate-tile__meta">
+    <span>{count} {count === 1 ? 'sheet' : 'sheets'}</span>
+    <span class="plate-tile__arrow"><Icon name="arrow" /></span>
+  </span>
+</a>

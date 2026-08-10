@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 ---
 <div class="search-overlay" data-search-overlay hidden>
-  <div class="search-box pane glow" role="dialog" aria-modal="true" aria-label="Search cheatsheets">
+  <div class="search-box" role="dialog" aria-modal="true" aria-label="Search cheatsheets">
     <div class="search-inputrow">
       <Icon name="search" class="search-ico" />
       <input
@@ -20,31 +20,56 @@ import Icon from './Icon.astro';
 </div>
 
 <style>
+  /* An opaque scrim rather than a frosted one. The page under it is as
+     often a dark band as it is cream, and a translucent overlay reads as
+     two different dialogs depending on where you happened to be. */
   .search-overlay {
     position: fixed; inset: 0; z-index: 100;
     display: grid; place-items: start center;
     padding: clamp(3rem, 12vh, 8rem) 1rem 2rem;
-    background: color-mix(in oklab, var(--base) 55%, transparent);
-    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    background: color-mix(in oklab, var(--base) 88%, transparent);
   }
   .search-overlay[hidden] { display: none; }
-  .search-box { width: min(640px, 100%); --acc: var(--iris); }
-  .search-inputrow { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--glass-brd); }
-  .search-ico { width: 20px; height: 20px; color: var(--fg-faint); flex: 0 0 auto; }
+  .search-box {
+    width: min(660px, 100%);
+    border: 1px solid var(--fg);
+    background: var(--base);
+  }
+  .search-inputrow { display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.8rem; border-bottom: 1px solid var(--rule); }
+  .search-ico { width: 18px; height: 18px; color: var(--fg-faint); flex: 0 0 auto; }
   .search-input {
     flex: 1; background: none; border: none; outline: none;
-    color: var(--fg); font-size: 1.05rem; font-family: var(--font-body);
+    color: var(--fg); font-size: 1.02rem; font-family: var(--font-mono);
   }
   .search-input::placeholder { color: var(--fg-faint); }
-  .search-results { max-height: min(56vh, 520px); overflow-y: auto; padding: 0.5rem; }
-  .search-hint { color: var(--fg-faint); font-size: 0.82rem; padding: 0.8rem; }
-  .search-hint kbd { border: 1px solid var(--glass-brd); border-radius: 5px; padding: 0.05rem 0.3rem; }
-  .s-result { display: block; padding: 0.7rem 0.8rem; border-radius: 10px; border: 1px solid transparent; }
-  .s-result:hover, .s-result:focus-visible { background: var(--glass-bg); border-color: var(--glass-brd); }
-  .s-cat { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-  .s-title { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; margin-top: 0.15rem; }
-  .s-excerpt { color: var(--fg-dim); font-size: 0.85rem; margin-top: 0.2rem; line-height: 1.45; }
-  .s-excerpt :global(mark) { background: color-mix(in oklab, var(--gold) 30%, transparent); color: var(--fg); border-radius: 3px; padding: 0 2px; }
+  .search-results { max-height: min(56vh, 520px); overflow-y: auto; }
+  .search-hint {
+    color: var(--fg-faint); font-size: var(--step-micro);
+    letter-spacing: var(--track-micro); text-transform: uppercase;
+    padding: 1rem 0.9rem;
+  }
+  .search-hint kbd { border: 1px solid var(--rule); padding: 0.06rem 0.3rem; }
+  /* Results are index rows, like every other list on the site — the ink
+     wipe is the same object, at the same timing. */
+  .s-result {
+    display: block; padding: 0.75rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
+    background-image: linear-gradient(90deg, var(--fg) 0 50%, transparent 50% 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    transition: background-position 380ms var(--ease-in), color 1ms;
+  }
+  .s-result:hover, .s-result:focus-visible { background-position: 0 0; color: var(--base); }
+  .s-cat {
+    font-family: var(--font-mono); font-size: var(--step-micro);
+    letter-spacing: var(--track-micro); text-transform: uppercase; color: var(--accent);
+  }
+  .s-result:hover .s-cat, .s-result:focus-visible .s-cat { color: rgba(250, 244, 237, 0.78); }
+  .s-title { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; letter-spacing: -0.015em; margin-top: 0.2rem; }
+  .s-excerpt { color: var(--fg-dim); font-size: 0.85rem; margin-top: 0.25rem; line-height: 1.45; }
+  .s-result:hover .s-excerpt, .s-result:focus-visible .s-excerpt { color: rgba(250, 244, 237, 0.78); }
+  .s-excerpt :global(mark) { background: color-mix(in oklab, var(--gold) 34%, transparent); color: inherit; padding: 0 2px; }
 </style>
 
 <script>

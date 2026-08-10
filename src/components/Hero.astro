@@ -1,0 +1,243 @@
+---
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+
+interface Props {
+  sheets: number;
+  domains: number;
+  payloads: number;
+}
+const { sheets, domains, payloads } = Astro.props;
+
+/**
+ * The hero, carried over from the main site's retired paper hero.
+ *
+ * Two display lines over a bordered ledger card. Both lines sit at their
+ * font's narrowest usable width with a vertical scale on top — the comp's
+ * poster face is not licensed here — and `scaleY` overflows its own line
+ * box, so each line lives in a fixed-height `cqw` wrapper that clips it
+ * (`.clip` / `.stretch` in chrome.css).
+ *
+ * Sized in `cqw` against the text column rather than in `vw` against the
+ * window. In `vw` the lockup is sized against a viewport the column stops
+ * tracking at `--maxw`, and past that width the type drifts out of line
+ * with everything under it — which is a thing you only see at 1900px.
+ *
+ * ── The spelling ──
+ * The main site sets the wordmark in substitution glyphs (DΛΣMӨП, three
+ * scripts). The vault self-hosts EB Garamond's *latin* subset only, so Λ Σ
+ * Ө П would fall back per-character to a different face at a different
+ * width and the lockup would render as six mismatched letters. The Latin
+ * spelling is the site's own documented fallback for exactly this case,
+ * and it is what the six-glyph hover key is built against.
+ */
+const WORDMARK = 'DÆMON';
+const GLYPHS = [...WORDMARK];
+
+/** Per-glyph entrance step, ms. Six glyphs at 54ms is what the ink rule's
+ *  780ms delay is timed against — change one and the rule lands wrong. */
+const STEP = 54;
+
+const STATS = [
+  { value: sheets, label: 'Curated<br />cheatsheets', tone: 'iris' },
+  { value: domains, label: 'Operator<br />domains', tone: 'love' },
+  { value: payloads, label: 'Mirrored<br />payload pages', tone: 'gold' },
+];
+---
+<section class="hero" id="top">
+  <div class="wrap hero__inner">
+    <div class="hero__lockup" data-lockup>
+      <div class="clip hero__line">
+        <h1 class="stretch hero__word" style="transform: scaleY(1.28);">
+          {GLYPHS.map((g, i) => (
+            <span class="hero__glyph" style={`animation-delay: ${i * STEP}ms;`}>{g}</span>
+          ))}
+        </h1>
+      </div>
+
+      <span class="hero__rule" aria-hidden="true"></span>
+
+      <div class="clip hero__subline">
+        <p class="stretch hero__sub"><span>The cheatsheet vault</span></p>
+      </div>
+    </div>
+
+    <div class="hero__ledger">
+      <div class="hero__card">
+        <div>
+          <div class="hero__eyebrow">Vault / 2026</div>
+          <h2 class="hero__h2">Zero fluff. Copy-ready.</h2>
+          <p class="hero__blurb">
+            {sheets} hand-picked cheatsheets across {domains} domains — Active Directory,
+            enumeration, exploitation, priv-esc, web, DFIR — stripped of vault-specific
+            syntax and refreshed for current tool flags. Plus the full
+            PayloadsAllTheThings mirror, searchable offline.
+          </p>
+          <div class="hero__actions">
+            <button class="btn" data-search-open type="button">
+              <Icon name="search" /> Search the vault
+            </button>
+            <a class="btn btn--ghost" href={url('payloads')}>
+              <Icon name="layers" /> Payloads
+            </a>
+          </div>
+        </div>
+
+        <div>
+          {/* The identity readout, carried over from the main site's hero.
+              Borderless on purpose: the card around it is the printed
+              spec, this is the terminal output inside it, so the two read
+              as different registers rather than as a box in a box. Every
+              value is a fact the vault can actually assert. */}
+          <div class="whoami">
+            <div class="whoami__cmd">
+              <span class="u">daemon@sec</span><span>~</span><span>%</span>
+              <span class="c">whoami --vault</span>
+              <span class="whoami__caret" aria-hidden="true"></span>
+            </div>
+            <dl class="whoami__rows">
+              <dt>scope</dt><dd>Offensive security · red team · DFIR</dd>
+              <dt>format</dt><dd>Copy-ready commands, current tool flags</dd>
+              <dt>search</dt><dd>Pagefind · offline · zero tracking</dd>
+              <dt>license</dt><dd>MIT · payloads mirrored from swisskyrepo</dd>
+            </dl>
+          </div>
+
+          <dl class="hero__stats" style="margin-top:1.6rem;">
+          {STATS.map((s) => (
+            <div class={`hero__stat hero__stat--${s.tone}`}>
+              <dt class="sr-only" set:html={s.label.replace('<br />', ' ')} />
+              <dd>
+                {/* Padded to two digits and counted up from zero. The
+                    initial text is the final value, so with JS off or
+                    reduced motion on, the number is simply correct. */}
+                <b data-count={s.value}>{String(s.value).padStart(2, '0')}</b>
+                <span set:html={` ${s.label}`} />
+              </dd>
+            </div>
+          ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /**
+   * Proximity ripple across the lockup.
+   *
+   * The letter under the pointer lifts most and its neighbours fall off
+   * from it, so the wordmark answers the cursor as one object rather than
+   * as six independent hover targets.
+   *
+   * Written straight to the nodes from a rAF. `scale` and `translate` are
+   * separate CSS properties from `transform`, which the entrance animation
+   * owns and fills `both` — so the three compose instead of overwriting
+   * each other. Using `transform` here would cancel the entrance.
+   */
+  const LIFT = 0.075;   // peak scale added to the letter under the pointer
+  const RISE = 0.022;   // peak rise, in em, so it tracks the type size
+  const REACH = 2.1;    // how far the falloff carries, in glyph widths
+
+  function initLockup(): void {
+    const host = document.querySelector<HTMLElement>('[data-lockup]');
+    if (!host || host.dataset.bound) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    host.dataset.bound = '1';
+
+    const glyphs = () => Array.from(host.querySelectorAll<HTMLElement>('.hero__glyph'));
+    let raf = 0;
+    let point: { x: number } | null = null;
+
+    const paint = () => {
+      raf = 0;
+      for (const g of glyphs()) {
+        if (!point) {
+          g.style.scale = '';
+          g.style.translate = '';
+          continue;
+        }
+        const r = g.getBoundingClientRect();
+        // Falloff measured in glyph widths, so it scales with the type
+        // rather than with a pixel constant that only suits one viewport.
+        const d = Math.abs(point.x - (r.left + r.width / 2)) / r.width;
+        const fade = Math.max(0, 1 - (d / REACH) ** 2);
+        g.style.scale = `${1 + LIFT * fade}`;
+        // Four places, not two: at 0.01em steps the rise quantises to
+        // roughly two pixels at this type size, and the falloff stepped
+        // between neighbours instead of easing across them.
+        g.style.translate = `0 ${(-RISE * fade).toFixed(4)}em`;
+      }
+    };
+
+    const queue = () => { if (!raf) raf = requestAnimationFrame(paint); };
+
+    const onMove = (e: PointerEvent) => {
+      // Coarse pointers have no hover to track; a tap would otherwise
+      // leave one letter stuck mid-lift.
+      if (e.pointerType !== 'mouse') return;
+      const r = host.getBoundingClientRect();
+      // A band around the lockup rather than the box itself: the letters
+      // should start answering as the pointer approaches, not the instant
+      // it crosses an invisible edge.
+      const near = e.clientY > r.top - r.height * 0.6 && e.clientY < r.bottom + r.height * 0.6;
+      point = near ? { x: e.clientX } : null;
+      queue();
+    };
+    const onLeave = () => { point = null; queue(); };
+
+    addEventListener('pointermove', onMove, { passive: true });
+    addEventListener('pointerleave', onLeave, { passive: true });
+    addEventListener('blur', onLeave);
+  }
+
+  /**
+   * The stats climb as their row lands rather than on page load, so the
+   * numbers are moving while they are being looked at rather than
+   * finishing behind the hero's entrance.
+   */
+  function initCounters(): void {
+    const nodes = document.querySelectorAll<HTMLElement>('[data-count]:not([data-counted])');
+    if (!nodes.length) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const run = (el: HTMLElement) => {
+      el.dataset.counted = '1';
+      const target = Number(el.dataset.count ?? '0');
+      const pad = (n: number) => String(n).padStart(2, '0');
+      const t0 = performance.now();
+      const DURATION = 1100;
+      const tick = (now: number) => {
+        const p = Math.min(1, (now - t0) / DURATION);
+        // Ease-out cubic: the figure should decelerate onto its value
+        // rather than stop dead on it.
+        const eased = 1 - (1 - p) ** 3;
+        el.textContent = pad(Math.round(target * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          run(e.target as HTMLElement);
+          obs.unobserve(e.target);
+        }
+      },
+      { threshold: 0.6 },
+    );
+    nodes.forEach((n) => obs.observe(n));
+  }
+
+  function init(): void {
+    initLockup();
+    initCounters();
+  }
+
+  document.addEventListener('astro:page-load', init);
+  if (document.readyState !== 'loading') init();
+  else document.addEventListener('DOMContentLoaded', init);
+</script>

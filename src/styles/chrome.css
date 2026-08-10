@@ -1,0 +1,254 @@
+/* ============================================================================
+   Chrome — the site's form language, ported from the main DÆMON build.
+
+   This file replaces the old glass.css. Where that file made a container
+   out of translucency (blur, tint, inner highlight, 14px radius), this one
+   makes one out of a hairline and a value change. The objects below are
+   the whole vocabulary; every page is assembled from them.
+
+     .slab      flat panel — 1px rule, square, no shadow
+     .plate     inverse (night) panel, defined in tokens.css
+     .grain     the film over everything
+     .micro     10px mono label — the site's furniture type
+     .eyebrow   `03 ^: LABEL` lockup with a keyed rule
+     .btn       flat control
+     .wipe      ink wipe for index rows
+     .clip / .stretch  the lockup's scale rig
+   ========================================================================== */
+
+/* ---- The film ------------------------------------------------------------ */
+/* Fractal noise laid over the page so a flat colour reads as stock rather
+   than as a swatch. It is the one thing standing in for the texture the
+   glass build got from blur, and it is why removing the blur does not
+   leave the page feeling like unpainted CSS.
+
+   Multiply on paper, screen on ink (tokens.css) — noise has to be laid
+   *into* a light ground and *added* to a dark one; the same blend on both
+   is invisible on one of them. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+}
+
+/* A plate carries its own grain, because it pins the night palette for its
+   subtree and therefore needs the dark blend while the page around it is
+   still on the light one. */
+.grain--local {
+  position: absolute;
+  z-index: 2;
+}
+
+/* ---- Panels -------------------------------------------------------------- */
+.slab {
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+/* The heavier variant, for the one panel on a screen that is the point of
+   it — the site draws these at full ink rather than at rule weight. */
+.slab--ink {
+  border-color: var(--fg);
+  background: var(--base);
+}
+
+/* ---- Type furniture ------------------------------------------------------ */
+/* 10px mono, uppercase, widely tracked. Every eyebrow, kind mark, stat
+   label, tab and caption on the site is this object. */
+.micro {
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+.micro--wide { letter-spacing: var(--track-wide); }
+
+/* The section lockup: an index, the site's self-naming `^:` mark, a label,
+   then a rule that runs out to the end of the line in the section's own
+   hue. It is what tells you which of the twelve domains you are in
+   without a heading having to say it twice. */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+.eyebrow__n { color: var(--acc, var(--accent)); }
+.eyebrow__mark { color: var(--fg-faint); opacity: 0.7; }
+.eyebrow__rule {
+  flex: 1;
+  height: 1px;
+  background: var(--acc, var(--accent));
+  opacity: 0.5;
+}
+
+/* Section heading — Archivo at its heaviest, condensed, tracked in tight.
+   Uppercase is load-bearing: at this weight and width the lowercase
+   letterforms lose their counters and the word turns into a block. */
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-stretch: 84%;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+/* ---- Controls ------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.72rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  /* The label is a single tracked line. Without this it wraps at the
+     button's intrinsic width and the control turns into a three-line
+     block, which at this letter-spacing is unreadable. */
+  white-space: nowrap;
+  border: 1px solid transparent;
+  background: var(--fg);
+  color: var(--base);
+  transition: background-color 240ms ease, color 200ms ease, border-color 220ms ease;
+}
+/* An inline SVG with no intrinsic size resolves to 300×150 and detonates
+   the control. Every icon in a button is a 14px mark beside the label. */
+.btn svg { width: 14px; height: 14px; flex: none; }
+.btn:hover { background: var(--accent-2); }
+.btn--ghost {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--rule-hi);
+}
+.btn--ghost:hover { background: var(--fg); color: var(--base); border-color: var(--fg); }
+
+/* A chip is a bordered label, never a filled pill. Square, hairline, hue
+   from whatever it qualifies. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.36rem 0.7rem;
+  font-family: var(--font-mono);
+  font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
+  text-transform: uppercase;
+  border: 1px solid color-mix(in oklab, var(--acc, var(--accent)) 55%, transparent);
+  color: var(--acc, var(--accent));
+  transition: background-color 240ms ease, color 200ms ease;
+}
+a.chip:hover { background: var(--acc, var(--accent)); color: var(--base); }
+
+/* The live dot — a filled core with a ring expanding off it. Used for
+   anything the page wants to claim is current rather than static. */
+.dot {
+  position: relative;
+  display: block;
+  width: 6px;
+  height: 6px;
+  flex: none;
+}
+.dot i,
+.dot u {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  display: block;
+}
+.dot i { background: currentColor; }
+.dot u { border: 1px solid currentColor; }
+@media (prefers-reduced-motion: no-preference) {
+  .dot i { animation: dmn-pulse 2.4s ease-in-out infinite; }
+  .dot u { animation: dmn-ring 4.2s ease-out infinite; }
+}
+
+/* ---- The index row's ink wipe -------------------------------------------- */
+/* Hovering a row fills it with ink from the left. Driven by
+   `background-position` over a hard-stop gradient rather than by
+   `background-color`, and the transition list deliberately has no `color`
+   in it — dragging a pointer down a fifty-row index is the one interaction
+   here that can drop frames, and a colour transition on every row it
+   crosses is what does it. The text colour flips instantly instead. */
+.wipe {
+  background-image: linear-gradient(90deg, var(--fg) 0 50%, transparent 50% 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  transition: background-position 380ms var(--ease-in), color 1ms;
+}
+.wipe:hover { background-position: 0 0; }
+
+/* ---- Shared timing ------------------------------------------------------- */
+.dmn-t {
+  transition:
+    background-color 240ms ease,
+    color 200ms ease,
+    border-color 220ms ease,
+    transform 220ms var(--ease-in),
+    opacity 200ms ease;
+}
+
+/* ---- The lockup's scale rig ---------------------------------------------- */
+/* `scaleY` overflows its own line box, so a stretched display line has to
+   sit in a fixed-height wrapper that clips it — otherwise it collides with
+   whatever is under it and no amount of margin fixes it, because the
+   overflow is not in the layout. */
+.clip { overflow: hidden; }
+.stretch {
+  transform-origin: 0 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ---- Keyframes ----------------------------------------------------------- */
+@keyframes dmn-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes dmn-track-in {
+  from { letter-spacing: 0.075em; transform: scaleX(0.93); }
+  to { letter-spacing: 0.012em; transform: scaleX(1); }
+}
+@keyframes dmn-draw {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes dmn-wipe-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes dmn-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+@keyframes dmn-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  70%, 100% { transform: scale(2.6); opacity: 0; }
+}
+@keyframes dmn-blink {
+  50% { opacity: 0; }
+}
+
+/* Under reduced motion every entrance collapses to a single 0.01ms pass,
+   which lands on the same rest state the animation would have reached —
+   so the markup needs no second code path. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

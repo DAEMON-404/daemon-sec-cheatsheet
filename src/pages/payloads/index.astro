@@ -1,5 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
+import SectionBanner from '../../components/SectionBanner.astro';
+import RecordRow from '../../components/RecordRow.astro';
 import Icon from '../../components/Icon.astro';
 import { payloadsByTopic } from '../../lib/payloads';
 import { url } from '../../lib/url';
@@ -7,51 +9,59 @@ import { url } from '../../lib/url';
 const groups = await payloadsByTopic();
 const totalPages = groups.reduce((n, g) => n + g.count, 0);
 const sha = groups[0]?.readme?.data.sha ?? groups[0]?.items[0]?.data.sha ?? '';
-// Rotate accent colours so the grid reads varied, like the domain grid.
+/* Rotated so the index reads varied down its kind column rather than as
+   sixty-six identical rows. */
 const ACCENTS = ['iris', 'foam', 'gold', 'love', 'rose', 'pine'];
 ---
-<Base title="Payloads — PayloadsAllTheThings mirror — DÆMON//SEC" description="A full, searchable mirror of PayloadsAllTheThings — 66 topics of web & infra exploitation payloads. Credit: swisskyrepo, MIT.">
-  <div class="wrap">
-    <header class="sheet-head" style="margin-top:2rem;">
-      <p class="eyebrow" style="color: var(--iris)">// Payloads</p>
-      <h1 class="sheet-title">PayloadsAllTheThings</h1>
-      <p class="sheet-desc">
-        A full, on-site mirror of <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener" style="color:var(--iris)">PayloadsAllTheThings</a>
-        — {groups.length} topics, {totalPages} pages of web &amp; infrastructure exploitation payloads and bypasses.
-        All credit to <strong>swisskyrepo</strong> and its contributors. Licensed <strong>MIT</strong>.
-      </p>
-    </header>
+<Base
+  title="Payloads — PayloadsAllTheThings mirror — DÆMON//SEC"
+  description="A full, searchable mirror of PayloadsAllTheThings — 66 topics of web & infra exploitation payloads. Credit: swisskyrepo, MIT."
+>
+  <SectionBanner
+    n="02"
+    label="Full mirror · MIT"
+    title="PayloadsAllTheThings"
+    blurb="A complete on-site mirror of swisskyrepo's payload and bypass reference — searchable offline, every page linked back to source."
+    accent="iris"
+    stats={[
+      { label: 'Topics', value: String(groups.length).padStart(2, '0'), accent: true },
+      { label: 'Pages', value: totalPages },
+      { label: 'License', value: 'MIT' },
+    ]}
+  />
 
-    <aside class="patt-credit" style="margin-bottom:1.6rem;">
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.6rem;">
+      <a href={url('')}>~</a><span class="sep">/</span><span class="muted">payloads</span>
+    </nav>
+
+    <aside class="patt-credit" style="margin-top:1.4rem;">
       <span class="patt-badge">mirror</span>
       <span class="patt-credit__text">
         Mirrored verbatim from the upstream repo. Images and raw payload files load from GitHub; see each page's <em>source</em> link.
         <span class="patt-lic">MIT · <a href={url('credits')}>full credits &amp; license</a>{sha && <> · <code>{sha.slice(0,7)}</code></>}</span>
       </span>
       <a class="patt-src" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener">
-        <Icon name="github" style="width:15px;height:15px;" /> upstream
+        <Icon name="github" /> upstream
       </a>
     </aside>
 
-    <div class="grid-cards" style="margin-bottom:3rem;">
-      {groups.map((g, i) => {
-        const acc = ACCENTS[i % ACCENTS.length];
-        return (
-          <a class="card pane glow" href={url(`payloads/${g.slug}`)} style={`--acc: var(--${acc});`}>
-            <div class="pane__bar">
-              <span class="pane__dots"><i></i><i></i><i></i></span>
-              <span class="pane__label">[{g.slug.replace(/-/g, '_').slice(0, 22)}]</span>
-            </div>
-            <div class="pane__body">
-              <h3 class="card-title" style={`color: var(--${acc});`}>{g.title}</h3>
-              <div class="card-meta">
-                <span class="card-count">{g.count} {g.count === 1 ? 'page' : 'pages'}</span>
-                <span class="card-arrow"><Icon name="arrow" /></span>
-              </div>
-            </div>
-          </a>
-        );
-      })}
+    <div class="index" style="margin-bottom:3rem;">
+      {groups.map((g, i) => (
+        <RecordRow
+          href={url(`payloads/${g.slug}`)}
+          n={String(i + 1).padStart(2, '0')}
+          title={g.title}
+          kind="payload"
+          kindIcon="layers"
+          accent={ACCENTS[i % ACCENTS.length]}
+          meta={`${g.count} ${g.count === 1 ? 'page' : 'pages'}`}
+        />
+      ))}
     </div>
   </div>
 </Base>
+
+<style>
+  .patt-src svg { width: 14px; height: 14px; }
+</style>

@@ -36,7 +36,12 @@ const pdfHref = d.pdf ? url(`pdfs/${d.pdf}`) : null;
     </nav>
 
     <header class="sheet-head" data-pagefind-meta={`category:${cat.title}`}>
-      <p class="eyebrow" style={`color: var(--${cat.accent})`}>// {cat.title}</p>
+      <p class="eyebrow" style={`--acc: var(--${cat.accent});`}>
+        <span class="eyebrow__n">{cat.tag}</span>
+        <span class="eyebrow__mark">^:</span>
+        <span>{cat.title}</span>
+        <span class="eyebrow__rule" aria-hidden="true"></span>
+      </p>
       <h1 class="sheet-title" data-pagefind-meta="title">{d.title}</h1>
       {d.description && <p class="sheet-desc">{d.description}</p>}
       <div class="sheet-meta">
@@ -54,14 +59,13 @@ const pdfHref = d.pdf ? url(`pdfs/${d.pdf}`) : null;
     <div class="sheet-layout">
       <article class="prose" data-pagefind-body>
         {pdfHref && (
-          <div class="pane" style="margin-bottom:1.5rem;">
-            <div class="pane__bar">
-              <span class="pane__dots"><i></i><i></i><i></i></span>
-              <span class="pane__label">{d.pdf}</span>
-              <a class="code-copy" href={pdfHref} download style="margin-left:auto;text-decoration:none;">download</a>
-            </div>
+          <figure class="code-pane" style="margin-bottom:1.6rem;">
+            <figcaption class="code-pane__bar">
+              <span class="code-pane__lang">{d.pdf}</span>
+              <a class="code-copy" href={pdfHref} download>Download</a>
+            </figcaption>
             <iframe class="pdf-frame" src={pdfHref} title={`${d.title} (PDF)`} loading="lazy"></iframe>
-          </div>
+          </figure>
         )}
         <Content />
       </article>
@@ -80,12 +84,12 @@ const pdfHref = d.pdf ? url(`pdfs/${d.pdf}`) : null;
 
     <nav class="prevnext" aria-label="Pagination">
       {prev ? (
-        <a class="pane glow" href={url(sheetHref(prev))} style={`--acc: var(--${cat.accent})`}>
+        <a href={url(sheetHref(prev))} style={`--acc: var(--${cat.accent})`}>
           <span class="dir">← Prev</span><strong>{prev.data.title}</strong>
         </a>
       ) : <span></span>}
       {next ? (
-        <a class="pane glow nx" href={url(sheetHref(next))} style={`--acc: var(--${cat.accent})`}>
+        <a class="nx" href={url(sheetHref(next))} style={`--acc: var(--${cat.accent})`}>
           <span class="dir">Next →</span><strong>{next.data.title}</strong>
         </a>
       ) : <span></span>}

@@ -1,7 +1,9 @@
 ---
 import Base from '../../layouts/Base.astro';
-import SheetCard from '../../components/SheetCard.astro';
-import { allSheets, allTags, tagSlug, type Sheet } from '../../lib/sheets';
+import SectionBanner from '../../components/SectionBanner.astro';
+import RecordRow from '../../components/RecordRow.astro';
+import { categoryOf } from '../../lib/taxonomy';
+import { allSheets, allTags, tagSlug, sheetHref, type Sheet } from '../../lib/sheets';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
@@ -14,20 +16,44 @@ export async function getStaticPaths() {
 }
 interface Props { tag: string; items: Sheet[] }
 const { tag, items } = Astro.props;
+
+/* How many domains the tag reaches across — the figure that says whether a
+   tag is a niche or a spine running through the vault. */
+const domains = new Set(items.map((s) => s.data.category)).size;
 ---
 <Base title={`#${tag} — DÆMON//SEC`} description={`Cheatsheets tagged ${tag}.`}>
+  <SectionBanner
+    n="04"
+    label="Tag"
+    title={`#${tag}`}
+    accent="iris"
+    stats={[
+      { label: 'Sheets', value: String(items.length).padStart(2, '0'), accent: true },
+      { label: 'Domains', value: String(domains).padStart(2, '0') },
+    ]}
+  />
+
   <div class="wrap">
-    <nav class="breadcrumb" style="margin-top:1.5rem;">
+    <nav class="breadcrumb" style="margin-top:1.6rem;">
       <a href={url('')}>~</a><span class="sep">/</span>
       <a href={url('tags')}>tags</a><span class="sep">/</span>
       <span class="accent-text">{tag}</span>
     </nav>
-    <header style="margin-top:1rem;">
-      <p class="eyebrow">// {items.length} {items.length === 1 ? 'sheet' : 'sheets'}</p>
-      <h1 class="sheet-title">#{tag}</h1>
-    </header>
-    <div class="grid-cards" style="margin-top:1.8rem;">
-      {items.map((entry) => <SheetCard entry={entry} />)}
+
+    <div class="index" style="margin:1.6rem 0 3rem;">
+      {items.map((entry, i) => {
+        const cat = categoryOf(entry.data.category);
+        return (
+          <RecordRow
+            href={url(sheetHref(entry))}
+            n={String(i + 1).padStart(2, '0')}
+            title={entry.data.title}
+            kind={cat.tag}
+            accent={cat.accent}
+            meta={entry.data.updated ?? entry.data.difficulty}
+          />
+        );
+      })}
     </div>
   </div>
 </Base>

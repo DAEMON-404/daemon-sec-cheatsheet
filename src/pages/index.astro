@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-import CategoryCard from '../components/CategoryCard.astro';
-import SheetCard from '../components/SheetCard.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import DomainPlate from '../components/DomainPlate.astro';
+import RecordRow from '../components/RecordRow.astro';
 import Icon from '../components/Icon.astro';
-import { CATEGORIES } from '../lib/taxonomy';
-import { allSheets, categoryCounts } from '../lib/sheets';
+import { CATEGORIES, categoryOf } from '../lib/taxonomy';
+import { allSheets, categoryCounts, sheetHref } from '../lib/sheets';
 import { payloadsByTopic } from '../lib/payloads';
 import { url } from '../lib/url';
 
@@ -16,117 +18,90 @@ const domains = CATEGORIES.filter((c) => (counts[c.slug] ?? 0) > 0).length;
 const payloadTopics = await payloadsByTopic();
 const payloadPages = payloadTopics.reduce((n, g) => n + g.count, 0);
 
+const marqueeItems = CATEGORIES.map((cat) => ({ cat, count: counts[cat.slug] ?? 0 }));
+
 const featured = [...sheets]
   .sort((a, b) => (b.data.updated ?? '').localeCompare(a.data.updated ?? ''))
-  .slice(0, 6);
+  .slice(0, 8);
 ---
 <Base>
+  <!-- The page's rhythm: paper hero, band, paper index, band, paper index.
+       The bands break the measure and run edge to edge; their contents
+       return to it. -->
+  <Hero sheets={total} domains={domains} payloads={payloadPages} />
+
+  <Marquee items={marqueeItems} />
+
   <div class="wrap">
-    <!-- HERO -->
-    <section class="hero pane plate">
-      <div class="scanlines" aria-hidden="true"></div>
-      <div class="pane__bar">
-        <span class="pane__dots"><i></i><i></i><i></i></span>
-        <span class="pane__label">daemon-sec — /root/vault</span>
-      </div>
-      <div class="pane__body">
-        <div class="hero-grid">
-          <div>
-            <p class="eyebrow">// curated offensive-security reference</p>
-            <h1 class="hero-title" data-glitch>
-              The <span class="hl">cheatsheet</span><br />vault for
-              <span class="hl2">operators</span>.
-            </h1>
-            <p class="hero-sub">
-              {total} hand-picked, modernized cheatsheets across {domains} domains —
-              Active Directory, enumeration, exploitation, priv-esc, and more.
-              Fast search, copy-ready commands, zero fluff.
-            </p>
-            <div class="hero-actions">
-              <button class="btn" data-search-open type="button">
-                <Icon name="search" /> Search the vault <kbd style="opacity:.6">/</kbd>
-              </button>
-              <a class="btn btn--ghost" href={url('active-directory')}>
-                <Icon name="terminal" /> Browse Active Directory
-              </a>
-            </div>
-            <div class="hero-stats">
-              <div class="hero-stat"><b>{total}</b><span>Cheatsheets</span></div>
-              <div class="hero-stat"><b>{domains}</b><span>Domains</span></div>
-              <div class="hero-stat"><b>∞</b><span>Copy-paste ready</span></div>
-            </div>
-          </div>
-
-          <div class="term glass" style="padding:1.1rem 1.2rem; align-self:stretch;">
-            <div class="line"><span class="p">daemon@sec</span><span class="o">:</span><span class="k">~</span><span class="o">$</span> <span class="c">whoami</span></div>
-            <div class="line o">operator — authorized. scope loaded.</div>
-            <div class="line"><span class="p">daemon@sec</span><span class="o">:</span><span class="k">~</span><span class="o">$</span> <span class="c">grep -ri "kerberoast" ./vault</span></div>
-            <div class="line o">active-directory/kerberoasting.md</div>
-            <div class="line o">tools/rubeus.md</div>
-            <div class="line"><span class="p">daemon@sec</span><span class="o">:</span><span class="k">~</span><span class="o">$</span> <span class="c">cat ./vault/index | wc -l</span></div>
-            <div class="line o">{total}</div>
-            <div class="line"><span class="p">daemon@sec</span><span class="o">:</span><span class="k">~</span><span class="o">$</span> <span class="cursor"></span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOMAINS -->
     <section class="section" id="domains">
       <div class="section-head">
         <div>
-          <p class="eyebrow">// 12 domains</p>
+          <p class="eyebrow" style="--acc: var(--foam);">
+            <span class="eyebrow__n">01</span>
+            <span class="eyebrow__mark">^:</span>
+            <span>{CATEGORIES.length} domains</span>
+            <span class="eyebrow__rule" aria-hidden="true"></span>
+          </p>
           <h2>Pick your vector</h2>
         </div>
       </div>
-      <div class="grid-cards">
-        {CATEGORIES.map((cat) => <CategoryCard cat={cat} count={counts[cat.slug] ?? 0} />)}
+      <div class="grid-plates">
+        {CATEGORIES.map((cat, i) => (
+          <DomainPlate cat={cat} count={counts[cat.slug] ?? 0} n={String(i + 1).padStart(2, '0')} />
+        ))}
       </div>
     </section>
+  </div>
 
-    <!-- PAYLOADS -->
-    <section class="section" id="payloads-cta">
-      <a class="pane glow payloads-cta plate" href={url('payloads')} style="--acc: var(--iris);">
-        <div class="pane__bar">
-          <span class="pane__dots"><i></i><i></i><i></i></span>
-          <span class="pane__label">[payloads_all_the_things]</span>
-          <span class="patt-badge" style="margin-left:auto;">mirror</span>
-        </div>
-        <div class="pane__body payloads-cta__body">
-          <div>
-            <p class="eyebrow" style="color: var(--iris)">// full mirror · MIT</p>
-            <h2 style="color: var(--iris); margin:0.2rem 0 0.4rem;">PayloadsAllTheThings</h2>
-            <p class="card-desc" style="max-width:52ch;">
-              The complete <strong>{payloadTopics.length}-topic</strong>, <strong>{payloadPages}-page</strong> payload &amp;
-              bypass reference by <strong>swisskyrepo</strong> — mirrored on-site, fully searchable, every page linked to source.
-            </p>
-          </div>
-          <span class="btn btn--ghost" style="flex:none;">Browse payloads <Icon name="arrow" /></span>
-        </div>
-      </a>
-    </section>
+  <!-- The ledger band. Far enough down the page from the marquee that the
+       two never share a sightline, which is why they are free to differ —
+       and being separate tokens, they do so on purpose. -->
+  <a class="cta-band bleed section" href={url('payloads')}>
+    <div class="wrap cta-band__body">
+      <div>
+        <p class="cta-band__eyebrow">02 ^: Full mirror · MIT</p>
+        <h2>PayloadsAllTheThings</h2>
+        <p>
+          The complete {payloadTopics.length}-topic, {payloadPages}-page payload and bypass
+          reference by <strong>swisskyrepo</strong> — mirrored on-site, fully searchable,
+          every page linked back to source.
+        </p>
+      </div>
+      <span class="btn">Browse payloads <Icon name="arrow" /></span>
+    </div>
+  </a>
 
-    <!-- FEATURED -->
-    {featured.length > 0 && (
+  {featured.length > 0 && (
+    <div class="wrap">
       <section class="section" id="featured">
         <div class="section-head">
           <div>
-            <p class="eyebrow">// freshly modernized</p>
+            <p class="eyebrow" style="--acc: var(--gold);">
+              <span class="eyebrow__n">03</span>
+              <span class="eyebrow__mark">^:</span>
+              <span>Freshly modernized</span>
+              <span class="eyebrow__rule" aria-hidden="true"></span>
+            </p>
             <h2>Recently updated</h2>
           </div>
           <a class="btn btn--ghost" href={url('tags')}>All tags <Icon name="arrow" /></a>
         </div>
-        <div class="grid-cards">
-          {featured.map((entry) => <SheetCard entry={entry} />)}
+        <div class="index">
+          {featured.map((entry, i) => {
+            const cat = categoryOf(entry.data.category);
+            return (
+              <RecordRow
+                href={url(sheetHref(entry))}
+                n={String(i + 1).padStart(2, '0')}
+                title={entry.data.title}
+                kind={cat.tag}
+                accent={cat.accent}
+                meta={entry.data.updated ?? entry.data.difficulty}
+              />
+            );
+          })}
         </div>
       </section>
-    )}
-  </div>
+    </div>
+  )}
 </Base>
-
-<style>
-  @media (prefers-reduced-motion: no-preference) {
-    [data-glitch] { animation: rise 0.7s var(--ease) both; }
-    @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-  }
-</style>

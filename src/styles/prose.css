@@ -1,30 +1,69 @@
 /* ============================================================================
    Prose — how a rendered cheatsheet reads.
-   Code blocks become terminal panes (enhanced by enhance-code.ts).
+
+   The body is paper. The code is not: every block is a dark plate, in both
+   modes, exactly as the main site sets them. That is the page's core
+   rhythm — terminal output pasted into a printed document — and it is why
+   the blocks do not follow the theme. A code block that turns cream in
+   light mode stops being a terminal and becomes a quotation.
    ========================================================================== */
 
-.prose { color: var(--fg); font-size: var(--step-0); line-height: 1.68; max-width: 74ch; }
-.prose > * + * { margin-top: 1.05rem; }
+.prose { color: var(--fg); font-size: 17.5px; line-height: 1.68; letter-spacing: -0.003em; max-width: 78ch; }
+.prose > * + * { margin-top: 1.15rem; }
 
-.prose h2, .prose h3, .prose h4 { font-family: var(--font-display); line-height: 1.15; scroll-margin-top: 84px; }
+.prose h2, .prose h3, .prose h4 { font-family: var(--font-display); scroll-margin-top: 92px; }
 .prose h2 {
-  font-size: var(--step-2); margin-top: 2.4rem; padding-bottom: 0.4rem;
-  border-bottom: 1px solid var(--glass-brd);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  font-stretch: 84%;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-top: 2.6rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--fg);
 }
-.prose h2::before { content: '// '; color: var(--accent); font-family: var(--font-mono); font-size: 0.7em; opacity: 0.8; }
-.prose h3 { font-size: var(--step-1); margin-top: 1.8rem; color: var(--fg); }
-.prose h4 { font-size: 1.02rem; margin-top: 1.4rem; color: var(--fg-dim); }
+.prose h3 {
+  font-size: 1.18rem; font-weight: 700; letter-spacing: -0.02em;
+  line-height: 1.15; margin-top: 2rem; color: var(--fg);
+}
+.prose h4 {
+  font-family: var(--font-mono);
+  font-size: 11px; letter-spacing: var(--track-micro); text-transform: uppercase;
+  margin-top: 1.6rem; color: var(--fg-faint);
+}
 
-.prose p { color: var(--fg); }
+.prose p { color: var(--fg); text-wrap: pretty; }
 .prose strong { color: var(--fg); font-weight: 600; }
 .prose em { color: var(--fg-dim); }
+
+/* ---- Drop cap ------------------------------------------------------------ */
+/* The opening letter of a sheet, floated three lines deep in EB Garamond.
+   Set on a span rather than with `::first-letter` for two reasons: the
+   pseudo-element cannot be given a different family and weight reliably
+   across engines at this size, and — the real one — the letter stays real
+   selectable, searchable text this way, read as part of the word it opens
+   rather than as decoration sitting beside it.
+
+   The rehype pass that splits it out (see `rehypeDropCap` in
+   astro.config.mjs) skips short openers, so an image caption or a
+   one-line note is left alone. */
+.prose .cap {
+  float: left;
+  font-family: var(--font-lockup);
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 0.74;
+  color: var(--love);
+  margin: 5px 0.85rem 0 0;
+}
 
 .prose a {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-color: color-mix(in oklab, var(--accent) 40%, transparent);
   text-underline-offset: 3px;
-  transition: text-decoration-color 0.2s;
+  transition: text-decoration-color 200ms ease;
 }
 .prose a:hover { text-decoration-color: var(--accent); }
 
@@ -33,108 +72,100 @@
 .prose ul li::marker { color: var(--accent); }
 .prose ol li::marker { color: var(--fg-faint); font-family: var(--font-mono); }
 
-.prose hr { border: 0; border-top: 1px solid var(--glass-brd); margin: 2rem 0; }
+.prose hr { border: 0; border-top: 1px solid var(--rule); margin: 2.4rem 0; }
 
-/* Inline code */
+/* Inline code — a tinted slug on the page, square, hairline-bordered. This
+   is the one place the paper carries code, and it stays paper-coloured;
+   the dark treatment is reserved for blocks. */
 .prose :not(pre) > code {
   font-family: var(--font-mono);
   font-size: 0.86em;
-  padding: 0.12em 0.4em;
-  border-radius: 6px;
+  padding: 0.14em 0.4em;
   background: var(--code-bg);
-  border: 1px solid var(--glass-brd);
+  border: 1px solid var(--rule);
   color: var(--rose);
   word-break: break-word;
 }
 
 /* Blockquotes / callouts */
 .prose blockquote {
-  border-left: 3px solid var(--accent-2);
-  background: var(--glass-bg);
-  padding: 0.8rem 1.1rem;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-left: 2px solid var(--accent-2);
+  background: var(--wash);
+  padding: 0.9rem 1.1rem;
   color: var(--fg-dim);
 }
 .prose blockquote p { margin-top: 0.4rem; }
 .prose blockquote > :first-child { margin-top: 0; }
 
-/* Tables */
-.prose .table-scroll { overflow-x: auto; border-radius: var(--radius-sm); border: 1px solid var(--glass-brd); }
+/* Tables — a ruled table, not a card with a table in it. */
+.prose .table-scroll { overflow-x: auto; border: 1px solid var(--rule); }
 .prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
 .prose thead th {
-  background: var(--glass-bg-strong);
-  font-family: var(--font-mono); font-size: 0.76rem; letter-spacing: 0.04em;
+  background: var(--wash-strong);
+  font-family: var(--font-mono); font-size: var(--step-micro);
+  letter-spacing: var(--track-micro);
   text-transform: uppercase; color: var(--fg-dim);
-  text-align: left; padding: 0.6rem 0.8rem; white-space: nowrap;
+  text-align: left; padding: 0.62rem 0.8rem; white-space: nowrap;
+  border-bottom: 1px solid var(--rule);
 }
-.prose tbody td { padding: 0.55rem 0.8rem; border-top: 1px solid var(--glass-brd); vertical-align: top; }
-.prose tbody tr:hover { background: var(--glass-bg); }
+.prose tbody td { padding: 0.58rem 0.8rem; border-top: 1px solid var(--rule); vertical-align: top; }
+.prose tbody tr:hover { background: var(--wash); }
 
-.prose img { border-radius: var(--radius-sm); border: 1px solid var(--glass-brd); margin-inline: auto; }
+.prose img { border: 1px solid var(--rule); margin-inline: auto; }
 
-/* ---- Code panes ---------------------------------------------------------- */
+/* ---- Code blocks --------------------------------------------------------- */
+/* A figure on the plate, with its caption above the code: the language at
+   the left, the copy control at the right, both in the 9.5px mono the rest
+   of the site labels things in. No window chrome, no traffic-light dots —
+   this is a printed listing of terminal output, not a simulated window. */
 .code-pane {
   position: relative;
-  border: 1px solid var(--glass-brd);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  background: var(--code-bg);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
+  background: var(--plate);
+  padding: 1.25rem 1.4rem 1.4rem;
+  /* Runs past the prose measure at wide viewports, because a fixed-width
+     terminal listing is the one thing on the page that genuinely needs
+     more than 74ch and wraps badly under it. */
+  max-width: min(100%, 92ch);
 }
 .code-pane__bar {
-  display: flex; align-items: center; gap: 0.55rem;
-  padding: 0.4rem 0.7rem;
-  border-bottom: 1px solid var(--glass-brd);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
 }
-.code-pane__dots { display: inline-flex; gap: 0.3rem; }
-.code-pane__dots i { width: 8px; height: 8px; border-radius: 50%; display: block; }
-.code-pane__dots i:nth-child(1) { background: var(--love); }
-.code-pane__dots i:nth-child(2) { background: var(--gold); }
-.code-pane__dots i:nth-child(3) { background: var(--foam); }
 .code-pane__lang {
-  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--fg-faint); margin-left: 0.2rem;
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #c4a7e7;
 }
 .code-copy {
-  margin-left: auto;
-  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--fg-faint);
-  padding: 0.2rem 0.5rem; border-radius: 6px;
-  border: 1px solid var(--glass-brd);
-  transition: color 0.18s, border-color 0.18s;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  font-family: var(--font-mono); font-size: 9.5px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #9ccfd8;
+  transition: color 200ms ease;
 }
-.code-copy:hover { color: var(--accent); border-color: color-mix(in oklab, var(--accent) 50%, transparent); }
-.code-copy.copied { color: var(--foam); border-color: var(--foam); }
+.code-copy:hover { color: #e0def4; }
+.code-copy.copied { color: #f6c177; }
+.code-copy svg { width: 11px; height: 11px; }
 
 .prose pre.astro-code {
   margin: 0;
-  padding: 0.95rem 1.1rem;
+  padding: 0;
   overflow-x: auto;
-  font-size: 0.84rem;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.7;
   background: transparent !important;
+  color: #e0def4;
 }
-.prose pre.astro-code code { font-family: var(--font-mono); display: block; }
-
-/* Shiki dual-theme: defaultColor:false -> flip on [data-theme] */
-:root .astro-code,
-:root .astro-code span,
-:root[data-theme='dark'] .astro-code,
-:root[data-theme='dark'] .astro-code span {
-  color: var(--shiki-dark);
-  font-style: var(--shiki-dark-font-style);
-  font-weight: var(--shiki-dark-font-weight);
-  text-decoration: var(--shiki-dark-text-decoration);
-}
-:root[data-theme='light'] .astro-code,
-:root[data-theme='light'] .astro-code span {
-  color: var(--shiki-light);
-  font-style: var(--shiki-light-font-style);
-  font-weight: var(--shiki-light-font-weight);
-  text-decoration: var(--shiki-light-text-decoration);
+.prose pre.astro-code code {
+  font-family: var(--font-mono);
+  display: block;
+  /* Wrapped rather than scrolled: a cheatsheet's value is the whole
+     command being visible and copyable at a glance, and a long
+     `--script-args` tail hidden behind a horizontal scrollbar is the one
+     thing most likely to be pasted wrong. */
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 /* First heading of the doc is the page title (rendered separately) */

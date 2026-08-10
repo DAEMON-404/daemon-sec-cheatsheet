@@ -1,19 +1,57 @@
 ---
 import Icon from './Icon.astro';
 import { url } from '../lib/url';
+
 const GITHUB = 'https://github.com/DAEMON-404/daemon-sec-cheatsheet';
+const SITE = 'https://daemon-404.github.io';
+
+/**
+ * The masthead, in the main site's grammar.
+ *
+ * Each entry owns a hue and its index wears it, so the bar reads as the
+ * colour legend the rest of the site keys back to rather than as five grey
+ * words. The index keeps its space at rest rather than appearing on hover
+ * — revealing it would reflow the whole bar every time the pointer crossed
+ * an item.
+ *
+ * The accents are written out as full custom-property names rather than
+ * built up from the slug, because the value is read straight into `--acc`
+ * and a half-built token silently resolves to nothing.
+ */
+const NAV = [
+  { n: '01', label: 'Vault', href: url(''), acc: 'love', exact: true },
+  { n: '02', label: 'Payloads', href: url('payloads'), acc: 'iris' },
+  { n: '03', label: 'Tags', href: url('tags'), acc: 'foam' },
+  { n: '04', label: 'Credits', href: url('credits'), acc: 'gold' },
+];
+
+/* Trailing slashes are `ignore`d by the build, so both spellings of a path
+   reach here and an exact match would leave the bar saying nowhere. */
+const here = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (href: string, exact?: boolean) => {
+  const target = href.replace(/\/+$/, '') || '/';
+  return exact ? here === target : here === target || here.startsWith(target + '/');
+};
 ---
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href={url('')} aria-label="DÆMON//SEC home">
-      <b>DÆMON</b><span class="slash">//</span>SEC<span class="blink">_</span>
+      DÆMON<span class="slash">//</span>SEC<span class="blink">_</span>
     </a>
-    <nav class="header-nav" aria-label="Primary">
-      <a href={url('')}>Vault</a>
-      <a href={url('payloads')}>Payloads</a>
+
+    <nav class="mast-nav" aria-label="Primary">
+      {NAV.map((item) => (
+        <a
+          href={item.href}
+          style={`--acc: var(--${item.acc});`}
+          aria-current={isActive(item.href, item.exact) ? 'page' : undefined}
+        >
+          <span class="n">{item.n}</span><span class="lbl">{item.label}</span>
+        </a>
+      ))}
     </nav>
-    <div class="header-spacer"></div>
-    <div class="header-actions">
+
+    <div class="mast-actions">
       <button class="search-trigger" data-search-open type="button" aria-label="Search cheatsheets">
         <Icon name="search" />
         <span class="st-label">Search</span>
@@ -23,6 +61,9 @@ const GITHUB = 'https://github.com/DAEMON-404/daemon-sec-cheatsheet';
         <span class="icon-sun"><Icon name="sun" /></span>
         <span class="icon-moon"><Icon name="moon" /></span>
       </button>
+      <a class="icon-btn" href={SITE} rel="noopener" aria-label="DÆMON main site">
+        <Icon name="external" />
+      </a>
       <a class="icon-btn" href={GITHUB} target="_blank" rel="noopener" aria-label="GitHub repository">
         <Icon name="github" />
       </a>
@@ -36,4 +77,5 @@ const GITHUB = 'https://github.com/DAEMON-404/daemon-sec-cheatsheet';
   .icon-moon { display: none; }
   :global(:root[data-theme='dark']) .icon-sun { display: none; }
   :global(:root[data-theme='dark']) .icon-moon { display: inline-flex; }
+  .search-trigger svg { width: 15px; height: 15px; }
 </style>

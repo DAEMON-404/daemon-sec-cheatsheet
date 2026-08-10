@@ -50,8 +50,10 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <ClientRouter />
   </head>
   <body>
-    <div class="fx-glow" aria-hidden="true"></div>
-    <div class="fx-grid" aria-hidden="true"></div>
+    <!-- The film over the whole page. It is what keeps a flat colour
+         reading as stock rather than as a swatch, and it stands in for the
+         texture the old glass build got from blur. -->
+    <span class="grain" aria-hidden="true"></span>
     <Header />
     <main id="main">
       <slot />

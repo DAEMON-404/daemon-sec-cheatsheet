@@ -4,6 +4,9 @@ function applyTheme(next: 'light' | 'dark'): void {
   document.documentElement.setAttribute('data-theme', next);
   try { localStorage.setItem('theme', next); } catch {}
   document.documentElement.style.colorScheme = next;
+  // A canvas bitmap does not inherit the cascade, so the banners' signal
+  // field has no way to notice the mode changed. It listens for this.
+  dispatchEvent(new Event('daemonmodechange'));
 }
 
 function initTheme(): void {
@@ -40,29 +43,46 @@ function initTheme(): void {
   });
 }
 
+/**
+ * Every code block becomes the archive's terminal block: the language at
+ * the left of a caption bar, the copy control at the right, both in the
+ * 9.5px mono the rest of the site labels things in.
+ *
+ * No window chrome and no traffic-light dots — this is a printed listing
+ * of terminal output, not a simulated window. The plate under it stays
+ * dark in both modes (see prose.css).
+ */
+const COPY_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>';
+const CHECK_ICON =
+  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
 function enhanceCode(): void {
   const blocks = document.querySelectorAll<HTMLPreElement>('.prose pre.astro-code:not([data-enhanced])');
   blocks.forEach((pre) => {
     pre.dataset.enhanced = '1';
-    const lang = pre.getAttribute('data-language') || 'sh';
+    const lang = pre.getAttribute('data-language') || 'text';
 
-    const pane = document.createElement('div');
+    const pane = document.createElement('figure');
     pane.className = 'code-pane';
-    const bar = document.createElement('div');
+    const bar = document.createElement('figcaption');
     bar.className = 'code-pane__bar';
 
-    const dots = document.createElement('span');
-    dots.className = 'code-pane__dots';
-    dots.append(document.createElement('i'), document.createElement('i'), document.createElement('i'));
     const langEl = document.createElement('span');
     langEl.className = 'code-pane__lang';
-    langEl.textContent = lang.replace(/[^a-z0-9+#-]/gi, '').slice(0, 16) || 'sh';
-    bar.append(dots, langEl);
+    langEl.textContent = lang.replace(/[^a-z0-9+#-]/gi, '').slice(0, 16) || 'text';
 
     const copy = document.createElement('button');
     copy.className = 'code-copy';
     copy.type = 'button';
-    copy.textContent = 'copy';
+    const setLabel = (icon: string, word: string) => {
+      copy.innerHTML = icon;
+      copy.append(document.createTextNode(word));
+    };
+    setLabel(COPY_ICON, 'Copy');
+
+    // The feedback lives on the button for 1400ms rather than in a toast
+    // across the page — you copied this block, not the document.
     copy.addEventListener('click', async () => {
       const text = pre.innerText;
       try {
@@ -73,14 +93,14 @@ function enhanceCode(): void {
         try { document.execCommand('copy'); } catch {}
         ta.remove();
       }
-      copy.textContent = 'copied'; copy.classList.add('copied');
-      setTimeout(() => { copy.textContent = 'copy'; copy.classList.remove('copied'); }, 1400);
+      setLabel(CHECK_ICON, 'Copied');
+      copy.classList.add('copied');
+      setTimeout(() => { setLabel(COPY_ICON, 'Copy'); copy.classList.remove('copied'); }, 1400);
     });
-    bar.appendChild(copy);
 
+    bar.append(langEl, copy);
     pre.parentNode?.insertBefore(pane, pre);
-    pane.appendChild(bar);
-    pane.appendChild(pre);
+    pane.append(bar, pre);
   });
 }
 

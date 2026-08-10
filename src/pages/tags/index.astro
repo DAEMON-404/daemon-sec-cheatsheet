@@ -1,32 +1,60 @@
 ---
 import Base from '../../layouts/Base.astro';
+import SectionBanner from '../../components/SectionBanner.astro';
 import { allTags, allTools, tagSlug } from '../../lib/sheets';
 import { url } from '../../lib/url';
 const tags = await allTags();
 const tools = await allTools();
 ---
 <Base title="Tags & Tools — DÆMON//SEC" description="Browse every cheatsheet by tag or tool.">
+  <SectionBanner
+    n="04"
+    label="Cross-reference"
+    title="Tags & Tools"
+    blurb="Jump into the vault by topic or by the tool you're reaching for."
+    accent="foam"
+    stats={[
+      { label: 'Tags', value: String(tags.length).padStart(2, '0'), accent: true },
+      { label: 'Tools', value: String(tools.length).padStart(2, '0') },
+    ]}
+  />
+
   <div class="wrap">
-    <nav class="breadcrumb" style="margin-top:1.5rem;">
+    <nav class="breadcrumb" style="margin-top:1.6rem;">
       <a href={url('')}>~</a><span class="sep">/</span><span class="muted">index</span>
     </nav>
-    <header style="margin-top:1rem;">
-      <p class="eyebrow">// cross-reference</p>
-      <h1 class="sheet-title">Tags &amp; Tools</h1>
-      <p class="sheet-desc">Jump into the vault by topic or by the tool you're reaching for.</p>
-    </header>
 
-    <section class="section" style="margin-top:2rem;">
-      <div class="section-head"><div><p class="eyebrow">// {tags.length} tags</p><h2>By tag</h2></div></div>
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" style="--acc: var(--iris);">
+            <span class="eyebrow__n">01</span>
+            <span class="eyebrow__mark">^:</span>
+            <span>{tags.length} tags</span>
+            <span class="eyebrow__rule" aria-hidden="true"></span>
+          </p>
+          <h2>By tag</h2>
+        </div>
+      </div>
       <div class="cloud">
         {tags.map((t) => (
-          <a class="tag-pill cloud-item" href={url(`tags/${tagSlug(t.tag)}`)}>#{t.tag}<span class="cnt">{t.count}</span></a>
+          <a class="tag-pill cloud-item" href={url(`tags/${tagSlug(t.tag)}`)}>{t.tag}<span class="cnt">{t.count}</span></a>
         ))}
       </div>
     </section>
 
     <section class="section">
-      <div class="section-head"><div><p class="eyebrow">// {tools.length} tools</p><h2>By tool</h2></div></div>
+      <div class="section-head">
+        <div>
+          <p class="eyebrow" style="--acc: var(--gold);">
+            <span class="eyebrow__n">02</span>
+            <span class="eyebrow__mark">^:</span>
+            <span>{tools.length} tools</span>
+            <span class="eyebrow__rule" aria-hidden="true"></span>
+          </p>
+          <h2>By tool</h2>
+        </div>
+      </div>
       <div class="cloud">
         {tools.map((t) => (
           <span class="tag-pill cloud-item">{t.tool}<span class="cnt">{t.count}</span></span>
@@ -37,7 +65,14 @@ const tools = await allTools();
 </Base>
 
 <style>
-  .cloud { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-  .cloud-item { display: inline-flex; align-items: center; gap: 0.45rem; }
-  .cloud-item .cnt { font-size: 0.66rem; color: var(--fg-faint); background: var(--glass-bg); padding: 0.05rem 0.35rem; border-radius: 999px; }
+  .cloud { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .cloud-item { display: inline-flex; align-items: center; gap: 0.5rem; }
+  /* The count is a second register inside the chip, not a badge on it —
+     square, hairline-separated, same 10px mono. */
+  .cloud-item .cnt {
+    padding-left: 0.5rem;
+    border-left: 1px solid var(--rule);
+    color: var(--fg-faint);
+  }
+  .cloud-item:hover .cnt { color: inherit; border-left-color: currentColor; }
 </style>

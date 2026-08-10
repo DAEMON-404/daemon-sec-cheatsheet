@@ -1,25 +1,31 @@
 ---
 import { url } from '../lib/url';
 const GITHUB = 'https://github.com/DAEMON-404/daemon-sec-cheatsheet';
+const SITE = 'https://daemon-404.github.io';
 const year = 2026;
 ---
+<!-- A dark band closing the cream page: the same object as the marquee and
+     the section banners, in its last position. `.plate` pins the night
+     palette for the whole subtree, so this stays dark in both modes. -->
 <footer class="site-footer plate">
+  <span class="grain grain--local" aria-hidden="true"></span>
   <div class="wrap">
-    <div class="stack" style="--gap:0.5rem;">
-      <a class="brand" href={url('')}><b>DÆMON</b><span class="slash">//</span>SEC</a>
+    <div>
+      <a class="brand" href={url('')}>DÆMON<span class="slash">//</span>SEC</a>
       <p class="footer-note">
         A curated vault of IT &amp; security cheatsheets. For authorized testing,
         CTFs, and education only. Know your scope; get permission first.
       </p>
     </div>
-    <div class="stack" style="--gap:0.4rem; text-align:right;">
-      <a class="footer-mono" href={GITHUB} target="_blank" rel="noopener">github.com/DAEMON-404/daemon-sec-cheatsheet</a>
+    <div class="footer-col">
+      <a class="footer-mono" href={SITE} rel="noopener">daemon-404.github.io ↗</a>
+      <a class="footer-mono" href={GITHUB} target="_blank" rel="noopener">github / daemon-sec-cheatsheet ↗</a>
       <span class="footer-mono muted">
         Payloads mirrored from <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener">PayloadsAllTheThings</a>
         (MIT) · <a href={url('credits')}>credits</a>
       </span>
       <span class="footer-mono muted">© {year} DÆMON//SEC · MIT</span>
-      <span class="footer-mono muted">Rose Pine · glass · built with Astro</span>
+      <span class="footer-mono muted">Rosé Pine · Astro · Pagefind</span>
     </div>
   </div>
 </footer>

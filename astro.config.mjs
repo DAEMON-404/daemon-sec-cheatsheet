@@ -30,6 +30,70 @@ function rehypeBaseLinks() {
   return (tree) => walk(tree);
 }
 
+/**
+ * The drop cap, as the main site sets it: the opening letter of a sheet
+ * floated three lines deep in EB Garamond.
+ *
+ * The letter is split out of the paragraph's first text node and wrapped
+ * in a `<span class="cap">` rather than left to `::first-letter`. That
+ * keeps it real text — selectable, searchable, and read aloud as part of
+ * the word it opens — and it is the only way to give it a different family
+ * and weight that renders the same across engines.
+ *
+ * Only the first top-level paragraph of the document takes one, and only
+ * if it is long enough to have three lines for the letter to sit in.
+ * Short openers — an image caption, a one-line note, a lede that is really
+ * a subtitle — are left alone, because a cap floated into a two-line
+ * paragraph pushes the text into a column beside it.
+ */
+const CAP_MIN_CHARS = 80;
+
+function rehypeDropCap() {
+  return (tree) => {
+    const paragraph = tree.children.find(
+      (n) => n.type === 'element' && n.tagName === 'p' && textLength(n) >= CAP_MIN_CHARS,
+    );
+    if (!paragraph) return;
+
+    // The first non-empty text node, wherever it sits — the paragraph may
+    // legitimately open with a <strong> or an <a>, and the cap belongs to
+    // the first *letter* rather than to the first direct child.
+    const lead = firstText(paragraph);
+    if (!lead) return;
+    const trimmed = lead.value.trimStart();
+    const letter = trimmed[0];
+    // Punctuation and quotes make poor caps: floated at 72px an opening
+    // quote reads as a stray mark rather than as a letter.
+    if (!letter || !/[A-Za-z0-9]/.test(letter)) return;
+
+    lead.value = trimmed.slice(1);
+    paragraph.children.unshift({
+      type: 'element',
+      tagName: 'span',
+      properties: { className: ['cap'] },
+      children: [{ type: 'text', value: letter }],
+    });
+  };
+
+  function textLength(node) {
+    if (node.type === 'text') return node.value.trim().length;
+    if (!node.children) return 0;
+    return node.children.reduce((n, c) => n + textLength(c), 0);
+  }
+
+  function firstText(node) {
+    if (!node.children) return null;
+    for (const child of node.children) {
+      if (child.type === 'text' && child.value.trim()) return child;
+      if (child.type === 'element') {
+        const found = firstText(child);
+        if (found) return found;
+      }
+    }
+    return null;
+  }
+}
+
 // Project page: https://daemon-404.github.io/daemon-sec-cheatsheet
 export default defineConfig({
   site: 'https://daemon-404.github.io',
@@ -37,12 +101,12 @@ export default defineConfig({
   trailingSlash: 'ignore',
   integrations: [mdx(), sitemap()],
   markdown: {
-    rehypePlugins: [rehypeBaseLinks],
+    rehypePlugins: [rehypeBaseLinks, rehypeDropCap],
     shikiConfig: {
-      // Dual theme -> CSS variables we flip via [data-theme]. defaultColor:false
-      // means Shiki writes both palettes as --shiki-light / --shiki-dark.
-      themes: { light: 'rose-pine-dawn', dark: 'rose-pine-moon' },
-      defaultColor: false,
+      // One theme, not two. Code blocks are dark plates in both modes (see
+      // prose.css) — a listing that turns cream in light mode stops reading
+      // as terminal output — so there is no second palette to flip to.
+      theme: 'rose-pine-moon',
       wrap: false,
     },
   },
