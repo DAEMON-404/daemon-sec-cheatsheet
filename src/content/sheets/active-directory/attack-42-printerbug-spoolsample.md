@@ -2,6 +2,7 @@
 title: "Attack #42 — PrinterBug SpoolSample"
 description: "The PrinterBug (aka SpoolSample) abuses the MS-RPRN (Print System Remote Protocol) RpcRemoteFindFirstPrinterChangeNotificationEx function to coerce a…"
 category: active-directory
+subcategory: "Domain Controller Attacks"
 tags: ["active-directory", "kerberos", "adcs", "delegation", "ntlm"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "Certipy"]
 difficulty: advanced

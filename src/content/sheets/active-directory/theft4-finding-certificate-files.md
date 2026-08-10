@@ -2,6 +2,7 @@
 title: "THEFT4 — Finding Certificate Files"
 description: "No cryptography needed here. Admins and automation constantly leave certificate material lying around: exported .pfx backups, id_rsa-style key files…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["NetExec", "Certipy", "John", "Snaffler", "OpenSSL"]
 difficulty: advanced

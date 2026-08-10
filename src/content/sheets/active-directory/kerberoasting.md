@@ -2,6 +2,7 @@
 title: "Kerberoasting"
 description: "Request and crack SPN service tickets: GetUserSPNs, Rubeus, hashcat modes and mitigation notes."
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: [active-directory, kerberos, cracking]
 tools: [Impacket, Rubeus, Hashcat]
 difficulty: intermediate

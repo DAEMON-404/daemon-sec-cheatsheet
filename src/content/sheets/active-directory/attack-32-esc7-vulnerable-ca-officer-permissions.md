@@ -2,6 +2,7 @@
 title: "Attack #32 — ESC7 Vulnerable CA Officer Permissions"
 description: "ESC7 exploits overly permissive CA permissions. If a low-privileged user has ManageCA rights on the Certificate Authority, they can grant themselves…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Certipy"]
 difficulty: advanced

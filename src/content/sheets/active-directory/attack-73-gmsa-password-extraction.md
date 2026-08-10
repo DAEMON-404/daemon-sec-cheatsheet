@@ -2,6 +2,7 @@
 title: "Attack #73 — gMSA Password Extraction"
 description: "Group Managed Service Accounts (gMSAs) have their passwords automatically managed by AD and stored in the msDS-ManagedPassword attribute. Principals…"
 category: active-directory
+subcategory: "Advanced & Post-Exploitation"
 tags: ["active-directory", "credential-access", "ntlm", "privilege-escalation", "hashing"]
 tools: ["NetExec", "PowerShell"]
 difficulty: advanced

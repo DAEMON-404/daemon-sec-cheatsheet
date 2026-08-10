@@ -2,6 +2,7 @@
 title: "Attack #30 — ESC4 Template Write Permissions"
 description: "ESC4 exploits overly permissive ACLs on certificate templates. If a low-privileged user has WriteProperty, WriteDACL, WriteOwner, or FullControl on a…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Certipy"]
 difficulty: advanced

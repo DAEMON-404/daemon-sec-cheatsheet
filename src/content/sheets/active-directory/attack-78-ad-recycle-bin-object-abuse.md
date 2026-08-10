@@ -2,6 +2,7 @@
 title: "Attack #78 — AD Recycle Bin Object Abuse"
 description: "When the AD Recycle Bin feature is enabled (Server 2008 R2+), deleted AD objects are moved to the CN=Deleted Objects container and retained for a…"
 category: active-directory
+subcategory: "Advanced & Post-Exploitation"
 tags: ["active-directory", "privilege-escalation"]
 tools: ["NetExec", "ldapsearch", "PowerShell"]
 difficulty: advanced

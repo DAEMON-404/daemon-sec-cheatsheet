@@ -2,6 +2,7 @@
 title: "Certipy-ad"
 description: "pip install certipy-ad --break-system-packages"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory", "kerberos", "adcs", "hashing"]
 tools: ["Certipy", "BloodHound", "Evil-WinRM", "OpenSSL"]
 difficulty: intermediate

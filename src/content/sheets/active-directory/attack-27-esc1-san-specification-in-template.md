@@ -2,6 +2,7 @@
 title: "Attack #27 — ESC1 SAN Specification in Template"
 description: "ESC1 is the most impactful and commonly exploited ADCS vulnerability — a misconfigured certificate template that allows any low-privileged domain user to…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "kerberos", "adcs", "privilege-escalation"]
 tools: ["NetExec", "Impacket", "Rubeus", "Certipy", "Evil-WinRM"]
 difficulty: advanced

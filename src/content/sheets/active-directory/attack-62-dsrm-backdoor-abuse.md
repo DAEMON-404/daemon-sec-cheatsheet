@@ -2,6 +2,7 @@
 title: "Attack #62 — DSRM Backdoor Abuse"
 description: "Every DC has a Directory Services Restore Mode (DSRM) administrator account with a separate password set during DC promotion. By default, this account…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory", "ntlm", "privilege-escalation", "hashing"]
 tools: ["Mimikatz", "Evil-WinRM", "PowerShell"]
 difficulty: advanced

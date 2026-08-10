@@ -2,6 +2,7 @@
 title: "ESC4 — Vulnerable Certificate Template Access Control"
 description: "ESC4 is a permission-level attack, not a template configuration attack. Every ESC attack up to this point (ESC1–3) abused what a template was configured…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Rubeus", "Certipy", "BloodHound", "Evil-WinRM", "OpenSSL"]
 difficulty: advanced

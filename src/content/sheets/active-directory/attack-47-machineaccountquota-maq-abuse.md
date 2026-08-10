@@ -2,6 +2,7 @@
 title: "Attack #47 — MachineAccountQuota (MAQ) Abuse"
 description: "By default, any authenticated domain user can create up to 10 computer accounts (controlled by ms-DS-MachineAccountQuota). These attacker-created machine…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory"]
 tools: ["NetExec", "PowerShell"]
 difficulty: advanced

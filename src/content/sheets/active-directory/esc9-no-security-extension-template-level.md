@@ -2,6 +2,7 @@
 title: "ESC9 — No Security Extension (Template-Level)"
 description: "ESC9 is the template-level version of ESC16. Where ESC16 disabled the szOID_NTDS_CA_SECURITY_EXT SID extension globally across every certificate on the…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["NetExec", "Impacket", "Rubeus", "Certipy", "BloodHound"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "BloodyAD"
 description: "BloodyAD LDAP privilege-abuse toolkit: RBCD, shadow creds, DACL edits, password/attribute writes."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, ldap, acl-abuse]
 tools: [BloodyAD]
 difficulty: intermediate

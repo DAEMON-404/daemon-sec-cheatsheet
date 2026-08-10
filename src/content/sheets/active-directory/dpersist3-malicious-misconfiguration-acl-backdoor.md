@@ -2,6 +2,7 @@
 title: "DPERSIST3 — Malicious Misconfiguration (ACL Backdoor)"
 description: "Instead of forging certs now, DPERSIST3 backdoors the PKI ACLs so you can re-escalate whenever you like. You grant an attacker-controlled principal…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "delegation", "privilege-escalation", "persistence"]
 tools: ["Certipy", "PowerShell"]
 difficulty: advanced

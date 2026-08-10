@@ -2,6 +2,7 @@
 title: "ESC14 — Weak Explicit Certificate Mapping"
 description: "ESC14 targets the altSecurityIdentities attribute on AD user and computer objects. This multi-valued attribute is used for explicit certificate-to-account…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation", "hashing"]
 tools: ["Impacket", "Certipy", "BloodHound", "ldapsearch", "OpenSSL"]
 difficulty: advanced

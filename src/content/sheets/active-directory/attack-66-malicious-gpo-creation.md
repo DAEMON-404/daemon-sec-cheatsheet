@@ -2,6 +2,7 @@
 title: "Attack #66 — Malicious GPO Creation"
 description: "An attacker with GPO creation rights (or who compromises a GPO-managing account) can create or modify Group Policy Objects to execute malicious scripts…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory"]
 tools: ["NetExec", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #68 — Cross-Domain Trust Abuse (SID History)"
 description: "In AD forests with multiple domains connected by trust relationships, compromising one child domain gives a path to the forest root domain. By forging a…"
 category: active-directory
+subcategory: "Trust Abuse"
 tags: ["active-directory", "kerberos", "credential-access", "privilege-escalation", "hashing"]
 tools: ["Impacket", "Mimikatz", "PowerShell"]
 difficulty: advanced

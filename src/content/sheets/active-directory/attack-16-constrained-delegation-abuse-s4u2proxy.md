@@ -2,6 +2,7 @@
 title: "Attack #16 — Constrained Delegation Abuse (S4U2Proxy)"
 description: "Constrained Delegation was designed as a safer alternative to Unconstrained Delegation. Instead of caching every user's TGT, a service configured for…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "kerberos", "delegation", "hashing"]
 tools: ["NetExec", "Impacket", "Rubeus", "BloodHound", "PowerShell"]
 difficulty: advanced

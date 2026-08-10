@@ -2,6 +2,7 @@
 title: "Active Directory Attack Methodology"
 description: "End-to-end AD exploitation: enum, roasting, delegation, lateral movement, DCSync, persistence."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, methodology, kerberos, lateral-movement]
 tools: [Impacket, Rubeus, Mimikatz, CrackMapExec]
 difficulty: advanced

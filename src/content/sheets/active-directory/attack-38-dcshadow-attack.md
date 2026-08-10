@@ -2,6 +2,7 @@
 title: "Attack #38 — DCShadow Attack"
 description: "DCShadow allows an attacker to register a rogue Domain Controller in Active Directory and push malicious changes via the legitimate replication protocol…"
 category: active-directory
+subcategory: "Domain Controller Attacks"
 tags: ["active-directory", "credential-access"]
 tools: ["Impacket", "Mimikatz", "PowerShell"]
 difficulty: advanced

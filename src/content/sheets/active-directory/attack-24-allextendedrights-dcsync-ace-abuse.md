@@ -2,6 +2,7 @@
 title: "Attack #24 — AllExtendedRights DCSync ACE Abuse"
 description: "AllExtendedRights is a blanket permission that grants every extended right on an AD object. When applied to the domain root object, this includes the two…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "credential-access", "delegation"]
 tools: ["Impacket", "Mimikatz", "BloodHound", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #72 — LAPS Password Extraction"
 description: "LAPS (Local Administrator Password Solution) stores unique, randomized local admin passwords in Active Directory attributes (ms-Mcs-AdmPwd for LAPS v1…"
 category: active-directory
+subcategory: "Advanced & Post-Exploitation"
 tags: ["active-directory"]
 tools: ["NetExec", "ldapsearch", "PowerShell"]
 difficulty: advanced

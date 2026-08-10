@@ -2,6 +2,7 @@
 title: "Attack #22 — WriteOwner Abuse"
 description: "WriteOwner allows an attacker to change the owner of an AD object to themselves. Since the owner of an object has the implicit right to modify the…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "adcs", "credential-access", "delegation"]
 tools: ["Impacket", "PowerShell"]
 difficulty: advanced

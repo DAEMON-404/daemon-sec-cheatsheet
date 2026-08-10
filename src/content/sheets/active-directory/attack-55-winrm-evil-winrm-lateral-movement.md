@@ -2,6 +2,7 @@
 title: "Attack #55 — WinRM Evil-WinRM Lateral Movement"
 description: "Windows Remote Management (WinRM) is a SOAP-based protocol for remote management over HTTP/HTTPS (ports 5985/5986). Evil-WinRM provides an interactive…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "lateral-movement"]
 tools: ["Mimikatz", "Evil-WinRM", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Active-Directory_cheat_sheet"
 description: "This cheat sheet contains common enumeration and attack methods for Windows Active Directory."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory", "adcs", "privilege-escalation", "lateral-movement"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "BloodHound"]
 difficulty: intermediate

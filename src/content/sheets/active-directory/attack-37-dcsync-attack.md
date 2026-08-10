@@ -2,6 +2,7 @@
 title: "Attack #37 — DCSync Attack"
 description: "DCSync is the most efficient method for extracting every credential in an Active Directory domain without ever touching the NTDS.dit file on disk or…"
 category: active-directory
+subcategory: "Domain Controller Attacks"
 tags: ["active-directory", "kerberos", "credential-access", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Certipy", "Hashcat"]
 difficulty: advanced

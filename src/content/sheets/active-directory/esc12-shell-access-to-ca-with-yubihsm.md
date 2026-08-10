@@ -2,6 +2,7 @@
 title: "ESC12 — Shell Access to CA with YubiHSM"
 description: "ESC12 was disclosed by Hans-Joachim Knobloch and targets Certificate Authorities that use a Yubico YubiHSM2 hardware device for protecting their CA…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Impacket", "Certipy", "PowerShell"]
 difficulty: advanced

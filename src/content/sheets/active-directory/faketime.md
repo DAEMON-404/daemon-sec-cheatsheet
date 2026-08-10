@@ -2,6 +2,7 @@
 title: "faketime"
 description: "sudo apt install faketime # ships as libfaketime"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory", "kerberos"]
 tools: ["Nmap", "NetExec", "Impacket", "Certipy", "BloodHound"]
 difficulty: intermediate

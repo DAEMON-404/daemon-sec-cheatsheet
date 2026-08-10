@@ -2,6 +2,7 @@
 title: "Attack #25 — Shadow Credentials Attack (msDS-KeyCredentialLink)"
 description: "Shadow Credentials is one of the stealthiest account takeover techniques in Active Directory. It abuses the msDS-KeyCredentialLink attribute — originally…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "kerberos", "adcs", "persistence", "hashing"]
 tools: ["Impacket", "Rubeus", "Certipy", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #7 — NTLM Relay Attacks"
 description: "NTLM relay is a man-in-the-middle attack that intercepts an NTLM authentication challenge-response in transit and forwards it to a different target before…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "kerberos", "ntlm", "relay", "hashing"]
 tools: ["Nmap", "NetExec", "Impacket", "Rubeus", "Hashcat"]
 difficulty: advanced

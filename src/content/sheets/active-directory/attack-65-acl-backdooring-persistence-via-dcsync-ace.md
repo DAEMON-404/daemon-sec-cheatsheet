@@ -2,6 +2,7 @@
 title: "Attack #65 — ACL Backdooring (Persistence via DCSync ACE)"
 description: "An attacker with DA can add hidden ACEs to domain objects to maintain persistent access. The most common pattern: grant a seemingly innocuous user DCSync…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory", "adcs", "credential-access", "persistence"]
 tools: ["PowerShell"]
 difficulty: advanced

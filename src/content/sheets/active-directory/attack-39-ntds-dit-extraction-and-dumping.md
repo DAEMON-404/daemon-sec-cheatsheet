@@ -2,6 +2,7 @@
 title: "Attack #39 — NTDS.dit Extraction and Dumping"
 description: "The NTDS.dit file is the Active Directory database stored on every Domain Controller at C:\\Windows\\NTDS\\ntds.dit. It contains all domain credentials (NT…"
 category: active-directory
+subcategory: "Domain Controller Attacks"
 tags: ["active-directory", "kerberos", "credential-access", "hashing"]
 tools: ["NetExec", "Impacket", "PowerShell"]
 difficulty: advanced

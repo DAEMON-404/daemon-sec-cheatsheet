@@ -2,6 +2,7 @@
 title: "ESC16 — Security Extension Disabled on CA (Globally)"
 description: "ESC16 was introduced with Certipy v5 by Oliver Lyak and is one of the newest ADCS attack techniques. The vulnerability exists when the CA has been…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Certipy", "BloodHound", "Evil-WinRM", "faketime", "Certify"]
 difficulty: advanced

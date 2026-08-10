@@ -2,6 +2,7 @@
 title: "Attack #67 — ADCS Certificate-Based Persistence"
 description: "An attacker who has compromised a DA account can request a long-lived client authentication certificate for that account. Even after the DA password is…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory", "adcs", "persistence", "hashing"]
 tools: ["Rubeus", "Certipy", "Certify", "PowerShell"]
 difficulty: advanced

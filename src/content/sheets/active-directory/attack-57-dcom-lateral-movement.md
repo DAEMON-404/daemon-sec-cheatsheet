@@ -2,6 +2,7 @@
 title: "Attack #57 — DCOM Lateral Movement"
 description: "DCOM (Distributed Component Object Model) allows code execution on remote systems by instantiating COM objects. The MMC20.Application, ShellWindows, and…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "lateral-movement"]
 tools: ["Impacket", "PowerShell"]
 difficulty: advanced

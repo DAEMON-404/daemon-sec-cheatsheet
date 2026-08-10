@@ -2,6 +2,7 @@
 title: "Attack #64 — Golden Ticket Persistence"
 description: "A Golden Ticket provides persistent domain access by forging TGTs using the KRBTGT hash. As a persistence technique (not just one-time escalation), the…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory", "kerberos", "adcs", "credential-access", "persistence"]
 tools: ["Impacket", "Mimikatz", "PowerShell"]
 difficulty: advanced

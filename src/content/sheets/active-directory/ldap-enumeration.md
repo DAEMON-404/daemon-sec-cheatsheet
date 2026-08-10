@@ -2,6 +2,7 @@
 title: "LDAP Enumeration"
 description: "Manual ldapsearch queries to enumerate AD: users, groups, computers, ACLs, SPNs and attributes."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, ldap, enumeration]
 tools: [ldapsearch]
 difficulty: intermediate

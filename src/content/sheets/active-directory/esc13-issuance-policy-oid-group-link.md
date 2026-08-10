@@ -2,6 +2,7 @@
 title: "ESC13 — Issuance Policy OID Group Link"
 description: "ESC13 is fundamentally different from every other ESC attack. Where ESC1–ESC12 focus on impersonating a specific user, ESC13 achieves privilege escalation…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Impacket", "Certipy", "BloodHound", "ldapsearch", "PowerShell"]
 difficulty: advanced

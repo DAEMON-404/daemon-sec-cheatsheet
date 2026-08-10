@@ -2,6 +2,7 @@
 title: "Attack #5 — Pass-the-Ticket (PtT)"
 description: "Pass-the-Ticket is a Kerberos credential theft and replay attack where an attacker extracts a valid Kerberos ticket — either a Ticket Granting Ticket…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "kerberos", "ntlm", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "BloodHound"]
 difficulty: advanced

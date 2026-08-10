@@ -2,6 +2,7 @@
 title: "Attack #71 — PAM Trust Abuse (Bastion Forest)"
 description: "Get-ADTrust -Filter {TrustType -eq \"ForestTransitive\"} | Where ForestTransitive -eq $true netdom trust corp.local /domain:bastion.local /verify"
 category: active-directory
+subcategory: "Trust Abuse"
 tags: ["active-directory", "privilege-escalation"]
 tools: ["PowerShell"]
 difficulty: advanced

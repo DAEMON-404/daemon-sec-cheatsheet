@@ -2,6 +2,7 @@
 title: "Attack #61 — Skeleton Key Attack"
 description: "The Skeleton Key attack patches the LSASS process on a Domain Controller to add a master password (\"skeleton key\") that works alongside every user's real…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory", "privilege-escalation"]
 tools: ["Mimikatz", "PowerShell"]
 difficulty: advanced

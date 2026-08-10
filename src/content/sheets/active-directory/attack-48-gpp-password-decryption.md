@@ -2,6 +2,7 @@
 title: "Attack #48 — GPP Password Decryption"
 description: "Group Policy Preferences (GPP) allowed admins to set local admin passwords, create scheduled tasks, and configure services via Group Policy — with the…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory"]
 tools: ["NetExec", "Impacket", "PowerShell"]
 difficulty: advanced

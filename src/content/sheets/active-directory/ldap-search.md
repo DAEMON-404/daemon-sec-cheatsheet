@@ -2,6 +2,7 @@
 title: "LDAP Search"
 description: "Here's the updated cheat sheet using the specific credentials from the Support box:"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory"]
 tools: ["NetExec", "BloodHound", "ldapsearch"]
 difficulty: intermediate

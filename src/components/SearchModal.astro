@@ -80,6 +80,23 @@ import Icon from './Icon.astro';
   let pagefind: any = null;
   let loading: Promise<any> | null = null;
 
+  /* Native dynamic import, hidden from Vite.
+
+     Pagefind ships as a prebuilt ES module with its own WASM and code-split
+     chunks. A literal `import(path)` is rewritten by Vite's dev server: it
+     appends `?import` and tries to push pagefind's bundle through its own
+     transform pipeline, which 500s — so search worked under `astro preview`
+     (no Vite) but never under `astro dev`. `@vite-ignore` doesn't help; Vite
+     still rewrites the specifier.
+
+     Building the import through `new Function` means the token `import(` is
+     never in source Vite can scan, so it emits a genuine browser-native
+     import that fetches pagefind untouched. Pagefind's own internal chunk
+     imports then resolve against its real URL and are served straight from
+     `public/pagefind/` (or `dist/pagefind/` in prod). */
+  const nativeImport: (u: string) => Promise<any> =
+    new Function('u', 'return import(u)') as any;
+
   function loadPagefind() {
     if (loading) return loading;
     /* Join on a normalised base rather than concatenating onto it.
@@ -90,8 +107,8 @@ import Icon from './Icon.astro';
        trailing slashes first makes the join correct whether or not the
        base carries one. */
     const path = `${BASE.replace(/\/+$/, '')}/pagefind/pagefind.js`;
-    loading = import(/* @vite-ignore */ path)
-      .then(async (mod) => { await mod.init?.(); pagefind = mod; return mod; })
+    loading = nativeImport(path)
+      .then(async (mod: any) => { await mod.init?.(); pagefind = mod; return mod; })
       .catch(() => { pagefind = false; return null; });
     return loading;
   }

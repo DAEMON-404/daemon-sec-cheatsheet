@@ -2,6 +2,7 @@
 title: "Attack #1 — Password Spraying"
 description: "Password spraying is a low-and-slow credential attack that inverts the logic of traditional brute force. Instead of hammering one account with many…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "kerberos", "adcs", "privilege-escalation", "lateral-movement"]
 tools: ["NetExec", "Impacket", "BloodHound", "Kerbrute", "Evil-WinRM"]
 difficulty: advanced

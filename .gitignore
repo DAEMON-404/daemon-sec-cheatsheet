@@ -7,3 +7,5 @@ dist/
 /pagefind/
 # curation intermediates (keep manifest, drop bulky index)
 candidates.json
+# Pagefind index copied into public/ so the dev server can serve it
+/public/pagefind/

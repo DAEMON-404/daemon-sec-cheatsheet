@@ -2,6 +2,7 @@
 title: "DPERSIST2 — Rogue CA Certificate (NTAuth Injection)"
 description: "The forest trusts any certificate chaining to a CA published in the NTAuthCertificates object for domain authentication. Normally that list holds only the…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "persistence"]
 tools: ["Certipy", "OpenSSL", "PowerShell"]
 difficulty: advanced

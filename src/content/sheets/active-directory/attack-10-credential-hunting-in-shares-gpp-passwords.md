@@ -2,6 +2,7 @@
 title: "Attack #10 — Credential Hunting in Shares GPP Passwords"
 description: "This attack is split into two closely related techniques: GPP Password Decryption (a specific catastrophic vulnerability) and broad credential hunting…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory"]
 tools: ["NetExec", "Impacket", "Mimikatz", "BloodHound", "Metasploit"]
 difficulty: advanced

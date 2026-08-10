@@ -2,6 +2,7 @@
 title: "ESC2 — Any Purpose EKU No EKU (The Swiss Certificate)"
 description: "ESC2 gets its nickname \"The Swiss Certificate\" because a certificate issued from a vulnerable template can be used for any purpose — client auth, server…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Rubeus", "Certipy", "Evil-WinRM", "OpenSSL", "Certify"]
 difficulty: advanced

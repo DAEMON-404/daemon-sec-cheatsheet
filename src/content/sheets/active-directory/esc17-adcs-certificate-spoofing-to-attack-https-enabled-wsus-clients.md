@@ -2,6 +2,7 @@
 title: "ESC17 — ADCS Certificate Spoofing to Attack HTTPS-Enabled WSUS Clients"
 description: "ESC17 was coined by researchers Alexander Neff and Phil Knüfer at DigiTrace in January 2026. Unlike ESC1–ESC16 which target domain privilege escalation…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation", "lateral-movement"]
 tools: ["NetExec", "Impacket", "Certipy", "Responder", "OpenSSL"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #17 — Resource-Based Constrained Delegation (RBCD)"
 description: "Resource-Based Constrained Delegation (RBCD) flips traditional Constrained Delegation on its head. Instead of the delegating account specifying which…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "delegation"]
 tools: ["NetExec", "Impacket", "Rubeus", "BloodHound", "ldapsearch"]
 difficulty: advanced

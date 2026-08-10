@@ -2,6 +2,7 @@
 title: "Golden Certificate Attack — DPERSIST1"
 description: "The Golden Certificate Attack is a domain persistence technique — not a privilege escalation. By the time you execute this attack, you have already fully…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "kerberos", "adcs", "privilege-escalation", "persistence"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "Certipy"]
 difficulty: advanced

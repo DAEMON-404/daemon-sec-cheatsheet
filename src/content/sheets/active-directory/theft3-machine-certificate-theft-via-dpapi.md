@@ -2,6 +2,7 @@
 title: "THEFT3 — Machine Certificate Theft via DPAPI"
 description: "Identical concept to THEFT2 — User Certificate Theft via DPAPI but for machine certificates. These are protected by the machine DPAPI masterkey, which is…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "kerberos", "adcs", "credential-access", "privilege-escalation"]
 tools: ["Mimikatz", "Certipy", "PowerShell"]
 difficulty: advanced

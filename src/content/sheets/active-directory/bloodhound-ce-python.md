@@ -2,6 +2,7 @@
 title: "bloodhound-ce-python"
 description: "pipx install bloodhound-ce # provides bloodhound-ce-python"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory", "kerberos"]
 tools: ["Nmap", "Impacket", "BloodHound", "faketime"]
 difficulty: intermediate

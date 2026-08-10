@@ -2,6 +2,7 @@
 title: "Attack #29 — ESC3 Certificate Request Agent"
 description: "ESC3 exploits the Certificate Request Agent (Enrollment Agent) EKU. A template with this EKU allows the enrolled user to request certificates on behalf of…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Certipy", "Certify", "PowerShell"]
 difficulty: advanced

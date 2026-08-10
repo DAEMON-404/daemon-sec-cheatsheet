@@ -2,6 +2,7 @@
 title: "Shadow Credentials — msDS-KeyCredentialLink Abuse"
 description: "Windows Hello for Business / Key Trust lets an account authenticate with a public/private key pair stored in the AD attribute msDS-KeyCredentialLink. If…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "ntlm", "relay", "lateral-movement"]
 tools: ["Rubeus", "Certipy", "BloodHound", "faketime"]
 difficulty: advanced

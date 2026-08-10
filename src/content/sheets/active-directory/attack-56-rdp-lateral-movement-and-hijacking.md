@@ -2,6 +2,7 @@
 title: "Attack #56 — RDP Lateral Movement and Hijacking"
 description: "RDP (Remote Desktop Protocol, port 3389) provides full GUI access to remote systems. Beyond standard RDP with credentials, attackers can hijack existing…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "lateral-movement", "hashing"]
 tools: ["NetExec", "PowerShell"]
 difficulty: advanced

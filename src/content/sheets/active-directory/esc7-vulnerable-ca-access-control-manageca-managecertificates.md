@@ -2,6 +2,7 @@
 title: "ESC7 — Vulnerable CA Access Control (ManageCA ManageCertificates)"
 description: "ESC7 is a CA-level access control attack. Where ESC4 abused write permissions on a template object, ESC7 abuses dangerous permissions on the Certificate…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Rubeus", "Certipy", "BloodHound", "Metasploit", "Evil-WinRM"]
 difficulty: advanced

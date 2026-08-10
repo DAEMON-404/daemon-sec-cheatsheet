@@ -2,6 +2,7 @@
 title: "Kerbrute"
 description: "Kerbrute Kerberos pre-auth user enumeration and password spraying against a domain controller."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, kerberos, enumeration, spraying]
 tools: [Kerbrute]
 difficulty: beginner

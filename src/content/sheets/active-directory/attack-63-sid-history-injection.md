@@ -2,6 +2,7 @@
 title: "Attack #63 — SID History Injection"
 description: "sIDHistory is an AD attribute designed for domain migrations — it preserves a user's old SID so they retain access to resources from a previous domain. An…"
 category: active-directory
+subcategory: "Persistence"
 tags: ["active-directory", "privilege-escalation"]
 tools: ["Mimikatz", "PowerShell"]
 difficulty: advanced

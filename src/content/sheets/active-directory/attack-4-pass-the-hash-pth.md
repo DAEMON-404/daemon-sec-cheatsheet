@@ -2,6 +2,7 @@
 title: "Attack #4 — Pass-the-Hash (PtH)"
 description: "Pass-the-Hash is a credential replay attack that exploits a fundamental design characteristic of the NTLM authentication protocol. When Windows…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "ntlm", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "Hashcat"]
 difficulty: advanced

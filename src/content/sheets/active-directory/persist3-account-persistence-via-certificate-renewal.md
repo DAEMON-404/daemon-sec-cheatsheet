@@ -2,6 +2,7 @@
 title: "PERSIST3 — Account Persistence via Certificate Renewal"
 description: "Templates that allow renewal let a holder present their current certificate and receive a fresh one with a new validity window, authenticated by the…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "persistence"]
 tools: ["Certipy", "OpenSSL", "PowerShell"]
 difficulty: advanced

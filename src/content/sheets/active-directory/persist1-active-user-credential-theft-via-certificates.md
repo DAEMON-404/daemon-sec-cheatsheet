@@ -2,6 +2,7 @@
 title: "PERSIST1 — Active User Credential Theft via Certificates"
 description: "The core persistence property of certificates: a certificate is valid until it expires or is revoked, independent of the account's password. If you enrol…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "persistence", "hashing"]
 tools: ["Certipy", "Certify", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #3 — AS-REP Roasting"
 description: "AS-REP Roasting targets Active Directory accounts that have the \"Do not require Kerberos preauthentication\" flag set (DONT_REQ_PREAUTH). Under normal…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "kerberos", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "BloodHound"]
 difficulty: advanced

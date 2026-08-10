@@ -2,6 +2,7 @@
 title: "Rubeus"
 description: "Rubeus Kerberos abuse: kerberoast, asreproast, ticket forging, S4U, pass-the-ticket, overpass-the-hash."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, kerberos, tickets]
 tools: [Rubeus]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #69 — Forest Trust Abuse Cross-Forest Ticket Forging"
 description: "When two forests have a forest trust, users from one forest can access resources in the other (if explicitly permitted). An attacker who compromises the…"
 category: active-directory
+subcategory: "Trust Abuse"
 tags: ["active-directory", "kerberos", "credential-access", "hashing"]
 tools: ["Impacket", "Mimikatz", "Rubeus", "PowerShell"]
 difficulty: advanced

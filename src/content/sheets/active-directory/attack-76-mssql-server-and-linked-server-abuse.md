@@ -2,6 +2,7 @@
 title: "Attack #76 — MSSQL Server and Linked Server Abuse"
 description: "MSSQL servers in AD environments can be exploited for privilege escalation and lateral movement. Key techniques include: xp_cmdshell for RCE, linked…"
 category: active-directory
+subcategory: "Advanced & Post-Exploitation"
 tags: ["active-directory", "adcs", "privilege-escalation", "lateral-movement", "sql-injection"]
 tools: ["NetExec", "Impacket", "PowerShell"]
 difficulty: advanced

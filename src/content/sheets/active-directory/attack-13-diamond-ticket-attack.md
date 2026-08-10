@@ -2,6 +2,7 @@
 title: "Attack #13 — Diamond Ticket Attack"
 description: "The Diamond Ticket is an evolution of the Golden Ticket that was developed to bypass modern detection mechanisms. While a Golden Ticket forges a TGT…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "adcs", "credential-access", "kerberos", "privilege-escalation"]
 tools: ["Impacket", "Mimikatz", "Rubeus", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "ESC3 — Misconfigured Enrollment Agent Templates"
 description: "ESC3 exploits the Certificate Request Agent EKU (OID 1.3.6.1.4.1.311.20.2.1). In legitimate AD environments, this EKU exists for scenarios like IT…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Mimikatz", "Rubeus", "Certipy", "Evil-WinRM", "OpenSSL"]
 difficulty: advanced

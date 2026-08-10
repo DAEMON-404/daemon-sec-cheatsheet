@@ -2,6 +2,7 @@
 title: "NetExec (nxc)"
 description: "NetExec/CrackMapExec successor: SMB/WinRM/LDAP/MSSQL sweeps, cred spraying, dumping and modules."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, smb, credentials, enumeration]
 tools: [NetExec, nxc]
 difficulty: intermediate

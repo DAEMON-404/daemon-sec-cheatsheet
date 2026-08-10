@@ -2,6 +2,7 @@
 title: "Attack #50 — Abusing Account Operators Group"
 description: "net user backdoor P@ssword123! /add /domain"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory", "kerberos", "sql-injection", "pivoting"]
 tools: ["Rubeus", "PowerShell"]
 difficulty: advanced

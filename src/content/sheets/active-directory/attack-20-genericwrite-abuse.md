@@ -2,6 +2,7 @@
 title: "Attack #20 — GenericWrite Abuse"
 description: "GenericWrite allows an attacker to write to any non-protected attribute on a target AD object. While it doesn't grant full control like GenericAll, it…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "kerberos", "hashing"]
 tools: ["Rubeus", "Certipy", "Hashcat", "PowerShell"]
 difficulty: advanced

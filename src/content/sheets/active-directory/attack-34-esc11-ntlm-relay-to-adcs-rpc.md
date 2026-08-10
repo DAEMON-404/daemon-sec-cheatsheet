@@ -2,6 +2,7 @@
 title: "Attack #34 — ESC11 NTLM Relay to ADCS RPC"
 description: "ESC11 is similar to ESC8 but targets the CA's RPC enrollment interface (MS-ICPR) instead of the HTTP web enrollment. If the CA does not enforce packet…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "credential-access", "ntlm", "relay"]
 tools: ["Impacket", "Certipy"]
 difficulty: advanced

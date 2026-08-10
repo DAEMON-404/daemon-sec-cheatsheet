@@ -2,6 +2,7 @@
 title: "ADCS Attack Methodology"
 description: "ADCS/ESC attack index following Certified Pre-Owned taxonomy: ESC, THEFT, PERSIST, DPERSIST phases."
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: [active-directory, adcs, esc, certificates]
 tools: [Certipy, Certify]
 difficulty: advanced

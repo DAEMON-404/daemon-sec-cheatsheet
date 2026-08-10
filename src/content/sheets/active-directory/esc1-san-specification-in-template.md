@@ -2,6 +2,7 @@
 title: "ESC1 — SAN Specification in Template"
 description: "ESC1 is the most commonly encountered and most directly exploitable ADCS misconfiguration. The vulnerability exists at the certificate template level —…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "Certipy"]
 difficulty: advanced

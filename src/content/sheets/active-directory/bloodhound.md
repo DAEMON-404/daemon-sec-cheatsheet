@@ -2,6 +2,7 @@
 title: "BloodHound"
 description: "BloodHound data collection and analysis with the Python ingestor plus cypher query patterns."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, graph, enumeration]
 tools: [BloodHound, bloodhound-python]
 difficulty: intermediate

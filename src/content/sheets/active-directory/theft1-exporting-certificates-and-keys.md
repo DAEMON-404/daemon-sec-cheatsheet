@@ -2,6 +2,7 @@
 title: "THEFT1 — Exporting Certificates and Keys"
 description: "THEFT1 is the simplest credential-theft primitive in the ADCS taxonomy: harvest certificates that are already enrolled on a machine you control, rather…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Mimikatz", "Certipy", "faketime", "PowerShell"]
 difficulty: advanced

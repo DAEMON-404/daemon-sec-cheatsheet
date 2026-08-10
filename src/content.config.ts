@@ -9,6 +9,10 @@ const sheets = defineCollection({
     title: z.string(),
     description: z.string().default(''),
     category: z.string(),
+    // Optional second-level grouping shown as sub-sections on a busy
+    // category page (Active Directory has 130+ sheets). Derived from the
+    // source vault path by scripts/stamp-subcategory.py.
+    subcategory: z.string().optional(),
     tags: z.array(z.string()).default([]),
     tools: z.array(z.string()).default([]),
     difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('intermediate'),

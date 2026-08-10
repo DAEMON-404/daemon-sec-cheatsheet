@@ -2,6 +2,7 @@
 title: "Attack #58 — WMI Lateral Movement"
 description: "WMI (Windows Management Instrumentation) enables remote process execution via the Win32_Process.Create() method. WMI-based execution is the stealthiest…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "kerberos", "lateral-movement", "hashing"]
 tools: ["Impacket", "PowerShell"]
 difficulty: advanced

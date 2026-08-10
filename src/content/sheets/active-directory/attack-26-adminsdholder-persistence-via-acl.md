@@ -2,6 +2,7 @@
 title: "Attack #26 — AdminSDHolder Persistence via ACL"
 description: "AdminSDHolder is a built-in Active Directory persistence mechanism that attackers can abuse for permanent, self-healing backdoor access. The…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "adcs", "credential-access", "persistence"]
 tools: ["Impacket", "Mimikatz", "PowerShell"]
 difficulty: advanced

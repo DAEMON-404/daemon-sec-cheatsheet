@@ -2,6 +2,7 @@
 title: "Attack #59 — SCM Service Manager Lateral Movement"
 description: "The Service Control Manager (SCM) allows remote service creation and management via named pipes (\\pipe\\svcctl). An attacker with admin credentials can…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "lateral-movement"]
 tools: ["Impacket", "PowerShell"]
 difficulty: advanced

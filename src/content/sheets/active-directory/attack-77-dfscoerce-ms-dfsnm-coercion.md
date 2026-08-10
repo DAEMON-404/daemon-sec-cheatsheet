@@ -2,6 +2,7 @@
 title: "Attack #77 — DFSCoerce MS-DFSNM Coercion"
 description: "DFSCoerce abuses the MS-DFSNM (Distributed File System Namespace Management) protocol to coerce a target machine (typically a DC) into authenticating to…"
 category: active-directory
+subcategory: "Advanced & Post-Exploitation"
 tags: ["active-directory", "adcs", "ntlm", "relay"]
 tools: []
 difficulty: advanced

@@ -76,12 +76,15 @@ SKIP_RE = re.compile(r"(roadmap|dashboard|attack-flow|most-used-commands|esc att
 
 def is_non_sheet(rel):
     base = rel.split("/")[-1]
-    stem = base[:-3] if base.lower().endswith(".md") else base
+    # Strip a leading emoji/space so covers like "🔵 Attack.md" match — the
+    # emoji prefix is exactly what let one slip through the first run.
+    bare = strip_emoji(base).strip()
+    stem = bare[:-3] if bare.lower().endswith(".md") else bare
     if not stem.strip():
         return True                       # Git/.md — empty stub
     if stem.startswith("_"):
         return True                       # _ADCS Dashboard / _index files
-    if base.lower() in ("attack.md", "readme.md"):
+    if bare.lower() in ("attack.md", "readme.md"):
         return True                       # category cover / scripts readme
     return bool(SKIP_RE.search(stem))
 

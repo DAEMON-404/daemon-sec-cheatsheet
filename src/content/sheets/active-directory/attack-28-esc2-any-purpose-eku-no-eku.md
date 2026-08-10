@@ -2,6 +2,7 @@
 title: "Attack #28 — ESC2 Any Purpose EKU No EKU"
 description: "ESC2 exploits certificate templates configured with the \"Any Purpose\" Extended Key Usage (EKU) (OID 2.5.29.37.0) or no EKU at all. Such certificates are…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Certipy", "Certify", "PowerShell"]
 difficulty: advanced

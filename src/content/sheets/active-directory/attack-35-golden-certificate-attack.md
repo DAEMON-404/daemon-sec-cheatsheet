@@ -2,6 +2,7 @@
 title: "Attack #35 — Golden Certificate Attack"
 description: "The Golden Certificate attack is the ADCS equivalent of a Golden Ticket. By stealing the Certificate Authority's private key and CA certificate, an…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "kerberos"]
 tools: ["Mimikatz", "Rubeus", "Certipy", "PowerShell"]
 difficulty: advanced

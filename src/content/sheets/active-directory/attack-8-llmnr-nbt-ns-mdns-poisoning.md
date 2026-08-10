@@ -2,6 +2,7 @@
 title: "Attack #8 — LLMNR NBT-NS mDNS Poisoning"
 description: "LLMNR (Link-Local Multicast Name Resolution), NBT-NS (NetBIOS Name Service), and mDNS (Multicast DNS) are fallback name resolution protocols built into…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "ntlm", "relay", "hashing"]
 tools: ["Nmap", "NetExec", "Impacket", "Hashcat", "John"]
 difficulty: advanced

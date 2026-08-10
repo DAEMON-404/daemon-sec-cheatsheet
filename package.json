@@ -6,8 +6,9 @@
   "description": "DÆMON//SEC — a curated vault of IT & cybersecurity cheatsheets",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "astro build && pagefind --site dist && npm run pagefind:public",
     "preview": "astro preview",
+    "pagefind:public": "rm -rf public/pagefind && cp -R dist/pagefind public/pagefind",
     "astro": "astro"
   },
   "dependencies": {

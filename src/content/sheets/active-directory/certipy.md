@@ -2,6 +2,7 @@
 title: "Certipy"
 description: "Certipy ADCS enumeration and ESC exploitation: template abuse, PKINIT, golden certificate, shadow creds."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, adcs, certificates]
 tools: [Certipy]
 difficulty: advanced

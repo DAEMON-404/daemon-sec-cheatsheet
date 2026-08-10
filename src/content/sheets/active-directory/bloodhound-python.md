@@ -2,6 +2,7 @@
 title: "BloodHound-Python_"
 description: "bloodhound-python --help"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory", "kerberos"]
 tools: ["Nmap", "NetExec", "Impacket", "BloodHound", "SharpHound"]
 difficulty: intermediate

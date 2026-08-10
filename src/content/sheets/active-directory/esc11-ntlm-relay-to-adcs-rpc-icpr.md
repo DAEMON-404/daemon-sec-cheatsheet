@@ -2,6 +2,7 @@
 title: "ESC11 — NTLM Relay to ADCS RPC (ICPR)"
 description: "ESC11 is the RPC-based sibling of ESC8. Where ESC8 relays NTLM credentials to the CA's HTTP Web Enrollment endpoint, ESC11 relays them to the CA's RPC…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "ntlm", "relay"]
 tools: ["Impacket", "Certipy", "Metasploit", "Evil-WinRM", "Certify"]
 difficulty: advanced

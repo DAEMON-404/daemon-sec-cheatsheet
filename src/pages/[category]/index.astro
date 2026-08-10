@@ -22,24 +22,75 @@ export async function getStaticPaths() {
 interface Props { cat: CategoryDef; items: Sheet[]; n: string }
 const { cat, items, n } = Astro.props;
 
-/* The ledger counts what the page can actually count. Difficulty spread is
-   the one figure a reader uses to decide where to start in a domain. */
+/* Kill-chain order for the sub-sections. A sheet whose subcategory isn't
+   listed falls to the end under its own name; a category with no
+   subcategories at all (every domain except Active Directory today) renders
+   one flat index, exactly as before. */
+const SUBCAT_ORDER = [
+  'Credential Access',
+  'Kerberos & Delegation',
+  'ACL Abuse',
+  'ADCS & Certificates',
+  'Domain Controller Attacks',
+  'Privilege & Group Abuse',
+  'Lateral Movement',
+  'Persistence',
+  'Trust Abuse',
+  'Advanced & Post-Exploitation',
+  'Tooling & Recon',
+];
+
+/* Within a section: numbered techniques first (attack-2 before attack-40,
+   esc1 before esc10 — numeric, not lexical), then everything else A→Z. The
+   prefix rank keeps all attack-* together, then all esc-*, and so on. */
+const PFX_RANK: Record<string, number> = { attack: 0, esc: 1, persist: 2, theft: 3, dpersist: 4 };
+function sortKey(entry: Sheet): [number, number, number, string] {
+  const slug = entry.id.split('/').pop() ?? '';
+  const m = slug.match(/^([a-z]+)-?(\d+)/);
+  if (m && m[1] in PFX_RANK) return [0, PFX_RANK[m[1]], parseInt(m[2], 10), slug];
+  return [1, 0, 0, (entry.data.title || slug).toLowerCase()];
+}
+function cmp(a: Sheet, b: Sheet) {
+  const ka = sortKey(a), kb = sortKey(b);
+  for (let i = 0; i < ka.length; i++) {
+    if (ka[i] < kb[i]) return -1;
+    if (ka[i] > kb[i]) return 1;
+  }
+  return 0;
+}
+
+const hasSubcats = items.some((s) => s.data.subcategory);
+type Group = { name: string; items: Sheet[] };
+let groups: Group[] = [];
+if (hasSubcats) {
+  const buckets = new Map<string, Sheet[]>();
+  for (const s of items) {
+    const key = s.data.subcategory ?? 'Other';
+    (buckets.get(key) ?? buckets.set(key, []).get(key)!).push(s);
+  }
+  const ordered = [
+    ...SUBCAT_ORDER.filter((k) => buckets.has(k)),
+    ...[...buckets.keys()].filter((k) => !SUBCAT_ORDER.includes(k)).sort(),
+  ];
+  groups = ordered.map((name) => ({ name, items: [...buckets.get(name)!].sort(cmp) }));
+}
+
 const byDifficulty = (level: string) => items.filter((s) => s.data.difficulty === level).length;
 const tools = new Set(items.flatMap((s) => s.data.tools));
+const bannerStats = [
+  { label: 'Sheets', value: String(items.length).padStart(2, '0'), accent: true },
+  ...(hasSubcats
+    ? [{ label: 'Sections', value: String(groups.length).padStart(2, '0') }]
+    : [{ label: 'Tools covered', value: String(tools.size).padStart(2, '0') }]),
+  { label: 'Beginner / adv', value: `${byDifficulty('beginner')} / ${byDifficulty('advanced')}` },
+];
+
+/* Section accents cycle the palette so the sub-headers read as a colour
+   run down the page, the same key the masthead and marquee use. */
+const SECTION_ACCENTS = ['iris', 'foam', 'love', 'gold', 'rose', 'pine'];
 ---
 <Base title={`${cat.title} — DÆMON//SEC`} description={cat.blurb}>
-  <SectionBanner
-    n={n}
-    label={cat.tag}
-    title={cat.title}
-    blurb={cat.blurb}
-    accent={cat.accent}
-    stats={[
-      { label: 'Sheets', value: String(items.length).padStart(2, '0'), accent: true },
-      { label: 'Tools covered', value: String(tools.size).padStart(2, '0') },
-      { label: 'Beginner / adv', value: `${byDifficulty('beginner')} / ${byDifficulty('advanced')}` },
-    ]}
-  />
+  <SectionBanner n={n} label={cat.tag} title={cat.title} blurb={cat.blurb} accent={cat.accent} stats={bannerStats} />
 
   <div class="wrap">
     <nav class="breadcrumb" style="margin-top:1.6rem;">
@@ -49,7 +100,16 @@ const tools = new Set(items.flatMap((s) => s.data.tools));
 
     <div style="margin:1.4rem 0 2rem;"><CategoryNav active={cat.slug} /></div>
 
-    {items.length > 0 ? (
+    {items.length === 0 && (
+      <div class="slab" style="margin:1.5rem 0 3rem; padding:1.2rem 1.3rem;">
+        <p class="muted mono" style="font-size:0.85rem;">
+          No sheets in this domain yet. More landing soon —
+          <a class="accent-text" href={url('')}>back to the vault</a>.
+        </p>
+      </div>
+    )}
+
+    {items.length > 0 && !hasSubcats && (
       <div class="index" style="margin-bottom:3rem;">
         {items.map((entry, i) => (
           <RecordRow
@@ -62,13 +122,45 @@ const tools = new Set(items.flatMap((s) => s.data.tools));
           />
         ))}
       </div>
-    ) : (
-      <div class="slab" style="margin:1.5rem 0 3rem; padding:1.2rem 1.3rem;">
-        <p class="muted mono" style="font-size:0.85rem;">
-          No sheets in this domain yet. More landing soon —
-          <a class="accent-text" href={url('')}>back to the vault</a>.
-        </p>
+    )}
+
+    {items.length > 0 && hasSubcats && (
+      <div style="margin-bottom:3rem;">
+        {groups.map((g, gi) => {
+          const acc = SECTION_ACCENTS[gi % SECTION_ACCENTS.length];
+          return (
+            <section class="subcat" id={`s-${gi}`}>
+              <div class="section-head" style="margin-bottom:0.9rem;">
+                <div>
+                  <p class="eyebrow" style={`--acc: var(--${acc});`}>
+                    <span class="eyebrow__n">{String(gi + 1).padStart(2, '0')}</span>
+                    <span class="eyebrow__mark">^:</span>
+                    <span>{g.items.length} {g.items.length === 1 ? 'sheet' : 'sheets'}</span>
+                    <span class="eyebrow__rule" aria-hidden="true"></span>
+                  </p>
+                  <h2>{g.name}</h2>
+                </div>
+              </div>
+              <div class="index">
+                {g.items.map((entry, i) => (
+                  <RecordRow
+                    href={url(sheetHref(entry))}
+                    n={String(i + 1).padStart(2, '0')}
+                    title={entry.data.title}
+                    kind={entry.data.difficulty}
+                    accent={acc}
+                    meta={entry.data.updated ?? entry.id.split('/').pop()}
+                  />
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
     )}
   </div>
 </Base>
+
+<style>
+  .subcat + .subcat { margin-top: clamp(2.2rem, 4.5vw, 3.4rem); }
+</style>

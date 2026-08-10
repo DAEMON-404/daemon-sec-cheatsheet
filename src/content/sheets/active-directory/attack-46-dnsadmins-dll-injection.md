@@ -2,6 +2,7 @@
 title: "Attack #46 — DNSAdmins DLL Injection"
 description: "Members of the DnsAdmins group can configure the DNS service to load an arbitrary DLL via the ServerLevelPluginDll registry key. Since the DNS service…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory"]
 tools: ["PowerShell"]
 difficulty: advanced

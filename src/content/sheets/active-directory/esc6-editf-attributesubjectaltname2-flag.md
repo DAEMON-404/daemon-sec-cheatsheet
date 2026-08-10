@@ -2,6 +2,7 @@
 title: "ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2 Flag"
 description: "certutil -config \"CA-SERVER\\DOMAIN-CA\" -getreg policy\\EditFlags"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Impacket", "Mimikatz", "Rubeus", "Certipy", "BloodHound"]
 difficulty: advanced

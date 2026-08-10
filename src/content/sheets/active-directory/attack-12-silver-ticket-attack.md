@@ -2,6 +2,7 @@
 title: "Attack #12 — Silver Ticket Attack"
 description: "The Silver Ticket attack is the surgical counterpart to the Golden Ticket. Instead of forging a Ticket Granting Ticket (TGT) with the KRBTGT hash (which…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "kerberos", "adcs", "credential-access", "ntlm"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "Hashcat"]
 difficulty: advanced

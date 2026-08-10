@@ -2,6 +2,7 @@
 title: "Attack #54 — PsExec Remote Execution via SMB"
 description: "PsExec is the most iconic lateral movement technique in Active Directory environments. It enables an attacker with valid administrator credentials to…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "kerberos", "privilege-escalation", "lateral-movement", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Evil-WinRM", "PowerShell"]
 difficulty: advanced

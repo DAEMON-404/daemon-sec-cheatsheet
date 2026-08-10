@@ -2,6 +2,7 @@
 title: "Attack #21 — WriteDACL Abuse"
 description: "WriteDACL allows an attacker to modify the Discretionary Access Control List of a target AD object — meaning they can grant themselves (or any principal)…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "credential-access", "privilege-escalation", "hashing"]
 tools: ["Impacket", "Mimikatz", "BloodHound", "PowerShell"]
 difficulty: advanced

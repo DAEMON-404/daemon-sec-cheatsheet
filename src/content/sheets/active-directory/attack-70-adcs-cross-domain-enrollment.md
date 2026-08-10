@@ -2,6 +2,7 @@
 title: "Attack #70 — ADCS Cross-Domain Enrollment"
 description: "When ADCS is deployed in a multi-domain forest, certificate enrollment often uses Enterprise CAs that serve the entire forest. A user from a child domain…"
 category: active-directory
+subcategory: "Trust Abuse"
 tags: ["active-directory", "adcs", "hashing"]
 tools: ["Certipy"]
 difficulty: advanced

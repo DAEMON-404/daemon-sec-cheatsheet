@@ -2,6 +2,7 @@
 title: "Attack #15 — Unconstrained Delegation Abuse"
 description: "Unconstrained Delegation is a legacy Kerberos feature that allows a service to impersonate any user to any other service in the domain. When a computer…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "kerberos", "adcs", "credential-access", "delegation"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "BloodHound"]
 difficulty: advanced

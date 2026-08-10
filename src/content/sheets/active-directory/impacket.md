@@ -2,6 +2,7 @@
 title: "Impacket"
 description: "Impacket suite: secretsdump, psexec/wmiexec, GetUserSPNs, ntlmrelayx, ticketer, smbserver and more."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, smb, credentials, lateral-movement]
 tools: [Impacket]
 difficulty: intermediate

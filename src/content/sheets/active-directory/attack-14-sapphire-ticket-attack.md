@@ -2,6 +2,7 @@
 title: "Attack #14 — Sapphire Ticket Attack"
 description: "The Sapphire Ticket is the most OPSEC-friendly ticket forging technique in the Kerberos attack family. It addresses the final detection gap that Diamond…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "kerberos", "credential-access", "privilege-escalation"]
 tools: ["Impacket", "Mimikatz", "Rubeus", "PowerShell"]
 difficulty: advanced

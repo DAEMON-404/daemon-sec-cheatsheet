@@ -2,6 +2,7 @@
 title: "Attack #60 — Token Stealing and Impersonation"
 description: "When a privileged user (e.g., Domain Admin) is logged into a compromised machine, their access token persists in memory. An attacker with local…"
 category: active-directory
+subcategory: "Lateral Movement"
 tags: ["active-directory", "credential-access", "delegation", "privilege-escalation", "lateral-movement"]
 tools: ["Mimikatz", "Meterpreter", "PowerShell"]
 difficulty: advanced

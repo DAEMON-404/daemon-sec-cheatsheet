@@ -2,6 +2,7 @@
 title: "Attack #33 — ESC8 NTLM Relay to ADCS HTTP Endpoint"
 description: "ESC8 is one of the most impactful ADCS attacks — it enables a full domain compromise from unauthenticated or low-privileged access by combining NTLM…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "credential-access", "ntlm", "relay"]
 tools: ["Impacket", "Certipy"]
 difficulty: advanced

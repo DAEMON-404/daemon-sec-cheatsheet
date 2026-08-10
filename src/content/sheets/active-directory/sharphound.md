@@ -2,6 +2,7 @@
 title: "SharpHound_"
 description: "⚠️ Note: Make sure your SharpHound version matches your BloodHound version! You can check the compatible version in BloodHound CE's web UI under Settings…"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory", "adcs", "privilege-escalation"]
 tools: ["Impacket", "BloodHound", "SharpHound", "Evil-WinRM", "Certify"]
 difficulty: intermediate

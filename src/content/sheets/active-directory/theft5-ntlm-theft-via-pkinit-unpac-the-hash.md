@@ -2,6 +2,7 @@
 title: "THEFT5 — NTLM Theft via PKINIT (UnPAC-the-Hash)"
 description: "When you authenticate with a certificate via PKINIT, the KDC returns a TGT whose PAC contains the account's NTLM hash (so the account can later do NTLM…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "kerberos", "adcs", "ntlm", "hashing"]
 tools: ["Rubeus", "Certipy", "Evil-WinRM", "faketime", "PowerShell"]
 difficulty: advanced

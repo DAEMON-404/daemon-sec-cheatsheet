@@ -2,6 +2,7 @@
 title: "Attack #6 — Overpass-the-Hash (Pass-the-Key)"
 description: "Overpass-the-Hash (OPtH) is a hybrid attack that converts a stolen NTLM hash into a fully valid Kerberos TGT. This is the critical conceptual bridge in…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "kerberos", "ntlm", "hashing"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "BloodHound"]
 difficulty: advanced

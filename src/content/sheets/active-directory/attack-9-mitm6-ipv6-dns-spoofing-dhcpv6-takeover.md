@@ -2,6 +2,7 @@
 title: "Attack #9 — mitm6 (IPv6 DNS Spoofing DHCPv6 Takeover)"
 description: "mitm6 exploits a fundamental default behaviour of Windows: even in networks that have never deployed IPv6, every Windows machine continuously sends DHCPv6…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "credential-access", "ntlm", "relay"]
 tools: ["Nmap", "NetExec", "Impacket", "Rubeus", "BloodHound"]
 difficulty: advanced

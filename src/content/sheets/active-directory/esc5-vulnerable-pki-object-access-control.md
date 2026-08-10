@@ -2,6 +2,7 @@
 title: "ESC5 — Vulnerable PKI Object Access Control"
 description: "ESC5 is a broad category of permission-level attacks against the various Active Directory objects that comprise the PKI infrastructure. Unlike ESC4 which…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "pivoting"]
 tools: ["Impacket", "Certipy", "BloodHound", "OpenSSL", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "ESC8 — NTLM Relay to ADCS HTTP Web Enrollment"
 description: "ESC8 is a network-level NTLM relay attack against the ADCS Web Enrollment HTTP interface. Every ESC attack up to this point required you to already have…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "credential-access", "ntlm", "relay"]
 tools: ["Impacket", "Mimikatz", "Rubeus", "Certipy", "Evil-WinRM"]
 difficulty: advanced

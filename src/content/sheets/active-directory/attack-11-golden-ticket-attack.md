@@ -2,6 +2,7 @@
 title: "Attack #11 — Golden Ticket Attack"
 description: "The Golden Ticket attack is the most powerful persistence technique in Active Directory. It exploits the fundamental trust model of the Kerberos protocol…"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "kerberos", "credential-access", "privilege-escalation", "persistence"]
 tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "Evil-WinRM"]
 difficulty: advanced

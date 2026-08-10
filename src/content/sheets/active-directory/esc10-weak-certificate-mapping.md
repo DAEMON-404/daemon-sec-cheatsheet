@@ -2,6 +2,7 @@
 title: "ESC10 — Weak Certificate Mapping"
 description: "ESC10 exploits weak certificate-to-account mapping enforcement on the Domain Controller. When the DC receives a certificate for authentication, it must…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "kerberos", "adcs"]
 tools: ["NetExec", "Certipy", "BloodHound", "Evil-WinRM"]
 difficulty: advanced

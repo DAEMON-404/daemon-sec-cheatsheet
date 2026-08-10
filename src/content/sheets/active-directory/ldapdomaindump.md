@@ -2,6 +2,7 @@
 title: "ldapdomaindump"
 description: "pip3 install ldapdomaindump"
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: ["active-directory"]
 tools: ["Nmap", "NetExec", "BloodHound", "ldapsearch", "Evil-WinRM"]
 difficulty: intermediate

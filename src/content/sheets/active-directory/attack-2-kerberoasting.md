@@ -2,6 +2,7 @@
 title: "Attack #2 — Kerberoasting"
 description: "Kerberoasting is a post-compromise, offline credential attack that abuses a fundamental design feature of the Kerberos protocol. When any authenticated…"
 category: active-directory
+subcategory: "Credential Access"
 tags: ["active-directory", "kerberos", "privilege-escalation", "sql-injection", "hashing"]
 tools: ["NetExec", "Impacket", "Rubeus", "BloodHound", "Kerbrute"]
 difficulty: advanced

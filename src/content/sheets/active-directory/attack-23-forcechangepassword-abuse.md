@@ -2,6 +2,7 @@
 title: "Attack #23 — ForceChangePassword Abuse"
 description: "ForceChangePassword (also known as User-Force-Change-Password extended right) allows a principal to reset another user's password without knowing their…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "delegation", "privilege-escalation"]
 tools: ["Impacket", "PowerShell"]
 difficulty: advanced

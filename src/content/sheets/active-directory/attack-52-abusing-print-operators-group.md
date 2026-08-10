@@ -2,6 +2,7 @@
 title: "Attack #52 — Abusing Print Operators Group"
 description: "whoami /priv"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory", "privilege-escalation"]
 tools: ["PowerShell"]
 difficulty: advanced

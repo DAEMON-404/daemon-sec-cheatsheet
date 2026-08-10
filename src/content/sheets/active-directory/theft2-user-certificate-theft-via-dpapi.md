@@ -2,6 +2,7 @@
 title: "THEFT2 — User Certificate Theft via DPAPI"
 description: "Windows protects user certificate private keys with DPAPI (Data Protection API). The encrypted key blobs live on disk; decrypting them normally requires…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs", "hashing"]
 tools: ["Mimikatz", "Certipy", "OpenSSL", "PowerShell"]
 difficulty: advanced

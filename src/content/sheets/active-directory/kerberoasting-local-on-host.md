@@ -2,6 +2,7 @@
 title: "Kerberoasting — Local On-Host"
 description: "[1] Enumerate SPNs → [2] Request TGS Ticket → [3] Extract Hash → [4] Crack Offline"
 category: active-directory
+subcategory: "Kerberos & Delegation"
 tags: ["active-directory", "kerberos", "sql-injection", "hashing"]
 tools: ["Impacket", "Mimikatz", "Rubeus", "Hashcat", "John"]
 difficulty: advanced

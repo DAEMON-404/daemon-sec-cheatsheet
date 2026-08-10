@@ -2,6 +2,7 @@
 title: "Attack #49 — Abusing Backup Operators Group"
 description: "Members of Backup Operators have the SeBackupPrivilege and SeRestorePrivilege, which grants them the ability to read and write any file on the system —…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory", "privilege-escalation", "hashing"]
 tools: ["Impacket", "PowerShell"]
 difficulty: advanced

@@ -2,6 +2,7 @@
 title: "Attack #31 — ESC6 EDITF_ATTRIBUTESUBJECTALTNAME2 Flag"
 description: "ESC6 is a CA-wide misconfiguration where the EDITF_ATTRIBUTESUBJECTALTNAME2 flag is enabled on the Certificate Authority. When this flag is set, it allows…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "adcs"]
 tools: ["Certipy", "Certify", "PowerShell"]
 difficulty: advanced

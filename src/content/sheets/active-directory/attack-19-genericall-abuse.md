@@ -2,6 +2,7 @@
 title: "Attack #19 — GenericAll Abuse"
 description: "GenericAll is the most dangerous misconfigured ACL permission in Active Directory. It grants a principal (user, group, or computer) full control over a…"
 category: active-directory
+subcategory: "ACL Abuse"
 tags: ["active-directory", "kerberos", "adcs", "delegation", "privilege-escalation"]
 tools: ["NetExec", "Impacket", "Rubeus", "Certipy", "BloodHound"]
 difficulty: advanced

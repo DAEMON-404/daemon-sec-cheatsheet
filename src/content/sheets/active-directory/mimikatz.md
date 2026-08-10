@@ -2,6 +2,7 @@
 title: "Mimikatz"
 description: "Mimikatz credential extraction: sekurlsa, LSA dumps, DCSync, pass-the-hash/ticket, golden/silver tickets."
 category: active-directory
+subcategory: "Tooling & Recon"
 tags: [active-directory, credentials, kerberos]
 tools: [Mimikatz]
 difficulty: intermediate

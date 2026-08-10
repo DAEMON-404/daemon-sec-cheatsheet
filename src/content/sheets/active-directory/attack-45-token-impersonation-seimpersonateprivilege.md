@@ -2,6 +2,7 @@
 title: "Attack #45 — Token Impersonation (SeImpersonatePrivilege)"
 description: "Token Impersonation is a local privilege escalation technique that exploits the Windows SeImpersonatePrivilege (or SeAssignPrimaryTokenPrivilege) to…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory", "adcs", "privilege-escalation", "sql-injection"]
 tools: ["Impacket", "Mimikatz", "Metasploit", "Meterpreter", "PowerShell"]
 difficulty: advanced

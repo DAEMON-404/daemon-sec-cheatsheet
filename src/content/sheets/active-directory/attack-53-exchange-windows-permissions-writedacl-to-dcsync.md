@@ -2,6 +2,7 @@
 title: "Attack #53 — Exchange Windows Permissions (WriteDACL to DCSync)"
 description: "In many environments, the Exchange Windows Permissions security group has WriteDACL on the domain root object. This is a well-known legacy…"
 category: active-directory
+subcategory: "Privilege & Group Abuse"
 tags: ["active-directory", "credential-access"]
 tools: ["Impacket", "Mimikatz", "PowerShell"]
 difficulty: advanced

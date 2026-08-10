@@ -2,6 +2,7 @@
 title: "Attack #74 — Azure AD Connect Credential Extraction"
 description: "Azure AD Connect synchronizes on-premises AD with Azure AD / Entra ID. The sync service stores a privileged AD account's credentials (the MSOL_ account or…"
 category: active-directory
+subcategory: "Advanced & Post-Exploitation"
 tags: ["active-directory", "credential-access", "privilege-escalation", "sql-injection"]
 tools: ["Impacket", "Mimikatz", "PowerShell"]
 difficulty: advanced

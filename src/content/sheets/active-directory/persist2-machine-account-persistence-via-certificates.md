@@ -2,6 +2,7 @@
 title: "PERSIST2 — Machine Account Persistence via Certificates"
 description: "Machine accounts rotate their password automatically every ~30 days, which normally limits how long a stolen machine hash stays useful. A certificate…"
 category: active-directory
+subcategory: "ADCS & Certificates"
 tags: ["active-directory", "kerberos", "adcs", "credential-access", "persistence"]
 tools: ["Certipy", "Certify", "PowerShell"]
 difficulty: advanced
