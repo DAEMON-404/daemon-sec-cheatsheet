@@ -36,15 +36,37 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <!-- Set theme before first paint to avoid FOUC -->
     <script is:inline>
       (function () {
-        try {
-          var t = localStorage.getItem('theme');
-          // Dawn (cream) is the default, matching the main DÆMON site.
-          if (t !== 'light' && t !== 'dark') t = 'light';
-          document.documentElement.setAttribute('data-theme', t);
-          document.documentElement.style.colorScheme = t;
-        } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'light');
+        function apply() {
+          try {
+            var t = localStorage.getItem('theme');
+            // Dawn (cream) is the default, matching the main DÆMON site.
+            if (t !== 'light' && t !== 'dark') t = 'light';
+            document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.style.colorScheme = t;
+          } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
         }
+
+        apply();
+
+        /* Every page ships `<html data-theme="light">` in its static markup,
+           because that is the default and the build has no way to know what
+           any given reader chose. On a view-transition navigation Astro
+           swaps in the new document — attributes on <html> included — so
+           that baked-in "light" overwrites the live attribute and the page
+           reverts to dawn mid-session.
+
+           This listener re-applies the stored choice on every swap. It runs
+           in `astro:after-swap`, which fires after the new document is in
+           place but before it is painted, so the correction never flashes.
+
+           The listener is registered once, from an inline head script that
+           executes on the first full load only — which is exactly why it
+           has to be `is:inline` and live here rather than in app.ts: a
+           bundled module re-imported per page would re-register it, and a
+           deferred one would run too late to beat the paint. */
+        document.addEventListener('astro:after-swap', apply);
       })();
     </script>
     <ClientRouter />

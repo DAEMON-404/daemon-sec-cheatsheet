@@ -1,0 +1,225 @@
+decision	category	slug	title	source	reason
+ADD	active-directory	certificate-persistence-certifried-cve-2022-26923	Certificate Persistence — Certifried (CVE-2022-26923)	ActiveDirectory/ACL-ESC-Techniques/Certificate Persistence — Certifried (CVE-2022-26923).md	advanced · 5 tools
+ADD	active-directory	dpersist2-rogue-ca-certificate-ntauth-injection	DPERSIST2 — Rogue CA Certificate (NTAuth Injection)	ActiveDirectory/ACL-ESC-Techniques/DPERSIST2 — Rogue CA Certificate (NTAuth Injection).md	advanced · 3 tools
+ADD	active-directory	dpersist3-malicious-misconfiguration-acl-backdoor	DPERSIST3 — Malicious Misconfiguration (ACL Backdoor)	ActiveDirectory/ACL-ESC-Techniques/DPERSIST3 — Malicious Misconfiguration (ACL Backdoor).md	advanced · 2 tools
+ADD	active-directory	esc1-san-specification-in-template	ESC1 — SAN Specification in Template	ActiveDirectory/ACL-ESC-Techniques/ESC1 — SAN Specification in Template.md	advanced · 5 tools
+ADD	active-directory	esc10-weak-certificate-mapping	ESC10 — Weak Certificate Mapping	ActiveDirectory/ACL-ESC-Techniques/ESC10 — Weak Certificate Mapping.md	advanced · 4 tools
+ADD	active-directory	esc11-ntlm-relay-to-adcs-rpc-icpr	ESC11 — NTLM Relay to ADCS RPC (ICPR)	ActiveDirectory/ACL-ESC-Techniques/ESC11 — NTLM Relay to ADCS RPC (ICPR).md	advanced · 5 tools
+ADD	active-directory	esc12-shell-access-to-ca-with-yubihsm	ESC12 — Shell Access to CA with YubiHSM	ActiveDirectory/ACL-ESC-Techniques/ESC12 — Shell Access to CA with YubiHSM.md	advanced · 3 tools
+ADD	active-directory	esc13-issuance-policy-oid-group-link	ESC13 — Issuance Policy OID Group Link	ActiveDirectory/ACL-ESC-Techniques/ESC13 — Issuance Policy OID Group Link.md	advanced · 5 tools
+ADD	active-directory	esc14-weak-explicit-certificate-mapping	ESC14 — Weak Explicit Certificate Mapping	ActiveDirectory/ACL-ESC-Techniques/ESC14 — Weak Explicit Certificate Mapping.md	advanced · 5 tools
+ADD	active-directory	esc15-ekuwu-cve-2024-49019	ESC15 — EKUwu (CVE-2024-49019)	ActiveDirectory/ACL-ESC-Techniques/ESC15 — EKUwu (CVE-2024-49019).md	advanced · 5 tools
+ADD	active-directory	esc16-security-extension-disabled-on-ca-globally	ESC16 — Security Extension Disabled on CA (Globally)	ActiveDirectory/ACL-ESC-Techniques/ESC16 — Security Extension Disabled on CA (Globally).md	advanced · 5 tools
+ADD	active-directory	esc17-adcs-certificate-spoofing-to-attack-https-enabled-wsus-clients	ESC17 — ADCS Certificate Spoofing to Attack HTTPS-Enabled WSUS Clients	ActiveDirectory/ACL-ESC-Techniques/ESC17 — ADCS Certificate Spoofing to Attack HTTPS-Enabled WSUS Clients.md	advanced · 5 tools
+ADD	active-directory	esc2-any-purpose-eku-no-eku-the-swiss-certificate	ESC2 — Any Purpose EKU No EKU (The Swiss Certificate)	ActiveDirectory/ACL-ESC-Techniques/ESC2 — Any Purpose EKU  No EKU (The Swiss Certificate).md	advanced · 5 tools
+ADD	active-directory	esc3-misconfigured-enrollment-agent-templates	ESC3 — Misconfigured Enrollment Agent Templates	ActiveDirectory/ACL-ESC-Techniques/ESC3 — Misconfigured Enrollment Agent Templates.md	advanced · 5 tools
+ADD	active-directory	esc4-vulnerable-certificate-template-access-control	ESC4 — Vulnerable Certificate Template Access Control	ActiveDirectory/ACL-ESC-Techniques/ESC4 — Vulnerable Certificate Template Access Control.md	advanced · 5 tools
+ADD	active-directory	esc5-vulnerable-pki-object-access-control	ESC5 — Vulnerable PKI Object Access Control	ActiveDirectory/ACL-ESC-Techniques/ESC5 — Vulnerable PKI Object Access Control.md	advanced · 5 tools
+ADD	active-directory	esc6-editf-attributesubjectaltname2-flag	ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2 Flag	ActiveDirectory/ACL-ESC-Techniques/ESC6 — EDITF_ATTRIBUTESUBJECTALTNAME2 Flag.md	advanced · 5 tools
+ADD	active-directory	esc7-vulnerable-ca-access-control-manageca-managecertificates	ESC7 — Vulnerable CA Access Control (ManageCA ManageCertificates)	ActiveDirectory/ACL-ESC-Techniques/ESC7 — Vulnerable CA Access Control (ManageCA  ManageCertificates).md	advanced · 5 tools
+ADD	active-directory	esc8-ntlm-relay-to-adcs-http-web-enrollment	ESC8 — NTLM Relay to ADCS HTTP Web Enrollment	ActiveDirectory/ACL-ESC-Techniques/ESC8 — NTLM Relay to ADCS HTTP Web Enrollment.md	advanced · 5 tools
+ADD	active-directory	esc9-no-security-extension-template-level	ESC9 — No Security Extension (Template-Level)	ActiveDirectory/ACL-ESC-Techniques/ESC9 — No Security Extension (Template-Level).md	advanced · 5 tools
+ADD	active-directory	golden-certificate-attack-dpersist1	Golden Certificate Attack — DPERSIST1	ActiveDirectory/ACL-ESC-Techniques/Golden Certificate Attack — DPERSIST1.md	advanced · 5 tools
+ADD	active-directory	persist1-active-user-credential-theft-via-certificates	PERSIST1 — Active User Credential Theft via Certificates	ActiveDirectory/ACL-ESC-Techniques/PERSIST1 — Active User Credential Theft via Certificates.md	advanced · 3 tools
+ADD	active-directory	persist2-machine-account-persistence-via-certificates	PERSIST2 — Machine Account Persistence via Certificates	ActiveDirectory/ACL-ESC-Techniques/PERSIST2 — Machine Account Persistence via Certificates.md	advanced · 3 tools
+ADD	active-directory	persist3-account-persistence-via-certificate-renewal	PERSIST3 — Account Persistence via Certificate Renewal	ActiveDirectory/ACL-ESC-Techniques/PERSIST3 — Account Persistence via Certificate Renewal.md	advanced · 3 tools
+ADD	active-directory	shadow-credentials-msds-keycredentiallink-abuse	Shadow Credentials — msDS-KeyCredentialLink Abuse	ActiveDirectory/ACL-ESC-Techniques/Shadow Credentials — msDS-KeyCredentialLink Abuse.md	advanced · 4 tools
+ADD	active-directory	theft1-exporting-certificates-and-keys	THEFT1 — Exporting Certificates and Keys	ActiveDirectory/ACL-ESC-Techniques/THEFT1 — Exporting Certificates and Keys.md	advanced · 4 tools
+ADD	active-directory	theft2-user-certificate-theft-via-dpapi	THEFT2 — User Certificate Theft via DPAPI	ActiveDirectory/ACL-ESC-Techniques/THEFT2 — User Certificate Theft via DPAPI.md	advanced · 4 tools
+ADD	active-directory	theft3-machine-certificate-theft-via-dpapi	THEFT3 — Machine Certificate Theft via DPAPI	ActiveDirectory/ACL-ESC-Techniques/THEFT3 — Machine Certificate Theft via DPAPI.md	advanced · 3 tools
+ADD	active-directory	theft4-finding-certificate-files	THEFT4 — Finding Certificate Files	ActiveDirectory/ACL-ESC-Techniques/THEFT4 — Finding Certificate Files.md	advanced · 5 tools
+ADD	active-directory	theft5-ntlm-theft-via-pkinit-unpac-the-hash	THEFT5 — NTLM Theft via PKINIT (UnPAC-the-Hash)	ActiveDirectory/ACL-ESC-Techniques/THEFT5 — NTLM Theft via PKINIT (UnPAC-the-Hash).md	advanced · 5 tools
+SKIP				ActiveDirectory/ACL-ESC-Techniques/_ADCS Attack Methodology Guide.md	non-sheet (meta/index/roadmap)
+SKIP				ActiveDirectory/ACL-ESC-Techniques/_ADCS Dashboard.md	non-sheet (meta/index/roadmap)
+SKIP				ActiveDirectory/ACL-ESC-Techniques/_ADCS ESC Attack Index.md	non-sheet (meta/index/roadmap)
+ADD	active-directory	attack-61-skeleton-key-attack	Attack #61 — Skeleton Key Attack	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #61 — Skeleton Key Attack.md	advanced · 2 tools
+ADD	active-directory	attack-62-dsrm-backdoor-abuse	Attack #62 — DSRM Backdoor Abuse	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #62 — DSRM Backdoor Abuse.md	advanced · 3 tools
+ADD	active-directory	attack-63-sid-history-injection	Attack #63 — SID History Injection	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #63 — SID History Injection.md	advanced · 2 tools
+ADD	active-directory	attack-64-golden-ticket-persistence	Attack #64 — Golden Ticket Persistence	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #64 — Golden Ticket Persistence.md	advanced · 3 tools
+ADD	active-directory	attack-65-acl-backdooring-persistence-via-dcsync-ace	Attack #65 — ACL Backdooring (Persistence via DCSync ACE)	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #65 — ACL Backdooring (Persistence via DCSync ACE).md	advanced · 1 tools
+ADD	active-directory	attack-66-malicious-gpo-creation	Attack #66 — Malicious GPO Creation	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #66 — Malicious GPO Creation.md	advanced · 2 tools
+ADD	active-directory	attack-67-adcs-certificate-based-persistence	Attack #67 — ADCS Certificate-Based Persistence	ActiveDirectory/AD-Attack/Category-Eight/🟤 Attack #67 — ADCS Certificate-Based Persistence.md	advanced · 4 tools
+ADD	active-directory	attack-37-dcsync-attack	Attack #37 — DCSync Attack	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #37 — DCSync Attack.md	advanced · 5 tools
+ADD	active-directory	attack-38-dcshadow-attack	Attack #38 — DCShadow Attack	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #38 — DCShadow Attack.md	advanced · 3 tools
+ADD	active-directory	attack-39-ntds-dit-extraction-and-dumping	Attack #39 — NTDS.dit Extraction and Dumping	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #39 — NTDS.dit Extraction and Dumping.md	advanced · 3 tools
+ADD	active-directory	attack-40-zerologon-cve-2020-1472	Attack #40 — Zerologon (CVE-2020-1472)	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #40 — Zerologon (CVE-2020-1472).md	advanced · 4 tools
+ADD	active-directory	attack-41-petitpotam-cve-2021-36942	Attack #41 — PetitPotam (CVE-2021-36942)	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #41 — PetitPotam (CVE-2021-36942).md	advanced · 5 tools
+ADD	active-directory	attack-42-printerbug-spoolsample	Attack #42 — PrinterBug SpoolSample	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #42 — PrinterBug SpoolSample.md	advanced · 5 tools
+ADD	active-directory	attack-43-printnightmare-cve-2021-34527	Attack #43 — PrintNightmare (CVE-2021-34527)	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #43 — PrintNightmare (CVE-2021-34527).md	advanced · 5 tools
+ADD	active-directory	attack-44-nopac-sam-the-admin-cve-2021-42278-42287	Attack #44 — noPAC Sam-the-Admin (CVE-2021-42278 42287)	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack #44 — noPAC Sam-the-Admin (CVE-2021-42278 42287).md	advanced · 5 tools
+ADD	active-directory	attack	Attack	ActiveDirectory/AD-Attack/Category-Five/🔵 Attack.md	advanced · 0 tools
+ADD	active-directory	attack-27-esc1-san-specification-in-template	Attack #27 — ESC1 SAN Specification in Template	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #27 — ESC1 SAN Specification in Template.md	advanced · 5 tools
+ADD	active-directory	attack-28-esc2-any-purpose-eku-no-eku	Attack #28 — ESC2 Any Purpose EKU No EKU	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #28 — ESC2 Any Purpose EKU No EKU.md	advanced · 3 tools
+ADD	active-directory	attack-29-esc3-certificate-request-agent	Attack #29 — ESC3 Certificate Request Agent	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #29 — ESC3 Certificate Request Agent.md	advanced · 3 tools
+ADD	active-directory	attack-30-esc4-template-write-permissions	Attack #30 — ESC4 Template Write Permissions	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #30 — ESC4 Template Write Permissions.md	advanced · 1 tools
+ADD	active-directory	attack-31-esc6-editf-attributesubjectaltname2-flag	Attack #31 — ESC6 EDITF_ATTRIBUTESUBJECTALTNAME2 Flag	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #31 — ESC6 EDITF_ATTRIBUTESUBJECTALTNAME2 Flag.md	advanced · 3 tools
+ADD	active-directory	attack-32-esc7-vulnerable-ca-officer-permissions	Attack #32 — ESC7 Vulnerable CA Officer Permissions	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #32 — ESC7 Vulnerable CA Officer Permissions.md	advanced · 1 tools
+ADD	active-directory	attack-33-esc8-ntlm-relay-to-adcs-http-endpoint	Attack #33 — ESC8 NTLM Relay to ADCS HTTP Endpoint	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #33 — ESC8 NTLM Relay to ADCS HTTP Endpoint.md	advanced · 2 tools
+ADD	active-directory	attack-34-esc11-ntlm-relay-to-adcs-rpc	Attack #34 — ESC11 NTLM Relay to ADCS RPC	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #34 — ESC11 NTLM Relay to ADCS RPC.md	advanced · 2 tools
+ADD	active-directory	attack-35-golden-certificate-attack	Attack #35 — Golden Certificate Attack	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #35 — Golden Certificate Attack.md	advanced · 4 tools
+ADD	active-directory	attack-36-certifried-cve-2022-26923	Attack #36 — Certifried (CVE-2022-26923)	ActiveDirectory/AD-Attack/Category-Four/🟢 Attack #36 — Certifried (CVE-2022-26923).md	advanced · 2 tools
+ADD	active-directory	attack-68-cross-domain-trust-abuse-sid-history	Attack #68 — Cross-Domain Trust Abuse (SID History)	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #68 — Cross-Domain Trust Abuse (SID History).md	advanced · 3 tools
+ADD	active-directory	attack-69-forest-trust-abuse-cross-forest-ticket-forging	Attack #69 — Forest Trust Abuse Cross-Forest Ticket Forging	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #69 — Forest Trust Abuse Cross-Forest Ticket Forging.md	advanced · 4 tools
+ADD	active-directory	attack-70-adcs-cross-domain-enrollment	Attack #70 — ADCS Cross-Domain Enrollment	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #70 — ADCS Cross-Domain Enrollment.md	advanced · 1 tools
+ADD	active-directory	attack-71-pam-trust-abuse-bastion-forest	Attack #71 — PAM Trust Abuse (Bastion Forest)	ActiveDirectory/AD-Attack/Category-Nine/🔶 Attack #71 — PAM Trust Abuse (Bastion Forest).md	advanced · 1 tools
+ADD	active-directory	attack-1-password-spraying	Attack #1 — Password Spraying	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #1 — Password Spraying.md	advanced · 5 tools
+ADD	active-directory	attack-10-credential-hunting-in-shares-gpp-passwords	Attack #10 — Credential Hunting in Shares GPP Passwords	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #10 — Credential Hunting in Shares  GPP Passwords.md	advanced · 5 tools
+ADD	active-directory	attack-2-kerberoasting	Attack #2 — Kerberoasting	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #2 — Kerberoasting.md	advanced · 5 tools
+ADD	active-directory	attack-3-as-rep-roasting	Attack #3 — AS-REP Roasting	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #3 — AS-REP Roasting.md	advanced · 5 tools
+ADD	active-directory	attack-4-pass-the-hash-pth	Attack #4 — Pass-the-Hash (PtH)	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #4 — Pass-the-Hash (PtH).md	advanced · 5 tools
+ADD	active-directory	attack-5-pass-the-ticket-ptt	Attack #5 — Pass-the-Ticket (PtT)	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #5 — Pass-the-Ticket (PtT).md	advanced · 5 tools
+ADD	active-directory	attack-6-overpass-the-hash-pass-the-key	Attack #6 — Overpass-the-Hash (Pass-the-Key)	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #6 — Overpass-the-Hash (Pass-the-Key).md	advanced · 5 tools
+ADD	active-directory	attack-7-ntlm-relay-attacks	Attack #7 — NTLM Relay Attacks	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #7 — NTLM Relay Attacks.md	advanced · 5 tools
+ADD	active-directory	attack-8-llmnr-nbt-ns-mdns-poisoning	Attack #8 — LLMNR NBT-NS mDNS Poisoning	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #8 — LLMNR  NBT-NS  mDNS Poisoning.md	advanced · 5 tools
+ADD	active-directory	attack-9-mitm6-ipv6-dns-spoofing-dhcpv6-takeover	Attack #9 — mitm6 (IPv6 DNS Spoofing DHCPv6 Takeover)	ActiveDirectory/AD-Attack/Category-One/🔴 Attack #9 — mitm6 (IPv6 DNS Spoofing  DHCPv6 Takeover).md	advanced · 5 tools
+ADD	active-directory	attack-54-psexec-remote-execution-via-smb	Attack #54 — PsExec Remote Execution via SMB	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #54 — PsExec Remote Execution via SMB.md	advanced · 5 tools
+ADD	active-directory	attack-55-winrm-evil-winrm-lateral-movement	Attack #55 — WinRM Evil-WinRM Lateral Movement	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #55 — WinRM Evil-WinRM Lateral Movement.md	advanced · 3 tools
+ADD	active-directory	attack-56-rdp-lateral-movement-and-hijacking	Attack #56 — RDP Lateral Movement and Hijacking	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #56 — RDP Lateral Movement and Hijacking.md	advanced · 2 tools
+ADD	active-directory	attack-57-dcom-lateral-movement	Attack #57 — DCOM Lateral Movement	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #57 — DCOM Lateral Movement.md	advanced · 2 tools
+ADD	active-directory	attack-58-wmi-lateral-movement	Attack #58 — WMI Lateral Movement	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #58 — WMI Lateral Movement.md	advanced · 2 tools
+ADD	active-directory	attack-59-scm-service-manager-lateral-movement	Attack #59 — SCM Service Manager Lateral Movement	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #59 — SCM Service Manager Lateral Movement.md	advanced · 2 tools
+ADD	active-directory	attack-60-token-stealing-and-impersonation	Attack #60 — Token Stealing and Impersonation	ActiveDirectory/AD-Attack/Category-Seven/⚫ Attack #60 — Token Stealing and Impersonation.md	advanced · 3 tools
+ADD	active-directory	attack-45-token-impersonation-seimpersonateprivilege	Attack #45 — Token Impersonation (SeImpersonatePrivilege)	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #45 — Token Impersonation (SeImpersonatePrivilege).md	advanced · 5 tools
+ADD	active-directory	attack-46-dnsadmins-dll-injection	Attack #46 — DNSAdmins DLL Injection	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #46 — DNSAdmins DLL Injection.md	advanced · 1 tools
+ADD	active-directory	attack-47-machineaccountquota-maq-abuse	Attack #47 — MachineAccountQuota (MAQ) Abuse	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #47 — MachineAccountQuota (MAQ) Abuse.md	advanced · 2 tools
+ADD	active-directory	attack-48-gpp-password-decryption	Attack #48 — GPP Password Decryption	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #48 — GPP Password Decryption.md	advanced · 3 tools
+ADD	active-directory	attack-49-abusing-backup-operators-group	Attack #49 — Abusing Backup Operators Group	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #49 — Abusing Backup Operators Group.md	advanced · 2 tools
+ADD	active-directory	attack-50-abusing-account-operators-group	Attack #50 — Abusing Account Operators Group	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #50 — Abusing Account Operators Group.md	advanced · 2 tools
+ADD	active-directory	attack-51-abusing-server-operators-group	Attack #51 — Abusing Server Operators Group	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #51 — Abusing Server Operators Group.md	advanced · 1 tools
+ADD	active-directory	attack-52-abusing-print-operators-group	Attack #52 — Abusing Print Operators Group	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #52 — Abusing Print Operators Group.md	advanced · 1 tools
+ADD	active-directory	attack-53-exchange-windows-permissions-writedacl-to-dcsync	Attack #53 — Exchange Windows Permissions (WriteDACL to DCSync)	ActiveDirectory/AD-Attack/Category-Six/🟣 Attack #53 — Exchange Windows Permissions (WriteDACL to DCSync).md	advanced · 3 tools
+ADD	active-directory	attack-72-laps-password-extraction	Attack #72 — LAPS Password Extraction	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #72 — LAPS Password Extraction.md	advanced · 3 tools
+ADD	active-directory	attack-73-gmsa-password-extraction	Attack #73 — gMSA Password Extraction	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #73 — gMSA Password Extraction.md	advanced · 2 tools
+ADD	active-directory	attack-74-azure-ad-connect-credential-extraction	Attack #74 — Azure AD Connect Credential Extraction	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #74 — Azure AD Connect Credential Extraction.md	advanced · 3 tools
+ADD	active-directory	attack-75-sccm-mecm-exploitation	Attack #75 — SCCM MECM Exploitation	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #75 — SCCM MECM Exploitation.md	advanced · 1 tools
+ADD	active-directory	attack-76-mssql-server-and-linked-server-abuse	Attack #76 — MSSQL Server and Linked Server Abuse	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #76 — MSSQL Server and Linked Server Abuse.md	advanced · 3 tools
+ADD	active-directory	attack-77-dfscoerce-ms-dfsnm-coercion	Attack #77 — DFSCoerce MS-DFSNM Coercion	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #77 — DFSCoerce MS-DFSNM Coercion.md	advanced · 0 tools
+ADD	active-directory	attack-78-ad-recycle-bin-object-abuse	Attack #78 — AD Recycle Bin Object Abuse	ActiveDirectory/AD-Attack/Category-Ten/🔷 Attack #78 — AD Recycle Bin Object Abuse.md	advanced · 3 tools
+ADD	active-directory	attack-19-genericall-abuse	Attack #19 — GenericAll Abuse	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #19 — GenericAll Abuse.md	advanced · 5 tools
+ADD	active-directory	attack-20-genericwrite-abuse	Attack #20 — GenericWrite Abuse	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #20 — GenericWrite Abuse.md	advanced · 4 tools
+ADD	active-directory	attack-21-writedacl-abuse	Attack #21 — WriteDACL Abuse	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #21 — WriteDACL Abuse.md	advanced · 4 tools
+ADD	active-directory	attack-22-writeowner-abuse	Attack #22 — WriteOwner Abuse	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #22 — WriteOwner Abuse.md	advanced · 2 tools
+ADD	active-directory	attack-23-forcechangepassword-abuse	Attack #23 — ForceChangePassword Abuse	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #23 — ForceChangePassword Abuse.md	advanced · 2 tools
+ADD	active-directory	attack-24-allextendedrights-dcsync-ace-abuse	Attack #24 — AllExtendedRights DCSync ACE Abuse	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #24 — AllExtendedRights DCSync ACE Abuse.md	advanced · 4 tools
+ADD	active-directory	attack-25-shadow-credentials-attack-msds-keycredentiallink	Attack #25 — Shadow Credentials Attack (msDS-KeyCredentialLink)	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #25 — Shadow Credentials Attack (msDS-KeyCredentialLink).md	advanced · 4 tools
+ADD	active-directory	attack-26-adminsdholder-persistence-via-acl	Attack #26 — AdminSDHolder Persistence via ACL	ActiveDirectory/AD-Attack/Category-Three/🟡 Attack #26 — AdminSDHolder Persistence via ACL.md	advanced · 3 tools
+ADD	active-directory	attack-11-golden-ticket-attack	Attack #11 — Golden Ticket Attack	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #11 — Golden Ticket Attack.md	advanced · 5 tools
+ADD	active-directory	attack-12-silver-ticket-attack	Attack #12 — Silver Ticket Attack	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #12 — Silver Ticket Attack.md	advanced · 5 tools
+ADD	active-directory	attack-13-diamond-ticket-attack	Attack #13 — Diamond Ticket Attack	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #13 — Diamond Ticket Attack.md	advanced · 4 tools
+ADD	active-directory	attack-14-sapphire-ticket-attack	Attack #14 — Sapphire Ticket Attack	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #14 — Sapphire Ticket Attack.md	advanced · 4 tools
+ADD	active-directory	attack-15-unconstrained-delegation-abuse	Attack #15 — Unconstrained Delegation Abuse	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #15 — Unconstrained Delegation Abuse.md	advanced · 5 tools
+ADD	active-directory	attack-16-constrained-delegation-abuse-s4u2proxy	Attack #16 — Constrained Delegation Abuse (S4U2Proxy)	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #16 — Constrained Delegation Abuse (S4U2Proxy).md	advanced · 5 tools
+ADD	active-directory	attack-17-resource-based-constrained-delegation-rbcd	Attack #17 — Resource-Based Constrained Delegation (RBCD)	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #17 — Resource-Based Constrained Delegation (RBCD).md	advanced · 5 tools
+ADD	active-directory	attack-18-bronze-bit-attack-cve-2020-17049	Attack #18 — Bronze Bit Attack (CVE-2020-17049)	ActiveDirectory/AD-Attack/Category-Two/🟠 Attack #18 — Bronze Bit Attack (CVE-2020-17049).md	advanced · 3 tools
+SKIP	active-directory	ad-pentest-tools-cheat-sheet	AD_Pentest_Tools_Cheat_Sheet	ActiveDirectory/AD_Pentest_Tools_Cheat_Sheet.md	dup of active-directory/ad-pentest-tools.md
+ADD	active-directory	active-directory-cheat-sheet	Active-Directory_cheat_sheet	ActiveDirectory/Active-Directory_cheat_sheet.md	intermediate · 5 tools
+ADD	active-directory	bloodhound-python	BloodHound-Python_	ActiveDirectory/BloodHound-Python_Cheatsheet.md	intermediate · 5 tools
+SKIP	active-directory	bloodyad	BloodyAD	ActiveDirectory/BloodyAD.md	dup of active-directory/bloodyad.md
+ADD	active-directory	certipy-ad	Certipy-ad	ActiveDirectory/Certipy-ad.md	intermediate · 4 tools
+SKIP	active-directory	kerberoasting	Kerberoasting	ActiveDirectory/Kerberos/Kerberoasting Cheatsheet.md	dup of active-directory/kerberoasting.md
+ADD	active-directory	kerberoasting-local-on-host	Kerberoasting — Local On-Host	ActiveDirectory/Kerberos/Kerberoasting — Local On-Host Cheatsheet.md	advanced · 5 tools
+SKIP	active-directory	silver-ticket-attack	Silver Ticket Attack	ActiveDirectory/Kerberos/🥈 Silver Ticket Attack Cheatsheet.md	dup of active-directory/attack-12-silver-ticket-attack.md (new)
+SKIP	active-directory	kerbrute	Kerbrute	ActiveDirectory/Kerbrute.md	dup of active-directory/kerbrute.md
+ADD	active-directory	ldap-search	LDAP Search	ActiveDirectory/LDAP Search.md	intermediate · 3 tools
+SKIP	active-directory	rubeus	Rubeus	ActiveDirectory/Rubeus.md	dup of active-directory/rubeus.md
+ADD	active-directory	sharphound	SharpHound_	ActiveDirectory/SharpHound_Cheatsheet.md	intermediate · 5 tools
+SKIP	active-directory	sharpsploit	SharpSploit	ActiveDirectory/SharpSploit.md	dup of tools/sharpsploit.md
+SKIP	active-directory	snaffler	Snaffler	ActiveDirectory/Snaffler.md	dup of tools/snaffler.md
+ADD	active-directory	bloodhound-ce-python	bloodhound-ce-python	ActiveDirectory/bloodhound-ce-python-cheatsheet.md	intermediate · 4 tools
+ADD	active-directory	faketime	faketime	ActiveDirectory/faketime-cheatsheet.md	intermediate · 5 tools
+ADD	active-directory	ldapdomaindump	ldapdomaindump	ActiveDirectory/ldapdomaindump.md	intermediate · 5 tools
+SKIP				Attack-Flow-Guide.md	non-sheet (meta/index/roadmap)
+SKIP				CPTS-Exam-Attack-Flow.md	non-sheet (meta/index/roadmap)
+SKIP				CPTS-Exam-Most-Used-Commands.md	non-sheet (meta/index/roadmap)
+SKIP	cryptography	gpg-cheatsheet	GPG - Cheatsheet	Cryptography/GPG - Cheatsheet markdown.md	dup of cryptography/gpg.md
+SKIP	cryptography	gog	gog	Cryptography/gog.md	dup of cryptography/gpg.md
+SKIP	dfir	forensics	Forensics	DFIR/Forensics Cheatsheet.md	dup of dfir/forensics.md
+SKIP	dfir	recmd-fullguide	RECmd - FullGuide	DFIR/RECmd - FullGuide.md	dup of dfir/recmd.md
+SKIP	dfir	redmd-quick	REDmd - Quick	DFIR/REDmd - Quick Cheat sheet.md	dup of dfir/recmd.md
+SKIP	dfir	volitility3	Volitility3	DFIR/Volitility3 .md	dup of dfir/volatility.md
+SKIP				Digital_Forensics-Roadmap.md	non-sheet (meta/index/roadmap)
+ADD	enumeration	anonymous-null-testing	Anonymous Null Testing	Enumeration/Anonymous  Null Testing.md	intermediate · 3 tools
+ADD	enumeration	awesome-nmap-grep	Awesome NMAP grep	Enumeration/Awesome NMAP grep.md	intermediate · 1 tools
+ADD	enumeration	cheatsheet-infrastructure-enumeration-tools-1	Cheatsheet - Infrastructure Enumeration Tools 1	Enumeration/Cheatsheet - Infrastructure Enumeration Tools 1.md	intermediate · 2 tools
+ADD	enumeration	credential-hunting	Credential Hunting	Enumeration/Credential Hunting.md	intermediate · 0 tools
+ADD	enumeration	2-4-cheatsheet-gitleaks	2.4 - Cheatsheet - Gitleaks	Enumeration/GitHub-Enum/2.4 - Cheatsheet - Gitleaks.md	intermediate · 1 tools
+ADD	enumeration	2-5-cheatsheet-trufflehog	2.5 - Cheatsheet - TruffleHog	Enumeration/GitHub-Enum/2.5 - Cheatsheet - TruffleHog.md	intermediate · 2 tools
+ADD	enumeration	lfi	LFI	Enumeration/LFI - Cheat Sheet.md	intermediate · 1 tools
+ADD	enumeration	nse-guide	NSE Guide	Enumeration/NSE Guide.md	intermediate · 1 tools
+ADD	enumeration	nikto-nuclei-web-scanner-cheatsheets	Nikto & Nuclei - Web Scanner Cheatsheets	Enumeration/Nikto & Nuclei - Web Scanner Cheatsheets.md	intermediate · 4 tools
+SKIP	enumeration	nmap-cheatsheet-2026	Nmap Cheatsheet 2026	Enumeration/Nmap Cheatsheet 2026.md	dup of enumeration/nmap.md
+SKIP	enumeration	rustscan	RustScan_	Enumeration/RustScan_Cheatsheet.md	dup of enumeration/rustscan.md
+SKIP	enumeration	smbmap	SMBMAP	Enumeration/SMBMAP.md	dup of enumeration/smbmap.md
+SKIP	enumeration	wpscan-1	WPScan 1	Enumeration/WPScan 1.md	dup of enumeration/wpscan.md
+SKIP	enumeration	wpscan	WPScan	Enumeration/WPScan.md	dup of enumeration/wpscan.md
+ADD	enumeration	windows-enumeration	Windows Enumeration	Enumeration/Windows Emumeration.md	intermediate · 1 tools
+SKIP	enumeration	ffuf-cheat-sheet	ffuf_cheat_sheet	Enumeration/ffuf_cheat_sheet.md	dup of enumeration/ffuf.md
+SKIP	enumeration	rustscan-usage	rustscan-usage	Enumeration/rustscan-usage.md	dup of enumeration/rustscan.md
+SKIP	enumeration	rustscan	rustscan	Enumeration/rustscan.md	dup of enumeration/rustscan.md
+SKIP				Exploitation/Implementation Roadmap Strategic Workflow for Windows Privilege Escalation.md	non-sheet (meta/index/roadmap)
+ADD	exploitation	jailbreak-tty-upgrade	Jailbreak - TTY Upgrade	Exploitation/Jailbreak - TTY Upgrade.md	intermediate · 5 tools
+ADD	exploitation	tty-and-escaping-restricted-env	TTY and Escaping Restricted Env	Exploitation/TTY and Escaping Restricted Env.md	intermediate · 4 tools
+ADD	exploitation	sqlmap-cheat-sheet-sql-injection-testing-data-extraction	sqlmap Cheat Sheet - SQL Injection Testing & Data Extraction	Exploitation/sqlmap Cheat Sheet - SQL Injection Testing & Data Extraction.md	intermediate · 3 tools
+SKIP	exploitation	sqlmap	sqlmap	Exploitation/sqlmap.md	dup of exploitation/sqlmap.md
+ADD	git-workflow	git-complete-branch-vault-management-guide	Git — Complete Branch & Vault Management Guide	Git — Complete Branch & Vault Management Guide.md	intermediate · 0 tools
+SKIP				Git/.md	non-sheet (meta/index/roadmap)
+SKIP				Git/Branches Expanded.md	semantic dup of existing sheet
+SKIP				Git/Branches.md	semantic dup of existing sheet
+ADD	git-workflow	git-move-existing-edits-to-a-new-branch-railway-site	Git — Move Existing Edits to a New Branch (Railway Site)	Git/Git — Move Existing Edits to a New Branch (Railway Site).md	intermediate · 0 tools
+SKIP				Git/Resetting.md	semantic dup of existing sheet
+SKIP	git-workflow	git	git	Git/git-cheatsheet.md	dup of git-workflow/git.md
+SKIP	cryptography	hashing	Hashing	HashingAndEncrypting/Hashing cheat sheet .md	dup of cryptography/hashing.md
+ADD	linux-it	find-command	Find Command	Linux/Find Command.md	intermediate · 0 tools
+ADD	linux-it	linux-file-directory-search	Linux File & Directory Search	Linux/Linux File & Directory Search Cheat Sheet.md	intermediate · 1 tools
+ADD	linux-it	rdp	RDP	Linux/RDP CheatSheet.md	intermediate · 0 tools
+ADD	tunneling-pivoting	pivoting-and-tunnelling	Pivoting and Tunnelling	Misc/Pivoting and Tunnelling .md	intermediate · 5 tools
+ADD	tunneling-pivoting	ssh-portfwding-with-metasploit	SSH Portfwding with metasploit	Misc/SSH Portfwding with metasploit .md	intermediate · 2 tools
+ADD	tunneling-pivoting	tunneling	Tunneling	Misc/Tunneling.md	intermediate · 5 tools
+ADD	tools	smbshare	smbshare	Misc/smbshare.md	intermediate · 2 tools
+ADD	tools	sponge	sponge	Misc/sponge-cheatsheet.md	intermediate · 0 tools
+SKIP	linux-it	tmux	tmux	Misc/tmux.md	dup of linux-it/tmux.md
+SKIP				Most-Used-Commands.md	non-sheet (meta/index/roadmap)
+SKIP				PasswordAttacks/hashcat modes.md	semantic dup of existing sheet
+SKIP	password-attacks	hashcat	hashcat	PasswordAttacks/hashcat-cheatsheet.md	dup of password-attacks/hashcat.md
+SKIP				PasswordAttacks/john-cheatsheet.md	semantic dup of existing sheet
+SKIP	privilege-escalation	linux-privesc	Linux PrivEsc	PrivEsc/Linux PrivEsc Cheat Sheet.md	dup of privilege-escalation/linux-privesc.md
+SKIP	privilege-escalation	privesc-windows	PrivEsc - Windows	PrivEsc/PrivEsc - Windows.md	dup of privilege-escalation/windows-privesc.md
+SKIP	privilege-escalation	windows-privesc	Windows PrivEsc	PrivEsc/Windows PrivEsc.md	dup of privilege-escalation/windows-privesc.md
+SKIP	tools	bloodhound	BloodHound	Tools/BloodHound-Cheatsheet.md	dup of active-directory/bloodhound.md
+SKIP				Tools/CMD-Powershell Cheat Sheet.md	semantic dup of existing sheet
+SKIP				Tools/Certipy-ADCS-Cheatsheet.md	semantic dup of existing sheet
+SKIP	tools	cobalt-strike	Cobalt-Strike	Tools/Cobalt-Strike-Cheatsheet.md	dup of tools/cobalt-strike.md
+SKIP	tools	eyewitness	EyeWitness	Tools/EyeWitness-Cheatsheet.md	dup of tools/eyewitness.md
+SKIP	tools	ffuf	Ffuf	Tools/Ffuf-Cheatsheet.md	dup of enumeration/ffuf.md
+SKIP	tools	hashcat	Hashcat	Tools/Hashcat-Cheatsheet.md	dup of password-attacks/hashcat.md
+SKIP	tools	impacket	Impacket	Tools/Impacket-Cheatsheet.md	dup of active-directory/impacket.md
+SKIP	tools	impacket	Impacket	Tools/Impacket.md	dup of active-directory/impacket.md
+ADD	tools	internet-archival-guide	Internet Archival Guide	Tools/Internet-Archival-Guide/Internet Archival Guide.md	intermediate · 0 tools
+SKIP				Tools/Internet-Archival-Guide/scripts/README.md	non-sheet (meta/index/roadmap)
+SKIP	tools	ligolo-ng	Ligolo-ng	Tools/Ligolo-ng Cheat sheet.md	dup of tunneling-pivoting/ligolo-ng.md
+SKIP	tools	mimikatz	Mimikatz	Tools/Mimikatz-Cheatsheet.md	dup of active-directory/mimikatz.md
+SKIP	tools	ntlm-kerberos-relay	NTLM-Kerberos-Relay	Tools/NTLM-Kerberos-Relay-Cheatsheet.md	dup of tools/ntlm-kerberos-relay.md
+ADD	tools	netexec-spiderplus	NetExec - SpiderPlus	Tools/NetExec - SpiderPlus.md	intermediate · 2 tools
+SKIP	tools	netexec	NetExec	Tools/NetExec-Cheatsheet.md	dup of active-directory/netexec.md
+SKIP	tools	netexec-nxc	Netexec (nxc)	Tools/Netexec (nxc) Cheat Sheet.md	dup of active-directory/netexec.md
+SKIP	tools	nuclei	Nuclei	Tools/Nuclei-Cheatsheet.md	dup of enumeration/nuclei.md
+SKIP				Tools/Powershell.md	semantic dup of existing sheet
+SKIP	tools	rubeus	Rubeus	Tools/Rubeus-Cheatsheet.md	dup of active-directory/rubeus.md
+ADD	tools	tar	TAR	Tools/TAR.md	intermediate · 2 tools
+SKIP	tools	tshark	Tshark	Tools/Tshark.md	dup of dfir/tshark.md
+ADD	tools	username-anarchy	Username Anarchy	Tools/Username Anarchy.md	intermediate · 0 tools
+ADD	tools	dd-tool	dd tool	Tools/dd tool.md	intermediate · 0 tools
+SKIP	tools	fscan	fscan	Tools/fscan.md	dup of tools/fscan.md
+SKIP	tools	gobuster	gobuster	Tools/gobuster.md	dup of enumeration/gobuster.md
+SKIP	tools	meterpreter	meterpreter	Tools/meterpreter.md	dup of exploitation/metasploit.md
+ADD	tools	pcap-credential-extraction	pcap-credential-extraction	Tools/pcap-credential-extraction-cheatsheet.md	intermediate · 3 tools
+ADD	tools	smbserver-py	smbserver.py	Tools/smbserver.py.md	intermediate · 3 tools
+ADD	tools	webfuzz	webfuzz	Tools/webfuzz.md	intermediate · 2 tools
+ADD	web	blind-xss-tool-interactsh	Blind XSS Tool - Interactsh	Web/Blind XSS Tool - Interactsh.md	intermediate · 0 tools
+ADD	web	blind-xss-tool-xss-hunter	Blind XSS Tool - XSS Hunter	Web/Blind XSS Tool - XSS Hunter.md	intermediate · 0 tools
+ADD	web	blind-xss-tool-ezxss	Blind XSS Tool - ezXSS	Web/Blind XSS Tool - ezXSS.md	intermediate · 0 tools
+SKIP				Web/Cross-Site Scripting (XSS) - HTB Cheat Sheet.md	semantic dup of existing sheet
+ADD	web	phishing-site-link-identification	Phishing Site & Link Identification	Web/Phishing Site & Link Identification - Cheat Sheet.md	intermediate · 1 tools
+ADD	linux-it	macos-terminal-tweaks	macOS Terminal Tweaks	macOS Terminal Tweaks Cheat Sheet.md	intermediate · 1 tools
+ADD	linux-it	macos-iso-to-usb	macOS-ISO-to-USB	macOS-ISO-to-USB-Cheatsheet.md	intermediate · 1 tools
+SKIP	linux-it	macos-terminal-tweaks	macOS Terminal Tweaks	macOS/macOS Terminal Tweaks Cheat Sheet.md	dup of linux-it/macos-terminal-tweaks.md (new)
