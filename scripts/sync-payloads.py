@@ -178,11 +178,17 @@ os.makedirs(OUT, exist_ok=True)
 
 count = 0
 topics_seen = {}
+topics_with_readme = set()
+topic_pages = {}  # topic -> [(route, title)] for non-readme leaves, in title order
 for topic, relpath, abspath, is_readme, out_id, route in md_files:
     raw = open(abspath, encoding="utf-8", errors="replace").read()
     body = rewrite_body(relpath, raw)
     fallback = topic if is_readme else os.path.splitext(os.path.basename(abspath))[0]
     title = title_from(raw, fallback)
+    if is_readme:
+        topics_with_readme.add(topic)
+    else:
+        topic_pages.setdefault(topic, []).append((route, title))
     src_url = blob_url(relpath)
     fm = (
         "---\n"
@@ -201,6 +207,42 @@ for topic, relpath, abspath, is_readme, out_id, route in md_files:
     count += 1
     topics_seen.setdefault(topic, 0)
     topics_seen[topic] += 1
+
+# --- Synthesize a topic index for README-less topics ----------------------------
+# Some upstream folders (e.g. "Methodology and Resources") are a flat set of
+# standalone pages with no README.md, so no `{slug}/index` root gets emitted and
+# the payloads index would link to a 404. Generate a listing page for each such
+# topic so its root route resolves and enumerates its pages.
+for topic, pages in topic_pages.items():
+    if topic in topics_with_readme:
+        continue
+    ts = topic_slug(topic)
+    listing = "\n".join(
+        f"* [{title}]({route})" for route, title in sorted(pages, key=lambda p: p[1].lower())
+    )
+    from urllib.parse import quote
+    tree_url = f"{UPSTREAM}/tree/{SHA}/" + quote(topic)
+    fm = (
+        "---\n"
+        f'title: "{yaml_escape(topic)}"\n'
+        f'topic: "{yaml_escape(topic)}"\n'
+        f'topicSlug: "{ts}"\n'
+        f'sourcePath: "{yaml_escape(topic)}"\n'
+        f'sourceUrl: "{tree_url}"\n'
+        f'sha: "{SHA}"\n'
+        "isReadme: true\n"
+        "---\n\n"
+    )
+    intro = (
+        f"# {topic}\n\n"
+        f"> {len(pages)} pages in this section, mirrored from PayloadsAllTheThings.\n\n"
+        "## Pages\n\n"
+    )
+    dst = os.path.join(OUT, ts, "index.md")
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    open(dst, "w", encoding="utf-8").write(fm + intro + listing + "\n")
+    count += 1
+    topics_seen[topic] = topics_seen.get(topic, 0) + 1
 
 # --- Vendor the license ---------------------------------------------------------
 os.makedirs(VENDOR, exist_ok=True)
