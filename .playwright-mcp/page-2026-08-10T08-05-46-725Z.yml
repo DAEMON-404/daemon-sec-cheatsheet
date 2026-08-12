@@ -1,0 +1,546 @@
+- generic [active] [ref=f3e550]:
+  - banner [ref=f3e551]:
+    - generic [ref=f3e552]:
+      - link "DÆMON//SEC home" [ref=f3e553] [cursor=pointer]:
+        - /url: /daemon-sec-cheatsheet/
+        - text: DÆMON
+        - generic [ref=f3e554]: //
+        - text: SEC
+        - generic [ref=f3e555]: _
+      - navigation "Primary" [ref=f3e556]:
+        - link "01 Vault" [ref=f3e557] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - generic [ref=f3e558]: "01"
+          - generic [ref=f3e559]: Vault
+        - link "02 Payloads" [ref=f3e560] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads
+          - generic [ref=f3e561]: "02"
+          - generic [ref=f3e562]: Payloads
+        - link "03 Tags" [ref=f3e563] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tags
+          - generic [ref=f3e564]: "03"
+          - generic [ref=f3e565]: Tags
+        - link "04 Credits" [ref=f3e566] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/credits
+          - generic [ref=f3e567]: "04"
+          - generic [ref=f3e568]: Credits
+      - generic [ref=f3e569]:
+        - button "Search cheatsheets" [ref=f3e570] [cursor=pointer]:
+          - generic [ref=f3e573]: Search
+          - generic [ref=f3e574]: /
+        - button "Toggle theme" [ref=f3e575] [cursor=pointer]
+        - link "DÆMON main site" [ref=f3e580] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "GitHub repository" [ref=f3e583] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+  - main [ref=f3e586]:
+    - generic [ref=f3e589]:
+      - generic [ref=f3e590]:
+        - paragraph [ref=f3e591]:
+          - generic [ref=f3e592]: "02"
+          - generic [ref=f3e593]: "^:"
+          - generic [ref=f3e594]: Full mirror · MIT
+        - heading "PayloadsAllTheThings" [level=1] [ref=f3e596]
+        - paragraph [ref=f3e597]: A complete on-site mirror of swisskyrepo's payload and bypass reference — searchable offline, every page linked back to source.
+      - generic [ref=f3e598]:
+        - generic [ref=f3e599]:
+          - term [ref=f3e600]: Topics
+          - definition [ref=f3e601]: "64"
+        - generic [ref=f3e602]:
+          - term [ref=f3e603]: Pages
+          - definition [ref=f3e604]: "135"
+        - generic [ref=f3e605]:
+          - term [ref=f3e606]: License
+          - definition [ref=f3e607]: MIT
+    - generic [ref=f3e608]:
+      - navigation [ref=f3e609]:
+        - link "~" [ref=f3e610] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+        - generic [ref=f3e611]: /
+        - generic [ref=f3e612]: payloads
+      - complementary [ref=f3e613]:
+        - generic [ref=f3e614]: mirror
+        - generic [ref=f3e615]:
+          - text: Mirrored verbatim from the upstream repo. Images and raw payload files load from GitHub; see each page's
+          - emphasis [ref=f3e616]: source
+          - text: link.
+          - generic [ref=f3e617]:
+            - text: MIT ·
+            - link "full credits & license" [ref=f3e618] [cursor=pointer]:
+              - /url: /daemon-sec-cheatsheet/credits
+            - text: ·
+            - code [ref=f3e619]: 3bff425
+        - link "upstream" [ref=f3e620] [cursor=pointer]:
+          - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+      - generic [ref=f3e622]:
+        - link "01 payload Account Takeover 2 pages" [ref=f3e623] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/account-takeover
+          - generic [ref=f3e624]:
+            - generic [ref=f3e625]: "01"
+            - generic [ref=f3e626]: payload
+            - generic [ref=f3e630]: Account Takeover
+            - generic [ref=f3e631]: 2 pages
+        - link "02 payload API Key Leaks 2 pages" [ref=f3e635] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/api-key-leaks
+          - generic [ref=f3e636]:
+            - generic [ref=f3e637]: "02"
+            - generic [ref=f3e638]: payload
+            - generic [ref=f3e642]: API Key Leaks
+            - generic [ref=f3e643]: 2 pages
+        - link "03 payload Brute Force Rate Limit 1 page" [ref=f3e647] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/brute-force-rate-limit
+          - generic [ref=f3e648]:
+            - generic [ref=f3e649]: "03"
+            - generic [ref=f3e650]: payload
+            - generic [ref=f3e654]: Brute Force Rate Limit
+            - generic [ref=f3e655]: 1 page
+        - link "04 payload Business Logic Errors 1 page" [ref=f3e659] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/business-logic-errors
+          - generic [ref=f3e660]:
+            - generic [ref=f3e661]: "04"
+            - generic [ref=f3e662]: payload
+            - generic [ref=f3e666]: Business Logic Errors
+            - generic [ref=f3e667]: 1 page
+        - link "05 payload Clickjacking 1 page" [ref=f3e671] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/clickjacking
+          - generic [ref=f3e672]:
+            - generic [ref=f3e673]: "05"
+            - generic [ref=f3e674]: payload
+            - generic [ref=f3e678]: Clickjacking
+            - generic [ref=f3e679]: 1 page
+        - link "06 payload Client Side Path Traversal 1 page" [ref=f3e683] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/client-side-path-traversal
+          - generic [ref=f3e684]:
+            - generic [ref=f3e685]: "06"
+            - generic [ref=f3e686]: payload
+            - generic [ref=f3e690]: Client Side Path Traversal
+            - generic [ref=f3e691]: 1 page
+        - link "07 payload Command Injection 1 page" [ref=f3e695] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/command-injection
+          - generic [ref=f3e696]:
+            - generic [ref=f3e697]: "07"
+            - generic [ref=f3e698]: payload
+            - generic [ref=f3e702]: Command Injection
+            - generic [ref=f3e703]: 1 page
+        - link "08 payload CORS Misconfiguration 1 page" [ref=f3e707] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/cors-misconfiguration
+          - generic [ref=f3e708]:
+            - generic [ref=f3e709]: "08"
+            - generic [ref=f3e710]: payload
+            - generic [ref=f3e714]: CORS Misconfiguration
+            - generic [ref=f3e715]: 1 page
+        - link "09 payload CRLF Injection 1 page" [ref=f3e719] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/crlf-injection
+          - generic [ref=f3e720]:
+            - generic [ref=f3e721]: "09"
+            - generic [ref=f3e722]: payload
+            - generic [ref=f3e726]: CRLF Injection
+            - generic [ref=f3e727]: 1 page
+        - link "10 payload Cross-Site Request Forgery 1 page" [ref=f3e731] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/cross-site-request-forgery
+          - generic [ref=f3e732]:
+            - generic [ref=f3e733]: "10"
+            - generic [ref=f3e734]: payload
+            - generic [ref=f3e738]: Cross-Site Request Forgery
+            - generic [ref=f3e739]: 1 page
+        - link "11 payload CSS Injection 1 page" [ref=f3e743] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/css-injection
+          - generic [ref=f3e744]:
+            - generic [ref=f3e745]: "11"
+            - generic [ref=f3e746]: payload
+            - generic [ref=f3e750]: CSS Injection
+            - generic [ref=f3e751]: 1 page
+        - link "12 payload CSV Injection 1 page" [ref=f3e755] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/csv-injection
+          - generic [ref=f3e756]:
+            - generic [ref=f3e757]: "12"
+            - generic [ref=f3e758]: payload
+            - generic [ref=f3e762]: CSV Injection
+            - generic [ref=f3e763]: 1 page
+        - link "13 payload CVE Exploits 2 pages" [ref=f3e767] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/cve-exploits
+          - generic [ref=f3e768]:
+            - generic [ref=f3e769]: "13"
+            - generic [ref=f3e770]: payload
+            - generic [ref=f3e774]: CVE Exploits
+            - generic [ref=f3e775]: 2 pages
+        - link "14 payload Denial of Service 1 page" [ref=f3e779] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/denial-of-service
+          - generic [ref=f3e780]:
+            - generic [ref=f3e781]: "14"
+            - generic [ref=f3e782]: payload
+            - generic [ref=f3e786]: Denial of Service
+            - generic [ref=f3e787]: 1 page
+        - link "15 payload Dependency Confusion 1 page" [ref=f3e791] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/dependency-confusion
+          - generic [ref=f3e792]:
+            - generic [ref=f3e793]: "15"
+            - generic [ref=f3e794]: payload
+            - generic [ref=f3e798]: Dependency Confusion
+            - generic [ref=f3e799]: 1 page
+        - link "16 payload Directory Traversal 1 page" [ref=f3e803] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/directory-traversal
+          - generic [ref=f3e804]:
+            - generic [ref=f3e805]: "16"
+            - generic [ref=f3e806]: payload
+            - generic [ref=f3e810]: Directory Traversal
+            - generic [ref=f3e811]: 1 page
+        - link "17 payload DNS Rebinding 1 page" [ref=f3e815] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/dns-rebinding
+          - generic [ref=f3e816]:
+            - generic [ref=f3e817]: "17"
+            - generic [ref=f3e818]: payload
+            - generic [ref=f3e822]: DNS Rebinding
+            - generic [ref=f3e823]: 1 page
+        - link "18 payload DOM Clobbering 1 page" [ref=f3e827] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/dom-clobbering
+          - generic [ref=f3e828]:
+            - generic [ref=f3e829]: "18"
+            - generic [ref=f3e830]: payload
+            - generic [ref=f3e834]: DOM Clobbering
+            - generic [ref=f3e835]: 1 page
+        - link "19 payload Encoding Transformations 1 page" [ref=f3e839] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/encoding-transformations
+          - generic [ref=f3e840]:
+            - generic [ref=f3e841]: "19"
+            - generic [ref=f3e842]: payload
+            - generic [ref=f3e846]: Encoding Transformations
+            - generic [ref=f3e847]: 1 page
+        - link "20 payload External Variable Modification 1 page" [ref=f3e851] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/external-variable-modification
+          - generic [ref=f3e852]:
+            - generic [ref=f3e853]: "20"
+            - generic [ref=f3e854]: payload
+            - generic [ref=f3e858]: External Variable Modification
+            - generic [ref=f3e859]: 1 page
+        - link "21 payload File Inclusion 3 pages" [ref=f3e863] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/file-inclusion
+          - generic [ref=f3e864]:
+            - generic [ref=f3e865]: "21"
+            - generic [ref=f3e866]: payload
+            - generic [ref=f3e870]: File Inclusion
+            - generic [ref=f3e871]: 3 pages
+        - link "22 payload Google Web Toolkit 1 page" [ref=f3e875] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/google-web-toolkit
+          - generic [ref=f3e876]:
+            - generic [ref=f3e877]: "22"
+            - generic [ref=f3e878]: payload
+            - generic [ref=f3e882]: Google Web Toolkit
+            - generic [ref=f3e883]: 1 page
+        - link "23 payload GraphQL Injection 1 page" [ref=f3e887] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/graphql-injection
+          - generic [ref=f3e888]:
+            - generic [ref=f3e889]: "23"
+            - generic [ref=f3e890]: payload
+            - generic [ref=f3e894]: GraphQL Injection
+            - generic [ref=f3e895]: 1 page
+        - link "24 payload Headless Browser 1 page" [ref=f3e899] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/headless-browser
+          - generic [ref=f3e900]:
+            - generic [ref=f3e901]: "24"
+            - generic [ref=f3e902]: payload
+            - generic [ref=f3e906]: Headless Browser
+            - generic [ref=f3e907]: 1 page
+        - link "25 payload Hidden Parameters 1 page" [ref=f3e911] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/hidden-parameters
+          - generic [ref=f3e912]:
+            - generic [ref=f3e913]: "25"
+            - generic [ref=f3e914]: payload
+            - generic [ref=f3e918]: Hidden Parameters
+            - generic [ref=f3e919]: 1 page
+        - link "26 payload HTTP Parameter Pollution 1 page" [ref=f3e923] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/http-parameter-pollution
+          - generic [ref=f3e924]:
+            - generic [ref=f3e925]: "26"
+            - generic [ref=f3e926]: payload
+            - generic [ref=f3e930]: HTTP Parameter Pollution
+            - generic [ref=f3e931]: 1 page
+        - link "27 payload Insecure Deserialization 7 pages" [ref=f3e935] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-deserialization
+          - generic [ref=f3e936]:
+            - generic [ref=f3e937]: "27"
+            - generic [ref=f3e938]: payload
+            - generic [ref=f3e942]: Insecure Deserialization
+            - generic [ref=f3e943]: 7 pages
+        - link "28 payload Insecure Direct Object References 1 page" [ref=f3e947] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-direct-object-references
+          - generic [ref=f3e948]:
+            - generic [ref=f3e949]: "28"
+            - generic [ref=f3e950]: payload
+            - generic [ref=f3e954]: Insecure Direct Object References
+            - generic [ref=f3e955]: 1 page
+        - link "29 payload Insecure Management Interface 1 page" [ref=f3e959] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-management-interface
+          - generic [ref=f3e960]:
+            - generic [ref=f3e961]: "29"
+            - generic [ref=f3e962]: payload
+            - generic [ref=f3e966]: Insecure Management Interface
+            - generic [ref=f3e967]: 1 page
+        - link "30 payload Insecure Randomness 1 page" [ref=f3e971] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-randomness
+          - generic [ref=f3e972]:
+            - generic [ref=f3e973]: "30"
+            - generic [ref=f3e974]: payload
+            - generic [ref=f3e978]: Insecure Randomness
+            - generic [ref=f3e979]: 1 page
+        - link "31 payload Insecure Source Code Management 5 pages" [ref=f3e983] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/insecure-source-code-management
+          - generic [ref=f3e984]:
+            - generic [ref=f3e985]: "31"
+            - generic [ref=f3e986]: payload
+            - generic [ref=f3e990]: Insecure Source Code Management
+            - generic [ref=f3e991]: 5 pages
+        - link "32 payload Java RMI 1 page" [ref=f3e995] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/java-rmi
+          - generic [ref=f3e996]:
+            - generic [ref=f3e997]: "32"
+            - generic [ref=f3e998]: payload
+            - generic [ref=f3e1002]: Java RMI
+            - generic [ref=f3e1003]: 1 page
+        - link "33 payload JSON Web Token 1 page" [ref=f3e1007] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/json-web-token
+          - generic [ref=f3e1008]:
+            - generic [ref=f3e1009]: "33"
+            - generic [ref=f3e1010]: payload
+            - generic [ref=f3e1014]: JSON Web Token
+            - generic [ref=f3e1015]: 1 page
+        - link "34 payload LaTeX Injection 1 page" [ref=f3e1019] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/latex-injection
+          - generic [ref=f3e1020]:
+            - generic [ref=f3e1021]: "34"
+            - generic [ref=f3e1022]: payload
+            - generic [ref=f3e1026]: LaTeX Injection
+            - generic [ref=f3e1027]: 1 page
+        - link "35 payload LDAP Injection 1 page" [ref=f3e1031] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/ldap-injection
+          - generic [ref=f3e1032]:
+            - generic [ref=f3e1033]: "35"
+            - generic [ref=f3e1034]: payload
+            - generic [ref=f3e1038]: LDAP Injection
+            - generic [ref=f3e1039]: 1 page
+        - link "36 payload Mass Assignment 1 page" [ref=f3e1043] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/mass-assignment
+          - generic [ref=f3e1044]:
+            - generic [ref=f3e1045]: "36"
+            - generic [ref=f3e1046]: payload
+            - generic [ref=f3e1050]: Mass Assignment
+            - generic [ref=f3e1051]: 1 page
+        - link "37 payload Methodology and Resources 33 pages" [ref=f3e1055] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/methodology-and-resources
+          - generic [ref=f3e1056]:
+            - generic [ref=f3e1057]: "37"
+            - generic [ref=f3e1058]: payload
+            - generic [ref=f3e1062]: Methodology and Resources
+            - generic [ref=f3e1063]: 33 pages
+        - link "38 payload NoSQL Injection 1 page" [ref=f3e1067] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/nosql-injection
+          - generic [ref=f3e1068]:
+            - generic [ref=f3e1069]: "38"
+            - generic [ref=f3e1070]: payload
+            - generic [ref=f3e1074]: NoSQL Injection
+            - generic [ref=f3e1075]: 1 page
+        - link "39 payload OAuth Misconfiguration 1 page" [ref=f3e1079] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/oauth-misconfiguration
+          - generic [ref=f3e1080]:
+            - generic [ref=f3e1081]: "39"
+            - generic [ref=f3e1082]: payload
+            - generic [ref=f3e1086]: OAuth Misconfiguration
+            - generic [ref=f3e1087]: 1 page
+        - link "40 payload Open Redirect 1 page" [ref=f3e1091] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/open-redirect
+          - generic [ref=f3e1092]:
+            - generic [ref=f3e1093]: "40"
+            - generic [ref=f3e1094]: payload
+            - generic [ref=f3e1098]: Open Redirect
+            - generic [ref=f3e1099]: 1 page
+        - link "41 payload ORM Leak 1 page" [ref=f3e1103] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/orm-leak
+          - generic [ref=f3e1104]:
+            - generic [ref=f3e1105]: "41"
+            - generic [ref=f3e1106]: payload
+            - generic [ref=f3e1110]: ORM Leak
+            - generic [ref=f3e1111]: 1 page
+        - link "42 payload Prompt Injection 1 page" [ref=f3e1115] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/prompt-injection
+          - generic [ref=f3e1116]:
+            - generic [ref=f3e1117]: "42"
+            - generic [ref=f3e1118]: payload
+            - generic [ref=f3e1122]: Prompt Injection
+            - generic [ref=f3e1123]: 1 page
+        - link "43 payload Prototype Pollution 1 page" [ref=f3e1127] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/prototype-pollution
+          - generic [ref=f3e1128]:
+            - generic [ref=f3e1129]: "43"
+            - generic [ref=f3e1130]: payload
+            - generic [ref=f3e1134]: Prototype Pollution
+            - generic [ref=f3e1135]: 1 page
+        - link "44 payload Race Condition 1 page" [ref=f3e1139] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/race-condition
+          - generic [ref=f3e1140]:
+            - generic [ref=f3e1141]: "44"
+            - generic [ref=f3e1142]: payload
+            - generic [ref=f3e1146]: Race Condition
+            - generic [ref=f3e1147]: 1 page
+        - link "45 payload Regular Expression 1 page" [ref=f3e1151] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/regular-expression
+          - generic [ref=f3e1152]:
+            - generic [ref=f3e1153]: "45"
+            - generic [ref=f3e1154]: payload
+            - generic [ref=f3e1158]: Regular Expression
+            - generic [ref=f3e1159]: 1 page
+        - link "46 payload Request Smuggling 1 page" [ref=f3e1163] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/request-smuggling
+          - generic [ref=f3e1164]:
+            - generic [ref=f3e1165]: "46"
+            - generic [ref=f3e1166]: payload
+            - generic [ref=f3e1170]: Request Smuggling
+            - generic [ref=f3e1171]: 1 page
+        - link "47 payload Reverse Proxy Misconfigurations 1 page" [ref=f3e1175] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/reverse-proxy-misconfigurations
+          - generic [ref=f3e1176]:
+            - generic [ref=f3e1177]: "47"
+            - generic [ref=f3e1178]: payload
+            - generic [ref=f3e1182]: Reverse Proxy Misconfigurations
+            - generic [ref=f3e1183]: 1 page
+        - link "48 payload SAML Injection 1 page" [ref=f3e1187] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/saml-injection
+          - generic [ref=f3e1188]:
+            - generic [ref=f3e1189]: "48"
+            - generic [ref=f3e1190]: payload
+            - generic [ref=f3e1194]: SAML Injection
+            - generic [ref=f3e1195]: 1 page
+        - link "49 payload Server Side Include Injection 1 page" [ref=f3e1199] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-include-injection
+          - generic [ref=f3e1200]:
+            - generic [ref=f3e1201]: "49"
+            - generic [ref=f3e1202]: payload
+            - generic [ref=f3e1206]: Server Side Include Injection
+            - generic [ref=f3e1207]: 1 page
+        - link "50 payload Server Side Request Forgery 3 pages" [ref=f3e1211] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-request-forgery
+          - generic [ref=f3e1212]:
+            - generic [ref=f3e1213]: "50"
+            - generic [ref=f3e1214]: payload
+            - generic [ref=f3e1218]: Server Side Request Forgery
+            - generic [ref=f3e1219]: 3 pages
+        - link "51 payload Server Side Template Injection 8 pages" [ref=f3e1223] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/server-side-template-injection
+          - generic [ref=f3e1224]:
+            - generic [ref=f3e1225]: "51"
+            - generic [ref=f3e1226]: payload
+            - generic [ref=f3e1230]: Server Side Template Injection
+            - generic [ref=f3e1231]: 8 pages
+        - link "52 payload SQL Injection 10 pages" [ref=f3e1235] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/sql-injection
+          - generic [ref=f3e1236]:
+            - generic [ref=f3e1237]: "52"
+            - generic [ref=f3e1238]: payload
+            - generic [ref=f3e1242]: SQL Injection
+            - generic [ref=f3e1243]: 10 pages
+        - link "53 payload Tabnabbing 1 page" [ref=f3e1247] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/tabnabbing
+          - generic [ref=f3e1248]:
+            - generic [ref=f3e1249]: "53"
+            - generic [ref=f3e1250]: payload
+            - generic [ref=f3e1254]: Tabnabbing
+            - generic [ref=f3e1255]: 1 page
+        - link "54 payload Type Juggling 1 page" [ref=f3e1259] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/type-juggling
+          - generic [ref=f3e1260]:
+            - generic [ref=f3e1261]: "54"
+            - generic [ref=f3e1262]: payload
+            - generic [ref=f3e1266]: Type Juggling
+            - generic [ref=f3e1267]: 1 page
+        - link "55 payload Upload Insecure Files 2 pages" [ref=f3e1271] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/upload-insecure-files
+          - generic [ref=f3e1272]:
+            - generic [ref=f3e1273]: "55"
+            - generic [ref=f3e1274]: payload
+            - generic [ref=f3e1278]: Upload Insecure Files
+            - generic [ref=f3e1279]: 2 pages
+        - link "56 payload Virtual Hosts 1 page" [ref=f3e1283] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/virtual-hosts
+          - generic [ref=f3e1284]:
+            - generic [ref=f3e1285]: "56"
+            - generic [ref=f3e1286]: payload
+            - generic [ref=f3e1290]: Virtual Hosts
+            - generic [ref=f3e1291]: 1 page
+        - link "57 payload Web Cache Deception 1 page" [ref=f3e1295] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/web-cache-deception
+          - generic [ref=f3e1296]:
+            - generic [ref=f3e1297]: "57"
+            - generic [ref=f3e1298]: payload
+            - generic [ref=f3e1302]: Web Cache Deception
+            - generic [ref=f3e1303]: 1 page
+        - link "58 payload Web Sockets 1 page" [ref=f3e1307] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/web-sockets
+          - generic [ref=f3e1308]:
+            - generic [ref=f3e1309]: "58"
+            - generic [ref=f3e1310]: payload
+            - generic [ref=f3e1314]: Web Sockets
+            - generic [ref=f3e1315]: 1 page
+        - link "59 payload XPATH Injection 1 page" [ref=f3e1319] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xpath-injection
+          - generic [ref=f3e1320]:
+            - generic [ref=f3e1321]: "59"
+            - generic [ref=f3e1322]: payload
+            - generic [ref=f3e1326]: XPATH Injection
+            - generic [ref=f3e1327]: 1 page
+        - link "60 payload XS-Leak 1 page" [ref=f3e1331] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xs-leak
+          - generic [ref=f3e1332]:
+            - generic [ref=f3e1333]: "60"
+            - generic [ref=f3e1334]: payload
+            - generic [ref=f3e1338]: XS-Leak
+            - generic [ref=f3e1339]: 1 page
+        - link "61 payload XSLT Injection 1 page" [ref=f3e1343] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xslt-injection
+          - generic [ref=f3e1344]:
+            - generic [ref=f3e1345]: "61"
+            - generic [ref=f3e1346]: payload
+            - generic [ref=f3e1350]: XSLT Injection
+            - generic [ref=f3e1351]: 1 page
+        - link "62 payload XSS Injection 6 pages" [ref=f3e1355] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xss-injection
+          - generic [ref=f3e1356]:
+            - generic [ref=f3e1357]: "62"
+            - generic [ref=f3e1358]: payload
+            - generic [ref=f3e1362]: XSS Injection
+            - generic [ref=f3e1363]: 6 pages
+        - link "63 payload XXE Injection 1 page" [ref=f3e1367] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/xxe-injection
+          - generic [ref=f3e1368]:
+            - generic [ref=f3e1369]: "63"
+            - generic [ref=f3e1370]: payload
+            - generic [ref=f3e1374]: XXE Injection
+            - generic [ref=f3e1375]: 1 page
+        - link "64 payload Zip Slip 1 page" [ref=f3e1379] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads/zip-slip
+          - generic [ref=f3e1380]:
+            - generic [ref=f3e1381]: "64"
+            - generic [ref=f3e1382]: payload
+            - generic [ref=f3e1386]: Zip Slip
+            - generic [ref=f3e1387]: 1 page
+  - contentinfo [ref=f3e1391]:
+    - generic [ref=f3e1392]:
+      - generic [ref=f3e1393]:
+        - link "DÆMON // SEC" [ref=f3e1394] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - text: DÆMON
+          - generic [ref=f3e1395]: //
+          - text: SEC
+        - paragraph [ref=f3e1396]: A curated vault of IT & security cheatsheets. For authorized testing, CTFs, and education only. Know your scope; get permission first.
+      - generic [ref=f3e1397]:
+        - link "daemon-404.github.io ↗" [ref=f3e1398] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "github / daemon-sec-cheatsheet ↗" [ref=f3e1399] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+        - generic [ref=f3e1400]:
+          - text: Payloads mirrored from
+          - link "PayloadsAllTheThings" [ref=f3e1401] [cursor=pointer]:
+            - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+          - text: (MIT) ·
+          - link "credits" [ref=f3e1402] [cursor=pointer]:
+            - /url: /daemon-sec-cheatsheet/credits
+        - generic [ref=f3e1403]: © 2026 DÆMON//SEC · MIT
+        - generic [ref=f3e1404]: Rosé Pine · Astro · Pagefind

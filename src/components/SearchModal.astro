@@ -8,13 +8,20 @@ import Icon from './Icon.astro';
       <input
         type="search" class="search-input" data-search-input
         placeholder="Search sheets, tools, techniques…" autocomplete="off"
-        spellcheck="false" aria-label="Search query" />
+        spellcheck="false" aria-label="Search query"
+        role="combobox" aria-expanded="false" aria-controls="search-results"
+        aria-autocomplete="list" />
       <button class="icon-btn" data-search-close type="button" aria-label="Close search">
         <Icon name="close" />
       </button>
     </div>
-    <div class="search-results" data-search-results>
-      <p class="search-hint mono">Type to search the vault. <kbd>Esc</kbd> to close.</p>
+    <p class="search-status mono" data-search-status hidden></p>
+    <div
+      class="search-results" data-search-results id="search-results"
+      aria-label="Search results">
+      <p class="search-hint mono">
+        Type to search the vault. <kbd>↑</kbd><kbd>↓</kbd> move, <kbd>↵</kbd> open, <kbd>Esc</kbd> close.
+      </p>
     </div>
   </div>
 </div>
@@ -42,41 +49,195 @@ import Icon from './Icon.astro';
     color: var(--fg); font-size: 1.02rem; font-family: var(--font-mono);
   }
   .search-input::placeholder { color: var(--fg-faint); }
-  .search-results { max-height: min(56vh, 520px); overflow-y: auto; }
-  .search-hint {
+  /* The count bar. The site labels everything in 10px mono; a result set
+     is no different, and knowing 8 of 47 are shown is the difference
+     between "that's all there is" and "keep typing". */
+  .search-status {
+    display: flex; justify-content: space-between; gap: 1rem;
+    padding: 0.5rem 0.9rem;
+    border-bottom: 1px solid var(--rule);
     color: var(--fg-faint); font-size: var(--step-micro);
     letter-spacing: var(--track-micro); text-transform: uppercase;
-    padding: 1rem 0.9rem;
   }
-  .search-hint kbd { border: 1px solid var(--rule); padding: 0.06rem 0.3rem; }
-  /* Results are index rows, like every other list on the site — the ink
-     wipe is the same object, at the same timing. */
-  .s-result {
-    display: block; padding: 0.75rem 0.9rem;
+  .search-status[hidden] { display: none; }
+
+  .search-results { max-height: min(56vh, 520px); overflow-y: auto; overscroll-behavior: contain; }
+</style>
+
+<!-- Everything below draws nodes this component writes with `innerHTML` at
+     runtime — the result rows and the hint that replaces them.
+
+     Astro scopes a component's CSS by rewriting each selector to carry a
+     `[data-astro-cid-…]` attribute and stamping that attribute onto the
+     markup *at build time*. A node created later by script never receives
+     it, so a scoped rule silently does not apply: no error, no warning, and
+     a results list that renders as raw stacked text with no padding, no
+     rules and no wipe. That is what was wrong with this panel — the styles
+     had simply never reached it.
+
+     `is:global` is the escape hatch, and every rule is confined to
+     `.search-overlay` so nothing here can reach the page behind it. -->
+<style is:global>
+  .search-overlay .search-hint {
+    color: var(--fg-faint); font-size: var(--step-micro);
+    letter-spacing: var(--track-micro); text-transform: uppercase;
+    padding: 1rem 0.9rem; line-height: 2;
+  }
+  .search-overlay .search-hint kbd {
+    border: 1px solid var(--rule); padding: 0.06rem 0.3rem;
+    font-family: var(--font-mono); margin-right: 0.15rem;
+  }
+  .search-overlay .search-hint code {
+    font-family: var(--font-mono); text-transform: none;
+  }
+
+  /* A hit is a record, not a card.
+
+     The index rows on every other page of this site are one line — rank,
+     kind, title, chevron — because a list is read by its shape and a row
+     that grows to fit its content destroys the shape. This panel used to
+     stack three free-height lines per hit, so eight results ran from 100px
+     to 204px tall and only three and a half of them fitted the box. Fixing
+     the height is what makes the list scannable; everything else here is
+     the same furniture the vault indexes are built from. */
+  .search-overlay .s-result {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr) 14px;
+    align-items: center;
+    column-gap: 0.7rem;
+    row-gap: 0.1rem;
+    padding: 0.62rem 0.9rem;
     border-bottom: 1px solid var(--rule);
+    color: var(--fg);
     background-image: linear-gradient(90deg, var(--fg) 0 50%, transparent 50% 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     background-repeat: no-repeat;
     transition: background-position 380ms var(--ease-in), color 1ms;
   }
-  .s-result:hover, .s-result:focus-visible { background-position: 0 0; color: var(--base); }
-  .s-cat {
-    font-family: var(--font-mono); font-size: var(--step-micro);
-    letter-spacing: var(--track-micro); text-transform: uppercase; color: var(--accent);
+  @media (min-width: 560px) {
+    .search-overlay .s-result { grid-template-columns: 26px 54px minmax(0, 1fr) 14px; }
   }
-  .s-result:hover .s-cat, .s-result:focus-visible .s-cat { color: rgba(250, 244, 237, 0.78); }
-  .s-title { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; letter-spacing: -0.015em; margin-top: 0.2rem; }
-  .s-excerpt { color: var(--fg-dim); font-size: 0.85rem; margin-top: 0.25rem; line-height: 1.45; }
-  .s-result:hover .s-excerpt, .s-result:focus-visible .s-excerpt { color: rgba(250, 244, 237, 0.78); }
-  .s-excerpt :global(mark) { background: color-mix(in oklab, var(--gold) 34%, transparent); color: inherit; padding: 0 2px; }
+  /* Hover and keyboard selection are the same state deliberately: the
+     pointer and the arrow keys are moving one cursor, not two. */
+  .search-overlay .s-result:hover,
+  .search-overlay .s-result[data-sel] { background-position: 0 0; color: var(--base); }
+  .search-overlay .s-result:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  /* Rank, and the keyboard address — ↑/↓ move this number, ↵ opens it. */
+  .search-overlay .s-n {
+    grid-column: 1; grid-row: 1;
+    font-family: var(--font-mono); font-size: var(--step-micro);
+    letter-spacing: var(--track-micro); color: var(--fg-faint);
+  }
+  /* The domain's own accent, from taxonomy.ts — the same legend the
+     masthead and the domain plates key back to. */
+  .search-overlay .s-kind {
+    grid-column: 2; grid-row: 2;
+    font-family: var(--font-mono); font-size: var(--step-micro);
+    letter-spacing: var(--track-micro); text-transform: uppercase;
+    color: var(--acc, var(--accent));
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  @media (min-width: 560px) { .search-overlay .s-kind { grid-row: 1; } }
+  .search-overlay .s-title {
+    grid-column: 2; grid-row: 1;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: 0.98rem; letter-spacing: -0.015em;
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  @media (min-width: 560px) { .search-overlay .s-title { grid-column: 3; } }
+  .search-overlay .s-snip {
+    grid-column: 2; grid-row: 3;
+    color: var(--fg-dim); font-size: 0.8rem; line-height: 1.35;
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  @media (min-width: 560px) { .search-overlay .s-snip { grid-column: 3; grid-row: 2; } }
+  .search-overlay .s-go {
+    grid-column: 3; grid-row: 1;
+    color: var(--fg-faint);
+    transition: transform 250ms var(--ease);
+  }
+  @media (min-width: 560px) { .search-overlay .s-go { grid-column: 4; } }
+  .search-overlay .s-go svg { width: 14px; height: 14px; display: block; }
+
+  /* On the wipe's ink the accents sit near 1:1, so every coloured cell
+     drops its hue and takes the page ground at the /78 the record rows
+     use. Mixed from `--base` rather than written as the cream literal the
+     rest of the site uses for this: the wipe fills with `--fg`, which is
+     dark ink on the dawn theme but near-white on the night one, so a fixed
+     cream is correct in one mode and invisible in the other. */
+  .search-overlay .s-result:hover .s-n, .search-overlay .s-result[data-sel] .s-n,
+  .search-overlay .s-result:hover .s-kind, .search-overlay .s-result[data-sel] .s-kind,
+  .search-overlay .s-result:hover .s-snip, .search-overlay .s-result[data-sel] .s-snip,
+  .search-overlay .s-result:hover .s-go, .search-overlay .s-result[data-sel] .s-go {
+    color: color-mix(in oklab, var(--base) 78%, transparent);
+  }
+  .search-overlay .s-result:hover .s-go,
+  .search-overlay .s-result[data-sel] .s-go { transform: translateX(3px); }
+
+  /* The match itself has to survive the wipe, so it gets a second
+     treatment on ink rather than keeping a gold wash that goes muddy. */
+  .search-overlay .s-snip mark {
+    background: color-mix(in oklab, var(--gold) 34%, transparent);
+    color: inherit; padding: 0 2px;
+  }
+  .search-overlay .s-result:hover .s-snip mark,
+  .search-overlay .s-result[data-sel] .s-snip mark {
+    background: color-mix(in oklab, var(--base) 22%, transparent);
+    color: var(--base);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-overlay .s-result, .search-overlay .s-go { transition: none; }
+  }
 </style>
 
 <script>
+  import { CATEGORIES } from '../lib/taxonomy';
+
   const BASE = import.meta.env.BASE_URL;
-  const overlay = document.querySelector<HTMLElement>('[data-search-overlay]');
-  const input = document.querySelector<HTMLInputElement>('[data-search-input]');
-  const results = document.querySelector<HTMLElement>('[data-search-results]');
+
+  /* Looked up per call, never held.
+
+     `ClientRouter` swaps the whole body on an internal navigation, so the
+     modal on screen after the first click-through is a different element
+     from the one that was in the document when this module ran. Module
+     scripts are executed once per session — Astro replaces an already-run
+     inline script with an empty `data:` URI on swap — so a reference
+     captured up here is never refreshed, and every later `open()` was
+     unhiding a detached node while locking scroll on the live body:
+     nothing appeared and the page could no longer be scrolled.
+
+     Re-querying at the point of use costs one `querySelector` per
+     interaction and cannot go stale. */
+  const overlayEl = () => document.querySelector<HTMLElement>('[data-search-overlay]');
+  const inputEl = () => document.querySelector<HTMLInputElement>('[data-search-input]');
+  const resultsEl = () => document.querySelector<HTMLElement>('[data-search-results]');
+
+  const statusEl = () => document.querySelector<HTMLElement>('[data-search-status]');
+
+  const HINT =
+    '<p class="search-hint mono">Type to search the vault. ' +
+    '<kbd>↑</kbd><kbd>↓</kbd> move, <kbd>↵</kbd> open, <kbd>Esc</kbd> close.</p>';
+
+  /* Pagefind reports the category as its display title, which is all a
+     human needs but not what the row is drawn from: the vault's rows carry
+     a short module tag in the domain's own accent. Both come from
+     `taxonomy.ts` rather than a second copy of the table here, so adding a
+     domain there gives search the right badge and the right colour with no
+     further edit. Payloads is not a domain in that list — it is the mirror
+     — and takes the iris the masthead already gives it. */
+  const KIND = new Map<string, { tag: string; accent: string }>([
+    ...CATEGORIES.map((c) => [c.title, { tag: c.tag, accent: c.accent }] as const),
+    ['Payloads', { tag: 'PAY', accent: 'iris' }],
+  ]);
+  const kindOf = (category?: string) =>
+    (category && KIND.get(category)) || { tag: category || 'SHEET', accent: 'foam' };
+
+  /* The index itself does survive navigation, and should — it is a few
+     hundred KB of WASM and index shards, and re-fetching it per page would
+     undo the point of a client-side router. */
   let pagefind: any = null;
   let loading: Promise<any> | null = null;
 
@@ -114,18 +275,21 @@ import Icon from './Icon.astro';
   }
 
   function open() {
+    const overlay = overlayEl();
     if (!overlay) return;
     overlay.hidden = false;
     document.body.style.overflow = 'hidden';
     loadPagefind();
-    setTimeout(() => input?.focus(), 20);
+    setTimeout(() => inputEl()?.focus(), 20);
   }
   function close() {
+    const overlay = overlayEl();
+    document.body.style.overflow = '';
     if (!overlay) return;
     overlay.hidden = true;
-    document.body.style.overflow = '';
+    const input = inputEl();
     if (input) input.value = '';
-    if (results) results.innerHTML = '';
+    write(HINT);
   }
 
   function esc(s: string) {
@@ -133,40 +297,252 @@ import Icon from './Icon.astro';
       ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
   }
 
+  const CHEVRON =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
+
+  /* ---- Excerpt repair -----------------------------------------------------
+     Pagefind excerpts are the page's own prose with `<mark>` around the hit,
+     and the vault's prose is not prose: it is command listings, tables and
+     emoji-headed sections. Untouched, a snippet arrives looking like
+
+       "# ── Set SPN on target ──────────────────── Set-DomainObject -Identity"
+
+     which is not a sentence, is not a preview, and is what pushed one row to
+     204px while its neighbour sat at 100px. No amount of styling fixes text
+     that is mostly rule characters, so the string is repaired before it is
+     ever measured.
+
+     Everything below is tag-aware: `<mark>` is the whole point of an excerpt
+     and must survive, so nothing here counts or cuts raw HTML positions. */
+
+  /** Drop the first `n` *visible* characters, stepping over tags. */
+  function dropLeading(html: string, n: number) {
+    let out = '';
+    let i = 0;
+    let dropped = 0;
+    while (i < html.length) {
+      if (html[i] === '<') {
+        const end = html.indexOf('>', i);
+        if (end === -1) break;
+        out += html.slice(i, end + 1);
+        i = end + 1;
+        continue;
+      }
+      if (dropped < n) dropped++;
+      else out += html[i];
+      i++;
+    }
+    return out;
+  }
+
+  const plain = (html: string) => html.replace(/<[^>]*>/g, '');
+
+  function tidyExcerpt(raw: string, title: string) {
+    let html = String(raw || '');
+
+    // Pagefind only ever emits <mark>; anything else reaching the panel is
+    // content that escaped indexing, and it is not this component's job to
+    // render it.
+    html = html.replace(/<(?!\/?mark\s*\/?>)[^>]*>/gi, '');
+
+    // Pictographs, box drawing, block elements, the long ASCII rules that
+    // head almost every command section in this vault, and the `:warning:`
+    // style shortcodes the PayloadsAllTheThings mirror carries in from
+    // GitHub-flavoured markdown. The shortcode pattern is deliberately
+    // anchored to whitespace on both sides so it cannot bite a `key:value:`
+    // pair out of a command line.
+    html = html
+      .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{20E3}]/gu, ' ')
+      .replace(/[─-▟]+/g, ' ')
+      .replace(/(^|\s):[a-z][a-z0-9_+-]{2,}:(?=\s|$)/gi, '$1')
+      .replace(/([=_*~#·•+\-])\1{2,}/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    // The heading is nearly always the first thing in the body text, so the
+    // snippet opens by repeating the title directly above it. Say it once.
+    const t = title.trim().toLowerCase();
+    if (t && plain(html).toLowerCase().startsWith(t)) html = dropLeading(html, t.length);
+
+    /* Tidying the head of the string can leave the punctuation that used to
+       separate it from the title, and can empty a <mark> whose text was
+       part of the title — a marked-up heading is the common case, not the
+       exception. Both have to go, and each can uncover the other. */
+    for (let pass = 0; pass < 3; pass++) {
+      const trimmed = html
+        .replace(/<mark[^>]*>\s*<\/mark>/gi, '')
+        .replace(/^[\s.,:;|—–-]+/, '');
+      if (trimmed === html) break;
+      html = trimmed;
+    }
+
+    /* A one-line snippet is only worth showing if the match is on that line.
+       Pagefind usually centres the excerpt on the hit, but not always — when
+       the match starts late, wind the snippet forward so it lands early
+       enough to survive the ellipsis. */
+    const markTag = html.search(/<mark/i);
+    if (markTag > 0) {
+      const visibleBefore = plain(html.slice(0, markTag)).length;
+      if (visibleBefore > 46) html = '… ' + dropLeading(html, visibleBefore - 24);
+    }
+
+    return html;
+  }
+
+  /* Writes go through here for the same reason reads do: a search started
+     on one page can resolve after a navigation has replaced the results
+     panel, and the answer belongs in whichever panel is on screen now. */
+  function write(html: string, status?: string) {
+    const results = resultsEl();
+    if (results) results.innerHTML = html;
+    const bar = statusEl();
+    if (bar) {
+      bar.hidden = !status;
+      bar.innerHTML = status || '';
+    }
+    /* A listbox may only contain options, so the container is only a
+       listbox while it holds results — the hint and the empty state are
+       prose and are announced as prose. */
+    if (results) {
+      if (status) results.setAttribute('role', 'listbox');
+      else results.removeAttribute('role');
+    }
+    const input = inputEl();
+    input?.setAttribute('aria-expanded', String(!!status));
+    select(status ? 0 : -1);
+  }
+
+  /* ---- The cursor ---------------------------------------------------------
+     One cursor, moved by either device: `[data-sel]` takes the same ink wipe
+     hovering does, so the pointer and the arrow keys are visibly driving the
+     same thing rather than lighting two different rows. The top hit is
+     selected on arrival, which is what makes ↵ worth pressing. */
+  let sel = -1;
+  function rows() {
+    return Array.from(document.querySelectorAll<HTMLAnchorElement>('.s-result'));
+  }
+  function select(i: number) {
+    const list = rows();
+    list.forEach((r) => r.removeAttribute('data-sel'));
+    sel = list.length ? Math.max(0, Math.min(i, list.length - 1)) : -1;
+    const input = inputEl();
+    if (sel < 0) { input?.removeAttribute('aria-activedescendant'); return; }
+    const row = list[sel];
+    row.setAttribute('data-sel', '');
+    row.setAttribute('aria-selected', 'true');
+    list.forEach((r, n) => { if (n !== sel) r.setAttribute('aria-selected', 'false'); });
+    input?.setAttribute('aria-activedescendant', row.id);
+    row.scrollIntoView({ block: 'nearest' });
+  }
+
+  const RESULT_LIMIT = 8;
+
   let seq = 0;
   async function run(q: string) {
-    if (!results) return;
     const mine = ++seq;
-    if (!q.trim()) { results.innerHTML = '<p class="search-hint mono">Type to search the vault. <kbd>Esc</kbd> to close.</p>'; return; }
+    if (!q.trim()) { write(HINT); return; }
     await loadPagefind();
+    if (mine !== seq) return;
     /* The index is generated by Pagefind after `astro build`, so it exists
        in `dist/` and never under `astro dev`. This is the expected state on
        the dev server — `npm run preview` serves the built site with it. */
-    if (pagefind === false) { results.innerHTML = '<p class="search-hint mono">Search index not loaded. It is built by <code>npm run build</code>; use <code>npm run preview</code> to search locally.</p>'; return; }
+    if (pagefind === false) { write('<p class="search-hint mono">Search index not loaded. It is built by <code>npm run build</code>; use <code>npm run preview</code> to search locally.</p>'); return; }
     const search = await pagefind.search(q);
     if (mine !== seq) return;
-    const data = await Promise.all(search.results.slice(0, 8).map((r: any) => r.data()));
+    const total = search.results.length;
+    const data = await Promise.all(
+      search.results.slice(0, RESULT_LIMIT).map((r: any) => r.data()),
+    );
     if (mine !== seq) return;
-    if (!data.length) { results.innerHTML = `<p class="search-hint mono">No matches for “${esc(q)}”.</p>`; return; }
-    results.innerHTML = data.map((d: any) => {
-      const cat = d.meta?.category ? `<span class="s-cat">${esc(d.meta.category)}</span>` : '';
-      const title = esc(d.meta?.title || d.url);
-      return `<a class="s-result" href="${esc(d.url)}">${cat}<div class="s-title">${title}</div><div class="s-excerpt">${d.excerpt || ''}</div></a>`;
+    if (!data.length) {
+      write(`<p class="search-hint mono">No matches for “${esc(q)}”. Try a tool name, a technique, or a CVE.</p>`);
+      return;
+    }
+
+    const html = data.map((d: any, i: number) => {
+      const title = String(d.meta?.title || d.url);
+      const kind = kindOf(d.meta?.category);
+      const snip = tidyExcerpt(d.excerpt, title);
+      return (
+        `<a class="s-result" id="s-opt-${i}" role="option" aria-selected="false"` +
+        ` href="${esc(d.url)}" style="--acc: var(--${kind.accent});">` +
+        `<span class="s-n">${String(i + 1).padStart(2, '0')}</span>` +
+        `<span class="s-kind">${esc(kind.tag)}</span>` +
+        `<span class="s-title">${esc(title)}</span>` +
+        `<span class="s-snip">${snip}</span>` +
+        `<span class="s-go">${CHEVRON}</span>` +
+        `</a>`
+      );
     }).join('');
+
+    /* Say how much of the result set is on screen. "8 results" reads as the
+       whole answer when it is the first page of forty. */
+    const shown = data.length;
+    const status =
+      `<span>${total === shown ? `${total} match${total === 1 ? '' : 'es'}` : `${shown} of ${total} matches`}</span>` +
+      `<span>↑↓ ↵</span>`;
+    write(html, status);
   }
 
+  /* Delegated rather than bound to the field, so that it keeps working
+     against whichever field is in the document — `input` bubbles. */
   let t: any;
-  input?.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => run(input.value), 120); });
+  document.addEventListener('input', (e) => {
+    const el = e.target as HTMLElement;
+    if (!el?.matches?.('[data-search-input]')) return;
+    const value = (el as HTMLInputElement).value;
+    clearTimeout(t);
+    t = setTimeout(() => run(value), 120);
+  });
 
   document.addEventListener('click', (e) => {
     const el = e.target as HTMLElement;
     if (el.closest('[data-search-open]')) { e.preventDefault(); open(); }
     else if (el.closest('[data-search-close]')) close();
-    else if (el === overlay) close();
+    else if (el === overlayEl()) close();
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay && !overlay.hidden) close();
+    const overlay = overlayEl();
+    const isOpen = !!overlay && !overlay.hidden;
+
+    /* Arrow keys drive the list while the field keeps the caret, which is
+       the whole reason a palette is quicker than a results page. Enter
+       follows the selection rather than submitting the form. */
+    if (isOpen && (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Home' || e.key === 'End')) {
+      const list = rows();
+      if (!list.length) return;
+      e.preventDefault();
+      if (e.key === 'ArrowDown') select(sel < 0 ? 0 : (sel + 1) % list.length);
+      else if (e.key === 'ArrowUp') select(sel <= 0 ? list.length - 1 : sel - 1);
+      else if (e.key === 'Home') select(0);
+      else select(list.length - 1);
+      return;
+    }
+    if (isOpen && e.key === 'Enter') {
+      const row = rows()[sel];
+      if (row) { e.preventDefault(); row.click(); }
+      return;
+    }
+
+    if (e.key === 'Escape' && isOpen) close();
     else if (e.key === '/' && overlay?.hidden && !/^(INPUT|TEXTAREA|SELECT)$/.test((e.target as HTMLElement)?.tagName)) { e.preventDefault(); open(); }
     else if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) { e.preventDefault(); overlay?.hidden ? open() : close(); }
   });
+
+  /* Pointer and keyboard share one cursor, so moving the mouse over a row
+     moves the selection to it rather than lighting a second one. */
+  document.addEventListener('pointermove', (e) => {
+    const row = (e.target as HTMLElement)?.closest?.('.s-result');
+    if (!row) return;
+    const i = rows().indexOf(row as HTMLAnchorElement);
+    if (i >= 0 && i !== sel) select(i);
+  });
+
+  /* Following a result navigates client-side, which swaps the modal away
+     without anything calling `close()`. The scroll lock lives on <body>,
+     so release it on the way out rather than leaving the next page
+     unscrollable. */
+  document.addEventListener('astro:before-swap', () => { document.body.style.overflow = ''; });
+  document.addEventListener('astro:after-swap', () => { document.body.style.overflow = ''; });
 </script>

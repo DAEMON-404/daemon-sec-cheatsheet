@@ -1,0 +1,418 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link "DÆMON//SEC home" [ref=f9e4] [cursor=pointer]:
+        - /url: /daemon-sec-cheatsheet/
+        - text: DÆMON
+        - generic [ref=f9e5]: //
+        - text: SEC
+        - generic [ref=f9e6]: _
+      - navigation "Primary" [ref=f9e7]:
+        - link "01 Vault" [ref=f9e8] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - generic [ref=f9e9]: "01"
+          - generic [ref=f9e10]: Vault
+        - link "02 Payloads" [ref=f9e11] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/payloads
+          - generic [ref=f9e12]: "02"
+          - generic [ref=f9e13]: Payloads
+        - link "03 Tags" [ref=f9e14] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tags
+          - generic [ref=f9e15]: "03"
+          - generic [ref=f9e16]: Tags
+        - link "04 Credits" [ref=f9e17] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/credits
+          - generic [ref=f9e18]: "04"
+          - generic [ref=f9e19]: Credits
+      - generic [ref=f9e20]:
+        - button "Search cheatsheets" [ref=f9e21] [cursor=pointer]:
+          - generic [ref=f9e24]: Search
+          - generic [ref=f9e25]: /
+        - button "Toggle theme" [ref=f9e26] [cursor=pointer]
+        - link "DÆMON main site" [ref=f9e31] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "GitHub repository" [ref=f9e34] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+  - main [ref=f9e37]:
+    - generic [ref=f9e39]:
+      - generic [ref=f9e40]:
+        - heading "D Æ M O N" [level=1] [ref=f9e42]:
+          - generic [ref=f9e43]: D
+          - generic [ref=f9e44]: Æ
+          - generic [ref=f9e45]: M
+          - generic [ref=f9e46]: O
+          - generic [ref=f9e47]: "N"
+        - paragraph [ref=f9e49]:
+          - generic [ref=f9e50]: The cheatsheet vault
+      - generic [ref=f9e52]:
+        - generic [ref=f9e53]:
+          - generic [ref=f9e54]: Vault / 2026
+          - heading "Zero fluff. Copy-ready." [level=2] [ref=f9e55]
+          - paragraph [ref=f9e56]: 214 hand-picked cheatsheets across 12 domains — Active Directory, enumeration, exploitation, priv-esc, web, DFIR — stripped of vault-specific syntax and refreshed for current tool flags. Plus the full PayloadsAllTheThings mirror, searchable offline.
+          - generic [ref=f9e57]:
+            - button "Search the vault" [ref=f9e58] [cursor=pointer]
+            - link "Payloads" [ref=f9e62] [cursor=pointer]:
+              - /url: /daemon-sec-cheatsheet/payloads
+        - generic [ref=f9e66]:
+          - generic [ref=f9e67]:
+            - generic [ref=f9e68]:
+              - generic [ref=f9e69]: daemon@sec
+              - generic [ref=f9e70]: ~
+              - generic [ref=f9e71]: "%"
+              - generic [ref=f9e72]: whoami --vault
+            - generic [ref=f9e74]:
+              - term [ref=f9e75]: scope
+              - definition [ref=f9e76]: Offensive security · red team · DFIR
+              - term [ref=f9e77]: format
+              - definition [ref=f9e78]: Copy-ready commands, current tool flags
+              - term [ref=f9e79]: search
+              - definition [ref=f9e80]: Pagefind · offline · zero tracking
+              - term [ref=f9e81]: license
+              - definition [ref=f9e82]: MIT · payloads mirrored from swisskyrepo
+          - generic [ref=f9e83]:
+            - generic [ref=f9e84]:
+              - term [ref=f9e85]: Curated cheatsheets
+              - definition [ref=f9e86]:
+                - text: "-1"
+                - generic [ref=f9e87]: Curatedcheatsheets
+            - generic [ref=f9e88]:
+              - term [ref=f9e89]: Operator domains
+              - definition [ref=f9e90]:
+                - text: "00"
+                - generic [ref=f9e91]: Operatordomains
+            - generic [ref=f9e92]:
+              - term [ref=f9e93]: Mirrored payload pages
+              - definition [ref=f9e94]:
+                - text: "-1"
+                - generic [ref=f9e95]: Mirroredpayload pages
+    - region "Domains" [ref=f9e96]:
+      - generic [ref=f9e97]: "^: Index"
+      - generic [ref=f9e101]:
+        - generic [ref=f9e102]:
+          - generic [ref=f9e103]:
+            - generic [ref=f9e104]: "01"
+            - generic [ref=f9e105]: AD
+            - generic [ref=f9e109]: Active Directory
+            - generic [ref=f9e110]: 130 sheets
+          - generic [ref=f9e111]:
+            - generic [ref=f9e112]: "02"
+            - generic [ref=f9e113]: ENUM
+            - generic [ref=f9e117]: Enumeration
+            - generic [ref=f9e118]: 18 sheets
+          - generic [ref=f9e119]:
+            - generic [ref=f9e120]: "03"
+            - generic [ref=f9e121]: PWN
+            - generic [ref=f9e125]: Exploitation
+            - generic [ref=f9e126]: 7 sheets
+          - generic [ref=f9e127]:
+            - generic [ref=f9e128]: "04"
+            - generic [ref=f9e129]: PRIV
+            - generic [ref=f9e133]: Privilege Escalation
+            - generic [ref=f9e134]: 2 sheets
+          - generic [ref=f9e135]:
+            - generic [ref=f9e136]: "05"
+            - generic [ref=f9e137]: CRED
+            - generic [ref=f9e141]: Password Attacks
+            - generic [ref=f9e142]: 3 sheets
+          - generic [ref=f9e143]:
+            - generic [ref=f9e144]: "06"
+            - generic [ref=f9e145]: WEB
+            - generic [ref=f9e149]: Web
+            - generic [ref=f9e150]: 9 sheets
+          - generic [ref=f9e151]:
+            - generic [ref=f9e152]: "07"
+            - generic [ref=f9e153]: PIVOT
+            - generic [ref=f9e157]: Tunneling & Pivoting
+            - generic [ref=f9e158]: 6 sheets
+          - generic [ref=f9e159]:
+            - generic [ref=f9e160]: "08"
+            - generic [ref=f9e161]: CRYPTO
+            - generic [ref=f9e165]: Cryptography
+            - generic [ref=f9e166]: 3 sheets
+          - generic [ref=f9e167]:
+            - generic [ref=f9e168]: "09"
+            - generic [ref=f9e169]: DFIR
+            - generic [ref=f9e173]: DFIR
+            - generic [ref=f9e174]: 4 sheets
+          - generic [ref=f9e175]:
+            - generic [ref=f9e176]: "10"
+            - generic [ref=f9e177]: TOOL
+            - generic [ref=f9e181]: Tools
+            - generic [ref=f9e182]: 18 sheets
+          - generic [ref=f9e183]:
+            - generic [ref=f9e184]: "11"
+            - generic [ref=f9e185]: NIX
+            - generic [ref=f9e189]: Linux & IT
+            - generic [ref=f9e190]: 9 sheets
+          - generic [ref=f9e191]:
+            - generic [ref=f9e192]: "12"
+            - generic [ref=f9e193]: GIT
+            - generic [ref=f9e197]: Git & Workflow
+            - generic [ref=f9e198]: 5 sheets
+        - generic [ref=f9e199]:
+          - generic [ref=f9e200]:
+            - generic [ref=f9e201]: "01"
+            - generic [ref=f9e202]: AD
+            - generic [ref=f9e206]: Active Directory
+            - generic [ref=f9e207]: 130 sheets
+          - generic [ref=f9e208]:
+            - generic [ref=f9e209]: "02"
+            - generic [ref=f9e210]: ENUM
+            - generic [ref=f9e214]: Enumeration
+            - generic [ref=f9e215]: 18 sheets
+          - generic [ref=f9e216]:
+            - generic [ref=f9e217]: "03"
+            - generic [ref=f9e218]: PWN
+            - generic [ref=f9e222]: Exploitation
+            - generic [ref=f9e223]: 7 sheets
+          - generic [ref=f9e224]:
+            - generic [ref=f9e225]: "04"
+            - generic [ref=f9e226]: PRIV
+            - generic [ref=f9e230]: Privilege Escalation
+            - generic [ref=f9e231]: 2 sheets
+          - generic [ref=f9e232]:
+            - generic [ref=f9e233]: "05"
+            - generic [ref=f9e234]: CRED
+            - generic [ref=f9e238]: Password Attacks
+            - generic [ref=f9e239]: 3 sheets
+          - generic [ref=f9e240]:
+            - generic [ref=f9e241]: "06"
+            - generic [ref=f9e242]: WEB
+            - generic [ref=f9e246]: Web
+            - generic [ref=f9e247]: 9 sheets
+          - generic [ref=f9e248]:
+            - generic [ref=f9e249]: "07"
+            - generic [ref=f9e250]: PIVOT
+            - generic [ref=f9e254]: Tunneling & Pivoting
+            - generic [ref=f9e255]: 6 sheets
+          - generic [ref=f9e256]:
+            - generic [ref=f9e257]: "08"
+            - generic [ref=f9e258]: CRYPTO
+            - generic [ref=f9e262]: Cryptography
+            - generic [ref=f9e263]: 3 sheets
+          - generic [ref=f9e264]:
+            - generic [ref=f9e265]: "09"
+            - generic [ref=f9e266]: DFIR
+            - generic [ref=f9e270]: DFIR
+            - generic [ref=f9e271]: 4 sheets
+          - generic [ref=f9e272]:
+            - generic [ref=f9e273]: "10"
+            - generic [ref=f9e274]: TOOL
+            - generic [ref=f9e278]: Tools
+            - generic [ref=f9e279]: 18 sheets
+          - generic [ref=f9e280]:
+            - generic [ref=f9e281]: "11"
+            - generic [ref=f9e282]: NIX
+            - generic [ref=f9e286]: Linux & IT
+            - generic [ref=f9e287]: 9 sheets
+          - generic [ref=f9e288]:
+            - generic [ref=f9e289]: "12"
+            - generic [ref=f9e290]: GIT
+            - generic [ref=f9e294]: Git & Workflow
+            - generic [ref=f9e295]: 5 sheets
+      - generic [ref=f9e296]: 12 domains
+    - generic [ref=f9e298]:
+      - generic [ref=f9e300]:
+        - paragraph [ref=f9e301]:
+          - generic [ref=f9e302]: "01"
+          - generic [ref=f9e303]: "^:"
+          - generic [ref=f9e304]: 12 domains
+        - heading "Pick your vector" [level=2] [ref=f9e306]
+      - generic [ref=f9e307]:
+        - link "AD 01 Active Directory Kerberos, ADCS, delegation, and domain takeover paths. 130 sheets" [ref=f9e308] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/active-directory
+          - generic [ref=f9e309]:
+            - generic [ref=f9e310]: AD
+            - generic [ref=f9e311]: "01"
+          - heading "Active Directory" [level=3] [ref=f9e312]
+          - paragraph [ref=f9e313]: Kerberos, ADCS, delegation, and domain takeover paths.
+          - generic [ref=f9e314]: 130 sheets
+        - link "ENUM 02 Enumeration Port, service, web, and host discovery — mapping the attack surface. 18 sheets" [ref=f9e317] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/enumeration
+          - generic [ref=f9e318]:
+            - generic [ref=f9e319]: ENUM
+            - generic [ref=f9e320]: "02"
+          - heading "Enumeration" [level=3] [ref=f9e321]
+          - paragraph [ref=f9e322]: Port, service, web, and host discovery — mapping the attack surface.
+          - generic [ref=f9e323]: 18 sheets
+        - 'link "PWN 03 Exploitation Gaining a foothold: injection, upload, and shell delivery. 7 sheets" [ref=f9e326] [cursor=pointer]':
+          - /url: /daemon-sec-cheatsheet/exploitation
+          - generic [ref=f9e327]:
+            - generic [ref=f9e328]: PWN
+            - generic [ref=f9e329]: "03"
+          - heading "Exploitation" [level=3] [ref=f9e330]
+          - paragraph [ref=f9e331]: "Gaining a foothold: injection, upload, and shell delivery."
+          - generic [ref=f9e332]: 7 sheets
+        - link "PRIV 04 Privilege Escalation From user to root/SYSTEM on Linux and Windows. 2 sheets" [ref=f9e335] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/privilege-escalation
+          - generic [ref=f9e336]:
+            - generic [ref=f9e337]: PRIV
+            - generic [ref=f9e338]: "04"
+          - heading "Privilege Escalation" [level=3] [ref=f9e339]
+          - paragraph [ref=f9e340]: From user to root/SYSTEM on Linux and Windows.
+          - generic [ref=f9e341]: 2 sheets
+        - link "CRED 05 Password Attacks Cracking, spraying, and credential recovery. 3 sheets" [ref=f9e344] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/password-attacks
+          - generic [ref=f9e345]:
+            - generic [ref=f9e346]: CRED
+            - generic [ref=f9e347]: "05"
+          - heading "Password Attacks" [level=3] [ref=f9e348]
+          - paragraph [ref=f9e349]: Cracking, spraying, and credential recovery.
+          - generic [ref=f9e350]: 3 sheets
+        - link "WEB 06 Web XSS, injection, and web application testing. 9 sheets" [ref=f9e353] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/web
+          - generic [ref=f9e354]:
+            - generic [ref=f9e355]: WEB
+            - generic [ref=f9e356]: "06"
+          - heading "Web" [level=3] [ref=f9e357]
+          - paragraph [ref=f9e358]: XSS, injection, and web application testing.
+          - generic [ref=f9e359]: 9 sheets
+        - link "PIVOT 07 Tunneling & Pivoting Moving through segmented networks and double pivots. 6 sheets" [ref=f9e362] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tunneling-pivoting
+          - generic [ref=f9e363]:
+            - generic [ref=f9e364]: PIVOT
+            - generic [ref=f9e365]: "07"
+          - heading "Tunneling & Pivoting" [level=3] [ref=f9e366]
+          - paragraph [ref=f9e367]: Moving through segmented networks and double pivots.
+          - generic [ref=f9e368]: 6 sheets
+        - link "CRYPTO 08 Cryptography Hashing, encryption, GPG, and key handling. 3 sheets" [ref=f9e371] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/cryptography
+          - generic [ref=f9e372]:
+            - generic [ref=f9e373]: CRYPTO
+            - generic [ref=f9e374]: "08"
+          - heading "Cryptography" [level=3] [ref=f9e375]
+          - paragraph [ref=f9e376]: Hashing, encryption, GPG, and key handling.
+          - generic [ref=f9e377]: 3 sheets
+        - link "DFIR 09 DFIR Forensics, memory, and registry analysis. 4 sheets" [ref=f9e380] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/dfir
+          - generic [ref=f9e381]:
+            - generic [ref=f9e382]: DFIR
+            - generic [ref=f9e383]: "09"
+          - heading "DFIR" [level=3] [ref=f9e384]
+          - paragraph [ref=f9e385]: Forensics, memory, and registry analysis.
+          - generic [ref=f9e386]: 4 sheets
+        - link "TOOL 10 Tools General-purpose offensive tooling and multiplexers. 18 sheets" [ref=f9e389] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tools
+          - generic [ref=f9e390]:
+            - generic [ref=f9e391]: TOOL
+            - generic [ref=f9e392]: "10"
+          - heading "Tools" [level=3] [ref=f9e393]
+          - paragraph [ref=f9e394]: General-purpose offensive tooling and multiplexers.
+          - generic [ref=f9e395]: 18 sheets
+        - link "NIX 11 Linux & IT Shell, filesystem, and everyday IT fundamentals. 9 sheets" [ref=f9e398] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/linux-it
+          - generic [ref=f9e399]:
+            - generic [ref=f9e400]: NIX
+            - generic [ref=f9e401]: "11"
+          - heading "Linux & IT" [level=3] [ref=f9e402]
+          - paragraph [ref=f9e403]: Shell, filesystem, and everyday IT fundamentals.
+          - generic [ref=f9e404]: 9 sheets
+        - link "GIT 12 Git & Workflow Version control and operator workflow. 5 sheets" [ref=f9e407] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/git-workflow
+          - generic [ref=f9e408]:
+            - generic [ref=f9e409]: GIT
+            - generic [ref=f9e410]: "12"
+          - heading "Git & Workflow" [level=3] [ref=f9e411]
+          - paragraph [ref=f9e412]: Version control and operator workflow.
+          - generic [ref=f9e413]: 5 sheets
+    - link [ref=f9e416] [cursor=pointer]:
+      - /url: /daemon-sec-cheatsheet/payloads
+      - generic [ref=f9e417]:
+        - generic [ref=f9e418]:
+          - paragraph [ref=f9e419]: "02 ^: Full mirror · MIT"
+          - heading "PayloadsAllTheThings" [level=2] [ref=f9e420]
+          - paragraph [ref=f9e421]:
+            - text: The complete 64-topic, 135-page payload and bypass reference by
+            - strong [ref=f9e422]: swisskyrepo
+            - text: — mirrored on-site, fully searchable, every page linked back to source.
+        - generic [ref=f9e423]: Browse payloads
+    - generic [ref=f9e427]:
+      - generic [ref=f9e428]:
+        - generic [ref=f9e429]:
+          - paragraph [ref=f9e430]:
+            - generic [ref=f9e431]: "03"
+            - generic [ref=f9e432]: "^:"
+            - generic [ref=f9e433]: Freshly modernized
+          - heading "Recently updated" [level=2] [ref=f9e434]
+        - link "All tags" [ref=f9e435] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/tags
+      - generic [ref=f9e438]:
+        - link "01 ENUM 2.4 - Cheatsheet - Gitleaks 2026-08-10" [ref=f9e439] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/sheets/enumeration/2-4-cheatsheet-gitleaks
+          - generic [ref=f9e440]:
+            - generic [ref=f9e441]: "01"
+            - generic [ref=f9e442]: ENUM
+            - generic [ref=f9e446]: 2.4 - Cheatsheet - Gitleaks
+            - generic [ref=f9e447]: 2026-08-10
+        - link "02 ENUM 2.5 - Cheatsheet - TruffleHog 2026-08-10" [ref=f9e451] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/sheets/enumeration/2-5-cheatsheet-trufflehog
+          - generic [ref=f9e452]:
+            - generic [ref=f9e453]: "02"
+            - generic [ref=f9e454]: ENUM
+            - generic [ref=f9e458]: 2.5 - Cheatsheet - TruffleHog
+            - generic [ref=f9e459]: 2026-08-10
+        - link "03 AD Active-Directory_cheat_sheet 2026-08-10" [ref=f9e463] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/sheets/active-directory/active-directory-cheat-sheet
+          - generic [ref=f9e464]:
+            - generic [ref=f9e465]: "03"
+            - generic [ref=f9e466]: AD
+            - generic [ref=f9e470]: Active-Directory_cheat_sheet
+            - generic [ref=f9e471]: 2026-08-10
+        - link "04 ENUM Anonymous Null Testing 2026-08-10" [ref=f9e475] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/sheets/enumeration/anonymous-null-testing
+          - generic [ref=f9e476]:
+            - generic [ref=f9e477]: "04"
+            - generic [ref=f9e478]: ENUM
+            - generic [ref=f9e482]: Anonymous Null Testing
+            - generic [ref=f9e483]: 2026-08-10
+        - 'link "05 AD Attack #1 — Password Spraying 2026-08-10" [ref=f9e487] [cursor=pointer]':
+          - /url: /daemon-sec-cheatsheet/sheets/active-directory/attack-1-password-spraying
+          - generic [ref=f9e488]:
+            - generic [ref=f9e489]: "05"
+            - generic [ref=f9e490]: AD
+            - generic [ref=f9e494]: "Attack #1 — Password Spraying"
+            - generic [ref=f9e495]: 2026-08-10
+        - 'link "06 AD Attack #10 — Credential Hunting in Shares GPP Passwords 2026-08-10" [ref=f9e499] [cursor=pointer]':
+          - /url: /daemon-sec-cheatsheet/sheets/active-directory/attack-10-credential-hunting-in-shares-gpp-passwords
+          - generic [ref=f9e500]:
+            - generic [ref=f9e501]: "06"
+            - generic [ref=f9e502]: AD
+            - generic [ref=f9e506]: "Attack #10 — Credential Hunting in Shares GPP Passwords"
+            - generic [ref=f9e507]: 2026-08-10
+        - 'link "07 AD Attack #11 — Golden Ticket Attack 2026-08-10" [ref=f9e511] [cursor=pointer]':
+          - /url: /daemon-sec-cheatsheet/sheets/active-directory/attack-11-golden-ticket-attack
+          - generic [ref=f9e512]:
+            - generic [ref=f9e513]: "07"
+            - generic [ref=f9e514]: AD
+            - generic [ref=f9e518]: "Attack #11 — Golden Ticket Attack"
+            - generic [ref=f9e519]: 2026-08-10
+        - 'link "08 AD Attack #12 — Silver Ticket Attack 2026-08-10" [ref=f9e523] [cursor=pointer]':
+          - /url: /daemon-sec-cheatsheet/sheets/active-directory/attack-12-silver-ticket-attack
+          - generic [ref=f9e524]:
+            - generic [ref=f9e525]: "08"
+            - generic [ref=f9e526]: AD
+            - generic [ref=f9e530]: "Attack #12 — Silver Ticket Attack"
+            - generic [ref=f9e531]: 2026-08-10
+  - contentinfo [ref=f9e535]:
+    - generic [ref=f9e536]:
+      - generic [ref=f9e537]:
+        - link "DÆMON // SEC" [ref=f9e538] [cursor=pointer]:
+          - /url: /daemon-sec-cheatsheet/
+          - text: DÆMON
+          - generic [ref=f9e539]: //
+          - text: SEC
+        - paragraph [ref=f9e540]: A curated vault of IT & security cheatsheets. For authorized testing, CTFs, and education only. Know your scope; get permission first.
+      - generic [ref=f9e541]:
+        - link "daemon-404.github.io ↗" [ref=f9e542] [cursor=pointer]:
+          - /url: https://daemon-404.github.io
+        - link "github / daemon-sec-cheatsheet ↗" [ref=f9e543] [cursor=pointer]:
+          - /url: https://github.com/DAEMON-404/daemon-sec-cheatsheet
+        - generic [ref=f9e544]:
+          - text: Payloads mirrored from
+          - link "PayloadsAllTheThings" [ref=f9e545] [cursor=pointer]:
+            - /url: https://github.com/swisskyrepo/PayloadsAllTheThings
+          - text: (MIT) ·
+          - link "credits" [ref=f9e546] [cursor=pointer]:
+            - /url: /daemon-sec-cheatsheet/credits
+        - generic [ref=f9e547]: © 2026 DÆMON//SEC · MIT
+        - generic [ref=f9e548]: Rosé Pine · Astro · Pagefind
