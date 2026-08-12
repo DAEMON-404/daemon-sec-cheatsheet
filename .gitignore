@@ -9,3 +9,5 @@ dist/
 candidates.json
 # Pagefind index copied into public/ so the dev server can serve it
 /public/pagefind/
+# Playwright MCP scratch output (page snapshots, extension crx)
+.playwright-mcp/
