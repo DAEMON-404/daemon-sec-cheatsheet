@@ -1,0 +1,59 @@
+---
+/**
+ * Attribution banner for a cheatsheet that carries third-party content.
+ *
+ * Renders nothing unless the sheet declares an upstream, so it can sit
+ * unconditionally in the sheet template. The wording is driven by the licence
+ * rather than being one generic line: a permissive licence needs its copyright
+ * notice reproduced, whereas an unlicensed upstream grants no rights at all and
+ * must be described as a reference to somewhere else, never as a mirror.
+ */
+import Icon from './Icon.astro';
+import { url } from '../lib/url';
+
+interface Props {
+  name?: string;
+  upstreamUrl?: string;
+  author?: string;
+  license?: string;
+  relation?: string;
+  copyright?: string;
+}
+const { name, upstreamUrl, author, license, relation, copyright } = Astro.props;
+
+const BADGE: Record<string, string> = {
+  verbatim: 'mirror',
+  derived: 'derived',
+  inspired: 'inspired',
+  'link-only': 'link',
+};
+
+const LEAD: Record<string, string> = {
+  verbatim: 'Reproduced from',
+  derived: 'Derived from',
+  inspired: 'Based on',
+  'link-only': 'Summary of',
+};
+
+const badge = BADGE[relation ?? ''] ?? 'credit';
+const lead = LEAD[relation ?? ''] ?? 'Content from';
+// An unlicensed upstream is the one case where the licence slot must not read
+// like a grant; say plainly that there isn't one.
+const licenceLabel =
+  license === 'none' ? 'no licence published' : license === 'proprietary' ? 'proprietary — all rights reserved' : license;
+---
+{upstreamUrl && (
+  <aside class="patt-credit" aria-label="Attribution">
+    <span class="patt-badge">{badge}</span>
+    <span class="patt-credit__text">
+      {lead} <a href={upstreamUrl} target="_blank" rel="noopener">{name ?? upstreamUrl}</a>
+      {author && <> by <strong>{author}</strong></>}
+      <span class="patt-lic">
+        {licenceLabel}{copyright && <> · {copyright}</>} · <a href={url('credits')}>credits</a>
+      </span>
+    </span>
+    <a class="patt-src" href={upstreamUrl} target="_blank" rel="noopener" aria-label="View the original">
+      <Icon name="github" style="width:15px;height:15px;" /> source
+    </a>
+  </aside>
+)}

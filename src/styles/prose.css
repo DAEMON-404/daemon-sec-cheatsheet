@@ -12,6 +12,10 @@
 .prose > * + * { margin-top: 1.15rem; }
 
 .prose h2, .prose h3, .prose h4 { font-family: var(--font-display); scroll-margin-top: 92px; }
+/* Empty MkDocs-anchor aliases inside mirrored headings (see astro.config.mjs).
+   They are the scroll target for canonical upstream deep links, so they need
+   the same offset or the heading lands behind the sticky header. */
+.prose .anchor-alias { scroll-margin-top: 92px; }
 .prose h2 {
   font-size: clamp(1.35rem, 2.2vw, 1.75rem);
   font-weight: 700;

@@ -34,6 +34,10 @@ for f in files:
     # slug from filename
     slug = os.path.splitext(os.path.basename(f))[0]
     found.add((cat, slug))
+    # InternalAllTheThings is mirrored on-site under /internal, so a sheet
+    # linking the live upstream site walks the reader off the deployment.
+    for m in re.finditer(r"https?://swisskyrepo\.github\.io/InternalAllTheThings/(\S*?)[)\s]", body):
+        issues.append(f"{rel}: links live IATT site, use /internal/{m.group(1).strip('/')}")
     # leftover Obsidian syntax
     if re.search(r"\[\[[^\]]+\]\]", body): warns.append(f"{rel}: leftover [[wikilink]]")
     if re.search(r"!\[\[", body): warns.append(f"{rel}: leftover ![[embed]]")

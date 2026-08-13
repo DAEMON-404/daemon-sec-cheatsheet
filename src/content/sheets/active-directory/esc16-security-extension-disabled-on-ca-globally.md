@@ -280,5 +280,5 @@ ESC16 is the CA-level version of ESC9. The difference:
 - [Certipy v5 Release & ESC16 — Oliver Lyak](https://github.com/ly4k/Certipy/discussions/270)
 - [ADCS ESC16 — Hacking Articles](https://www.hackingarticles.in/adcs-esc16-security-extension-disabled-on-ca-globally/)
 - [Certipy Privilege Escalation Wiki](https://github.com/ly4k/Certipy/wiki/06-%E2%80%90-Privilege-Escalation)
-- [Active Directory Certificate ESC Attacks — InternalAllTheThings](https://swisskyrepo.github.io/InternalAllTheThings/active-directory/ad-adcs-esc/)
+- [Active Directory Certificate ESC Attacks — InternalAllTheThings](/internal/active-directory/ad-adcs-esc)
 - [Fortifying ADCS Against Exploitation — NCC Group](https://www.nccgroup.com/research/defending-your-directory-an-expert-guide-to-fortifying-active-directory-certificate-services-adcs-against-exploitation/)

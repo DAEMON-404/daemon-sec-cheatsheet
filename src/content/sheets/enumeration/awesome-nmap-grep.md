@@ -7,8 +7,17 @@ tools: ["Nmap"]
 difficulty: intermediate
 updated: "2026-08-10"
 source: "vault:Enumeration/Awesome NMAP grep.md"
+upstreamName: "awesome-nmap-grep"
+upstreamUrl: "https://github.com/leonjza/awesome-nmap-grep"
+upstreamAuthor: "Leon Jacobs (@leonjza)"
+upstreamLicense: "none"
+upstreamRelation: "verbatim"
 ---
 # awesome-nmap-grep 💥
+
+> Reproduced from [awesome-nmap-grep](https://github.com/leonjza/awesome-nmap-grep) by
+> **Leon Jacobs** ([@leonjza](https://github.com/leonjza)). All commands, annotations and sample
+> output are his work.
 
 A collection of awesome, _grep-like_ commands for the `nmap` greppable output
 (`-oG`) format. This repository aims to serve as a quick reference to modify the

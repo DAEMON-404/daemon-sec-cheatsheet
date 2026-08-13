@@ -19,3 +19,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Scope: the licence above covers this repository's own code and hand-written
+cheatsheets. It does not cover the mirrored content trees, which are not the
+copyright holder's to license:
+
+  src/content/payloads/  PayloadsAllTheThings (swisskyrepo) — MIT,
+                         Copyright (c) 2019 Swissky. The upstream licence is
+                         vendored at vendor/PayloadsAllTheThings/LICENSE.
+
+  src/content/internal/  InternalAllTheThings (swisskyrepo) — the upstream
+                         repository publishes no licence file, so none is
+                         claimed or granted here. Copyright remains with
+                         Swissky and that project's contributors.

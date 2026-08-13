@@ -8,10 +8,18 @@ tools: ["NetExec", "Impacket", "Mimikatz", "Rubeus", "BloodHound"]
 difficulty: intermediate
 updated: "2026-08-10"
 source: "vault:ActiveDirectory/Active-Directory_cheat_sheet.md"
+upstreamName: "Active Directory Exploitation Cheat Sheet"
+upstreamUrl: "https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet"
+upstreamAuthor: "Nikos Katsiopis & Nikos Vourdas (S1ckB0y1337)"
+upstreamLicense: "MIT"
+upstreamRelation: "verbatim"
+upstreamCopyright: "Copyright (c) 2020 Nikos Katsiopis"
 ---
 # Active Directory Exploitation Cheat Sheet
 
 This cheat sheet contains common enumeration and attack methods for Windows Active Directory.
+
+ℹ️ This repository was created by [Nikos Katsiopis](https://www.linkedin.com/in/nikos-katsiopis/) and [Nikos Vourdas](https://www.linkedin.com/in/nickvourd/).
 
 This cheat sheet is inspired by the [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings) repo.
 

@@ -10,9 +10,9 @@ isReadme: false
 
 # Linux - Evasion
 
-:warning: Content of this page has been moved to [InternalAllTheThings/redteam/access/initial-access](https://swisskyrepo.github.io/InternalAllTheThings/redteam/evasion/linux-evasion/)
+:warning: Content of this page has been moved to [InternalAllTheThings/redteam/access/initial-access](/internal/redteam/evasion/linux-evasion)
 
-- [File names](https://swisskyrepo.github.io/InternalAllTheThings/redteam/evasion/linux-evasion/#file-names)
-- [Command history](https://swisskyrepo.github.io/InternalAllTheThings/redteam/evasion/linux-evasion/#command-history)
-- [Hiding text](https://swisskyrepo.github.io/InternalAllTheThings/redteam/evasion/linux-evasion/#hiding-text)
-- [Timestomping](https://swisskyrepo.github.io/InternalAllTheThings/redteam/evasion/linux-evasion/#timestomping)
+- [File names](/internal/redteam/evasion/linux-evasion#file-names)
+- [Command history](/internal/redteam/evasion/linux-evasion#command-history)
+- [Hiding text](/internal/redteam/evasion/linux-evasion#hiding-text)
+- [Timestomping](/internal/redteam/evasion/linux-evasion#timestomping)

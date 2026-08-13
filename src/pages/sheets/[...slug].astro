@@ -2,6 +2,7 @@
 import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
+import SheetCredit from '../../components/SheetCredit.astro';
 import { categoryOf } from '../../lib/taxonomy';
 import { sheetsByCategory, prevNext, sheetHref, tagSlug, type Sheet } from '../../lib/sheets';
 import { url } from '../../lib/url';
@@ -55,6 +56,15 @@ const pdfHref = d.pdf ? url(`pdfs/${d.pdf}`) : null;
         </div>
       )}
     </header>
+
+    <SheetCredit
+      name={d.upstreamName}
+      upstreamUrl={d.upstreamUrl}
+      author={d.upstreamAuthor}
+      license={d.upstreamLicense}
+      relation={d.upstreamRelation}
+      copyright={d.upstreamCopyright}
+    />
 
     <div class="sheet-layout">
       <article class="prose" data-pagefind-body>

@@ -95,6 +95,46 @@ UPSTREAM_URL = re.compile(
 )
 _route_lc = None  # built lazily: lowercased path -> route
 
+# PayloadsAllTheThings moved its "Methodology and Resources" pages out to
+# InternalAllTheThings and left behind stubs whose whole body is links to the
+# live IATT site. We mirror IATT too (the `internal` collection), so those links
+# belong on-site rather than bouncing the reader to swisskyrepo.github.io.
+IATT_SITE = re.compile(r"^https?://swisskyrepo\.github\.io/InternalAllTheThings/?(.*)$", re.I)
+
+# The move was done with a find/replace that expanded every bare "#" on the
+# line into "<page-url>#", including the one in "Load C# assembly reflectively",
+# which left the site URL sitting in the link *text*. Undo that in labels: a
+# live IATT URL ending in "/#" is always the artifact, never a real link.
+IATT_IN_TEXT = re.compile(
+    r"https?://swisskyrepo\.github\.io/InternalAllTheThings/[^\s\]]*?/#", re.I
+)
+
+# sync-internal.py owns the real route table; all we know here is the section
+# roots, so anything outside them is not ours to rewrite.
+IATT_SECTIONS = {"active-directory", "cheatsheets", "cloud", "command-control",
+                 "containers", "databases", "devops", "methodology", "redteam"}
+
+# Pages upstream still links to but IATT has since deleted or renamed. Nothing
+# string-based can spot them, so they are listed and sent to their section index.
+IATT_STALE = {"active-directory/internal-mitm-relay", "cheatsheets/mssql-server-cheatsheet",
+              "cheatsheets/source-code-management-ci", "cloud/aws/aws-pentest",
+              "cloud/azure/azure-services"}
+
+
+def iatt_route(path):
+    """Map an InternalAllTheThings live-site path to our /internal route, or None."""
+    from urllib.parse import unquote
+    path, _, anchor = path.partition("#")
+    parts = [slugify(p) for p in unquote(path).strip("/").split("/") if p]
+    if not parts:
+        return "/internal"
+    if parts[0] not in IATT_SECTIONS:
+        return None
+    seg = "/".join(parts)
+    if seg in IATT_STALE:
+        return f"/internal/{parts[0]}"  # anchor is meaningless on the index
+    return f"/internal/{seg}" + ("#" + anchor if anchor else "")
+
 
 def _rlc():
     global _route_lc
@@ -135,11 +175,16 @@ def resolve(cur_relpath, target):
             path, a = path.split("#", 1); anchor = "#" + a
         return route_for_repo_path(unquote(path), anchor)
 
-    # 2) Other absolute / protocol-relative / anchors / mailto -> leave.
+    # 2) The live InternalAllTheThings site -> our mirror of it.
+    m = IATT_SITE.match(t)
+    if m:
+        return iatt_route(m.group(1))
+
+    # 3) Other absolute / protocol-relative / anchors / mailto -> leave.
     if re.match(r"^([a-z]+:|//|#|mailto:)", t, re.I):
         return None
 
-    # 3) Relative in-repo link.
+    # 4) Relative in-repo link.
     if "#" in t:
         t, a = t.split("#", 1); anchor = "#" + a
     if not t:
@@ -152,10 +197,11 @@ def resolve(cur_relpath, target):
 def rewrite_body(cur_relpath, body):
     def repl(m):
         bang, text, target = m.group(1), m.group(2), m.group(3)
+        text = IATT_IN_TEXT.sub("#", text)
         # ignore link targets wrapped in <...> or containing spaces we can't parse cleanly
         new = resolve(cur_relpath, target)
         if new is None:
-            return m.group(0)
+            return m.group(0) if text == m.group(2) else f"{bang}[{text}]({target})"
         return f"{bang}[{text}]({new})"
     return LINK.sub(repl, body)
 

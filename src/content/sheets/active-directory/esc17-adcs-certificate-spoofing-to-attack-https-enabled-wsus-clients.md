@@ -273,4 +273,4 @@ In my opinion, ESC17 is one of the more impactful recent ADCS discoveries precis
 - [Using ADCS to Attack HTTPS-Enabled WSUS Clients — DigiTrace](https://blog.digitrace.de/2026/01/using-adcs-to-attack-https-enabled-wsus-clients/)
 - [ADCS Misconfig & Weak DNS ACLs Compromise WSUS Clients — Mustafa Durukan](https://www.linkedin.com/posts/mustafa-durukan_esc17-from-adcs-misconfiguration-to-wsus-activity-7432130640709357568-d9CE)
 - [AD CS Security: Understanding and Exploiting ESC Techniques — Vaadata](https://www.vaadata.com/blog/ad-cs-security-understanding-and-exploiting-esc-techniques/)
-- [Active Directory Certificate ESC Attacks — InternalAllTheThings](https://swisskyrepo.github.io/InternalAllTheThings/active-directory/ad-adcs-esc/)
+- [Active Directory Certificate ESC Attacks — InternalAllTheThings](/internal/active-directory/ad-adcs-esc)

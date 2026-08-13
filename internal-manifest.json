@@ -1,0 +1,17 @@
+{
+  "upstream": "https://github.com/swisskyrepo/InternalAllTheThings",
+  "sha": "e891850d6bc6",
+  "sections": 9,
+  "pages": 175,
+  "sectionList": [
+    "active-directory",
+    "cheatsheets",
+    "cloud",
+    "command-control",
+    "containers",
+    "databases",
+    "devops",
+    "methodology",
+    "redteam"
+  ]
+}

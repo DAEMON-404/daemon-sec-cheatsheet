@@ -1,0 +1,87 @@
+---
+import Base from '../../layouts/Base.astro';
+import SectionBanner from '../../components/SectionBanner.astro';
+import RecordRow from '../../components/RecordRow.astro';
+import Icon from '../../components/Icon.astro';
+import { internalBySection, internalRootPages, internalHref } from '../../lib/internal';
+import { url } from '../../lib/url';
+
+const groups = await internalBySection();
+const rootPages = await internalRootPages();
+const totalPages = groups.reduce((n, g) => n + g.count, 0) + rootPages.length;
+const sha = groups[0]?.index?.data.sha ?? groups[0]?.items[0]?.data.sha ?? '';
+/* Same rotation as the payloads index, started on this section's own hue so
+   the two mirrors never open on the same colour. */
+const ACCENTS = ['pine', 'foam', 'iris', 'gold', 'rose', 'love'];
+---
+<Base
+  title="Internal — InternalAllTheThings mirror — DÆMON//SEC"
+  description="A full, searchable mirror of InternalAllTheThings — Active Directory, cloud, container and red team internals. Credit: swisskyrepo."
+>
+  <SectionBanner
+    n="03"
+    label="Full mirror · credit upstream"
+    title="InternalAllTheThings"
+    blurb="A complete on-site mirror of swisskyrepo's internal-network reference — Active Directory, cloud, containers and red team tradecraft, searchable offline."
+    accent="pine"
+    stats={[
+      { label: 'Sections', value: String(groups.length).padStart(2, '0'), accent: true },
+      { label: 'Pages', value: totalPages },
+      { label: 'Rev', value: sha.slice(0, 7) },
+    ]}
+  />
+
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.6rem;">
+      <a href={url('')}>~</a><span class="sep">/</span><span class="muted">internal</span>
+    </nav>
+
+    <aside class="patt-credit" style="margin-top:1.4rem;">
+      <span class="patt-badge">mirror</span>
+      <span class="patt-credit__text">
+        Mirrored verbatim from <a href="https://github.com/swisskyrepo/InternalAllTheThings" target="_blank" rel="noopener">swisskyrepo/InternalAllTheThings</a>.
+        Images and raw files load from GitHub; see each page's <em>source</em> link.
+        <span class="patt-lic">No upstream licence file · mirrored with credit to the author · <a href={url('credits')}>credits</a>{sha && <> · <code>{sha.slice(0,7)}</code></>}</span>
+      </span>
+      <a class="patt-src" href="https://github.com/swisskyrepo/InternalAllTheThings" target="_blank" rel="noopener">
+        <Icon name="github" /> upstream
+      </a>
+    </aside>
+
+    <div class="index" style="margin-bottom:3rem;">
+      {groups.map((g, i) => (
+        <RecordRow
+          href={url(`internal/${g.slug}`)}
+          n={String(i + 1).padStart(2, '0')}
+          title={g.title}
+          kind="internal"
+          kindIcon="layers"
+          accent={ACCENTS[i % ACCENTS.length]}
+          meta={`${g.count} ${g.count === 1 ? 'page' : 'pages'}`}
+        />
+      ))}
+      {rootPages.map((p, i) => (
+        <RecordRow
+          href={url(internalHref(p))}
+          n={String(groups.length + i + 1).padStart(2, '0')}
+          title={p.data.title}
+          kind="notice"
+          kindIcon="doc"
+          accent={ACCENTS[(groups.length + i) % ACCENTS.length]}
+          meta="upstream"
+        />
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  /* The attribution block is keyed to iris in global.css; this mirror runs
+     on pine, and a stray iris rule reads as a link to the payloads side. */
+  .patt-credit { border-left-color: var(--pine); }
+  .patt-badge { color: var(--pine); border-color: color-mix(in oklab, var(--pine) 50%, transparent); }
+  .patt-credit__text a { color: var(--pine); border-bottom-color: color-mix(in oklab, var(--pine) 40%, transparent); }
+  .patt-credit__text a:hover { border-bottom-color: var(--pine); }
+  .patt-src:hover { color: var(--pine); border-color: color-mix(in oklab, var(--pine) 50%, transparent); }
+  .patt-src svg { width: 14px; height: 14px; }
+</style>

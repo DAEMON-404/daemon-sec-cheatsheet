@@ -1,11 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import { payloadsByTopic } from '../lib/payloads';
+import { internalBySection, internalRootPages } from '../lib/internal';
 import { url } from '../lib/url';
 
 const groups = await payloadsByTopic();
 const totalPages = groups.reduce((n, g) => n + g.count, 0);
 const sha = groups[0]?.readme?.data.sha ?? '';
+
+const sections = await internalBySection();
+const internalPages =
+  sections.reduce((n, g) => n + g.count, 0) + (await internalRootPages()).length;
+/* Not every section ships an index upstream, so fall back to a leaf page. */
+const internalSha = sections[0]?.index?.data.sha ?? sections[0]?.items[0]?.data.sha ?? '';
 
 const LICENSE = `MIT License
 
@@ -29,7 +36,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`;
 ---
-<Base title="Credits & Licenses — DÆMON//SEC" description="Attribution and licensing for content mirrored into DÆMON//SEC, including PayloadsAllTheThings (MIT).">
+<Base title="Credits & Licenses — DÆMON//SEC" description="Attribution and licensing for content mirrored into DÆMON//SEC, including PayloadsAllTheThings (MIT) and InternalAllTheThings.">
   <div class="wrap prose" style="max-width:56rem;margin-top:2.5rem;">
     <p class="eyebrow" style="color: var(--iris)">// Credits</p>
     <h1>Credits &amp; Licenses</h1>
@@ -65,6 +72,27 @@ SOFTWARE.`;
       </figcaption>
       <pre style="overflow:auto;font-size:13px;line-height:1.7;color:#e0def4;"><code>{LICENSE}</code></pre>
     </figure>
+
+    <h2>InternalAllTheThings</h2>
+    <p>
+      The entire <a href={url('internal')}>Internal</a> section — <strong>{sections.length} sections</strong>,
+      <strong>{internalPages} pages</strong> — is a verbatim mirror of
+      <a href="https://github.com/swisskyrepo/InternalAllTheThings" target="_blank" rel="noopener">InternalAllTheThings</a>,
+      also created and maintained by <strong>Swissky</strong> (<a href="https://github.com/swisskyrepo" target="_blank" rel="noopener">@swisskyrepo</a>)
+      and its contributors. It is the home of the Active Directory, cloud and red-team material that
+      PayloadsAllTheThings moved out of its own tree, and every page here links back to its upstream source.
+    </p>
+    <ul>
+      <li><strong>Upstream:</strong> <a href="https://github.com/swisskyrepo/InternalAllTheThings" target="_blank" rel="noopener">github.com/swisskyrepo/InternalAllTheThings</a></li>
+      <li><strong>License:</strong> the repository publishes no LICENSE file, so no licence is claimed or implied here. Copyright stays with Swissky and the project's contributors.</li>
+      {internalSha && <li><strong>Mirrored at commit:</strong> <code>{internalSha}</code></li>}
+      <li><strong>Fidelity:</strong> markdown is mirrored on-site; images and other assets load from, or link to, the upstream repository.</li>
+    </ul>
+    <p class="muted">
+      This mirror exists for search and offline-friendly reading, with attribution on every page. The upstream
+      repository is the canonical source — please star it and contribute back. If the author would rather this
+      mirror were changed or taken down, open an issue on the site repository and it will be honoured.
+    </p>
 
     <h2>The DÆMON//SEC cheatsheets</h2>
     <p>

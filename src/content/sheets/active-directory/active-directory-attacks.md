@@ -8,6 +8,12 @@ tools: [Impacket, Rubeus, Mimikatz, CrackMapExec]
 difficulty: advanced
 updated: "2026-08-09"
 source: "vault:ActiveDirectory/Active-Directory_cheat_sheet.md"
+upstreamName: "Active Directory Exploitation Cheat Sheet"
+upstreamUrl: "https://github.com/S1ckB0y1337/Active-Directory-Exploitation-Cheat-Sheet"
+upstreamAuthor: "Nikos Katsiopis & Nikos Vourdas (S1ckB0y1337)"
+upstreamLicense: "MIT"
+upstreamRelation: "derived"
+upstreamCopyright: "Copyright (c) 2020 Nikos Katsiopis"
 ---
 
 # Active Directory Attack Methodology

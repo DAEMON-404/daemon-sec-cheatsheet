@@ -10,7 +10,7 @@ isReadme: false
 
 # HTML Smuggling
 
-:warning: Content of this page has been moved to [InternalAllTheThings/redteam/access/html-smuggling](https://swisskyrepo.github.io/InternalAllTheThings/redteam/access/html-smuggling/)
+:warning: Content of this page has been moved to [InternalAllTheThings/redteam/access/html-smuggling](/internal/redteam/access/html-smuggling)
 
-- [Description](https://swisskyrepo.github.io/InternalAllTheThings/redteam/access/html-smuggling/#description)
-- [Executable Storage](https://swisskyrepo.github.io/InternalAllTheThings/redteam/access/html-smuggling/#executable-storage)
+- [Description](/internal/redteam/access/html-smuggling#description)
+- [Executable Storage](/internal/redteam/access/html-smuggling#executable-storage)

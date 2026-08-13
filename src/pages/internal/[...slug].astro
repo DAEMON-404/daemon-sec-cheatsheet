@@ -1,0 +1,101 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { internalBySection, internalRootPages, sectionOrder, prevNext, internalHref, type Internal } from '../../lib/internal';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const groups = await internalBySection();
+  const paths: any[] = [];
+  for (const g of groups) {
+    const order = sectionOrder(g);
+    for (const entry of order) {
+      const { prev, next } = prevNext(order, entry);
+      const slug = internalHref(entry).replace(/^internal\//, '');
+      paths.push({ params: { slug }, props: { entry, prev, next, sectionSlug: g.slug, sectionTitle: g.title } });
+    }
+  }
+  // Root pages stand alone: no section to page through.
+  for (const entry of await internalRootPages()) {
+    const slug = internalHref(entry).replace(/^internal\//, '');
+    paths.push({ params: { slug }, props: { entry, sectionSlug: entry.data.sectionSlug, sectionTitle: entry.data.section } });
+  }
+  return paths;
+}
+
+interface Props { entry: Internal; prev?: Internal; next?: Internal; sectionSlug: string; sectionTitle: string }
+const { entry, prev, next, sectionTitle } = Astro.props;
+const d = entry.data;
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const leaf = entry.id.split('/').pop()!.replace(/^index$/, d.sectionSlug);
+---
+<Base title={`${d.title} — Internal — DÆMON//SEC`} description={`${d.section} — internal network tradecraft, mirrored from InternalAllTheThings.`}>
+  <div class="wrap">
+    <nav class="breadcrumb" style="margin-top:1.5rem;">
+      <a href={url('')}>~</a><span class="sep">/</span>
+      <a href={url('internal')} style="color: var(--pine)">internal</a><span class="sep">/</span>
+      {d.isIndex
+        ? <span class="muted">{d.sectionSlug}</span>
+        : <><a href={url(`internal/${d.sectionSlug}`)} style="color: var(--pine)">{d.sectionSlug}</a><span class="sep">/</span><span class="muted">{leaf}</span></>}
+    </nav>
+
+    <header class="sheet-head" data-pagefind-meta="category:Internal">
+      <p class="eyebrow" style="color: var(--pine)">// Internal · {sectionTitle}</p>
+      <h1 class="sheet-title" data-pagefind-meta="title">{d.title}</h1>
+    </header>
+
+    <aside class="patt-credit" aria-label="Attribution">
+      <span class="patt-badge">mirror</span>
+      <span class="patt-credit__text">
+        Mirrored from <a href="https://github.com/swisskyrepo/InternalAllTheThings" target="_blank" rel="noopener">InternalAllTheThings</a>
+        <span class="muted">›</span> {d.section}
+        <span class="patt-lic">credit: swisskyrepo · <a href={url('credits')}>credits</a> · <code>{d.sha.slice(0, 7)}</code></span>
+      </span>
+      <a class="patt-src" href={d.sourceUrl} target="_blank" rel="noopener" aria-label="View source on GitHub">
+        <Icon name="github" /> source
+      </a>
+    </aside>
+
+    <div class="sheet-layout">
+      <article class="prose" data-pagefind-body>
+        <Content />
+      </article>
+
+      {toc.length > 1 && (
+        <aside class="toc" aria-label="On this page">
+          <h4>On this page</h4>
+          <nav>
+            {toc.map((h) => (
+              <a href={`#${h.slug}`} class={h.depth === 3 ? 'lvl-3' : ''}>{h.text}</a>
+            ))}
+          </nav>
+        </aside>
+      )}
+    </div>
+
+    <nav class="prevnext" aria-label="Pagination">
+      {prev ? (
+        <a href={url(internalHref(prev))} style="--acc: var(--pine)">
+          <span class="dir">← Prev</span><strong>{prev.data.title}</strong>
+        </a>
+      ) : <span></span>}
+      {next ? (
+        <a class="nx" href={url(internalHref(next))} style="--acc: var(--pine)">
+          <span class="dir">Next →</span><strong>{next.data.title}</strong>
+        </a>
+      ) : <span></span>}
+    </nav>
+  </div>
+</Base>
+
+<style>
+  /* Attribution is keyed to iris in global.css; this mirror runs on pine. */
+  .patt-credit { border-left-color: var(--pine); }
+  .patt-badge { color: var(--pine); border-color: color-mix(in oklab, var(--pine) 50%, transparent); }
+  .patt-credit__text a { color: var(--pine); border-bottom-color: color-mix(in oklab, var(--pine) 40%, transparent); }
+  .patt-credit__text a:hover { border-bottom-color: var(--pine); }
+  .patt-src:hover { color: var(--pine); border-color: color-mix(in oklab, var(--pine) 50%, transparent); }
+  .patt-src svg { width: 15px; height: 15px; }
+</style>
