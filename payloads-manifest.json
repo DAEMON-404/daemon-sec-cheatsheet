@@ -2,7 +2,7 @@
   "upstream": "https://github.com/swisskyrepo/PayloadsAllTheThings",
   "sha": "3bff425aca2b",
   "topics": 64,
-  "pages": 135,
+  "pages": 136,
   "topicList": [
     "API Key Leaks",
     "Account Takeover",
