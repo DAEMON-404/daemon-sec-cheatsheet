@@ -181,6 +181,10 @@
   /* The ledger band, far enough down the page that the two never share a
      sightline. Cream on it: 7.04:1. */
   --band-ledger: #015a77;
+  /* InternalAllTheThings is the Payloads mirror's companion, not a second
+     copy of it. A pine ground keeps the pair related while giving each
+     reference a distinct address on the homepage. Cream on it: 7.33:1. */
+  --band-internal: #28594f;
   /* The plate ground the section banners and code blocks are drawn on,
      and its scrim channels — the canvas reads these to erase its own
      edges under the title. */

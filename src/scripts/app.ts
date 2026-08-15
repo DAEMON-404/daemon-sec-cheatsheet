@@ -43,6 +43,37 @@ function initTheme(): void {
   });
 }
 
+function initMobileNav(): void {
+  const toggles = document.querySelectorAll<HTMLButtonElement>('[data-mobile-nav-toggle]');
+  toggles.forEach((toggle) => {
+    if (toggle.dataset.bound) return;
+    const menuId = toggle.getAttribute('aria-controls');
+    const menu = menuId ? document.getElementById(menuId) : null;
+    if (!menu) return;
+
+    const setOpen = (open: boolean): void => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      menu.hidden = !open;
+    };
+
+    toggle.dataset.bound = '1';
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    menu.addEventListener('click', (event) => {
+      if ((event.target as Element).closest('a')) setOpen(false);
+    });
+
+    toggle.closest('.site-header')?.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
+      setOpen(false);
+      toggle.focus();
+    });
+  });
+}
+
 /**
  * Every code block becomes the archive's terminal block: the language at
  * the left of a caption bar, the copy control at the right, both in the
@@ -137,6 +168,7 @@ function initTOC(): void {
 
 function init(): void {
   initTheme();
+  initMobileNav();
   enhanceCode();
   wrapTables();
   initTOC();

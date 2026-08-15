@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist && npm run pagefind:public",
+    "test": "astro build && node --test",
     "preview": "astro preview",
     "pagefind:public": "rm -rf public/pagefind && cp -R dist/pagefind public/pagefind",
     "astro": "astro"
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "github-slugger": "^2.0.0",
+    "happy-dom": "^20.11.2",
     "pagefind": "^1.3.0"
   }
 }

@@ -68,8 +68,30 @@ const isActive = (href: string, exact?: boolean) => {
       <a class="icon-btn" href={GITHUB} target="_blank" rel="noopener" aria-label="GitHub repository">
         <Icon name="github" />
       </a>
+      <button
+        class="icon-btn mobile-nav-trigger"
+        data-mobile-nav-toggle
+        type="button"
+        aria-label="Open navigation"
+        aria-controls="mobile-primary-nav"
+        aria-expanded="false"
+      >
+        <span class="mobile-nav-glyph" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
     </div>
   </div>
+
+  <nav id="mobile-primary-nav" class="mobile-nav" data-mobile-nav aria-label="Primary mobile" hidden>
+    {NAV.map((item) => (
+      <a
+        href={item.href}
+        style={`--acc: var(--${item.acc});`}
+        aria-current={isActive(item.href, item.exact) ? 'page' : undefined}
+      >
+        <span class="n">{item.n}</span><span class="lbl">{item.label}</span>
+      </a>
+    ))}
+  </nav>
 </header>
 
 <style>

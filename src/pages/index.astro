@@ -8,6 +8,7 @@ import Icon from '../components/Icon.astro';
 import { CATEGORIES, categoryOf } from '../lib/taxonomy';
 import { allSheets, categoryCounts, sheetHref } from '../lib/sheets';
 import { payloadsByTopic } from '../lib/payloads';
+import { internalBySection, internalRootPages } from '../lib/internal';
 import { url } from '../lib/url';
 
 const sheets = await allSheets();
@@ -17,6 +18,10 @@ const domains = CATEGORIES.filter((c) => (counts[c.slug] ?? 0) > 0).length;
 
 const payloadTopics = await payloadsByTopic();
 const payloadPages = payloadTopics.reduce((n, g) => n + g.count, 0);
+
+const internalSections = await internalBySection();
+const internalRoot = await internalRootPages();
+const internalPages = internalSections.reduce((n, g) => n + g.count, 0) + internalRoot.length;
 
 const marqueeItems = CATEGORIES.map((cat) => ({ cat, count: counts[cat.slug] ?? 0 }));
 
@@ -71,13 +76,28 @@ const featured = [...sheets]
     </div>
   </a>
 
+  <a class="cta-band cta-band--internal bleed section" href={url('internal')}>
+    <div class="wrap cta-band__body">
+      <div>
+        <p class="cta-band__eyebrow">03 ^: Full mirror · credit upstream</p>
+        <h2>InternalAllTheThings</h2>
+        <p>
+          The complete {internalSections.length}-section, {internalPages}-page internal-network
+          reference by <strong>swisskyrepo</strong> — Active Directory, cloud, containers and
+          red-team tradecraft, mirrored on-site and searchable offline.
+        </p>
+      </div>
+      <span class="btn">Browse internal <Icon name="arrow" /></span>
+    </div>
+  </a>
+
   {featured.length > 0 && (
     <div class="wrap">
       <section class="section" id="featured">
         <div class="section-head">
           <div>
             <p class="eyebrow" style="--acc: var(--gold);">
-              <span class="eyebrow__n">03</span>
+              <span class="eyebrow__n">04</span>
               <span class="eyebrow__mark">^:</span>
               <span>Freshly modernized</span>
               <span class="eyebrow__rule" aria-hidden="true"></span>
