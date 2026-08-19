@@ -34,6 +34,9 @@ const { sheets, domains, payloads } = Astro.props;
 const WORDMARK = 'DÆMON';
 const GLYPHS = [...WORDMARK];
 
+/** The main site this vault hangs off. */
+const MAIN_SITE = 'https://daemon-sec.xyz';
+
 /** Per-glyph entrance step, ms. Six glyphs at 54ms is what the ink rule's
  *  780ms delay is timed against — change one and the rule lands wrong. */
 const STEP = 54;
@@ -79,6 +82,13 @@ const STATS = [
             </button>
             <a class="btn btn--ghost" href={url('payloads')}>
               <Icon name="layers" /> Payloads
+            </a>
+            {/* Back to the main site. The vault is a satellite of
+                daemon-sec.xyz, and the hero is where that relationship
+                has to be stated — the footer is too far down to serve as
+                the only way home. */}
+            <a class="btn btn--ghost" href={MAIN_SITE} target="_blank" rel="noopener">
+              <Icon name="external" /> daemon-sec.xyz
             </a>
           </div>
         </div>
